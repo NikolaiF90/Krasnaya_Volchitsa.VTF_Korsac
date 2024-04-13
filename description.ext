@@ -3,7 +3,7 @@
 
 author = "Prince F90";
 onLoadName = "Krasnaya Volchitsa";
-onLoadMission = "If you're in a professio where people die young, don't die";
+onLoadMission = "If you're in a profession where people die young, don't die";
 loadScreen = "";
 
 saving = 0;
