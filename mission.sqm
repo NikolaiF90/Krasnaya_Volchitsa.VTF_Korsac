@@ -1,0 +1,58 @@
+version=54;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	mods[]=
+	{
+		"3denEnhanced"
+	};
+	class Camera
+	{
+		pos[]={2243.1868,894.64325,2055.6711};
+		dir[]={0.28838438,-0.43387192,0.85358787};
+		up[]={0.13887388,0.90097541,0.41105199};
+		aside[]={0.9474023,5.5879354e-009,-0.32007858};
+	};
+};
+binarizationWanted=0;
+sourceName="Krasnaya_Volchitsa";
+class AddonsMetaData
+{
+};
+randomSeed=5916253;
+class ScenarioData
+{
+	author="PrinceF90";
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="Krasnaya Volchitsa";
+		timeOfChanges=1800.0002;
+		startWeather=0.41999999;
+		startFog=0.059999999;
+		startWind=0.2;
+		startLightnings=0.40000001;
+		startWaves=0.1;
+		forecastWeather=0.41999999;
+		forecastFog=0.059999999;
+		forecastWind=0.2;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		windForced=1;
+		year=2023;
+		month=6;
+		day=26;
+		hour=8;
+		minute=0;
+		startFogBase=950;
+		forecastFogBase=950;
+		startFogDecay=0.02;
+		forecastFogDecay=0.02;
+	};
+};
