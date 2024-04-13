@@ -1,9 +1,9 @@
-#include "Persistent\defines.hpp"
-#include "Persistent\dialog.hpp"
+#include "Dialog\defines.hpp"
+#include "Dialog\dialog.hpp"
 
 author = "Prince F90";
-onLoadName = "ARMAPERSCORE";
-onLoadMission = "ARMA Persistent Core System";
+onLoadName = "Krasnaya Volchitsa";
+onLoadMission = "If you're in a professio where people die young, don't die";
 loadScreen = "";
 
 saving = 0;
