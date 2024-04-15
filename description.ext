@@ -10,5 +10,5 @@ saving = 0;
 
 class CfgFunctions
 {
-    #include "Persistent\cfgFunctions.hpp"
+    #include "cfgFunctions.hpp"
 };

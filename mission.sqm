@@ -10,18 +10,39 @@ class EditorData
 	{
 		"3denEnhanced"
 	};
+	class ItemIDProvider
+	{
+		nextID=2;
+	};
 	class Camera
 	{
-		pos[]={2243.1868,894.64325,2055.6711};
-		dir[]={0.28838438,-0.43387192,0.85358787};
-		up[]={0.13887388,0.90097541,0.41105199};
-		aside[]={0.9474023,5.5879354e-009,-0.32007858};
+		pos[]={2552.6052,867.51007,2070.8635};
+		dir[]={0.85826957,-0.50861681,0.068464763};
+		up[]={0.50700819,0.86099106,0.040444657};
+		aside[]={0.079518408,8.5390639e-008,-0.99683535};
 	};
 };
 binarizationWanted=0;
 sourceName="Krasnaya_Volchitsa";
+addons[]=
+{
+	"min_rf_units"
+};
 class AddonsMetaData
 {
+	class List
+	{
+		items=1;
+		class Item0
+		{
+			className="min_rf_units";
+			name="min_rf_units";
+		};
+	};
+};
+dlcs[]=
+{
+	"min_rf_mod"
 };
 randomSeed=5916253;
 class ScenarioData
@@ -54,5 +75,38 @@ class Mission
 		forecastFogBase=950;
 		startFogDecay=0.02;
 		forecastFogDecay=0.02;
+	};
+	class Entities
+	{
+		items=1;
+		class Item0
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2585.7385,843.86145,2065.2808};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						isPlayer=1;
+					};
+					id=1;
+					type="min_rf_spetsnaz_TL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=0;
+		};
 	};
 };

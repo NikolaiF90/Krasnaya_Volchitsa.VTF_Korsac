@@ -1,5 +1,13 @@
 class F90
 {
+    //  COREFUNCTIONS
+    class Debug
+    {
+        file = "CoreFunctions\Debug";
+        class debug {};
+    };
+
+    // PERSISTENT
     class Core 
     {
         file = "Persistent\Core";
@@ -57,7 +65,6 @@ class F90
         class applyPositioningData {};
         class clearArray {};
         class clearGarbage {};
-        class debug {};
         class generateCargoData {};
         class generateGroupData {};
         class generatePositioningData {};
