@@ -111,6 +111,8 @@ _unitData pushBack ["variables", [_unit] call _GenerateVariablesArray];
 _unitData pushBack ["orders", [_unit] call _GenerateOrdersArray];
 _unitData pushBack ["assignedTeam", assignedTeam _unit];
 
+_unitData pushBack ["money", ["GETMONEY", _unit] call F90_fnc_economyHandler];
+
 //	If unit is on vehicle
 if (vehicle _unit != _unit) then
 {

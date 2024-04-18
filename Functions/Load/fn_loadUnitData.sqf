@@ -143,6 +143,8 @@ private _formationDir = [_unitData, "formationDir"] call F90_fnc_getByKey;
 private _variables = [_unitData, "variables"] call F90_fnc_getByKey;
 private _vehicle = [_unitData, "vehicle"] call F90_fnc_getByKey;
 private _assignedTeam = [_unitData, "assignedTeam"] call F90_fnc_getByKey;
+
+private _money = [_unitData, "money"] call F90_fnc_getByKey;
         
 _unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
 _unit setVariable ["BIS_enableRandomization", false];
@@ -163,6 +165,8 @@ _unit setFatigue _fatigue;
 _unit setFormDir _formationDir;
 _unit setStamina _stamina;
 _unit assignTeam _assignedTeam;
+
+["SETMONEY", [_unit, _money]] call F90_fnc_economyHandler;
 
 if (rating _unit > _rating) then
 {
