@@ -5,6 +5,13 @@ None currently
 
 ## Version History
 
+* Version 1.5.0a
+    - Added confirmed kills count to VCR.
+    - Approach killed unit to confirm kills.
+    - Updated persistence system to better adapt to new features. 
+    - Updated Tactical Tab interfaces.
+    - Minor optimization.
+
 * Version 1.4.0a
     - Added a new revive system - Alternative Injury System by Psychobastard. 
 
