@@ -5,6 +5,9 @@ None currently
 
 ## Version History
 
+* Version 1.3.0a
+    - Added Tactical Tab. This is where player can access their Milcash(in-game currency).
+
 * Version 1.2.0a
     - Added Economy System
     - Added VCR - Veteran Combat Record System

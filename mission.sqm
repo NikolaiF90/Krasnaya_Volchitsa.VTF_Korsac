@@ -12,14 +12,14 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=2;
+		nextID=4;
 	};
 	class Camera
 	{
-		pos[]={2539.4746,869.75806,2071.8657};
-		dir[]={0.84220862,-0.51334852,-0.16479668};
-		up[]={0.50379455,0.85818017,-0.098578505};
-		aside[]={-0.19203037,0,-0.98138893};
+		pos[]={2578.6697,852.69025,2076.7661};
+		dir[]={0.75684214,-0.58275425,-0.29595214};
+		up[]={0.54273522,0.81264836,-0.21222875};
+		aside[]={-0.36418223,0,-0.93132776};
 	};
 };
 binarizationWanted=0;
@@ -78,7 +78,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1;
+		items=2;
 		class Item0
 		{
 			dataType="Group";
@@ -91,22 +91,82 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2585.7385,843.86145,2065.2808};
+						position[]={2585.739,843.86145,2065.281};
 					};
 					side="East";
 					flags=7;
 					class Attributes
 					{
+						name="missionHost";
 						isPlayer=1;
 					};
 					id=1;
 					type="min_rf_spetsnaz_TL";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male02RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
 			{
 			};
 			id=0;
+		};
+		class Item1
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2586.9995,843.86145,2069.8184};
+						angles[]={0,5.0345573,-0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=3;
+					type="min_rf_recon";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=2;
 		};
 	};
 };
