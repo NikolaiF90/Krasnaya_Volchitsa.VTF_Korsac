@@ -1,5 +1,5 @@
-#include "Dialog\defines.hpp"
-#include "Dialog\dialog.hpp"
+#include "defines.hpp"
+#include "dialog.hpp"
 
 author = "Prince F90";
 onLoadName = "Krasnaya Volchitsa";

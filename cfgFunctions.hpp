@@ -1,40 +1,33 @@
 class F90
 {
-    //  COREFUNCTIONS
-    class Debug
-    {
-        file = "CoreFunctions\Debug";
-        class debug {};
-    };
-
-    // PERSISTENT
     class Core 
     {
-        file = "Persistent\Core";
+        file = "Functions\Core";
         class clearSave {};
-        class loadData {};
-        class saveData {};
-    };
-
-    class Functions
-    {
-        file = "Persistent\Functions";
         class configurePersistent {};
         class deleteSlot {};
         class generateSaveDate {};
         class getSelectedList {};
+        class loadData {};
         class loadFromSlot {};
         class makePersistent {};
         class openPersistentTab {};
         class saveTarget {};
         class saveTargetContainer {};
+        class saveData {};
         class saveToSlot {};
         class updatePersistentList {};
     };
 
+    class Init 
+    {
+        file = "Functions\Init";
+        class persistentInit {};
+    };
+
     class Load
     {
-        file = "Persistent\Load";
+        file = "Functions\Load";
         class loadContainers {};
         class loadEnvironment {};
         class loadGame {};
@@ -42,34 +35,39 @@ class F90
         class loadPlayer {};
         class loadUnitData {};
         class loadUnitsInGroup {};
+        class loadVariables {};
         class loadVehicles {};
     };
 
     class Save 
     {
-        file = "Persistent\Save";
+        file = "Functions\Save";
         class saveContainers {};
         class saveEnvironment {};
         class saveGame {};
         class saveMapMarkers {};
         class savePlayer {};
+        class saveVariables {};
         class saveVehicles {};
     };
 
     class Utils
     {
-        file = "Persistent\Utils";
+        file = "Functions\Utils";
         class addUnitToVehicle {};
         class applyCargoData {};
         class applyDamage {};
         class applyPositioningData {};
         class clearArray {};
         class clearGarbage {};
+        class debug {};
         class generateCargoData {};
         class generateGroupData {};
         class generatePositioningData {};
         class generateUnitData {};
         class generateVehicleID {};
         class getByKey {};
+        class loadFromNamespace {};
+        class saveToNamespace {};
     };
 };
