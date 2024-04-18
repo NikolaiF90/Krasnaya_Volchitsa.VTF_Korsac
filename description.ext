@@ -11,4 +11,7 @@ saving = 0;
 class CfgFunctions
 {
     #include "cfgFunctions.hpp"
+    #include "AIS\cfgFunctions.hpp"
 };
+
+#include "AIS\Effects\BarDlg.hpp"

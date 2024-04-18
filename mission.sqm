@@ -12,31 +12,39 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=4;
+		nextID=9;
 	};
 	class Camera
 	{
-		pos[]={2578.6697,852.69025,2076.7661};
-		dir[]={0.75684214,-0.58275425,-0.29595214};
-		up[]={0.54273522,0.81264836,-0.21222875};
-		aside[]={-0.36418223,0,-0.93132776};
+		pos[]={2512.416,860.0744,2071.3689};
+		dir[]={-0.38831657,-0.63102537,-0.67157817};
+		up[]={-0.31586692,0.77576226,-0.54627937};
+		aside[]={-0.86570114,1.4901161e-008,0.50056136};
 	};
 };
 binarizationWanted=0;
 sourceName="Krasnaya_Volchitsa";
 addons[]=
 {
-	"min_rf_units"
+	"min_rf_units",
+	"A3_Characters_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=1;
+		items=2;
 		class Item0
 		{
 			className="min_rf_units";
 			name="min_rf_units";
+		};
+		class Item1
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -78,7 +86,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			dataType="Group";
@@ -91,7 +99,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2585.739,843.86145,2065.281};
+						position[]={2612.2004,843.86145,2061.592};
+						angles[]={0,4.8591008,-0};
 					};
 					side="East";
 					flags=7;
@@ -151,22 +160,98 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2586.9995,843.86145,2069.8184};
-						angles[]={0,5.0345573,-0};
+						position[]={2587,843.86145,2069.8181};
+						angles[]={0,4.6069903,-0};
 					};
 					side="East";
 					flags=7;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=3;
 					type="min_rf_recon";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male01RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
 			{
 			};
 			id=2;
+		};
+		class Item2
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2524.1101,843.86145,2055.1238};
+						angles[]={0,1.8914189,-0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=7;
+					type="B_soldier_AR_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2522.2583,843.86145,2073.5901};
+						angles[]={0,1.7549679,-0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=8;
+					type="B_Soldier_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=6;
 		};
 	};
 };

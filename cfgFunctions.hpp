@@ -10,6 +10,7 @@ class F90
     {
         file = "Functions\Core";
         class clearSave {};
+        class createUnit {};
         class deleteSlot {};
         class generateSaveDate {};
         class getSelectedList {};
