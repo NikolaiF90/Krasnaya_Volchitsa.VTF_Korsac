@@ -1,3 +1,40 @@
+class tacticalMenu
+{
+	idd = 1200;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Vydily)
+		////////////////////////////////////////////////////////
+
+		class RscText_1000: RscText
+		{
+			idc = 1201;
+			x = 0.005 * safezoneW + safezoneX;
+			y = 0.016 * safezoneH + safezoneY;
+			w = 0.283594 * safezoneW;
+			h = 0.572 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_Money: RscText
+		{
+			idc = 1202;
+			text = "Money: 000000"; //--- ToDo: Localize;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.027 * safezoneH + safezoneY;
+			w = 0.0876563 * safezoneW;
+			h = 0.044 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+
+	};
+}
+
+
 class persistentMenu
 {
 	idd = 1100;

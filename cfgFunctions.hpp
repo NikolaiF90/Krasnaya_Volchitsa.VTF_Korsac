@@ -17,6 +17,7 @@ class F90
         class loadFromSlot {};
         class makePersistent {};
         class openPersistentTab {};
+        class openTacticalTab {};
         class saveTarget {};
         class saveTargetContainer {};
         class saveData {};
