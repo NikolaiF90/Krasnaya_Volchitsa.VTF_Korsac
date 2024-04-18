@@ -15,7 +15,7 @@
 */
 params ["_slot"];
 
-[PersistentDebug, "savePlayer", format["Saving player data to slot %1",_slot], true] call F90_fnc_debug;
+[PersistentDebug, "savePlayer", format["Saving player data to slot %1...",_slot], false] call F90_fnc_debug;
 
 private _playerData = [player, true] call F90_fnc_generateUnitData;
 ["player", _playerData, _slot] call F90_fnc_saveData;
