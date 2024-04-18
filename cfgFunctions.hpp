@@ -2,7 +2,9 @@ class F90
 {
     class Configure 
     {
+        class configureEconomy {};
         class configurePersistent {};
+        class configureVCR {};
     };
     class Core 
     {
@@ -22,10 +24,18 @@ class F90
         class updatePersistentList {};
     };
 
+    class Economy 
+    {
+        file = "Functions\Economy";
+        class economyHandler {};
+    };
+
     class Init 
     {
         file = "Functions\Init";
         class persistentInit {};
+        class initVCR {};
+        class initEconomy {};
     };
 
     class Load
