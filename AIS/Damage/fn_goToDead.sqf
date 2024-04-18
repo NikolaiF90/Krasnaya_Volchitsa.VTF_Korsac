@@ -28,6 +28,8 @@ _unit call AIS_System_fnc_restoreFaks;
 // kill message and score point
 if (!isNull _killer && {isPlayer _killer}) then {
 	[_killer, 1] remoteExec ["addScore", 2];
+	_unit setVariable ["Record_UnitKiller", _killer];
+	_unit addAction ["Confirm Kill", {params ["_target", "_caller", "_actionId", "_arguments"]; [_target] call F90_fnc_confirmKill; _target removeAction _actionId}];
 	if (isPlayer _unit) then {
 		_text = format ["%1 was killed by %2", name _unit, name _source];
 		[_text] remoteExec ["systemChat", 0];

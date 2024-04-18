@@ -84,5 +84,12 @@ class F90
         class getByKey {};
         class loadFromNamespace {};
         class saveToNamespace {};
+    }; 
+
+    class VeteranCombatRecord 
+    {
+        file = "Functions\VeteranCombatRecord";
+        class addKillCount {};
+        class confirmKill {};
     };
 };

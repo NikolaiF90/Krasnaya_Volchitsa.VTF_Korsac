@@ -5,24 +5,56 @@ class tacticalMenu
 	class controls
 	{
 		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Vydily)
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Limaha)
 		////////////////////////////////////////////////////////
 
 		class RscText_1000: RscText
 		{
 			idc = 1201;
+
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.016 * safezoneH + safezoneY;
 			w = 0.283594 * safezoneW;
 			h = 0.572 * safezoneH;
 			colorBackground[] = {0.125,0.235,0.2,1};
 		};
-		class text_Money: RscText
+		class text_TacticalTab: RscText
 		{
 			idc = 1202;
+			text = "Tactical Tab"; //--- ToDo: Localize;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.038 * safezoneH + safezoneY;
+			w = 0.262969 * safezoneW;
+			h = 0.044 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class RscText_1003: RscText
+		{
+			idc = 1203;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.093 * safezoneH + safezoneY;
+			w = 0.262969 * safezoneW;
+			h = 0.473 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_Money: RscText
+		{
+			idc = 1204;
+
 			text = "Money: 000000"; //--- ToDo: Localize;
 			x = 0.0153125 * safezoneW + safezoneX;
-			y = 0.027 * safezoneH + safezoneY;
+			y = 0.093 * safezoneH + safezoneY;
+			w = 0.0876563 * safezoneW;
+			h = 0.044 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_ConfirmedKills: RscText
+		{
+			idc = 1205;
+
+			text = "Confirmed Kills: 00000"; //--- ToDo: Localize;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.126 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.044 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
@@ -30,6 +62,7 @@ class tacticalMenu
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
+
 
 	};
 }

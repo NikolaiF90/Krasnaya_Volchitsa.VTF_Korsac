@@ -145,6 +145,7 @@ private _vehicle = [_unitData, "vehicle"] call F90_fnc_getByKey;
 private _assignedTeam = [_unitData, "assignedTeam"] call F90_fnc_getByKey;
 
 private _money = [_unitData, "money"] call F90_fnc_getByKey;
+private _confirmedKills = [_unitData, "confirmedKills"] call F90_fnc_getByKey;
         
 _unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
 _unit setVariable ["BIS_enableRandomization", false];
@@ -167,6 +168,7 @@ _unit setStamina _stamina;
 _unit assignTeam _assignedTeam;
 
 ["SETMONEY", [_unit, _money]] call F90_fnc_economyHandler;
+_unit setVariable ["Record_ConfirmedKills", _confirmedKills];
 
 if (rating _unit > _rating) then
 {
