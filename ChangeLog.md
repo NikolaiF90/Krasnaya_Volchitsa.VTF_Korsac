@@ -6,7 +6,7 @@ None currently
 ## Version History
 
 * Version 1.4.0a
-    - 
+    - Added a new revive system - Alternative Injury System by Psychobastard. 
 
 * Version 1.3.0a
     - Added Tactical Tab. This is where player can access their Milcash(in-game currency).
