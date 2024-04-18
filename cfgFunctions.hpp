@@ -1,10 +1,13 @@
 class F90
 {
+    class Configure 
+    {
+        class configurePersistent {};
+    };
     class Core 
     {
         file = "Functions\Core";
         class clearSave {};
-        class configurePersistent {};
         class deleteSlot {};
         class generateSaveDate {};
         class getSelectedList {};
