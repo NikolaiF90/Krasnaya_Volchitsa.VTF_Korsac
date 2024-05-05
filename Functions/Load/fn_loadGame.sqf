@@ -22,10 +22,12 @@
 params ["_slot"];
 [PersistentDebug, "loadGame", format ["Loading progress from slot %1...", _slot], true] call F90_fnc_debug;
 
-[_slot] call F90_fnc_clearGarbage;
+[] call F90_fnc_clearGarbage;
+[] call F90_fnc_resetMap;
 
 [_slot] call F90_fnc_loadVehicles;
 [_slot] call F90_fnc_loadPlayer;
+[_slot] call F90_fnc_loadPlayables;
 [_slot] call F90_fnc_loadContainers;
 [_slot] call F90_fnc_loadVariables;
 [_slot] call F90_fnc_loadEnvironment;

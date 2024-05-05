@@ -8,6 +8,6 @@
 {
     ["SETMONEY", [_x, Economy_PlayerStartingMoney]] call F90_fnc_economyHandler;
     [EconomyDebug, "initEconomy", "Milcash has been given to all players.", false] call F90_fnc_debug;
-} forEach allPlayers;
+} forEach Mission_Playables + [Mission_Host];
 
 [EconomyDebug, "initEconomy", "Done initializing economy system.", true] call F90_fnc_debug;

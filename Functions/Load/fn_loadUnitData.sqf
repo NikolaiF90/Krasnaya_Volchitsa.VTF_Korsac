@@ -42,6 +42,7 @@ private _RemoveOtherUnitsFromGroup =
     } forEach (units _unit);
 };
 
+/*
 private _JoinUnitToLeaderIfSpecified =
 {
     params ["_unit", "_leader"];
@@ -89,6 +90,7 @@ private _LoadGroupOrders =
         _group setSpeedMode _speedMode;
     };
 };
+*/
 
 private _LoadVariables =
 {
@@ -125,12 +127,12 @@ private _LoadSkills =
 
 private _class = [_unitData, "class"] call F90_fnc_getByKey;
 private _side = [_unitData, "side"] call F90_fnc_getByKey;
-private _group = [_unitData, "group"] call F90_fnc_getByKey;
-private _orders = [_unitData, "orders"] call F90_fnc_getByKey;
-private _groupOrders = [_unitData, "groupOrders"] call F90_fnc_getByKey;
-private _generalDamage = [_unitData, "generalDamage"] call F90_fnc_getByKey;
-private _damages = [_unitData, "damages"] call F90_fnc_getByKey;
-private _posRotation = [_unitData, "posRotation"] call F90_fnc_getByKey;
+// private _group = [_unitData, "group"] call F90_fnc_getByKey;
+// private _orders = [_unitData, "orders"] call F90_fnc_getByKey;
+// private _groupOrders = [_unitData, "groupOrders"] call F90_fnc_getByKey;
+// private _generalDamage = [_unitData, "generalDamage"] call F90_fnc_getByKey;
+// private _damages = [_unitData, "damages"] call F90_fnc_getByKey;
+// private _posRotation = [_unitData, "posRotation"] call F90_fnc_getByKey;
 private _skills = [_unitData, "skills"] call F90_fnc_getByKey;
 private _name = [_unitData, "name"] call F90_fnc_getByKey;
 private _face = [_unitData, "face"] call F90_fnc_getByKey;
@@ -138,11 +140,11 @@ private _speaker = [_unitData, "speaker"] call F90_fnc_getByKey;
 private _pitch = [_unitData, "pitch"] call F90_fnc_getByKey;
 private _rating = [_unitData, "rating"] call F90_fnc_getByKey;
 private _stamina = [_unitData, "stamina"] call F90_fnc_getByKey;
-private _fatigue = [_unitData, "fatigue"] call F90_fnc_getByKey;
-private _formationDir = [_unitData, "formationDir"] call F90_fnc_getByKey;
+// private _fatigue = [_unitData, "fatigue"] call F90_fnc_getByKey;
+// private _formationDir = [_unitData, "formationDir"] call F90_fnc_getByKey;
 private _variables = [_unitData, "variables"] call F90_fnc_getByKey;
-private _vehicle = [_unitData, "vehicle"] call F90_fnc_getByKey;
-private _assignedTeam = [_unitData, "assignedTeam"] call F90_fnc_getByKey;
+// private _vehicle = [_unitData, "vehicle"] call F90_fnc_getByKey;
+// private _assignedTeam = [_unitData, "assignedTeam"] call F90_fnc_getByKey;
 
 private _money = [_unitData, "money"] call F90_fnc_getByKey;
 private _confirmedKills = [_unitData, "confirmedKills"] call F90_fnc_getByKey;
@@ -151,21 +153,21 @@ _unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
 _unit setVariable ["BIS_enableRandomization", false];
 
 [_unit] call _RemoveOtherUnitsFromGroup;
-[_unit, _leader] call _JoinUnitToLeaderIfSpecified;
-[_unit, _group] call _LoadUnitsInGroup;
-[_unit, _orders] call _LoadOrders;
-[_unit, _groupOrders] call _LoadGroupOrders;
+// [_unit, _leader] call _JoinUnitToLeaderIfSpecified;
+// [_unit, _group] call _LoadUnitsInGroup;
+// [_unit, _orders] call _LoadOrders;
+// [_unit, _groupOrders] call _LoadGroupOrders;
 [_unit, _variables] call _LoadVariables;
 [_unit, _skills] call _LoadSkills;
 
-_unit setDamage _generalDamage;
-[_unit, _damages] call F90_fnc_applyDamage;
-[_unit, _posRotation] call F90_fnc_applyPositioningData;
+// _unit setDamage _generalDamage;
+// [_unit, _damages] call F90_fnc_applyDamage;
+// [_unit, _posRotation] call F90_fnc_applyPositioningData;
 
-_unit setFatigue _fatigue;
-_unit setFormDir _formationDir;
-_unit setStamina _stamina;
-_unit assignTeam _assignedTeam;
+// _unit setFatigue _fatigue;
+// _unit setFormDir _formationDir;
+ _unit setStamina _stamina;
+//_unit assignTeam _assignedTeam;
 
 ["SETMONEY", [_unit, _money]] call F90_fnc_economyHandler;
 _unit setVariable ["Record_ConfirmedKills", _confirmedKills];
@@ -179,7 +181,7 @@ else
     _unit addRating (_rating - rating _unit);
 };
 
-[_unit, _vehicle] spawn F90_fnc_addUnitToVehicle;
+// [_unit, _vehicle] spawn F90_fnc_addUnitToVehicle;
 
 [_unit, _unitData] spawn {
     params ["_unit", "_unitData"];

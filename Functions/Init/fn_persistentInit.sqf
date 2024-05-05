@@ -6,6 +6,6 @@ Persistent_DefaultSlots = ["New Slot"];
 Persistent_PersistentListKey = Scenario_Name + "_PersistentList"; 
 Persistent_VehicleIDKey = "Save_QueueID";
 
-Persistent_Host addAction ["<t color='#0089f2'>Persistent</t>", { [] call F90_fnc_openPersistentTab;}];
+Persistent_ActionID = Persistent_Host addAction ["<t color='#0089f2'>Persistent</t>", { [] call F90_fnc_openPersistentTab;}];
 
 [PersistentDebug, "persistentInit", "Done initializing persistence system.", true] call F90_fnc_debug;

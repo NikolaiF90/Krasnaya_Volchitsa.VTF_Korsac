@@ -5,6 +5,7 @@ params ["_slot"];
 [_slot] call F90_fnc_clearSave;
 
 [_slot] call F90_fnc_savePlayer;
+[_slot] call F90_fnc_savePlayables;
 [_slot] call F90_fnc_saveVehicles;
 [_slot] call F90_fnc_saveContainers;
 [_slot] call F90_fnc_saveVariables;

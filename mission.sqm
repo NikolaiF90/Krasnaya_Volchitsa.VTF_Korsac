@@ -12,14 +12,14 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=9;
+		nextID=18;
 	};
 	class Camera
 	{
-		pos[]={2458.0259,897.1709,2040.5793};
-		dir[]={0.7848832,-0.61513418,0.074621193};
-		up[]={0.61237282,0.78842247,0.058220118};
-		aside[]={0.094646215,3.7252903e-009,-0.995511};
+		pos[]={2586.5422,857.82086,2081.5693};
+		dir[]={0.12743066,-0.57299548,-0.80959105};
+		up[]={0.089093335,0.81955856,-0.56602675};
+		aside[]={-0.98783803,7.4505806e-009,-0.15548697};
 	};
 };
 binarizationWanted=0;
@@ -27,7 +27,7 @@ sourceName="Krasnaya_Volchitsa";
 addons[]=
 {
 	"min_rf_units",
-	"A3_Characters_F"
+	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
@@ -41,8 +41,8 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="A3_Characters_F";
-			name="Arma 3 Alpha - Characters and Clothing";
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -86,7 +86,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=3;
+		items=4;
 		class Item0
 		{
 			dataType="Group";
@@ -99,14 +99,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2467.5676,843.86145,2047.5659};
-						angles[]={0,1.4637307,-0};
+						position[]={2587.646,843.86145,2063.6831};
+						angles[]={0,4.7985907,0};
 					};
 					side="East";
 					flags=7;
 					class Attributes
 					{
 						name="missionHost";
+						description="Team Leader";
 						isPlayer=1;
 					};
 					id=1;
@@ -161,12 +162,14 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2587,843.86145,2069.8181};
-						angles[]={0,4.6069903,-0};
+						angles[]={0,4.6069884,0};
 					};
 					side="East";
 					flags=7;
 					class Attributes
 					{
+						name="player1";
+						description="Scout";
 						isPlayable=1;
 					};
 					id=3;
@@ -210,48 +213,131 @@ class Mission
 		};
 		class Item2
 		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2584.9861,843.85999,2071.7639};
+			};
+			id=15;
+			type="ModuleCurator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="missionHost";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=2;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item3
+		{
 			dataType="Group";
-			side="West";
+			side="East";
 			class Entities
 			{
-				items=2;
+				items=1;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2524.1101,843.86145,2055.1238};
-						angles[]={0,1.8914189,-0};
+						position[]={2586.2661,843.86145,2067.3271};
+						angles[]={0,4.818697,0};
 					};
-					side="West";
+					side="East";
 					flags=7;
 					class Attributes
 					{
+						name="player2";
+						description="Demo Specialist";
+						isPlayable=1;
 					};
-					id=7;
-					type="B_soldier_AR_F";
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
+					id=16;
+					type="min_rf_recon_exp";
+					class CustomAttributes
 					{
-						position[]={2522.2583,843.86145,2073.5901};
-						angles[]={0,1.7549679,-0};
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male02RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.94999999;
+								};
+							};
+						};
+						nAttributes=2;
 					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-					};
-					id=8;
-					type="B_Soldier_F";
 				};
 			};
 			class Attributes
 			{
 			};
-			id=6;
+			id=17;
 		};
 	};
 };

@@ -4,6 +4,7 @@ class F90
     {
         class configureEconomy {};
         class configurePersistent {};
+        class configureTask {};
         class configureVCR {};
     };
     class Core 
@@ -23,6 +24,7 @@ class F90
         class saveTargetContainer {};
         class saveData {};
         class saveToSlot {};
+        class switchUnitAddAction {};
         class updatePersistentList {};
     };
 
@@ -36,6 +38,7 @@ class F90
     {
         file = "Functions\Init";
         class persistentInit {};
+        class initTask {};
         class initVCR {};
         class initEconomy {};
     };
@@ -47,6 +50,7 @@ class F90
         class loadEnvironment {};
         class loadGame {};
         class loadMapMarkers {};
+        class loadPlayables {};
         class loadPlayer {};
         class loadUnitData {};
         class loadUnitsInGroup {};
@@ -61,9 +65,16 @@ class F90
         class saveEnvironment {};
         class saveGame {};
         class saveMapMarkers {};
+        class savePlayables {};
         class savePlayer {};
         class saveVariables {};
         class saveVehicles {};
+    };
+
+    class initTask
+    {
+        file = "Functions\Task";
+        class requestMission {};
     };
 
     class Utils
@@ -83,6 +94,8 @@ class F90
         class generateVehicleID {};
         class getByKey {};
         class loadFromNamespace {};
+        class resetMap {};
+        class resetUnit {};
         class saveToNamespace {};
     }; 
 

@@ -5,6 +5,11 @@ None currently
 
 ## Version History
 
+* Version 1.6.0a
+    - Added task system.
+    - Play as another units. But VCR only available for mission host.
+    - Reworked persistence system to better intergrate for the task system. 
+
 * Version 1.5.0a
     - Added confirmed kills count to VCR.
     - Approach killed unit to confirm kills.

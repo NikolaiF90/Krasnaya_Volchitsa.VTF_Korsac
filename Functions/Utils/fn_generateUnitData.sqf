@@ -93,9 +93,9 @@ private _GenerateSkillsArray =
 private _unitData = [];
 
 _unitData pushBack ["class", typeOf _unit];
-_unitData pushBack ["generalDamage", damage _unit];
-_unitData pushBack ["damages", getAllHitPointsDamage _unit];
-_unitData pushBack ["posRotation", [_unit] call F90_fnc_generatePositioningData];
+// _unitData pushBack ["generalDamage", damage _unit];
+// _unitData pushBack ["damages", getAllHitPointsDamage _unit];
+// _unitData pushBack ["posRotation", [_unit] call F90_fnc_generatePositioningData];
 _unitData pushBack ["loadout", getUnitLoadout _unit];
 _unitData pushBack ["side", side _unit];
 _unitData pushBack ["skills", [_unit] call _GenerateSkillsArray];
@@ -104,16 +104,17 @@ _unitData pushBack ["face", face _unit];
 _unitData pushBack ["speaker", speaker _unit];
 _unitData pushBack ["pitch", pitch _unit];
 _unitData pushBack ["rating", rating _unit];
-_unitData pushBack ["stamina", getStamina _unit];
-_unitData pushBack ["fatigue", getFatigue _unit];
-_unitData pushBack ["formationDir", formationDirection _unit];
+ _unitData pushBack ["stamina", getStamina _unit];
+// _unitData pushBack ["fatigue", getFatigue _unit];
+// _unitData pushBack ["formationDir", formationDirection _unit];
 _unitData pushBack ["variables", [_unit] call _GenerateVariablesArray];
-_unitData pushBack ["orders", [_unit] call _GenerateOrdersArray];
-_unitData pushBack ["assignedTeam", assignedTeam _unit];
+// _unitData pushBack ["orders", [_unit] call _GenerateOrdersArray];
+// _unitData pushBack ["assignedTeam", assignedTeam _unit];
 
 _unitData pushBack ["money", ["GETMONEY", _unit] call F90_fnc_economyHandler];
 _unitData pushBack ["confirmedKills", _unit getVariable "Record_ConfirmedKills"];
 
+/*
 //	If unit is on vehicle
 if (vehicle _unit != _unit) then
 {
@@ -144,6 +145,7 @@ if (_isLeader) then
     _unitData pushBack ["group", [_unit] call F90_fnc_generateGroupData];
     _unitData pushBack ["groupOrders", [_unit] call _GenerateGroupOrdersArray];
 };
+*/
 
 [PersistentDebug, "generateUnitData", format["Data for %1 (isLeader = %2) has been successfully generated.", _unit, _isLeader], false] call F90_fnc_debug;
 _unitData;

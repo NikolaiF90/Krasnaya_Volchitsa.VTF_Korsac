@@ -1,25 +1,24 @@
 Scenario_Name = "Krasnaya Volchitsa";
-Mission_Host = missionHost;
-
 [true, "init",format ["Starting %1...", Scenario_Name], false] call F90_fnc_debug;
 
-// Init persistence
-configurePersistentDone = false;
-[] call F90_fnc_configurePersistent;
-waitUntil {configurePersistentDone};
-[] call F90_fnc_persistentInit;
+// Mission Variables
+Mission_Host = missionHost;
+Mission_Playables = [player1, player2];
+Mission_HostStartPos = [2587.65,2063.63,0];
+Mission_P1StartPos = [2587,2069.77,0];
+Mission_P2StartPos = [2586.27,2067.28,0];
+Mission_TaskOfficerStartPos = [2586.12,2051.29,0];
 
-// Init Economy 
-configureEconomyDone = false;
-[] call F90_fnc_configureEconomy;
-waitUntil {configureEconomyDone};
-[] call F90_fnc_initEconomy;
+Mission_CreatedUnits = [];
 
-// Init VCR
-configureVCRDone = false;
-[] call F90_fnc_configureVCR;
-waitUntil {configureVCRDone};
-[] call F90_fnc_initVCR;
+[] call F90_fnc_resetMap;
 
-private _debugGroup = createGroup [west, true];
-[_debugGroup, "B_Soldier_F", [2499.23,2053.64,0]] call F90_fnc_createUnit;
+// Init Team switch
+enableTeamSwitch true;
+
+addMissionEventHandler ["TeamSwitch", 
+{
+	params ["_previousUnit", "_newUnit"];
+
+    [_previousUnit, _newUnit] call F90_fnc_switchUnitAddAction;
+}];
