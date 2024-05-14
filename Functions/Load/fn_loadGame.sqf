@@ -22,12 +22,9 @@
 params ["_slot"];
 [PersistentDebug, "loadGame", format ["Loading progress from slot %1...", _slot], true] call F90_fnc_debug;
 
-Persistent_ResetDone = false;
 [] call F90_fnc_resetTask;
 [] call F90_fnc_resetMap;
 [] call F90_fnc_clearGarbage;
-Persistent_ResetDone = true;
-waitUntil {Persistent_ResetDone};
 
 [_slot] call F90_fnc_loadVehicles;
 [_slot] call F90_fnc_loadPlayer;
