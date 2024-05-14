@@ -56,10 +56,7 @@ if (Task_ActiveTask == -1) then
         // Create random ambushes
 
         // Create and assign the task to player
-        [east, Task_CurrentTaskID, [_description, _title], _taskLocation, true] call BIS_fnc_taskCreate;
-        [Task_CurrentTaskID, _taskIcon] call BIS_fnc_taskSetType;
-        sleep 2;
-        [Task_CurrentTaskID] call BIS_fnc_deleteTask;
+        [east, "Patrol", "CREATED"] call F90_fnc_showTaskNotification;
         
         // Create a marker at location
         Task_AoZone = createMarker ["PatrolZone", _taskLocation];
@@ -128,7 +125,7 @@ if (Task_ActiveTask == -1) then
                     if (_remaining <= 0) then
                     {
                         hint "Patrol Completed"; 
-                        sleep 2;
+                        [east, "Patrol", "SUCCEEDED"] call F90_fnc_showTaskNotification;
                         Task_ActiveTask = 1;
                         [] call F90_fnc_resetTask;
                     };
