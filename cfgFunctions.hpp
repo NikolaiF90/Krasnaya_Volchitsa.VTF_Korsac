@@ -71,10 +71,11 @@ class F90
         class saveVehicles {};
     };
 
-    class initTask
+    class Task
     {
         file = "Functions\Task";
         class requestMission {};
+        class showTaskNotification {};
     };
 
     class Utils
@@ -90,6 +91,7 @@ class F90
         class generateCargoData {};
         class generateGroupData {};
         class generatePositioningData {};
+        class generateUniqueID {};
         class generateUnitData {};
         class generateVehicleID {};
         class getByKey {};
