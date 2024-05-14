@@ -5,8 +5,9 @@ None currently
 
 ## Version History
 
-* Version 1.8.0a
-    - 
+* Version 1.7.1a
+    - Code optimization. 
+    - Notification after patrol completed.
 
 * Version 1.7.0a
     - New task: Patrol town. 
