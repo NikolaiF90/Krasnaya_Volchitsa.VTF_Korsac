@@ -5,6 +5,9 @@ None currently
 
 ## Version History
 
+* Version 1.7.0a
+    - New task: Patrol town. 
+
 * Version 1.6.0a
     - Added task system.
     - Play as another units. But VCR only available for mission host.

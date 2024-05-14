@@ -95,6 +95,7 @@ class F90
         class getByKey {};
         class loadFromNamespace {};
         class resetMap {};
+        class resetTask {};
         class resetUnit {};
         class saveToNamespace {};
     }; 

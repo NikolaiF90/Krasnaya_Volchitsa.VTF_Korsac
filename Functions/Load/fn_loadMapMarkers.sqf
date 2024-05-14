@@ -22,6 +22,10 @@ params ["_slot"];
 private _allMarkers = allMapMarkers;
 
 {
+    _allMarkers = _allMarkers - [_x];
+} forEach Persistent_MarkerBlacklists;
+
+{
     deleteMarker _x;
 } forEach _allMarkers;
 

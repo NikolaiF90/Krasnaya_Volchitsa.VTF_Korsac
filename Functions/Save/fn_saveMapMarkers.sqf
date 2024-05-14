@@ -25,7 +25,10 @@ params ["_slot"];
 private _markersArray = [];
 private _userMarkersCounter = 1;
 private _allMarkers = allMapMarkers;
-//  private _allMarkers = allMapMarkers - markersToExclude;
+
+{
+    _allMarkers = _allMarkers - [_x];
+} forEach Persistent_MarkerBlacklists;
 
 {
     private _marker = [];

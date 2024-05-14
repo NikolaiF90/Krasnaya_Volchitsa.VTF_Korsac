@@ -5,21 +5,29 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=1025;
 	mods[]=
 	{
 		"3denEnhanced"
 	};
 	class ItemIDProvider
 	{
-		nextID=18;
+		nextID=34;
+	};
+	class MarkerIDProvider
+	{
+		nextID=15;
+	};
+	class LayerIndexProvider
+	{
+		nextID=6;
 	};
 	class Camera
 	{
-		pos[]={2586.5422,857.82086,2081.5693};
-		dir[]={0.12743066,-0.57299548,-0.80959105};
-		up[]={0.089093335,0.81955856,-0.56602675};
-		aside[]={-0.98783803,7.4505806e-009,-0.15548697};
+		pos[]={2588.3696,863.61676,2102.6309};
+		dir[]={-0.37487948,-0.51040345,-0.7739265};
+		up[]={-0.22250426,0.85993421,-0.45935285};
+		aside[]={-0.89998049,-9.8021701e-008,0.4359377};
 	};
 };
 binarizationWanted=0;
@@ -27,13 +35,14 @@ sourceName="Krasnaya_Volchitsa";
 addons[]=
 {
 	"min_rf_units",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			className="min_rf_units";
@@ -43,6 +52,13 @@ class AddonsMetaData
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -86,7 +102,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			dataType="Group";
@@ -338,6 +354,203 @@ class Mission
 			{
 			};
 			id=17;
+		};
+		class Item4
+		{
+			dataType="Layer";
+			name="TownMarkers";
+			class Entities
+			{
+				items=14;
+				class Item0
+				{
+					dataType="Marker";
+					position[]={1841.2111,856.55701,1014.07};
+					name="town_0";
+					markerType="ELLIPSE";
+					type="";
+					colorName="ColorCIV";
+					a=270.91;
+					b=265.05099;
+					id=18;
+					atlOffset=-1.4042969;
+				};
+				class Item1
+				{
+					dataType="Marker";
+					position[]={7246.063,828.31,2811.4221};
+					name="town_13";
+					markerType="ELLIPSE";
+					type="";
+					colorName="ColorCIV";
+					a=98.771004;
+					b=102.372;
+					id=32;
+				};
+				class Item2
+				{
+					dataType="Marker";
+					position[]={5246.0088,863.60498,7205.5972};
+					name="town_3";
+					markerType="ELLIPSE";
+					type="";
+					colorName="ColorCIV";
+					a=246.82201;
+					b=245.032;
+					id=22;
+					atlOffset=-2.2861328;
+				};
+				class Item3
+				{
+					dataType="Marker";
+					position[]={1702.135,838.63501,5669.3711};
+					name="town_9";
+					markerType="ELLIPSE";
+					type="";
+					colorName="ColorCIV";
+					a=204.464;
+					b=187.007;
+					id=28;
+					atlOffset=1.1669922;
+				};
+				class Item4
+				{
+					dataType="Marker";
+					position[]={3904.5129,860.83301,5164.7021};
+					name="town_1";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=125.5;
+					b=417.35001;
+					angle=66.056;
+					id=20;
+					atlOffset=-0.54699707;
+				};
+				class Item5
+				{
+					dataType="Marker";
+					position[]={4898.9746,825.19403,2097.5552};
+					name="town_10";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=113.53984;
+					b=293.82541;
+					angle=195.6983;
+					id=29;
+					atlOffset=-0.10888672;
+				};
+				class Item6
+				{
+					dataType="Marker";
+					position[]={3134.6873,831.92603,2594.6289};
+					name="town_11";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=366.74615;
+					b=213.49185;
+					id=30;
+					atlOffset=3.56604;
+				};
+				class Item7
+				{
+					dataType="Marker";
+					position[]={4088.2366,855.45099,1340.8813};
+					name="town_12";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=51.193047;
+					b=225.36598;
+					angle=104.82634;
+					id=31;
+					atlOffset=0.46569824;
+				};
+				class Item8
+				{
+					dataType="Marker";
+					position[]={2297.782,837.65997,2539.821};
+					name="town_2";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=69.712997;
+					b=330.59399;
+					angle=276.19101;
+					id=21;
+				};
+				class Item9
+				{
+					dataType="Marker";
+					position[]={7053.7422,812.71503,1380.17};
+					name="town_4";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=80.125999;
+					b=166.201;
+					id=23;
+					atlOffset=0.034179688;
+				};
+				class Item10
+				{
+					dataType="Marker";
+					position[]={4662.1519,834.53839,3430.7383};
+					name="town_5";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=171.81082;
+					b=360.66663;
+					angle=298.64111;
+					id=24;
+					atlOffset=0.57061768;
+				};
+				class Item11
+				{
+					dataType="Marker";
+					position[]={744.74347,830.133,4930.7026};
+					name="town_6";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=125.02251;
+					b=258.1637;
+					angle=260.81921;
+					id=25;
+					atlOffset=-4.9762573;
+				};
+				class Item12
+				{
+					dataType="Marker";
+					position[]={1616.418,838.33002,2723.4231};
+					name="town_7";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=116.48248;
+					b=236.03481;
+					angle=286.99072;
+					id=26;
+				};
+				class Item13
+				{
+					dataType="Marker";
+					position[]={4712.4741,835.66998,730.95892};
+					name="town_8";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorCIV";
+					a=50;
+					b=110.21712;
+					angle=27.299362;
+					id=27;
+				};
+			};
+			id=33;
+			atlOffset=8.2998047;
 		};
 	};
 };
