@@ -5,6 +5,9 @@ None currently
 
 ## Version History
 
+* Version 1.8.0a
+    - 
+
 * Version 1.7.0a
     - New task: Patrol town. 
 
