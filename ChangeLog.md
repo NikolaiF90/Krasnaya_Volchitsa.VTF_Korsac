@@ -5,6 +5,10 @@ None currently
 
 ## Version History
 
+* Version 1.7.2a
+    - Tactical menu now include information about any active task.
+    - Minor code changes.
+
 * Version 1.7.1a
     - Code optimization. 
     - Notification after patrol completed.
