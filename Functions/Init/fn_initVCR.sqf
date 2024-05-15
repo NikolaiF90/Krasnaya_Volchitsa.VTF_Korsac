@@ -7,6 +7,7 @@
 // Dialog IDC
 VCR_MoneyTextIDC = 1204;
 VCR_ConfirmedKillsIDC = 1205;
+VCR_ActiveTaskIDC = 1206;
 
 /*
 {

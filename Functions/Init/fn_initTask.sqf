@@ -5,6 +5,9 @@
 
 Task_CurrentTaskID = "";
 Task_ActiveTask = -1; // -1 None, 0 Assigned, 1 Completed, 2 Failed
+Task_DutyName = "";
+Task_DutyDescription = "";
+Task_DutyStatus = -1; // -1 None, 0 Ongoing, 1 Completed, 2 Failed
 
 Task_TaskTrigger = nil;
 

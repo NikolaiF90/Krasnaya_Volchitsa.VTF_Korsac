@@ -6,6 +6,9 @@ if (!isNil {Task_CurrentTaskID}) then
     {
         Task_ActiveTask = -1;
         Task_CurrentTaskID = "";
+        Task_DutyName = "";
+        Task_DutyDescription = "";
+        Task_DutyStatus = -1; // -1 None, 0 Ongoing, 1 Completed, 2 Failed
 
         deleteMarker Task_AoMarker;
         deleteMarker Task_AoZone;

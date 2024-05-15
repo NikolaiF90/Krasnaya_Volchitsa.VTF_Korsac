@@ -8,9 +8,6 @@ if (Task_ActiveTask == -1) then
 {
     [TaskDebug, "requestMission", "There are currently no active task assigned. Creating one now...", false] call F90_fnc_debug;
     // Task variables
-    private _taskIcon = "";
-    private _title = "";
-    private _description = "";
     private _locationIndex = -1;
     private _taskMarker = nil;
     private _taskLocation = [];
@@ -30,9 +27,9 @@ if (Task_ActiveTask == -1) then
     {
         Task_CurrentTaskID = "Patrol";
 
-        _taskIcon = "navigate";
-        _title = "Patrol";
-        _description = "Perform a patrol on marked location.";
+        Task_DutyName = "Patrol";
+        Task_DutyDescription = "Perform a patrol on marked location.";
+        Task_DutyStatus = 0;
 
         // Generate patrol location
         _locationIndex = floor (random (count Task_TownMarkers));
@@ -71,7 +68,7 @@ if (Task_ActiveTask == -1) then
         Task_AoMarker setMarkerAlpha 1;
         Task_AoMarker setMarkerColor "ColorWhite";
         Task_AoMarker setMarkerDir 0;
-        Task_AoMarker setMarkerText _title;
+        Task_AoMarker setMarkerText Task_DutyName;
         Task_AoMarker setMarkerType "hd_dot";
 
         // Blacklist marker from saving
@@ -82,8 +79,9 @@ if (Task_ActiveTask == -1) then
         if (!isNil {Task_TaskTrigger}) then 
         {
             Task_ActiveTask = 0;
+            Task_DutyStatus = 0;
             [TaskDebug, "requestMission", format ["Current task: %1", _taskName], true] call F90_fnc_debug;
-            hint _description;
+            hint Task_DutyDescription;
             _target removeAction _actionID;
         };
 
@@ -94,7 +92,7 @@ if (Task_ActiveTask == -1) then
             private _remaining = _patrolDuration;
             private _detected = false;
             private _inAO = false;
-            while {Task_ActiveTask == 0} do 
+            while {Task_DutyStatus == 0} do 
             {
                 if (!isNil "Task_TaskTrigger") then 
                 {
@@ -127,7 +125,11 @@ if (Task_ActiveTask == -1) then
                         hint "Patrol Completed"; 
                         [east, "Patrol", "SUCCEEDED"] call F90_fnc_showTaskNotification;
                         Task_ActiveTask = 1;
+                        Task_DutyStatus = 1;
                         [] call F90_fnc_resetTask;
+
+                        // Run task check
+                        // RTB mission 
                     };
                 };
 
