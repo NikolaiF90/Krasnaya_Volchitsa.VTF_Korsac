@@ -5,7 +5,7 @@ class tacticalMenu
 	class controls
 	{
 		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Limaha)
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Sosazu)
 		////////////////////////////////////////////////////////
 
 		class RscText_1000: RscText
@@ -21,6 +21,7 @@ class tacticalMenu
 		class text_TacticalTab: RscText
 		{
 			idc = 1202;
+
 			text = "Tactical Tab"; //--- ToDo: Localize;
 			x = 0.0153125 * safezoneW + safezoneX;
 			y = 0.038 * safezoneH + safezoneY;
@@ -31,10 +32,11 @@ class tacticalMenu
 		class RscText_1003: RscText
 		{
 			idc = 1203;
+
 			x = 0.0153125 * safezoneW + safezoneX;
 			y = 0.093 * safezoneH + safezoneY;
 			w = 0.262969 * safezoneW;
-			h = 0.473 * safezoneH;
+			h = 0.319 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
 		class text_Money: RscText
@@ -54,16 +56,25 @@ class tacticalMenu
 
 			text = "Confirmed Kills: 00000"; //--- ToDo: Localize;
 			x = 0.0153125 * safezoneW + safezoneX;
-			y = 0.126 * safezoneH + safezoneY;
+			y = 0.137 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.044 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_ActiveTask: RscText
+		{
+			idc = 1206;
+
+			text = "There are no active task currently."; //--- ToDo: Localize;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY;
+			w = 0.262969 * safezoneW;
+			h = 0.143 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
-
-
 	};
 }
 
