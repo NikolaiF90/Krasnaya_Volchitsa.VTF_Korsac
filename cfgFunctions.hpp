@@ -74,6 +74,11 @@ class F90
     class Task
     {
         file = "Functions\Task";
+        class activeTaskHandler {};
+        class createAOMarker {};
+        class createAOTrigger {};
+        class createTask {};
+        class reportMission {};
         class requestMission {};
         class showTaskNotification {};
     };

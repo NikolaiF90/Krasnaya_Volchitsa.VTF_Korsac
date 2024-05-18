@@ -6,7 +6,11 @@ None currently
 ## Version History
 
 * Version 1.8.0a
-    - 
+    - Added ambush, support, and kill hvt mission.
+    - Report to officer after completing mission.
+    - Reward for completing mission.
+    - Major optimization.
+    - Bug fixes.
 
 * Version 1.7.2a
     - Tactical menu now include information about any active task.

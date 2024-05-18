@@ -12,22 +12,22 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=34;
+		nextID=36;
 	};
 	class MarkerIDProvider
 	{
-		nextID=15;
+		nextID=16;
 	};
 	class LayerIndexProvider
 	{
-		nextID=8;
+		nextID=9;
 	};
 	class Camera
 	{
 		pos[]={2588.3696,863.61676,2102.6309};
-		dir[]={0.017753618,-0.34561843,-0.93820739};
-		up[]={0.0065389071,0.93837482,-0.34555647};
-		aside[]={-0.99982113,8.4983185e-009,-0.018919621};
+		dir[]={-0.024124885,-0.53498173,-0.84451926};
+		up[]={-0.015276277,0.84486359,-0.53476363};
+		aside[]={-0.99959236,9.3132257e-010,0.028554767};
 	};
 };
 binarizationWanted=0;
@@ -102,7 +102,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			dataType="Group";
@@ -367,7 +367,7 @@ class Mission
 					dataType="Marker";
 					position[]={1841.2111,856.55701,1014.07};
 					name="town_0";
-					markerType="ELLIPSE";
+					markerType="RECTANGLE";
 					type="";
 					colorName="ColorCIV";
 					a=270.91;
@@ -380,7 +380,7 @@ class Mission
 					dataType="Marker";
 					position[]={7246.063,828.31,2811.4221};
 					name="town_13";
-					markerType="ELLIPSE";
+					markerType="RECTANGLE";
 					type="";
 					colorName="ColorCIV";
 					a=98.771004;
@@ -392,7 +392,7 @@ class Mission
 					dataType="Marker";
 					position[]={5246.0088,863.60498,7205.5972};
 					name="town_3";
-					markerType="ELLIPSE";
+					markerType="RECTANGLE";
 					type="";
 					colorName="ColorCIV";
 					a=246.82201;
@@ -405,7 +405,7 @@ class Mission
 					dataType="Marker";
 					position[]={1702.135,838.63501,5669.3711};
 					name="town_9";
-					markerType="ELLIPSE";
+					markerType="RECTANGLE";
 					type="";
 					colorName="ColorCIV";
 					a=204.464;
@@ -551,6 +551,29 @@ class Mission
 			};
 			id=33;
 			atlOffset=8.2998047;
+		};
+		class Item5
+		{
+			dataType="Layer";
+			name="BaseMarkers";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Marker";
+					position[]={2363.1641,843.85999,2088.0491};
+					name="base_0";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorEAST";
+					a=490.254;
+					b=162.459;
+					angle=212.15192;
+					id=34;
+				};
+			};
+			id=35;
 		};
 	};
 };

@@ -6,7 +6,7 @@
 
     Parameter(s):
         0: SIDE - _side: The side to show the notification to
-        1: STRING - _type: Can be: "Patrol", "KillHVT", "Support", "Ambush"
+        1: STRING - _type: Can be: "Patrol", "KillHVT", "Support", "Ambush", "RTB"
         2: STRING - _operation: Can be: "CREATED", "SUCCEEDED", "CANCELED"
 
     Returns:
@@ -27,6 +27,7 @@ switch (_type) do
     case "KillHVT": {_taskIcon = "kill"};
     case "Ambush": {_taskIcon = "attack"};
     case "Support": {_taskIcon = "defend"};
+    case "RTB": {_taskIcon = "whiteboard"};
 };
 
 [_side, _taskID, ["", _type], objNull, _operation] call BIS_fnc_taskCreate;
