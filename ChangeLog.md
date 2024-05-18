@@ -5,6 +5,10 @@ None currently
 
 ## Version History
 
+* Version 1.9.0a
+    - Added duty report menu. The menu will be shown to player after every end of duty.
+    - Added new records into VCR like killed hvt, casualties, and total used assets.
+
 * Version 1.8.0a
     - Added ambush, support, and kill hvt mission.
     - Report to officer after completing mission.

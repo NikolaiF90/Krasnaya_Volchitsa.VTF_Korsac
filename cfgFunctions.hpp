@@ -111,6 +111,8 @@ class F90
     {
         file = "Functions\VeteranCombatRecord";
         class addKillCount {};
+        class closeReport {};
         class confirmKill {};
+        class showReport {};
     };
 };

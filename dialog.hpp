@@ -206,3 +206,211 @@ class persistentMenu
 	};
 };
 
+class dutyReportMenu 
+{
+	idd = 1300;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Vygovi)
+		////////////////////////////////////////////////////////
+
+		class RscText_1000: RscText
+		{
+			idc = 1301;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.203 * safezoneH + safezoneY;
+			w = 0.278437 * safezoneW;
+			h = 0.561 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class RscText_1001: RscText
+		{
+			idc = 1302;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.247 * safezoneH + safezoneY;
+			w = 0.128906 * safezoneW;
+			h = 0.198 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class RscText_1002: RscText
+		{
+			idc = 1303;
+			text = "Duty Report"; //--- ToDo: Localize;
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.214 * safezoneH + safezoneY;
+			w = 0.0464063 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscButton_1600: RscButton
+		{
+			idc = 1304;
+			text = "CLOSE"; //--- ToDo: Localize;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.268125 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			action = "[] call F90_fnc_closeReport";
+		};
+		class RscText_1005: RscText
+		{
+			idc = 1305;
+			text = "Confirmed Kills: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1006: RscText
+		{
+			idc = 1306;
+			text = "HVT Killed: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1008: RscText
+		{
+			idc = 1307;
+			text = "Team Casualty: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.489 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1009: RscText
+		{
+			idc = 1308;
+			text = "Civilian Casualty: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.511 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1010: RscText
+		{
+			idc = 1309;
+			text = "HVT Captured: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.324 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1013: RscText
+		{
+			idc = 1310;
+			text = "KILLS"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.247 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class RscText_1016: RscText
+		{
+			idc = 1311;
+			text = "ASSETS USED"; //--- ToDo: Localize;
+			x = 0.494844 * safezoneW + safezoneX;
+			y = 0.247 * safezoneH + safezoneY;
+			w = 0.0876563 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class RscText_1018: RscText
+		{
+			idc = 1312;
+			text = "Air Supports: 0"; //--- ToDo: Localize;
+			x = 0.494844 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1017: RscText
+		{
+			idc = 1313;
+			text = "Transport Heli: 0"; //--- ToDo: Localize;
+			x = 0.494844 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1019: RscText
+		{
+			idc = 1314;
+			text = "Vehicles: 0"; //--- ToDo: Localize;
+			x = 0.494844 * safezoneW + safezoneX;
+			y = 0.324 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1007: RscText
+		{
+			idc = 1315;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.268125 * safezoneW;
+			h = 0.154 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class RscText_1011: RscText
+		{
+			idc = 1316;
+			x = 0.489687 * safezoneW + safezoneX;
+			y = 0.247 * safezoneH + safezoneY;
+			w = 0.134062 * safezoneW;
+			h = 0.198 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class RscText_1012: RscText
+		{
+			idc = 1316;
+			text = "CASUALTIES"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class RscText_1015: RscText
+		{
+			idc = 1317;
+			text = "Total Points: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.654 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1020: RscText
+		{
+			idc = 1318;
+			text = "Milcash Rewards: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.676 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class RscText_1003: RscText
+		{
+			idc = 1319;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.621 * safezoneH + safezoneY;
+			w = 0.268125 * safezoneW;
+			h = 0.088 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class RscText_1004: RscText
+		{
+			idc = 1320;
+			text = "Sucessful Operation: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.632 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+
+	};
+};
+

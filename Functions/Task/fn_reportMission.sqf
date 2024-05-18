@@ -1,5 +1,4 @@
 
-
 private _reward = 0;
 private _points = 0;
 private _mainCompleted = nil;
@@ -18,12 +17,19 @@ if (_mainCompleted) then
 };
 
 // Casualty check
+// Team Casualty
+// Transport Casualty
+// Civilan Casualty
 
 // Asset used check 
-
+// Air support
+// Transport Heli 
+// Vehicles
 // Asset check 
 
 // HVT Check 
+// HVT Killed
+// HVT Captured
 
 // Kill Check 
 
@@ -31,6 +37,8 @@ if (_mainCompleted) then
 _reward = _points * 100; 
 ["ADDMONEY", [Mission_Host, _reward]] call F90_fnc_economyHandler;
 [] call F90_fnc_resetTask;
+
+[] call F90_fnc_showReport;
 
 Mission_TaskOfficer addAction 
 [

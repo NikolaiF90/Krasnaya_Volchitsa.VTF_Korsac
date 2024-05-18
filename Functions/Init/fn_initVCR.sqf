@@ -9,6 +9,16 @@ VCR_MoneyTextIDC = 1204;
 VCR_ConfirmedKillsIDC = 1205;
 VCR_ActiveTaskIDC = 1206;
 
+// Task Record Variables
+VCR_TempTeamCasualties = 0;
+VCR_TempCivilianCasualties = 0;
+VCR_TempAirSupportUsed = 0;
+VCR_TempTransportHeliUsed = 0;
+VCR_TempVehicleUsed = 0;
+VCR_TempHVTKilled = 0;
+VCR_TempHVTCaptured = 0;
+VCR_TempKillCount = 0;
+
 /*
 {
     _x addAction ["<t color='#23d1cd'>Open Tactical Tab</t>", {params ["_target", "_caller", "_actionId", "_arguments"]; [_caller] call F90_fnc_openTacticalTab}, nil, 6, false, false, "", "_target == _this", -1, false];
