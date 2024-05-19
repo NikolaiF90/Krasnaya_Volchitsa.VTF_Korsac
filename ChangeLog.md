@@ -8,6 +8,7 @@ None currently
 * Version 1.10.0a
     - Points system. Points will be given for each kills, and will be deducted for each casualties and asset used. 
     - Added artillery support used in the duty report.
+    - Now with less luck, enemy might ambush you while on patrol. So watch out.
 
 * Version 1.9.0a
     - Added duty report menu. The menu will be shown to player after every end of duty.

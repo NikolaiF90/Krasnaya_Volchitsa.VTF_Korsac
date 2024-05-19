@@ -30,7 +30,9 @@ _heliDeduction = _heliDeduction - (_heliUsedDeduction + _lightArmedHeliDeduction
 [VCRDebug, "reportMission", format ["Heli Points: %1", _heliDeduction], false] call F90_fnc_debug;
 _totalPoints = _totalPoints + _heliDeduction;
 
-VCR_TempKillCount = 0;
+private _killPoints = VCR_TempKillCount * Points_ConfirmedKill;
+_totalPoints = _totalPoints + _killPoints;
+
 VCR_TempHVTKilled = 0;
 VCR_TempHVTCaptured = 0;
 VCR_TempAirSupportUsed = 0;
@@ -71,7 +73,7 @@ if (_reward > 0) then
 [] call F90_fnc_resetTask;
 
 [_heliDeduction, _successfulOperation, _totalPoints, _reward] call F90_fnc_showReport;
-[] call F90_fnc_transferRecord;
+[Mission_Host] call F90_fnc_transferRecord;
 
 Mission_TaskOfficer addAction 
 [

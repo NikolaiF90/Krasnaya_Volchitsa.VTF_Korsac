@@ -6,8 +6,12 @@ Task_DutyName = "";
 Task_DutyDescription = "";
 Task_DutyStatus = -1; // -1 None, 0 Ongoing, 1 Completed, 2 Failed
 
-deleteMarker Task_AoMarker;
-deleteMarker Task_AoZone;
+if (!isNil {Task_AoMarker}) then 
+{
+    deleteMarker Task_AoMarker;
+    deleteMarker Task_AoZone;
+};
+
 Persistent_MarkerBlacklists = [];
 if (!isNull Task_TaskTrigger) then
 {

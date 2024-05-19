@@ -39,6 +39,7 @@ class F90
         file = "Functions\Init";
         class persistentInit {};
         class initTask {};
+        class initVariables {};
         class initVCR {};
         class initEconomy {};
     };
@@ -84,6 +85,7 @@ class F90
     {
         file = "Functions\Task";
         class activeTaskHandler {};
+        class createAmbush {};
         class createAOMarker {};
         class createAOTrigger {};
         class createTask {};
