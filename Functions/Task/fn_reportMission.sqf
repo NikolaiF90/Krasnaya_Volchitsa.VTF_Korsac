@@ -1,6 +1,7 @@
 
 private _reward = 0;
-private _points = 0;
+private _totalPoints = 0;
+private _successfulOperation = 0;
 private _mainCompleted = nil;
 
 if (Task_ActiveTask == 1) then 
@@ -13,8 +14,30 @@ if (Task_ActiveTask == 1) then
 
 if (_mainCompleted) then 
 {
-    _points = _points + 10;
+    _successfulOperation = Points_MissionCompleted;
+    _totalPoints = _totalPoints + _successfulOperation;
 };
+
+// Deduction 
+private _heliDeduction = 0;
+
+private _heliUsedDeduction = VCR_TempHeliUsed * Points_HeliUsedDeduction;
+private _lightArmedHeliDeduction = VCR_TempLightArmedHeliLoss * Points_LightArmedHeliLoss;
+private _lightUnarmedHeliDeduction = VCR_TempLightUnarmedHeliLoss * Points_LightUnarmedHeliLoss;
+private _atttackHeliDeduction = VCR_TempAttackHeliLoss * Points_AttackHeliLoss;
+
+_heliDeduction = _heliDeduction - (_heliUsedDeduction + _lightArmedHeliDeduction + _lightUnarmedHeliDeduction + _atttackHeliDeduction);
+[VCRDebug, "reportMission", format ["Heli Points: %1", _heliDeduction], false] call F90_fnc_debug;
+_totalPoints = _totalPoints + _heliDeduction;
+
+VCR_TempKillCount = 0;
+VCR_TempHVTKilled = 0;
+VCR_TempHVTCaptured = 0;
+VCR_TempAirSupportUsed = 0;
+VCR_TempArtilleryUsed = 0;
+VCR_TempVehiclesUsed = 0;
+VCR_TempCivilianCasualties = 0;
+VCR_TempTeamCasualties = 0;
 
 // Casualty check
 // Team Casualty
@@ -23,7 +46,7 @@ if (_mainCompleted) then
 
 // Asset used check 
 // Air support
-// Transport Heli 
+// Artillery
 // Vehicles
 // Asset check 
 
@@ -34,11 +57,21 @@ if (_mainCompleted) then
 // Kill Check 
 
 // Reward player 
-_reward = _points * 100; 
-["ADDMONEY", [Mission_Host, _reward]] call F90_fnc_economyHandler;
+_reward = _totalPoints * 10; 
+if (_reward > 0) then 
+{
+    ["ADDMONEY", [Mission_Host, _reward]] call F90_fnc_economyHandler;
+} else 
+{
+    if (_reward < 0) then 
+    {
+        ["DEDUCTMONEY", [Mission_Host, _reward]] call F90_fnc_economyHandler;
+    };
+};
 [] call F90_fnc_resetTask;
 
-[] call F90_fnc_showReport;
+[_heliDeduction, _successfulOperation, _totalPoints, _reward] call F90_fnc_showReport;
+[] call F90_fnc_transferRecord;
 
 Mission_TaskOfficer addAction 
 [

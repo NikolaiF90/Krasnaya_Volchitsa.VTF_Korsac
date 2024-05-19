@@ -58,6 +58,15 @@ class F90
         class loadVehicles {};
     };
 
+    class Reset 
+    {
+        file = "Functions\Reset";
+        class resetMap {};
+        class resetTask {};
+        class resetTempRecord {};
+        class resetUnit {};
+    };
+
     class Save 
     {
         file = "Functions\Save";
@@ -101,9 +110,6 @@ class F90
         class generateVehicleID {};
         class getByKey {};
         class loadFromNamespace {};
-        class resetMap {};
-        class resetTask {};
-        class resetUnit {};
         class saveToNamespace {};
     }; 
 
@@ -114,5 +120,6 @@ class F90
         class closeReport {};
         class confirmKill {};
         class showReport {};
+        class transferRecord {};
     };
 };
