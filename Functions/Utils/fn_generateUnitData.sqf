@@ -113,6 +113,8 @@ _unitData pushBack ["variables", [_unit] call _GenerateVariablesArray];
 
 _unitData pushBack ["money", ["GETMONEY", _unit] call F90_fnc_economyHandler];
 _unitData pushBack ["confirmedKills", _unit getVariable "Record_ConfirmedKills"];
+_unitData pushBack ["totalConductedMissions", _unit getVariable "Record_TotalConductedMissions"];
+_unitData pushBack ["totalSuccessfulMissions", _unit getVariable "Record_TotalSuccessfulMissions"];
 
 /*
 //	If unit is on vehicle

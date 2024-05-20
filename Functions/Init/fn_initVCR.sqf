@@ -43,16 +43,29 @@ VCR_TempVehiclesUsed = 0;
 VCR_TempCivilianCasualties = 0;
 VCR_TempTeamCasualties = 0;
 
-/*
+
 {
-    _x addAction ["<t color='#23d1cd'>Open Tactical Tab</t>", {params ["_target", "_caller", "_actionId", "_arguments"]; [_caller] call F90_fnc_openTacticalTab}, nil, 6, false, false, "", "_target == _this", -1, false];
+    // _x addAction ["<t color='#23d1cd'>Open Tactical Tab</t>", {params ["_target", "_caller", "_actionId", "_arguments"]; [_caller] call F90_fnc_openTacticalTab}, nil, 6, false, false, "", "_target == _this", -1, false];
+
+    private _confirmedKills = Mission_Host getVariable ["Record_ConfirmedKills", -1];
+    if (_confirmedKills == -1) then 
+    {
+        Mission_Host setVariable ["Record_ConfirmedKills", 0];
+    };
+
+    private _conductedMissions = Mission_Host getVariable ["Record_TotalConductedMissions", -1];
+    if (_conductedMissions == -1) then 
+    {
+        Mission_Host setVariable ["Record_TotalConductedMissions", 0];
+    };
+
+    private _successfulMissions = Mission_Host getVariable ["Record_TotalSuccessfulMissions", -1];
+    if (_successfulMissions == -1) then 
+    {
+        Mission_Host setVariable ["Record_TotalSuccessfulMissions", 0];
+    };
 } forEach Mission_Playables + [Mission_Host];
-*/
-private _confirmedKills = Mission_Host getVariable ["Record_ConfirmedKills", -1];
-if (_confirmedKills == -1) then 
-{
-    Mission_Host setVariable ["Record_ConfirmedKills", 0];
-};
+
 VCR_ActionID = Mission_Host addAction ["<t color='#23d1cd'>Open Tactical Tab</t>", {params ["_target", "_caller", "_actionId", "_arguments"]; [_caller] call F90_fnc_openTacticalTab}, nil, 6, false, false, "", "_target == _this", -1, false];
 
 [VCRDebug, "initVCR", "Done initializing Veteran Combat Record.", true] call F90_fnc_debug;
