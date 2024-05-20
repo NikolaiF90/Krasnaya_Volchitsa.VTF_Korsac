@@ -24,9 +24,6 @@ VCR_TempRewardsIDC = 1320;
 VCR_TempMissionSuccessIDC = 1321;
 VCR_TempTotalPointsIDC = 1322;
 
-VCR_TotalMissionsConducted = 0;
-VCR_TotalMissionSuccess = 0;
-
 // Task Record Variables
 VCR_TempKillCount = 0;
 VCR_TempHVTKilled = 0;

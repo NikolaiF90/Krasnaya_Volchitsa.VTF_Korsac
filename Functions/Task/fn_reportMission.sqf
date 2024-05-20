@@ -4,12 +4,9 @@ private _totalPoints = 0;
 private _successfulOperation = 0;
 private _mainCompleted = nil;
 
-VCR_TotalMissionsConducted = VCR_TotalMissionsConducted + 1;
-
 if (Task_ActiveTask == 1) then 
 {
     _mainCompleted = true;
-    VCR_TotalMissionSuccess = VCR_TotalMissionSuccess + 1;
 } else
 {
     _mainCompleted = false;
@@ -76,7 +73,7 @@ if (_reward > 0) then
 [] call F90_fnc_resetTask;
 
 [_heliDeduction, _successfulOperation, _totalPoints, _reward] call F90_fnc_showReport;
-[Mission_Host] call F90_fnc_transferRecord;
+[Mission_Host, _mainCompleted] call F90_fnc_transferRecord;
 
 Mission_TaskOfficer addAction 
 [
