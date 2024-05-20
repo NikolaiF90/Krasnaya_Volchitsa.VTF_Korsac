@@ -1,24 +1,35 @@
+/*
+    Author: PrinceF90
 
+    Description:
+        This function is used to request a mission task and create it if there is no active task.
 
-params ["_target", "_caller", "_actionID"];
+    Parameter(s):
+        Does not accept any parameters.
+
+    Returns:
+        None
+
+    Examples:
+        // To request a mission task
+        ["target", "caller", "actionID"] call F90_fnc_requestMission;
+*/
 
 [TaskDebug, "requestMission", "Requesting mission...", false] call F90_fnc_debug;
 
 // Assign Task
 if (Task_ActiveTask == -1) then 
 {
-    // Give random task except RTB task
     private _taskIndex = floor (random (count Task_AllTask)); 
 
+    // Prevent generating RTB task
     while {_taskIndex == 4} do 
     {
-        [TaskDebug, "requestMission", "RTB mission generated. Now regenerating new mission...", false] call F90_fnc_debug;
         _taskIndex = floor (random (count Task_AllTask));
     };
 
     private _taskName = Task_AllTask # _taskIndex;
 
-    [TaskDebug, "requestMission", format ["Mission successfully generated. Creating task %1...", _taskName], false] call F90_fnc_debug;
     [_taskName] call F90_fnc_createTask;
 
     [TaskDebug, "requestMission", format ["Task %1 has been created.", _taskName], false] call F90_fnc_debug;

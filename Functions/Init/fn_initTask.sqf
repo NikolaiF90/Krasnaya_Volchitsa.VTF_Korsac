@@ -43,7 +43,7 @@ Mission_TaskOfficer addAction
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
         
-        [_target, _caller, _actionId] call F90_fnc_requestMission;
+        [] call F90_fnc_requestMission;
         _target removeAction _actionID;
     },
     nil, 
