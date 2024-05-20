@@ -5,6 +5,9 @@ None currently
 
 ## Version History
 
+* Version 1.11.0a
+    - 
+
 * Version 1.10.0a
     - Points system. Points will be given for each kills, and will be deducted for each casualties and asset used. 
     - Added artillery support used in the duty report.
