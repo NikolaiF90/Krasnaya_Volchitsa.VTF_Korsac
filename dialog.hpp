@@ -71,7 +71,7 @@ class tacticalMenu
 		};
 		class RscText_1006: RscText
 		{
-			idc = 1007;
+			idc = 1207;
 			text = "Total Conducted Missions: 0"; //--- ToDo: Localize;
 			x = 0.0153125 * safezoneW + safezoneX;
 			y = 0.093 * safezoneH + safezoneY;
@@ -80,7 +80,7 @@ class tacticalMenu
 		};
 		class RscText_1007: RscText
 		{
-			idc = 1008;
+			idc = 1208;
 			text = "Total Successful Missions: 0"; //--- ToDo: Localize;
 			x = 0.0153125 * safezoneW + safezoneX;
 			y = 0.126 * safezoneH + safezoneY;

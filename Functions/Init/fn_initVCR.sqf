@@ -8,6 +8,8 @@
 VCR_MoneyTextIDC = 1204;
 VCR_ConfirmedKillsIDC = 1205;
 VCR_ActiveTaskIDC = 1206;
+VCR_TotalConductedIDC = 1207;
+VCR_TotalCompletedIDC = 1208;
 
 VCR_TempKillsIDC = 1311;
 VCR_TempHVTKilledIDC = 1312;
