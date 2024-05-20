@@ -141,8 +141,8 @@ while {Task_DutyStatus == 0} do
                 
                 Task_ActiveTask = 1;
                 Task_DutyStatus = 1;
-                Task_DutyName = "";
-                Task_DutyDescription = "";
+                Task_DutyName = "Report Out";
+                Task_DutyDescription = "Report the mission to your reporting officer";
                 deleteMarker Task_AoMarker;
                 deleteMarker Task_AoZone;
                 Persistent_MarkerBlacklists = [];

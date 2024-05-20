@@ -95,3 +95,8 @@ Mission_TaskOfficer addAction
     "_this == Mission_Host", 
     5
 ];
+
+Task_ActiveTask = -1;
+Task_DutyStatus = -1;
+Task_DutyName = "";
+Task_DutyDescription = "";
