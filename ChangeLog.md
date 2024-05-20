@@ -6,7 +6,8 @@ None currently
 ## Version History
 
 * Version 1.11.0a
-    - 
+    - Added total conducted and successful missions into VCR.
+    - Updated the looks of Tactical Menu.
 
 * Version 1.10.0a
     - Points system. Points will be given for each kills, and will be deducted for each casualties and asset used. 
