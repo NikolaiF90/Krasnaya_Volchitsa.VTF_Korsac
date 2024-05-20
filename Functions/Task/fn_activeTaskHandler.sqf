@@ -139,7 +139,7 @@ while {Task_DutyStatus == 0} do
                 hint "Report the mission to your reporting officer"; 
                 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
-                Task_ActiveTask = 0;
+                Task_ActiveTask = 1;
                 Task_DutyStatus = 0;
                 Task_DutyName = "Report Out";
                 Task_DutyDescription = "Report the mission to your reporting officer";
