@@ -50,7 +50,6 @@ while {Task_DutyStatus == 0} do
                     hint "Patrol Completed"; 
                     [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                     
-                    [TaskDebug, "activeTaskHandler", "Task patrol completed. Creating RTB mission...", true] call F90_fnc_debug;
                     Task_DutyStatus = 1;
                     Task_DutyName = "";
                     Task_DutyDescription = "";
@@ -74,7 +73,6 @@ while {Task_DutyStatus == 0} do
                 hint "Ambush Completed"; 
                 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
-                [TaskDebug, "activeTaskHandler", "Task ambush completed. Creating RTB mission...", true] call F90_fnc_debug;
                 Task_DutyStatus = 1;
                 Task_DutyName = "";
                 Task_DutyDescription = "";
@@ -97,7 +95,6 @@ while {Task_DutyStatus == 0} do
                 hint "HVT Killed"; 
                 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
-                [TaskDebug, "activeTaskHandler", "Task kill hvt completed. Creating RTB mission...", true] call F90_fnc_debug;
                 Task_DutyStatus = 1;
                 Task_DutyName = "";
                 Task_DutyDescription = "";
@@ -120,7 +117,6 @@ while {Task_DutyStatus == 0} do
                 hint "Support Provided"; 
                 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
-                [TaskDebug, "activeTaskHandler", "Task support completed. Creating RTB mission...", true] call F90_fnc_debug;
                 Task_DutyStatus = 1;
                 Task_DutyName = "";
                 Task_DutyDescription = "";
