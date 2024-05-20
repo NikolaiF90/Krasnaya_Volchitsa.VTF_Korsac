@@ -19,7 +19,6 @@ class F90
         class loadFromSlot {};
         class makePersistent {};
         class openPersistentTab {};
-        class openTacticalTab {};
         class saveTarget {};
         class saveTargetContainer {};
         class saveData {};
@@ -121,6 +120,7 @@ class F90
         class addKillCount {};
         class closeReport {};
         class confirmKill {};
+        class openTacticalTab {};
         class showReport {};
         class transferRecord {};
     };
