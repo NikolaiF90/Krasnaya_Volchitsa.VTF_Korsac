@@ -4,9 +4,12 @@ private _totalPoints = 0;
 private _successfulOperation = 0;
 private _mainCompleted = nil;
 
+VCR_TotalMissionsConducted = VCR_TotalMissionsConducted + 1;
+
 if (Task_ActiveTask == 1) then 
 {
     _mainCompleted = true;
+    VCR_TotalMissionSuccess = VCR_TotalMissionSuccess + 1;
 } else
 {
     _mainCompleted = false;
