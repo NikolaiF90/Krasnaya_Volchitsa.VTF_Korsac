@@ -3,13 +3,16 @@
 ## Known Issues
 None currently
 
+## ToDO
+    - Arrest civilian.
+    - Add wanted list into Tactical Tab (lsitbox)
+
+
 ## Version History
 
 * Version 1.12.0a
     - Civilian presence. Now the map will be populated with civilians.
     - Bounty and HVT. There is a chance that one of civilians is on the wanted list. Be sure to check each one of them. 
-    - Todo: Arrest civilian.
-    - Todo: Add wanted list into Tactical Tab (lsitbox)
     - Minor optimization.
 
 * Version 1.11.0a
