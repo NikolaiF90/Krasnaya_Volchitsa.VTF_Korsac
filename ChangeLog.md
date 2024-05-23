@@ -7,7 +7,6 @@ None currently
     - Arrest civilian.
     - Add wanted list into Tactical Tab (lsitbox)
 
-
 ## Version History
 
 * Version 1.12.0a
