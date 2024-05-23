@@ -12,24 +12,28 @@ configureEconomyDone = false;
 [] call F90_fnc_configureEconomy;
 waitUntil {configureEconomyDone};
 [] call F90_fnc_initEconomy;
+configureEconomyDone = nil;
 
 // Init task 
 configureTaskDone = false;
 [] call F90_fnc_configureTask;
 waitUntil {configureTaskDone};
 [] call F90_fnc_initTask;
+configureTaskDone = nil;
 
 // Init VCR
 configureVCRDone = false;
 [] call F90_fnc_configureVCR;
 waitUntil {configureVCRDone};
 [] call F90_fnc_initVCR;
+configureVCRDone = nil;
 
 // Init persistence
 configurePersistentDone = false;
 [] call F90_fnc_configurePersistent;
 waitUntil {configurePersistentDone};
 [] call F90_fnc_persistentInit;
+configurePersistentDone = nil;
 
 if ((count Mission_CreatedUnits) > 0) then 
 {
