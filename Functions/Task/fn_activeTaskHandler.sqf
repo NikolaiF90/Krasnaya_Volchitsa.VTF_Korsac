@@ -47,24 +47,13 @@ while {Task_DutyStatus == 0} do
 
                 if (_remaining <= 0) then
                 {
-                    hint "Patrol Completed"; 
-                    [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
-                    
-                    Task_DutyStatus = 1;
-                    Task_DutyName = "";
-                    Task_DutyDescription = "";
-                    deleteMarker Task_AoMarker;
-                    deleteMarker Task_AoZone;
-                    Persistent_MarkerBlacklists = [];
-
                     // prevent code running any further
                     _inAO = false;
                     _detected = false;
                     sleep 1;
 
                     // RTB mission
-                    ["Task_RTB"] call F90_fnc_createTask;
-                    _taskCompleted = true;
+                    _taskCompleted = [] call F90_fnc_completePatrol;
                 };
             };
 
