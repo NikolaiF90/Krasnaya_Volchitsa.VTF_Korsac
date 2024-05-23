@@ -7,6 +7,8 @@ Scenario_Name = "Krasnaya Volchitsa";
 // Init Team switch
 enableTeamSwitch true;
 
+civilian setFriend [east, 1];
+
 addMissionEventHandler ["TeamSwitch", 
 {
 	params ["_previousUnit", "_newUnit"];

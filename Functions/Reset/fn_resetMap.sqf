@@ -35,6 +35,10 @@ waitUntil {configurePersistentDone};
 [] call F90_fnc_persistentInit;
 configurePersistentDone = nil;
 
+// Init Civilian And Bounty System 
+[] call F90_fnc_configureCAB;
+[] call F90_fnc_initCAB;
+
 if ((count Mission_CreatedUnits) > 0) then 
 {
     {

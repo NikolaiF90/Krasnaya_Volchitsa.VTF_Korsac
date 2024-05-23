@@ -1,7 +1,15 @@
 class F90
 {
+    class CivilianAndBounty
+    {
+        file = "Functions\CivilianAndBounty";
+        class registerCivilian {};
+    };
+
     class Configure 
     {
+        file = "Functions\Configure";
+        class configureCAB {};
         class configureEconomy {};
         class configurePersistent {};
         class configureTask {};
@@ -36,6 +44,7 @@ class F90
     class Init 
     {
         file = "Functions\Init";
+        class initCAB {};
         class persistentInit {};
         class initTask {};
         class initVariables {};
@@ -84,6 +93,7 @@ class F90
     {
         file = "Functions\Task";
         class activeTaskHandler {};
+        class completePatrol {};
         class createAmbush {};
         class createAOMarker {};
         class createAOTrigger {};
