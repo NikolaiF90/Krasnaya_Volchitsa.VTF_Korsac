@@ -7,7 +7,7 @@ _unit addAction
     "<t color='#23d1cd'>Ask for identification</t>",
     {
 		params ["_target", "_caller", "_actionId", "_arguments"];
-        [_target] call F90_fnc_askForID;
+        [_target, _caller] call F90_fnc_askForID;
 	},
     nil,
     6,
