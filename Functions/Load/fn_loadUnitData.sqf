@@ -150,6 +150,8 @@ private _money = [_unitData, "money"] call F90_fnc_getByKey;
 private _confirmedKills = [_unitData, "confirmedKills"] call F90_fnc_getByKey;
 private _totalConductedMissions = [_unitData, "totalConductedMissions"] call F90_fnc_getByKey;
 private _totalSuccessfulMissions = [_unitData, "totalSuccessfulMissions"] call F90_fnc_getByKey;
+private _totalArrestedHVT = [_unitData, "totalArrestedHVT"] call F90_fnc_getByKey;
+private _totalKilledHVT = [_unitData, "totalKilledHVT"] call F90_fnc_getByKey;
         
 _unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
 _unit setVariable ["BIS_enableRandomization", false];
@@ -175,6 +177,8 @@ _unit setVariable ["BIS_enableRandomization", false];
 _unit setVariable ["Record_ConfirmedKills", _confirmedKills];
 _unit setVariable ["Record_TotalConductedMissions", _totalConductedMissions];
 _unit setVariable ["Record_TotalSuccessfulMissions", _totalSuccessfulMissions];
+_unit setVariable ["Record_TotalArrestedHVT", _totalArrestedHVT];
+_unit setVariable ["Record_TotalKilledHVT", _totalKilledHVT];
 
 if (rating _unit > _rating) then
 {
