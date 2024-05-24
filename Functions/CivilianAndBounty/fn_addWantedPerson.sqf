@@ -2,7 +2,7 @@
     Author: PrinceF90
 
     Description: 
-        Function to add a specified number of wanted persons from a list of potential high-value targets to a wanted list
+        Function to add a specified number of wanted persons from a list of potential high-value targets to a wanted list.
 
     Parameter(s):
         0: NUMBER - _count: Number or HVT to add to the wanted list;
