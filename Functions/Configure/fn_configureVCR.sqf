@@ -18,8 +18,6 @@ VCRDebug = true; // true to turn on debug
 
 // Reward for killing enemy
 Record_NormalKillReward = 10;
-// Reward for killing HVT
-Record_HVTKillReward = 100;
 
 Points_ConfirmedKill = 2;
 Points_HVTKill = 0;
