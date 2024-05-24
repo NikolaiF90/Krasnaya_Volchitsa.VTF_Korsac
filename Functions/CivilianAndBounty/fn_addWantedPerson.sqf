@@ -15,7 +15,7 @@ params ["_count"];
 
 private _addedPOI = [];
 
-for "_i" from 0 to _count do 
+for "_i" from 0 to (_count)-1 do 
 {
     private _wantedIndex = floor random (count CAB_PotentialHVT);
     private _wantedName = CAB_PotentialHVT # _wantedIndex;
