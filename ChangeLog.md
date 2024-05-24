@@ -5,9 +5,12 @@ None currently
 
 ## ToDO
     - Arrest civilian.
-    - Add wanted list into Tactical Tab (lsitbox)
 
 ## Version History
+
+* Version 1.13.0a
+    - Tactical Tab updated. Wanted list will be shown on tactical tab.
+    - Minor optimization and bugfix.
 
 * Version 1.12.0a
     - Civilian presence. Now the map will be populated with civilians.
