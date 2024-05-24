@@ -1,3 +1,4 @@
+if (isDedicated) exitWith {};
 Scenario_Name = "Krasnaya Volchitsa";
 [true, "init",format ["Starting %1...", Scenario_Name], false] call F90_fnc_debug;
 
