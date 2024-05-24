@@ -10,6 +10,8 @@ None currently
 
 * Version 1.13.0a
     - Tactical Tab updated. Wanted list will be shown on tactical tab.
+    - Arrest civilian.
+    - Player will be rewarded for every arrested/killed HVT.
     - Minor optimization and bugfix.
 
 * Version 1.12.0a
