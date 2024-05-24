@@ -5,7 +5,7 @@ class tacticalMenu
 	class controls
 	{
 		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Delyga)
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Tofasy)
 		////////////////////////////////////////////////////////
 
 		class RscText_1000: RscText
@@ -14,8 +14,8 @@ class tacticalMenu
 
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.016 * safezoneH + safezoneY;
-			w = 0.273281 * safezoneW;
-			h = 0.572 * safezoneH;
+			w = 0.283594 * safezoneW;
+			h = 0.385 * safezoneH;
 			colorBackground[] = {0.125,0.235,0.2,1};
 		};
 		class text_TacticalTab: RscText
@@ -23,7 +23,7 @@ class tacticalMenu
 			idc = 1202;
 
 			text = "Tactical Tab"; //--- ToDo: Localize;
-			x = 0.226719 * safezoneW + safezoneX;
+			x = 0.123594 * safezoneW + safezoneX;
 			y = 0.016 * safezoneH + safezoneY;
 			w = 0.0464063 * safezoneW;
 			h = 0.044 * safezoneH;
@@ -34,8 +34,8 @@ class tacticalMenu
 
 			x = 0.0101562 * safezoneW + safezoneX;
 			y = 0.06 * safezoneH + safezoneY;
-			w = 0.262969 * safezoneW;
-			h = 0.352 * safezoneH;
+			w = 0.134062 * safezoneW;
+			h = 0.176 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
 		class text_Money: RscText
@@ -45,7 +45,7 @@ class tacticalMenu
 			text = "Money: 000000"; //--- ToDo: Localize;
 			x = 0.0101562 * safezoneW + safezoneX;
 			y = 0.016 * safezoneH + safezoneY;
-			w = 0.12375 * safezoneW;
+			w = 0.113437 * safezoneW;
 			h = 0.044 * safezoneH;
 		};
 		class text_ConfirmedKills: RscText
@@ -64,14 +64,15 @@ class tacticalMenu
 
 			text = "There are no active task currently."; //--- ToDo: Localize;
 			x = 0.0101562 * safezoneW + safezoneX;
-			y = 0.423 * safezoneH + safezoneY;
-			w = 0.262969 * safezoneW;
+			y = 0.247 * safezoneH + safezoneY;
+			w = 0.273281 * safezoneW;
 			h = 0.132 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
 		class RscText_1006: RscText
 		{
 			idc = 1207;
+
 			text = "Total Conducted Missions: 0"; //--- ToDo: Localize;
 			x = 0.0153125 * safezoneW + safezoneX;
 			y = 0.093 * safezoneH + safezoneY;
@@ -81,16 +82,62 @@ class tacticalMenu
 		class RscText_1007: RscText
 		{
 			idc = 1208;
+
 			text = "Total Successful Missions: 0"; //--- ToDo: Localize;
 			x = 0.0153125 * safezoneW + safezoneX;
 			y = 0.126 * safezoneH + safezoneY;
 			w = 0.12375 * safezoneW;
 			h = 0.044 * safezoneH;
 		};
+		class RscText_1008: RscText
+		{
+			idc = 1209;
+
+			text = "Total Arrested HVT: 0"; //--- ToDo: Localize;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.159 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class RscText_1009: RscText
+		{
+			idc = 1210;
+
+			text = "Total Killed HVT: 0"; //--- ToDo: Localize;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.192 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class RscText_1010: RscText
+		{
+			idc = 1211;
+			x = 0.149375 * safezoneW + safezoneX;
+			y = 0.06 * safezoneH + safezoneY;
+			w = 0.134062 * safezoneW;
+			h = 0.176 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class RscListbox_1500: RscListbox
+		{
+			idc = 1212;
+			x = 0.154531 * safezoneW + safezoneX;
+			y = 0.093 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.132 * safezoneH;
+		};
+		class RscText_1011: RscText
+		{
+			idc = 1213;
+			text = "WANTED LIST"; //--- ToDo: Localize;
+			x = 0.180312 * safezoneW + safezoneX;
+			y = 0.049 * safezoneH + safezoneY;
+			w = 0.0721875 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
-
 	};
 }
 

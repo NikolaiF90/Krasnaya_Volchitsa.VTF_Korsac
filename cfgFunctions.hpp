@@ -3,6 +3,7 @@ class F90
     class CivilianAndBounty
     {
         file = "Functions\CivilianAndBounty";
+        class addWantedPerson {};
         class registerCivilian {};
     };
 
