@@ -135,5 +135,6 @@ class F90
         class openTacticalTab {};
         class showReport {};
         class transferRecord {};
+        class updateWantedList {};
     };
 };
