@@ -1,4 +1,4 @@
-params ["_unit"];
+params ["_unit", "_caller"];
         
 _unit stop true;
 
@@ -14,7 +14,7 @@ if (!_idChecked) then
     {
         private _bountyIndex = floor random (count CAB_WantedList);
         private _unitName = CAB_WantedList # _bountyIndex;
-        CAB_WantedList deleteAt _bountyIndex;
+        ["ARREST", [_target, _caller, _bountyIndex]] call F90_fnc_updateWantedList;
 
         _unit setName _unitName;
         _firstName = _unitName # 1;
