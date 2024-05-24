@@ -4,6 +4,7 @@ class F90
     {
         file = "Functions\CivilianAndBounty";
         class addWantedPerson {};
+        class askForID {};
         class registerCivilian {};
     };
 
