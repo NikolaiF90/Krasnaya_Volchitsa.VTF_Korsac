@@ -35,10 +35,4 @@ CAB_PotentialHVT =
     ["Adam Rivera", "Adam", "Rivera"] 
 ];
 
-for "_i" from 0 to 2 do 
-{
-    private _wantedIndex = floor random (count CAB_PotentialHVT);
-    private _wantedName = CAB_PotentialHVT # _wantedIndex;
-    CAB_WantedList pushBack _wantedName;
-    CAB_WantedList deleteAt _wantedIndex;
-};
+[3] call F90_fnc_addWantedPerson;
