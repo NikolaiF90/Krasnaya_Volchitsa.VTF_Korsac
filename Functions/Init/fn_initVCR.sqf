@@ -10,6 +10,8 @@ VCR_ConfirmedKillsIDC = 1205;
 VCR_ActiveTaskIDC = 1206;
 VCR_TotalConductedIDC = 1207;
 VCR_TotalCompletedIDC = 1208;
+VCR_TotalArrestedHVTIDC = 1209;
+VCR_TotalKilledHVTIDC = 1210;
 
 VCR_TempKillsIDC = 1311;
 VCR_TempHVTKilledIDC = 1312;
@@ -23,6 +25,8 @@ VCR_TempTeamCasualtiesIDC = 1319;
 VCR_TempRewardsIDC = 1320;
 VCR_TempMissionSuccessIDC = 1321;
 VCR_TempTotalPointsIDC = 1322;
+
+VCR_WantedListBoxIDC = 1212;
 
 // Task Record Variables
 VCR_TempKillCount = 0;
@@ -41,27 +45,24 @@ VCR_TempCivilianCasualties = 0;
 VCR_TempTeamCasualties = 0;
 
 
+private _defaultUnitVariables = [
+    ["Record_ConfirmedKills", 0],
+    ["Record_TotalConductedMissions", 0],
+    ["Record_TotalSuccessfulMissions", 0],
+    ["Record_TotalArrestedHVT", 0],
+    ["Record_TotalKilledHVT", 0]
+];
+
 {
-    // _x addAction ["<t color='#23d1cd'>Open Tactical Tab</t>", {params ["_target", "_caller", "_actionId", "_arguments"]; [_caller] call F90_fnc_openTacticalTab}, nil, 6, false, false, "", "_target == _this", -1, false];
-
-    private _confirmedKills = Mission_Host getVariable ["Record_ConfirmedKills", -1];
-    if (_confirmedKills == -1) then 
+    private _unit = _x;
     {
-        Mission_Host setVariable ["Record_ConfirmedKills", 0];
-    };
-
-    private _conductedMissions = Mission_Host getVariable ["Record_TotalConductedMissions", -1];
-    if (_conductedMissions == -1) then 
-    {
-        Mission_Host setVariable ["Record_TotalConductedMissions", 0];
-    };
-
-    private _successfulMissions = Mission_Host getVariable ["Record_TotalSuccessfulMissions", -1];
-    if (_successfulMissions == -1) then 
-    {
-        Mission_Host setVariable ["Record_TotalSuccessfulMissions", 0];
-    };
-} forEach Mission_Playables + [Mission_Host];
+        private _currentValue = _unit getVariable [_x select 0, -1];
+        if (_currentValue == -1) then 
+        {
+            _unit setVariable [_x select 0, _x select 1];
+        };
+    } forEach _defaultUnitVariables;
+} forEach (Mission_Playables + [Mission_Host]);
 
 VCR_ActionID = Mission_Host addAction ["<t color='#23d1cd'>Open Tactical Tab</t>", {params ["_target", "_caller", "_actionId", "_arguments"]; [_caller] call F90_fnc_openTacticalTab}, nil, 6, false, false, "", "_target == _this", -1, false];
 
