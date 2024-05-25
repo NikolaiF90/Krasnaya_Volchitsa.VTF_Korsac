@@ -1,16 +1,27 @@
 class F90
 {
+    class Ambient 
+    {
+        file = "Functions\Ambient"
+
+    };
+
     class CivilianAndBounty
     {
         file = "Functions\CivilianAndBounty";
         class addWantedPerson {};
+        class arrest {};
         class askForID {};
+        class civilianHandler {};
         class registerCivilian {};
+        class scanHouses {};
+        class spawnCivilian {};
     };
 
     class Configure 
     {
         file = "Functions\Configure";
+        class configureAmbient {};
         class configureCAB {};
         class configureEconomy {};
         class configurePersistent {};
@@ -46,6 +57,7 @@ class F90
     class Init 
     {
         file = "Functions\Init";
+        class initAmbient {};
         class initCAB {};
         class persistentInit {};
         class initTask {};
@@ -115,6 +127,7 @@ class F90
         class clearArray {};
         class clearGarbage {};
         class debug {};
+        class filterGoodHouses {};
         class generateCargoData {};
         class generateGroupData {};
         class generatePositioningData {};

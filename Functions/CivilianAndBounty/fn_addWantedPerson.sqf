@@ -15,13 +15,22 @@ params ["_count"];
 
 private _addedPOI = [];
 
+
 for "_i" from 0 to (_count)-1 do 
 {
     private _wantedIndex = floor random (count CAB_PotentialHVT);
-    private _wantedName = CAB_PotentialHVT # _wantedIndex;
-    CAB_WantedList pushBack _wantedName;
+    private _wantedData = CAB_PotentialHVT # _wantedIndex;
+
+    private _arrestReward = floor (CAB_HVTReward call BIS_fnc_randomNum);
+    private _deductAmount = (CAB_HVTKilledDeduction / 100) * _arrestReward;
+    private _killReward = _arrestReward - _deductAmount;
+
+    _wantedData pushBack _arrestReward;
+    _wantedData pushBack _killReward;
+
+    CAB_WantedList pushBack _wantedData;
     CAB_PotentialHVT deleteAt _wantedIndex;
-    _addedPOI pushBack _wantedName;
+    _addedPOI pushBack _wantedData;
 };
 
 _addedPOI;

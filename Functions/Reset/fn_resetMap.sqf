@@ -35,6 +35,10 @@ waitUntil {configurePersistentDone};
 [] call F90_fnc_persistentInit;
 configurePersistentDone = nil;
 
+// Init Ambient
+[] call F90_fnc_configureAmbient;
+[] call F90_fnc_initAmbient;
+
 // Init Civilian And Bounty System 
 [] call F90_fnc_configureCAB;
 [] call F90_fnc_initCAB;

@@ -56,7 +56,10 @@ if (_created) then
     {
         {
             private _wantedName = _x # 0;
-            lbAdd [VCR_WantedListBoxIDC, _wantedName];
+            private _wantedValue = _x # 3;
+            private _text = format ["%1milcash: %2", _wantedValue, _wantedName];
+
+            lbAdd [VCR_WantedListBoxIDC, _text];
         }
         forEach CAB_WantedList;
     } else 

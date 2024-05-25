@@ -1,18 +1,20 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-None currently
-
+    Civilian spawning in night time
 ## ToDO
-    - Arrest civilian.
-
+    Task update
 ## Version History
 
 * Version 1.13.0a
+    - Civilian Presence major overhaul.
+    - Civilian will now react to surrounding. 
     - Tactical Tab updated. Wanted list will be shown on tactical tab.
+    - Reward for capturing HVT will be shown on Tactical Tab.
     - Arrest civilian.
     - Player will be rewarded for every arrested/killed HVT.
-    - Minor optimization and bugfix.
+    - Player will get less reward for killing HVT.
+    - Optimization and bugfix.
 
 * Version 1.12.0a
     - Civilian presence. Now the map will be populated with civilians.

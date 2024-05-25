@@ -64,6 +64,19 @@ private _defaultUnitVariables = [
     } forEach _defaultUnitVariables;
 } forEach (Mission_Playables + [Mission_Host]);
 
-VCR_ActionID = Mission_Host addAction ["<t color='#23d1cd'>Open Tactical Tab</t>", {params ["_target", "_caller", "_actionId", "_arguments"]; [_caller] call F90_fnc_openTacticalTab}, nil, 6, false, false, "", "_target == _this", -1, false];
+VCR_ActionID = Mission_Host addAction 
+[
+    "<t color='#23d1cd'>Open Tactical Tab</t>", 
+    {
+        params ["_target", "_caller", "_actionId", "_arguments"]; 
+        [_caller] call F90_fnc_openTacticalTab
+    }, 
+    nil, 
+    4, 
+    false, 
+    false, 
+    "", 
+    "_target == _this"
+];
 
 [VCRDebug, "initVCR", "Done initializing Veteran Combat Record.", true] call F90_fnc_debug;
