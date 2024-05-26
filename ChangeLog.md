@@ -6,6 +6,10 @@
     Task update
 ## Version History
 
+* Version 1.14.0a
+    - Identity. Civilian identity overhaul.
+    - Minor optimization and bugfix.
+
 * Version 1.13.0a
     - Civilian Presence major overhaul.
     - Civilian will now react to surrounding. 

@@ -24,6 +24,7 @@ class F90
         class configureAmbient {};
         class configureCAB {};
         class configureEconomy {};
+        class configureIdentity {};
         class configurePersistent {};
         class configureTask {};
         class configureVCR {};
@@ -130,6 +131,7 @@ class F90
         class filterGoodHouses {};
         class generateCargoData {};
         class generateGroupData {};
+        class generateName {};
         class generatePositioningData {};
         class generateUniqueID {};
         class generateUnitData {};
