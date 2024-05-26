@@ -43,6 +43,9 @@ configurePersistentDone = nil;
 [] call F90_fnc_configureCAB;
 [] call F90_fnc_initCAB;
 
+// Init Identity
+[] call F90_fnc_configureIdentity;
+
 if ((count Mission_CreatedUnits) > 0) then 
 {
     {
