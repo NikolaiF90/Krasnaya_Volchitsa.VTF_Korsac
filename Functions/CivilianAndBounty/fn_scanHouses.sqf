@@ -1,9 +1,19 @@
+/*
+    Author: PrinceF90
+
+    Description:
+        This function manages the spawning of civilians based on player position and environmental conditions.
+
+    Parameter(s):
+        None
+
+    Returns:
+        None
+*/
 private _outOfSpawnArea = false;
 
 while {CAB_CivilianSpawningEnabled} do 
 {
-    [CABDebug, "scanHouses", "Scanning surrounding...", true] call F90_fnc_debug;
-
     if (CAB_PlayerOldPos distance (position player) > CAB_CivilianSpawnRadius && speed player < 130) then 
     {
         _outOfSpawnArea = true;
@@ -13,26 +23,19 @@ while {CAB_CivilianSpawningEnabled} do
     if (_outOfSpawnArea) then 
     {
         CAB_HousesNearPlayer = CAB_AllHousesOnMap select {_x distance player <= CAB_CivilianSpawnRadius};
-        [CABDebug, "scanHouses", format ["Nearby houses: %1", count CAB_HousesNearPlayer], true] call F90_fnc_debug;
 
         CAB_NearbyHouses = [CAB_CivilianSpawnRadius] call F90_fnc_filterGoodHouses;
         CAB_NearbyHouses = CAB_NearbyHouses select {damage _x < 0.75};
 
-        [CABDebug, "scanHouses", format ["Habitable houses: %1", count CAB_NearbyHouses], true] call F90_fnc_debug;
-
         // Civilian count
         CAB_CivilianCount = floor ((count CAB_NearbyHouses)/ CAB_CivilianDensity);
-        if (CAB_CivilianCount > CAB_MaxSpawnedCivilians) then 
-        {
-            CAB_CivilianCount = CAB_MaxSpawnedCivilians;
-        };
-
+        // Make sure civilian count doesn't reach over the limit
+        CAB_CivilianCount = CAB_CivilianCount min CAB_MaxSpawnedCivilians;
         // Disable spawning if raining or nightime
         if ((rain > 0.2) || (daytime > 20 && daytime < 6)) then 
         {
             CAB_CivilianCount = 0;
         };
-        [CABDebug, "scanHouses", format ["Civilian Count: %1", CAB_CivilianCount], true] call F90_fnc_debug;
 
         // Remove dead player from spawner list of each civilian
         if (isMultiplayer) then 
