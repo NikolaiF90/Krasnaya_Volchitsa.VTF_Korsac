@@ -23,9 +23,8 @@ if (!_idChecked) then
         _fullName = _unitData # 0;
         _firstName = _unitData # 1;
         _surname = _unitData # 2;
-        private _unitName = [_fullName, _firstName, _surname];
         
-        _unit setName _unitName;
+        _unit setName [_fullName, _firstName, _surname];
 
         _unit setVariable ["CAB_IsWanted", true];
         _unit setVariable ["CAB_WantedID", _bountyIndex];
@@ -33,21 +32,31 @@ if (!_idChecked) then
         _isWanted = true;
     } else 
     {
-        private _unitName = name _unit;
-        private _name = [_unitName, " "] call BIS_fnc_splitString;
+        private _generatedName = [CAB_CivilianNationality] call F90_fnc_generateName;
         
-        _firstName = _name # 0;
-        _surname = _name #1;
-        
+        _fullName = _generatedName # 0;
+        _firstName = _generatedName # 1;
+        _surname = _generatedName # 2;
+
+        _unit setName [_fullName, _firstName, _surname];
+
         _unit setVariable ["CAB_IsWanted", false];
     };
 } else 
 {
     private _unitName = name _unit;
+
     private _name = [_unitName, " "] call BIS_fnc_splitString;
     
-    _firstName = _name # 0;
-    _surname = _name #1;
+    if (count _name == 2) then 
+    {
+        _firstName = _name # 0;
+        _surname = _name # 1;
+    } else 
+    {
+        _firstName = _name # 1;
+        _surname = _name # 2;
+    };
 };
 
 hint "";
