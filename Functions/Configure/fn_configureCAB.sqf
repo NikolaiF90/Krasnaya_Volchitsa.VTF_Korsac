@@ -21,6 +21,8 @@ CAB_CivilianSpawnRadius = 300;
 CAB_CivilianDensity = 1;
 // Max spawned civs count. WARNING: This variable can override CAB_CivilianDensity if the value is lower
 CAB_MaxSpawnedCivilians = 20;
+// This will generate names based on nationality. Can be "English", "Russian"
+CAB_CivilianNationality = "Russian";
 
 // Time before civilian continue moving after being stopped by player
 CAB_CivilianWaitingTime = 8;
