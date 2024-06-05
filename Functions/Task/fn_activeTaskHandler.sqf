@@ -59,24 +59,37 @@ while {Task_DutyStatus == 0} do
 
             case "Task_Ambush":
             {
-                hint "Ambush Completed"; 
-                [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
-                
-                Task_DutyStatus = 1;
-                Task_DutyName = "";
-                Task_DutyDescription = "";
-                deleteMarker Task_AoMarker;
-                deleteMarker Task_AoZone;
-                Persistent_MarkerBlacklists = [];
+                if (count Task_CreatedPatrolGroups > 0) then 
+                {
+                    {
+                        private _group = units _x;
+                        private _aliveUnitCount = count (_group select {alive _x});
 
-                // prevent code running any further
-                _inAO = false;
-                _detected = false;
-                sleep 1;
+                        if (_aliveUnitCount <= 0) then 
+                        {
+                            Task_CreatedPatrolGroups = Task_CreatedPatrolGroups - [_x];
+                        };
+                    } forEach Task_CreatedPatrolGroups;
+                } else 
+                {
+                    hint "Ambush Completed"; 
+                    [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
+                    
+                    Task_DutyStatus = 1;
+                    Task_DutyName = "";
+                    Task_DutyDescription = "";
+                    deleteMarker Task_AoMarker;
+                    deleteMarker Task_AoZone;
+                    Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
+                    // prevent code running any further
+                    _inAO = false;
+                    _detected = false;
+                    sleep 1;
 
-                // RTB mission
-                ["Task_RTB"] call F90_fnc_createTask;
-                _taskCompleted = true;
+                    // RTB mission
+                    ["Task_RTB"] call F90_fnc_createTask;
+                    _taskCompleted = true;
+                };
             };
 
             case "Task_KillHVT":
@@ -89,7 +102,7 @@ while {Task_DutyStatus == 0} do
                 Task_DutyDescription = "";
                 deleteMarker Task_AoMarker;
                 deleteMarker Task_AoZone;
-                Persistent_MarkerBlacklists = [];
+                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
 
                 // prevent code running any further
                 _inAO = false;
@@ -111,7 +124,7 @@ while {Task_DutyStatus == 0} do
                 Task_DutyDescription = "";
                 deleteMarker Task_AoMarker;
                 deleteMarker Task_AoZone;
-                Persistent_MarkerBlacklists = [];
+                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
 
                 // prevent code running any further
                 _inAO = false;
@@ -134,7 +147,7 @@ while {Task_DutyStatus == 0} do
                 Task_DutyDescription = "Report the mission to your reporting officer";
                 deleteMarker Task_AoMarker;
                 deleteMarker Task_AoZone;
-                Persistent_MarkerBlacklists = [];
+                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
 
                 Mission_TaskOfficer addAction 
                 [
