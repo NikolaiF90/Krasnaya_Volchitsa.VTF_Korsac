@@ -26,7 +26,7 @@ if (!_idChecked) then
         
         _unit setName [_fullName, _firstName, _surname];
 
-        _unit setVariable ["CAB_IsWanted", true];
+        _unit setVariable ["Record_IsHVT", true];
         _unit setVariable ["CAB_WantedID", _bountyIndex];
 
         _isWanted = true;
@@ -40,7 +40,7 @@ if (!_idChecked) then
 
         _unit setName [_fullName, _firstName, _surname];
 
-        _unit setVariable ["CAB_IsWanted", false];
+        _unit setVariable ["Record_IsHVT", false];
     };
 } else 
 {
