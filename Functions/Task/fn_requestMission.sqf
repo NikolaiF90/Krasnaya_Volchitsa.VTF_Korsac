@@ -20,17 +20,15 @@
 // Assign Task
 if (Task_ActiveTask == -1) then 
 {
-    private _taskIndex = floor (random (count Task_AllTask)); 
+    private _task = selectRandom Task_AllTask;
 
     // Prevent generating RTB task
-    while {_taskIndex == 4} do 
+    while {_task == "Task_RTB"} do 
     {
-        _taskIndex = floor (random (count Task_AllTask));
+        _task = selectRandom Task_AllTask;
     };
 
-    private _taskName = Task_AllTask # _taskIndex;
+    [_task] call F90_fnc_createTask;
 
-    [_taskName] call F90_fnc_createTask;
-
-    [TaskDebug, "requestMission", format ["Task %1 has been created.", _taskName], false] call F90_fnc_debug;
+    [TaskDebug, "requestMission", format ["Task %1 has been created.", _task], false] call F90_fnc_debug;
 };
