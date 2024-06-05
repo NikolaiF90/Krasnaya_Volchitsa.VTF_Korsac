@@ -7,7 +7,8 @@
 ## Version History
 
 * Version 1.15.0a
-    - 
+    - Ambush mission is fully playable.
+    - Major optimization and bugfixes.
 
 * Version 1.14.0a
     - Identity. Civilian identity overhaul.

@@ -2,7 +2,7 @@ class F90
 {
     class Ambient 
     {
-        file = "Functions\Ambient"
+        file = "Functions\Ambient";
 
     };
 
@@ -112,6 +112,8 @@ class F90
         class createAmbush {};
         class createAOMarker {};
         class createAOTrigger {};
+        class createHVT {};
+        class createPatrol {};
         class createTask {};
         class reportMission {};
         class requestMission {};

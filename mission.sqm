@@ -12,22 +12,22 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=194;
+		nextID=224;
 	};
 	class MarkerIDProvider
 	{
-		nextID=16;
+		nextID=18;
 	};
 	class LayerIndexProvider
 	{
-		nextID=29;
+		nextID=35;
 	};
 	class Camera
 	{
-		pos[]={2605.7771,889.35223,2042.8938};
-		dir[]={-0.61413735,-0.58986545,0.52430344};
-		up[]={-0.44861636,0.80750149,0.38299426};
-		aside[]={0.64929092,1.4901161e-008,0.76054013};
+		pos[]={2601.3252,868.01892,2084.8276};
+		dir[]={-0.59021556,-0.39565563,-0.70363504};
+		up[]={-0.25427088,0.91839886,-0.30313313};
+		aside[]={-0.76615393,-1.4901161e-008,0.64265698};
 	};
 };
 binarizationWanted=0;
@@ -108,7 +108,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=8;
+		items=9;
 		class Item0
 		{
 			dataType="Group";
@@ -238,7 +238,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={2506.2749,843.85999,2093.4072};
+				position[]={2573.011,843.85999,2060.3911};
 			};
 			id=15;
 			type="ModuleCurator_F";
@@ -612,6 +612,139 @@ class Mission
 			};
 			id=83;
 			type="min_rf_gaz_2330_HMG";
+		};
+		class Item8
+		{
+			dataType="Layer";
+			name="HideoutMarkers";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Marker";
+					position[]={4966.4448,843.33801,442.57501};
+					name="ho_01";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=16.023001;
+					b=13.33;
+					angle=38.799999;
+					id=194;
+					atlOffset=-0.0020141602;
+				};
+				class Item1
+				{
+					dataType="Marker";
+					position[]={1949.558,848.41998,6949.9448};
+					name="ho_02";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=50;
+					id=195;
+				};
+				class Item2
+				{
+					dataType="Marker";
+					position[]={4266.0107,867.07306,6865.1211};
+					name="ho_03";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=50;
+					id=197;
+				};
+				class Item3
+				{
+					dataType="Marker";
+					position[]={221.7751,831.17279,4659.3062};
+					name="ho_04";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=50;
+					id=198;
+				};
+				class Item4
+				{
+					dataType="Marker";
+					position[]={883.1795,839.13989,5402.374};
+					name="ho_05";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=50;
+					id=199;
+				};
+				class Item5
+				{
+					dataType="Marker";
+					position[]={3047.9204,849.37,3754.2393};
+					name="ho_06";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=50;
+					id=201;
+				};
+				class Item6
+				{
+					dataType="Marker";
+					position[]={3751.3599,879.38989,4723.9346};
+					name="ho_07";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=50;
+					id=202;
+				};
+				class Item7
+				{
+					dataType="Marker";
+					position[]={6912.3521,830.61993,3402.4243};
+					name="ho_08";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=50;
+					id=203;
+				};
+				class Item8
+				{
+					dataType="Marker";
+					position[]={7312.7021,835.21997,3241.3428};
+					name="ho_09";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=50;
+					id=204;
+				};
+				class Item9
+				{
+					dataType="Marker";
+					position[]={7698.9351,842.46014,4497.9004};
+					name="ho_10";
+					markerType="RECTANGLE";
+					type="";
+					colorName="ColorGUER";
+					a=50;
+					b=56.054443;
+					id=205;
+				};
+			};
+			id=196;
+			atlOffset=8.3432617;
 		};
 	};
 };
