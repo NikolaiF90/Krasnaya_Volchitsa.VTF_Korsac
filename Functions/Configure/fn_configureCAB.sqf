@@ -23,6 +23,8 @@ CAB_CivilianDensity = 1;
 CAB_MaxSpawnedCivilians = 20;
 // This will generate names based on nationality. Can be "English", "Russian"
 CAB_CivilianNationality = "Russian";
+// The counts of wanted persons available
+CAB_WantedCounts = 3;
 
 // Time before civilian continue moving after being stopped by player
 CAB_CivilianWaitingTime = 8;
