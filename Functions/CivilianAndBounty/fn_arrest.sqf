@@ -1,7 +1,7 @@
 params ["_detainee", "_arrestor"];
 
 private _bountyIndex = _detainee getVariable ["CAB_WantedID", -1];
-private _isWanted = _detainee getVariable ["CAB_IsWanted", -1];
+private _isWanted = _detainee getVariable ["Record_IsHVT", -1];
 private _arrested = false;
 
 _detainee disableAI "MOVE";
