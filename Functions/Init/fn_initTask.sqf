@@ -10,6 +10,7 @@ if (!isNil {Task_CurrentTaskID}) then
     };
 };
 
+Task_CreatedPatrolGroups = []; // Created patrol units
 Task_CurrentTaskID = "";
 Task_ActiveTask = -1; // -1 None, 0 Assigned, 1 Completed, 2 Failed
 Task_DutyName = "";
@@ -29,6 +30,7 @@ Task_AllTask =
     "Task_RTB"
 ];
 
+// Delete task officer if already exist
 if (!isNil {Mission_TaskOfficer}) then 
 {
     deleteVehicle Mission_TaskOfficer; 
@@ -62,12 +64,17 @@ if (TaskDebug) then
 {
     {
         _x setMarkerAlpha 1;
-    } forEach Task_TownMarkers + Task_BaseMarkers;
+    } forEach Task_TownMarkers + Task_BaseMarkers + Task_HideoutMarkers;
 } else 
 {
     {
         _x setMarkerAlpha 0;
-    } forEach Task_TownMarkers + Task_BaseMarkers;
+    } forEach Task_TownMarkers + Task_BaseMarkers + Task_HideoutMarkers;
 };
+
+// Blacklist markers
+{
+    Persistent_MarkerBlacklists pushBack _x;
+} forEach Task_TownMarkers + Task_BaseMarkers + Task_HideoutMarkers;
 
 [TaskDebug, "initTask", "Done initializing task system.", true] call F90_fnc_debug;
