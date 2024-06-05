@@ -30,10 +30,12 @@ _heliDeduction = _heliDeduction - (_heliUsedDeduction + _lightArmedHeliDeduction
 [VCRDebug, "reportMission", format ["Heli Points: %1", _heliDeduction], false] call F90_fnc_debug;
 _totalPoints = _totalPoints + _heliDeduction;
 
+// Addition 
 private _killPoints = VCR_TempKillCount * Points_ConfirmedKill;
-_totalPoints = _totalPoints + _killPoints;
+private _hvtKillPoints = VCR_TempHVTKilled * Points_HVTKill;
 
-VCR_TempHVTKilled = 0;
+_totalPoints = _totalPoints + _killPoints + _hvtKillPoints;
+
 VCR_TempHVTCaptured = 0;
 VCR_TempAirSupportUsed = 0;
 VCR_TempArtilleryUsed = 0;
