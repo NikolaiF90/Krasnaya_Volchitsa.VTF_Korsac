@@ -6,6 +6,18 @@ Task_DutyName = "";
 Task_DutyDescription = "";
 Task_DutyStatus = -1; // -1 None, 0 Ongoing, 1 Completed, 2 Failed
 
+if (count Task_CreatedPatrolGroups > 0) then 
+{
+    {
+        private _group = _x;
+        {
+            deleteVehicle _x;
+        } forEach units _group;
+        deleteGroup _group;
+    } forEach Task_CreatedPatrolGroups;
+};
+Task_CreatedPatrolGroups = [];
+
 if (!isNil {Task_AoMarker}) then 
 {
     deleteMarker Task_AoMarker;
