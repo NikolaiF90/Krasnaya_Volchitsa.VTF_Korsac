@@ -20,8 +20,8 @@ VCRDebug = true; // true to turn on debug
 Record_NormalKillReward = 10;
 
 Points_ConfirmedKill = 2;
-Points_HVTKill = 0;
-Points_HVTCapture = 0;
+Points_HVTKill = 4;
+Points_HVTCapture = 6;
 Points_AirSupport = 0;
 Points_Artillery = 0;
 Points_Vehicles = 0;
