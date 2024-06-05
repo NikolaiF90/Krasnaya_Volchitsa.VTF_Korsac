@@ -5,7 +5,6 @@ params ["_taskType"];
 private _taskCreated = false;
 
 // Task variables
-private _locationIndex = -1;
 private _taskMarker = nil;
 private _taskLocation = [];
 private _taskArea = [];
@@ -13,8 +12,6 @@ private _taskAreaX = 0;
 private _taskAreaY = 0;
 private _taskAreaDir = 0;
 private _condition = "";
-private _ambush = false;
-private _spawnPercentage = 0;
 
 // Task Patrol
 switch (_taskType) do 
@@ -28,8 +25,7 @@ switch (_taskType) do
         Task_DutyStatus = 0;
 
         // Generate AO
-        _locationIndex = floor (random (count Task_TownMarkers));
-        _taskMarker = Task_TownMarkers # _locationIndex;
+        _taskMarker = selectRandom Task_TownMarkers;
         _taskLocation = markerPos _taskMarker;
 
         _taskArea = markerSize _taskMarker;
@@ -38,8 +34,8 @@ switch (_taskType) do
         _taskAreaDir = markerDir _taskMarker;
 
         _condition = "this";
-        _ambush = true;
-        _spawnPercentage = 60;
+
+        [60, _taskMarker] call F90_fnc_createAmbush;
     };
     
     case "Task_Ambush": 
@@ -48,12 +44,11 @@ switch (_taskType) do
         Task_CurrentTaskID = "Ambush";
 
         Task_DutyName = "Ambush";
-        Task_DutyDescription = "Ambush the marker AO.";
+        Task_DutyDescription = "We've got intels on recent rebels hideout. Perform an ambush on the location and clean the area.";
         Task_DutyStatus = 0;
 
         // Generate AO
-        _locationIndex = floor (random (count Task_TownMarkers));
-        _taskMarker = Task_TownMarkers # _locationIndex;
+        _taskMarker = selectRandom Task_HideoutMarkers;
         _taskLocation = markerPos _taskMarker;
 
         _taskArea = markerSize _taskMarker;
@@ -75,8 +70,7 @@ switch (_taskType) do
         Task_DutyStatus = 0;
 
         // Generate AO
-        _locationIndex = floor (random (count Task_TownMarkers));
-        _taskMarker = Task_TownMarkers # _locationIndex;
+        _taskMarker = selectRandom Task_TownMarkers;
         _taskLocation = markerPos _taskMarker;
 
         _taskArea = markerSize _taskMarker;
@@ -99,8 +93,7 @@ switch (_taskType) do
         Task_DutyStatus = 0;
 
         // Generate AO
-        _locationIndex = floor (random (count Task_TownMarkers));
-        _taskMarker = Task_TownMarkers # _locationIndex;
+        _taskMarker = selectRandom Task_TownMarkers;
         _taskLocation = markerPos _taskMarker;
 
         _taskArea = markerSize _taskMarker;
@@ -121,9 +114,6 @@ switch (_taskType) do
         Task_DutyName = "Return To Base";
         Task_DutyDescription = "Return to base safely";
         Task_DutyStatus = 0;
-
-        // Reset unused variables
-        _locationIndex = -1;
 
         // Generate AO
         _taskMarker = "base_0";
@@ -148,15 +138,8 @@ switch (_taskType) do
 // Notify player
 [east, Task_CurrentTaskID, "CREATED"] call F90_fnc_showTaskNotification;
 
-// Create random ambushes if needed
-if (_ambush) then 
-{
-    [_spawnPercentage, _taskMarker] call F90_fnc_createAmbush;
-};
-
 // Let player know task has been created and assigned
 Task_ActiveTask = 0;
-Task_DutyStatus = 0;
 [TaskDebug, "createTask", format ["Current task: %1", Task_DutyName], true] call F90_fnc_debug;
 hint Task_DutyDescription;
 
