@@ -31,7 +31,6 @@ VCR_WantedListBoxIDC = 1212;
 // Task Record Variables
 VCR_TempKillCount = 0;
 VCR_TempHVTKilled = 0;
-VCR_TempHVTReward = 0;
 VCR_TempHVTCaptured = 0;
 VCR_TempAirSupportUsed = 0;
 VCR_TempArtilleryUsed = 0;
