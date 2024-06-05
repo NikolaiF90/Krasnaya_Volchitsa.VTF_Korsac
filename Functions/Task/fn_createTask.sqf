@@ -40,7 +40,6 @@ switch (_taskType) do
     
     case "Task_Ambush": 
     {
-        // Task Ambush
         Task_CurrentTaskID = "Ambush";
 
         Task_DutyName = "Ambush";
@@ -57,7 +56,10 @@ switch (_taskType) do
         _taskAreaDir = markerDir _taskMarker;
 
         _condition = "this";
-        _ambush = false;
+        Task_CreatedPatrolGroups = [1, 4, _taskLocation] call F90_fnc_createPatrol;
+
+        private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
+        [Task_AmbushHVTSpawnChance, _hvtSpawnPos] call F90_fnc_createHVT;
     };
 
     case "Task_KillHVT": 
@@ -79,8 +81,8 @@ switch (_taskType) do
         _taskAreaDir = markerDir _taskMarker;
 
         _condition = "this";
-        _ambush = true;
-        _spawnPercentage = 40;
+
+        [80, _taskMarker] call F90_fnc_createAmbush;
     };
 
     case "Task_Support": 
@@ -102,8 +104,7 @@ switch (_taskType) do
         _taskAreaDir = markerDir _taskMarker;
 
         _condition = "this";
-        _ambush = true;
-        _spawnPercentage = 60;
+        [40, _taskMarker] call F90_fnc_createAmbush;
     };
 
     case "Task_RTB": 
@@ -125,7 +126,6 @@ switch (_taskType) do
         _taskAreaDir = markerDir _taskMarker;
 
         _condition = "Mission_Host in thisList";
-        _ambush = false;
     };
 };
 
