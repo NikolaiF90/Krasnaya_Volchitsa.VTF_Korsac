@@ -5,7 +5,7 @@
         This function creates an ambush group with a random size and composition at a specified marker location based on a given spawn percentage. 
     
     Parameter(s): 
-        0: SCALAR - _spawnPercentage: Percentage chance for the ambush group to spawn
+        0: NUMBER - _spawnPercentage: Percentage chance for the ambush group to spawn
         1: OBJECT - _marker: Marker object where the ambush group will spawn
     
     Returns:  
@@ -24,7 +24,7 @@ if (_spawnPercentage >= _random) then
     private _group = createGroup [west, true];
     private _groupSize = [4, 16] call BIS_fnc_randomInt;
 
-    for "_i" from 0 to _groupSize do 
+    for "_i" from 1 to _groupSize do 
     {
         private _unitClass = selectRandom Mission_WestFIAUnits;
         private _unit = [_group, _unitClass, _spawnPos] call F90_fnc_createUnit;
