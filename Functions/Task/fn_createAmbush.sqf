@@ -9,14 +9,13 @@
         1: OBJECT - _marker: Marker object where the ambush group will spawn
     
     Returns:  
-        _group - Created group
+        None
 */
 
 params ["_spawnPercentage", "_marker"];
 
 private _random = floor random 101;
 private _spawnPos = [[_marker]] call BIS_fnc_randomPos;
-private _returnValue = nil;
 
 if (_spawnPercentage >= _random) then 
 {
@@ -33,7 +32,4 @@ if (_spawnPercentage >= _random) then
     private _wp1 = _group addWaypoint [markerPos _marker, 20];
     _wp1 setWaypointBehaviour "COMBAT";
     _wp1 setWaypointType "SAD";
-    _returnValue = _group;
 };
-
-_returnValue;
