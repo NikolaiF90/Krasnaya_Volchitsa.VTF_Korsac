@@ -5,7 +5,6 @@
 [player2, Mission_P2StartPos] call F90_fnc_resetUnit;
 
 if (!isNil{Persistent_ActionID})then{Mission_Host removeAction Persistent_ActionID};
-if (!isNil{VCR_ActionID})then{Mission_Host removeAction VCR_ActionID};
 
 // Init Economy 
 configureEconomyDone = false;
@@ -14,12 +13,15 @@ waitUntil {configureEconomyDone};
 [] call F90_fnc_initEconomy;
 configureEconomyDone = nil;
 
-// Init task 
-configureTaskDone = false;
-[] call F90_fnc_configureTask;
-waitUntil {configureTaskDone};
-[] call F90_fnc_initTask;
-configureTaskDone = nil;
+// Init persistence
+configurePersistentDone = false;
+[] call F90_fnc_configurePersistent;
+waitUntil {configurePersistentDone};
+[] call F90_fnc_persistentInit;
+configurePersistentDone = nil;
+
+// Init Identity
+[] call F90_fnc_configureIdentity;
 
 // Init VCR
 configureVCRDone = false;
@@ -28,23 +30,20 @@ waitUntil {configureVCRDone};
 [] call F90_fnc_initVCR;
 configureVCRDone = nil;
 
-// Init persistence
-configurePersistentDone = false;
-[] call F90_fnc_configurePersistent;
-waitUntil {configurePersistentDone};
-[] call F90_fnc_persistentInit;
-configurePersistentDone = nil;
-
-// Init Ambient
-[] call F90_fnc_configureAmbient;
-[] call F90_fnc_initAmbient;
-
 // Init Civilian And Bounty System 
 [] call F90_fnc_configureCAB;
 [] call F90_fnc_initCAB;
 
-// Init Identity
-[] call F90_fnc_configureIdentity;
+// Init task 
+configureTaskDone = false;
+[] call F90_fnc_configureTask;
+waitUntil {configureTaskDone};
+[] call F90_fnc_initTask;
+configureTaskDone = nil;
+
+// Init Ambient
+[] call F90_fnc_configureAmbient;
+[] call F90_fnc_initAmbient;
 
 if ((count Mission_CreatedUnits) > 0) then 
 {
