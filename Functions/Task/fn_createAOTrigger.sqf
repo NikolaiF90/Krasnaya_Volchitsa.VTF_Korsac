@@ -19,10 +19,8 @@ params ["_location", "_areaX", "_areaY", "_areaDirection", "_condition"];
 
 if (!isNull Task_TaskTrigger) then 
 {
-    [TaskDebug, "createAOTrigger", format ["Deleting Task_TaskTrigger (%1)...", Task_TaskTrigger], false] call F90_fnc_debug;
     deleteVehicle Task_TaskTrigger;
     Task_TaskTrigger = objNull;
-    [TaskDebug, "createAOTrigger", "Task_TaskTrigger deleted.", false] call F90_fnc_debug;
 }; 
 Task_TaskTrigger = createTrigger ["EmptyDetector", _location];
 Task_TaskTrigger setTriggerArea [_areaX, _areaY, _areaDirection, true];
