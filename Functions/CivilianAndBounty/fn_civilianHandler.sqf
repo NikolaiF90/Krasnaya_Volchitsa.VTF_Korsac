@@ -43,7 +43,7 @@ while {CAB_CivilianSpawningEnabled} do
                 };
                 
                 // Handles civilian despawning
-                if (_distance > CAB_CivilianSpawnRadius || (daytime > 20 && daytime < 6) || diag_ticktime > _civilian getvariable "CIV_Lifetime") then
+                if (_distance > CAB_CivilianSpawnRadius || (daytime > 20.000 && daytime < 5.000) || diag_ticktime > _civilian getvariable "CIV_Lifetime") then
                 {
                     private _spawner = _civilian getvariable "CIV_SpawnerUnits";
                     _spawner = _spawner - [player];
