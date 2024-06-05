@@ -45,7 +45,7 @@ CAB_PotentialHVT =
     ["Adam Rivera", "Adam", "Rivera"] 
 ];
 
-[3] call F90_fnc_addWantedPerson;
+[CAB_WantedCounts] call F90_fnc_addWantedPerson;
 
 // Civilians
 private _cfg = (configFile >> "CfgVehicles");
@@ -71,35 +71,3 @@ sleep CAB_CivilianSpawnDelay;
 
 [] spawn F90_fnc_scanHouses;
 [] spawn F90_fnc_civilianHandler;
-
-// Debug
-0 = [] spawn 
-{
-    private _playerMarker = nil;
-    private _zoneMarker = nil;
-
-    if (CABDebug) then 
-    {
-        _playerMarker = createMarker ["PlayerMarker", position player];
-        _playerMarker setMarkerType "hd_dot";
-        _playerMarker setMarkerText "Player Last Pos";
-
-        _zoneMarker = createMarker ["ZoneMarker", position player];
-        _zoneMarker setMarkerBrush "Border";
-        _zoneMarker setMarkerColor "ColorBlue";
-        _zoneMarker setMarkerShape "ELLIPSE";
-        _zoneMarker setMarkerSize [CAB_CivilianSpawnRadius, CAB_CivilianSpawnRadius];
-
-        Persistent_MarkerBlacklists pushBack _playerMarker;
-        Persistent_MarkerBlacklists pushBack _zoneMarker;
-    };
-    while {CABDebug} do 
-    {
-        if (CAB_PlayerOldPos distance (position player) > CAB_CivilianSpawnRadius) then 
-        {
-            _playerMarker setMarkerPos (position player);
-            _zoneMarker setMarkerPos (position player);
-        };
-        sleep CAB_SpawnCheckInterval;
-    };
-};
