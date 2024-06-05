@@ -6,6 +6,7 @@ Mission_P1StartPos = [2587,2069.77,0];
 Mission_P2StartPos = [2586.27,2067.28,0];
 Mission_TaskOfficerStartPos = [2586.12,2051.29,0];
 
+// For deleting created units on map reset
 Mission_CreatedUnits = [];
 
 Mission_WestFIAUnits = 
@@ -25,4 +26,10 @@ Mission_WestFIAUnits =
     "B_G_Sharpshooter_F",
     "B_G_Soldier_SL_F",
     "B_G_Soldier_TL_F"
+];
+
+Mission_HVTUnits = 
+[
+    "B_officer_F",
+    "B_Captain_Pettka_F"
 ];
