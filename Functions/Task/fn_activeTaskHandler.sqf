@@ -62,9 +62,24 @@ while {Task_DutyStatus == 0} do
                 if (count Task_CreatedPatrolGroups > 0) then 
                 {
                     {
-                        private _group = units _x;
-                        private _aliveUnitCount = count (_group select {alive _x});
+                        private _groupArray = units _x;
 
+                        // Remove from group array if injured or being arrested
+                        {
+                            private _isArrested = _x getVariable ["CAB_IsArrested", false];
+                            
+                            private _isCaptive = _x getVariable ["ais_unconscious", false];
+
+                            if (_isCaptive || _isArrested) then 
+                            {
+                                _groupArray deleteAt _forEachIndex;
+                            };
+                        } forEach _groupArray;
+
+                        // Counts remaining members thats still alive
+                        private _aliveUnitCount = count (_groupArray select {alive _x});
+
+                        // Remove the group from patrol groups if none alive and able to combat
                         if (_aliveUnitCount <= 0) then 
                         {
                             Task_CreatedPatrolGroups = Task_CreatedPatrolGroups - [_x];

@@ -1,18 +1,20 @@
 ﻿/*
- * by Psycho
+	Author: Psycho, PrinceF90(Revisited)
 
- * Arguments:
- * 0: Unit That Was Hit (Object)
- * 1: Hit Selection (String)
- * 2: Damage (Number)
- * 3: Shooter (object)
- * 4: Projectile (string)
- * 5: HitPartIndex (number)
- * 6: Instigator (object)
- * 7: HitPoint CfgName (String)
+	Description: 
+		This function handles damage events for units, determining the type and source of damage and applying appropriate effects.
 
- * Return Value:
- * Damage
+	Parameter(s):
+		0: OBJECT - _unit: Object the event handler is assigned to. 
+		1: STRING - _hitSelection: Name of the selection where the unit was damaged. "" for over-all structural damage, "?" for unknown selections. 
+		2: NUMBER - _damage: Resulting level of damage for the selection. 
+		3: OBJECT - _source: The source unit (shooter) that caused the damage. 
+		4: STRING - _projectile: Classname of the projectile that caused inflicted the damage. ("" for unknown, such as falling damage.) 
+		5: SCALAR - _hitPartIndex: Hit part index of the hit point, -1 otherwise. 
+		6: OBJECT - _instigator: Person who pulled the trigger. 
+		7: STRING - _hitPoint: Hit point Cfg name 
+	Return: 
+		Damage
 */
 
 /*		allHitPointsDamage
@@ -23,31 +25,24 @@
 ]
 */
 
-params [
-	"_unit",			// Object the event handler is assigned to.
-	"_hitSelection",	// Name of the selection where the unit was damaged. "" for over-all structural damage, "?" for unknown selections.
-	"_damage",			// Resulting level of damage for the selection.
-	"_source",			// The source unit (shooter) that caused the damage.
-	"_projectile",		// Classname of the projectile that caused inflicted the damage. ("" for unknown, such as falling damage.) (String)
-	"_hitPartIndex",	// Hit part index of the hit point, -1 otherwise.
-	"_instigator",		// Person who pulled the trigger. (Object)
-	"_hitPoint"			// hit point Cfg name (String)
-];
+params ["_unit", "_hitSelection", "_damage", "_source", "_projectile", "_hitPartIndex", "_instigator", "_hitPoint"];
 
 // remote Units
 if !(local _unit) exitWith {false};
 if (_damage == 0) exitWith {[_unit, _hitPartIndex] call AIS_Damage_fnc_exitDamageHandler};
-// forbite forther damage when unit is already unconcious
+
+// forbids further damage when unit is already unconcious
 if (AIS_DISABLE_FURTHER_DAMAGE && {_unit getVariable ["ais_unconscious", false]}) exitWith {0.89};
 // dead unit
 if (_unit getVariable ["AIS_UnitIsDead", false]) exitWith {0.89};
 // unknown part selection
 if (_hitSelection == "?") exitWith {[_unit, _hitPartIndex] call AIS_Damage_fnc_exitDamageHandler};
 // new damage of the selected part
-private _new_damage = if (_hitPartIndex >= 0) then {_damage - (_unit getHitIndex _hitPartIndex)} else {_damage - (damage _unit)};
+private _newDamage = 
+if (_hitPartIndex >= 0) then {_damage - (_unit getHitIndex _hitPartIndex)} else {_damage - (damage _unit)};
 
 // define where the damage come from --> possible outputs: "crash", "smallfire", "bigfire", "falling", "bullet", "grenade", "baaam"
-_damageType = [_unit, _hitSelection, _new_damage, _source, _projectile, _hitPartIndex] call AIS_Damage_fnc_verifyDamageType;
+_damageType = [_unit, _hitSelection, _newDamage, _source, _projectile, _hitPartIndex] call AIS_Damage_fnc_verifyDamageType;
 
 // handle the damage from a fire
 if (_damageType isEqualTo "smallfire") exitWith {[_unit, _hitPartIndex] call AIS_Damage_fnc_exitDamageHandler};
@@ -56,27 +51,27 @@ if (_damageType isEqualTo "bigfire") then {
 	// fire damage is everytime at index -1, part "" --> set the part to "body" and avoid real overall damage
 	_hitSelection = "body";
 	_this set [1, _hitSelection];
-	_new_damage = _fire_damage;	// point where we can change the influence of fire
+	_newDamage = _fire_damage;	// point where we can change the influence of fire
 	_unit setVariable ["ais_fireDamage", 0];
 };
 
 // exit if the damage is only minor or we have a negative hitpart index
-if (_new_damage < 0.05) exitWith {[_unit, _hitPartIndex] call AIS_Damage_fnc_exitDamageHandler};
+if (_newDamage < 0.05) exitWith {[_unit, _hitPartIndex] call AIS_Damage_fnc_exitDamageHandler};
 
 // handle the damage of falling (adapted from ACE3)
 if (_damageType isEqualTo "falling") then {
     if !(_hitSelection in ["", "legs"]) then {
-		_new_damage = [
-			_new_damage * 0.5,
-			_new_damage * abs(_unit getVariable ["ais_impactVelocity", _impactVelocity]) / 50
+		_newDamage = [
+			_newDamage * 0.5,
+			_newDamage * abs(_unit getVariable ["ais_impactVelocity", _impactVelocity]) / 50
 		] select (_hitSelection isEqualTo "body");
-        _new_damage = if (_new_damage < 0.1) then {0}; //Filter minor falling damage to non-leg hitpoints
+        _newDamage = if (_newDamage < 0.1) then {0}; //Filter minor falling damage to non-leg hitpoints
     } else {
         if (_hitSelection isEqualTo "") then {
             _hitSelection = "legs";
             _this set [1, _hitSelection];
         };
-        _new_damage = _new_damage * 0.7;
+        _newDamage = _newDamage * 0.7;
     };
 };
 
@@ -87,7 +82,7 @@ if (_damageType isEqualTo "crash") then {
         _this set [1, _hitSelection];
     };
 	private _min = [1, 0.89] select (_hitSelection isEqualTo "head");
-	_new_damage = if (_new_damage < 0.1) then {0} else {_new_damage min _min};
+	_newDamage = if (_newDamage < 0.1) then {0} else {_newDamage min _min};
 };
 
 
@@ -96,7 +91,7 @@ For some reason the engine won't handle the damage to the new(changed) body part
 So we have to set the damage by ourself to the wanted hitPartIndex.
 */
 _hitPart = [_unit, _hitSelection] call AIS_Damage_fnc_getHitIndexValue;
-_damage = (_hitPart select 2) + (_new_damage * AIS_DAMAGE_TOLLERANCE_FACTOR);
+_damage = (_hitPart select 2) + (_newDamage * AIS_DAMAGE_TOLLERANCE_FACTOR);
 
 // bullet/splitter impact post process effects
 if (AIS_IMPACT_EFFECTS) then {
@@ -108,7 +103,8 @@ if (AIS_IMPACT_EFFECTS) then {
 };
 
 // if there is no revive guarantee, handle a realistic mode. Now we have random chance to die. The risk is increasing with higer damage values and some type of damages. (explos and grenades)
-if !(AIS_REVIVE_GUARANTY) then {
+if !(AIS_REVIVE_GUARANTY) then 
+{
 	private _critical_hit = false;
 	// vehicle blow-up is everytime critical. Set to dead...
 	if (!(isNull objectParent _unit)) then {
@@ -136,44 +132,40 @@ if !(AIS_REVIVE_GUARANTY) then {
 // if a stabilized unit become new damage they won't be longer in the stbilized state
 _unit setVariable ["ais_stabilized", false, true];
 
-// unit can die if they get to mutch new damage in unconscious mode
+// unit can die if they get to much new damage in unconscious mode
 if ((diag_tickTime > _unit getVariable ["ais_protector_delay", 0]) && {_unit getVariable ["ais_unconscious", false]}) exitWith {
 	if (_damage > 0.9) then {[_unit,_source] call AIS_Damage_fnc_goToDead};
 	_damage = _damage min 0.89;
 	_damage
 };
 
-
 // not dead? From this point only unconsciousness is possible
-private _set_unconscious = false;
+private _isUnconscious = false;
 // if the unit is in a exploding vehicle...
 if (!(isNull objectParent _unit)) then {
 	if (damage (vehicle _unit) >= 1) then {
 		[{_this call AIS_System_fnc_checkUnload}, {
 			[[_this select 0, _this select 1, 0], {_this call AIS_System_fnc_moveCargoRemote}] remoteExec ["call"]
 		}, [_unit, vehicle _unit]] call AIS_Core_fnc_waitUntilAndExecute;
-		_set_unconscious = true;
+		_isUnconscious = true;
 	};
 };
 if ((_damage > 0.9) && {_hitSelection in ["", "head", "body"]}) then {
-	_set_unconscious = true;
+	_isUnconscious = true;
 };
 // more attention to closer explosives
 if ((_damage > 1.5) && {_hitSelection in ["pelvis", "head", "body"]} && {_damageType in ["grenade", "baaam"]}) then {
-	_set_unconscious = true;
+	_isUnconscious = true;
 };
-if (_set_unconscious && {!(_unit getVariable ["ais_unconscious", false])}) then {
+if (_isUnconscious && {!(_unit getVariable ["ais_unconscious", false])}) then 
+{
 	[{[(_this select 0)] call AIS_System_fnc_setUnconscious}, [_unit]] call AIS_Core_fnc_onNextFrame;
 	// need this delay to prevent new damage for some seconds after the unit go unconscious. after the delay it is possible to kill the unit when they get to much new damage.
 	_unit setVariable ["ais_protector_delay", (diag_tickTime + 6)];
 	
 	// kill message and score point
-	if (!isNull _source && {isPlayer _source}) then {
-		if (side _source != side _unit) then {
-			[_source, 1] remoteExec ["addScore", 2];
-		} else {
-			[_source, -1] remoteExec ["addScore", 2];
-		};
+	if (!isNull _source && {isPlayer _source}) then 
+	{
 		if (isPlayer _unit) then {
 			_text = format ["%1 was seriously wounded by %2", name _unit, name _source];
 			[_text] remoteExec ["systemChat", 0];

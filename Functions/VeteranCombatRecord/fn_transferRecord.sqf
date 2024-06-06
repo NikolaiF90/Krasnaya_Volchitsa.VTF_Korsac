@@ -19,5 +19,9 @@ private _hvtKillCount = _unit getVariable "Record_TotalKilledHVT";
 _hvtKillCount = _hvtKillCount + VCR_TempHVTKilled;
 _unit setVariable ["Record_TotalKilledHVT", _hvtKillCount];
 
+private _hvtCaptureCount = _unit getVariable "Record_TotalArrestedHVT";
+_hvtCaptureCount = _hvtCaptureCount + VCR_TempHVTCaptured;
+_unit setVariable ["Record_TotalArrestedHVT", _hvtCaptureCount];
+
 // Reset for next mission
 [] call F90_fnc_resetTempRecord;

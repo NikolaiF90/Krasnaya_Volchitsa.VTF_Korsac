@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=224;
+		nextID=227;
 	};
 	class MarkerIDProvider
 	{
@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=35;
+		nextID=41;
 	};
 	class Camera
 	{
-		pos[]={2601.3252,868.01892,2084.8276};
-		dir[]={-0.59021556,-0.39565563,-0.70363504};
-		up[]={-0.25427088,0.91839886,-0.30313313};
-		aside[]={-0.76615393,-1.4901161e-008,0.64265698};
+		pos[]={2579.958,857.39661,2085.8987};
+		dir[]={-0.34556982,-0.71387678,-0.60906601};
+		up[]={-0.35228384,0.70027137,-0.6208995};
+		aside[]={-0.86975724,1.4901161e-008,0.49347991};
 	};
 };
 binarizationWanted=0;
@@ -35,15 +35,22 @@ sourceName="Krasnaya_Volchitsa";
 addons[]=
 {
 	"min_rf_units",
+	"min_rf_wp",
+	"A3_Weapons_F_Pistols_Rook40",
+	"jsrs_soundmod_complete_edition",
+	"jsrs_soundmod_ce_reloadingsounds",
+	"A3_Weapons_F",
+	"A3_Weapons_F_Items",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Ui_F",
-	"min_rf_vehicle"
+	"min_rf_vehicle",
+	"A3_Structures_F_Mil_Helipads"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=9;
 		class Item0
 		{
 			className="min_rf_units";
@@ -51,22 +58,54 @@ class AddonsMetaData
 		};
 		class Item1
 		{
+			className="min_rf_wp";
+			name="min_rf_wp";
+		};
+		class Item2
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Sounds_F";
+			name="Arma 3 - Sound Effects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="jsrs_soundmod_ce_reloadingsounds";
+			name="jsrs_soundmod_ce_reloadingsounds";
+			author="LordJarhead";
+		};
+		class Item5
+		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item2
+		class Item6
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item7
 		{
 			className="min_rf_vehicle";
 			name="min_rf_vehicle";
+		};
+		class Item8
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -108,7 +147,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=9;
+		items=10;
 		class Item0
 		{
 			dataType="Group";
@@ -131,6 +170,123 @@ class Mission
 						name="missionHost";
 						description="Team Leader";
 						isPlayer=1;
+						class Inventory
+						{
+							class primaryWeapon
+							{
+								name="arifle_min_rf_aek_a545";
+								optics="optic_min_rf_1p_87";
+								muzzle="muzzle_min_rf_tgp_a";
+								flashlight="acc_min_rf_perst_1ik";
+								class primaryMuzzleMag
+								{
+									name="30Rnd_min_rf_545x39_Mag";
+									ammoLeft=30;
+								};
+							};
+							class handgun
+							{
+								name="hgun_Rook40_F";
+								class primaryMuzzleMag
+								{
+									name="18Rnd_min_rf_9x19_Mag";
+									ammoLeft=18;
+								};
+							};
+							class binocular
+							{
+								name="Rangefinder";
+							};
+							class uniform
+							{
+								typeName="min_rf_tactical_skol";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=2;
+									class Item0
+									{
+										name="18Rnd_min_rf_9x19_Mag";
+										count=2;
+										ammoLeft=18;
+									};
+									class Item1
+									{
+										name="MiniGrenade";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="min_rf_lite_vest_black";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=7;
+									class Item0
+									{
+										name="30Rnd_min_rf_545x39_Mag";
+										count=6;
+										ammoLeft=30;
+									};
+									class Item1
+									{
+										name="MiniGrenade";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item2
+									{
+										name="SmokeShell";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item3
+									{
+										name="SmokeShellRed";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item4
+									{
+										name="SmokeShellOrange";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item5
+									{
+										name="SmokeShellYellow";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item6
+									{
+										name="Chemlight_red";
+										count=2;
+										ammoLeft=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+							goggles="min_rf_balaclava_goggles_black";
+							hmd="NVGoggles_OPFOR";
+							headgear="min_rf_helmet_recon_black";
+						};
 					};
 					id=1;
 					type="min_rf_spetsnaz_TL";
@@ -586,7 +742,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2583.9639,845.58752,2057.6228};
+				position[]={2577.9683,845.58752,2059.488};
 				angles[]={0,4.9655476,0};
 			};
 			side="Empty";
@@ -602,7 +758,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2582.9536,846.36957,2053.8777};
+				position[]={2577.2715,846.36957,2055.2739};
 				angles[]={0,5.000082,0};
 			};
 			side="Empty";
@@ -745,6 +901,22 @@ class Mission
 			};
 			id=196;
 			atlOffset=8.3432617;
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2583.5972,843.85999,2098.759};
+				angles[]={0,3.3954103,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=224;
+			type="Land_HelipadSquare_F";
 		};
 	};
 };

@@ -32,11 +32,10 @@ _totalPoints = _totalPoints + _heliDeduction;
 
 // Addition 
 private _killPoints = VCR_TempKillCount * Points_ConfirmedKill;
+private _prisonerPoints = VCR_TempCapturedPrisoners * Points_CapturedPrisoners;
 private _hvtKillPoints = VCR_TempHVTKilled * Points_HVTKill;
+private _hvtCapturePoints = VCR_TempHVTCaptured + Points_HVTCapture;
 
-_totalPoints = _totalPoints + _killPoints + _hvtKillPoints;
-
-VCR_TempHVTCaptured = 0;
 VCR_TempAirSupportUsed = 0;
 VCR_TempArtilleryUsed = 0;
 VCR_TempVehiclesUsed = 0;
@@ -52,13 +51,9 @@ VCR_TempTeamCasualties = 0;
 // Air support
 // Artillery
 // Vehicles
-// Asset check 
+private _seizePoints = VCR_TempSeized * Points_Seized;
 
-// HVT Check 
-// HVT Killed
-// HVT Captured
-
-// Kill Check 
+_totalPoints = _totalPoints + _killPoints + _prisonerPoints + _hvtKillPoints + _hvtCapturePoints + _seizePoints;
 
 // Reward player 
 _reward = _totalPoints * 10; 
@@ -74,7 +69,7 @@ if (_reward > 0) then
 };
 [] call F90_fnc_resetTask;
 
-[_heliDeduction, _successfulOperation, _totalPoints, _reward] call F90_fnc_showReport;
+[_heliDeduction, _successfulOperation, _seizePoints, _totalPoints, _reward] call F90_fnc_showReport;
 [Mission_Host, _mainCompleted] call F90_fnc_transferRecord;
 
 Mission_TaskOfficer addAction 
@@ -85,6 +80,7 @@ Mission_TaskOfficer addAction
         
         [_target, _caller, _actionId] call F90_fnc_requestMission;
         _target removeAction _actionID;
+        hint "";
     },
     nil, 
     1.5, 

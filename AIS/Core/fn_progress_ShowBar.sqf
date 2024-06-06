@@ -1,32 +1,27 @@
 ﻿/*
- * Author: NetFusion
- * modified/changed by Psycho
+	Author: NetFusion, Psycho, PrinceF90(Revisited)
+	
+	Description:
+		This function displays a progress bar dialog with a specified title and duration, along with optional callback functions on completion or abortion. 
  
- * Generate progress bar dialog and pass trough the code what's to do after finish or abort the progress.
- 
- * Arguments:
-	0: Title (String)
-	1: duration in sec (Integer)
-	2: callback (Code)
-	3: arguments for callback (Object or Array)
-	4: onAbort (optional) (Code)
-	5: doAbort (optional) (Bool)
- 
- * Return value:
-	nothing
+	Parameter(s):
+		0: STRING - _title: Title of the progress bar.
+		1: INT - _duration: Duration of the progress bar display. 
+		2: CODE - _callback:  Callback function to execute upon completion. 
+		3: ANY - _arguments:  Additional arguments for the callback function. Can be OBJECT or ARRAY.
+		4: CODE - _onAbort (optional): Function to call if the progress bar is aborted. Default: {}.
+		5: BOOLEAN - doAbort (optional): Flag indicating whether the progress bar can be aborted. Default: false.
+	
+	Return:
+		None
 */
+params ["_title", "_duration", "_callback", "_arguments", "_onAbort", "_doAbort"];
 
+if(isNil{_onAbort})then{_onAbort={}};
+if(isNil{_doAbort})then{_doAbort=false};
 
-
-
-private _title = _this select 0;
-_duration = _this select 1;
-_callback = _this select 2;
-_arguments = _this select 3;
-_onAbort = if (count _this > 4) then {_this select 4} else {{}};
-_doAbort = if (count _this > 5) then {_this select 5} else {false};		// added by Psycho
-_endTime = time + _duration;
-_affectingObject = if (typeName _arguments == "ARRAY") then {_arguments select 0} else {_arguments};
+private _endTime = time + _duration;
+private _affectingObject = if (typeName _arguments == "ARRAY") then {_arguments select 0} else {_arguments};
 
 if (typeName _affectingObject == "OBJECT") then {
     if (_affectingObject getVariable ["AIS_Core_Progress_inUse", false]) exitWith {

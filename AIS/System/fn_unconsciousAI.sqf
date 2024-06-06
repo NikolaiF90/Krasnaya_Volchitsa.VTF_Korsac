@@ -1,23 +1,22 @@
 ﻿/*
- * Author: Psycho
+	Author: Psycho, PrinceF90(Revisited)
+	Description: 
+		Set the unit in unconcsious state for Non-players. Set all variables and handle things around.
  
- * Set the unit in unconcsious state for Non-players. Set all variables and handle things around.
- 
- * Arguments:
-	0: Unit (Object)
- 
- * Return value:
-	Nothing
+	Parameter(s):
+		0: OBJECT - _unit: The unit that is unconscious.
+
+	Return: 
+		None
 	
-* Exapmle:
-	[unit] call AIS_System_fnc_unconsciousAI;
- */
-
-
+	Exapmle:
+		[unit] call AIS_System_fnc_unconsciousAI;
+*/
 params ["_unit"];
 
 // set the variables
 _unit setVariable ["ais_unconscious", true, true];
+_unit setVariable ["Mission_UnitSide", side _unit];
 
 // if player drag or carry someone release the body
 if (!(isNull (_unit getVariable ["ais_DragDrop_Torso", objNull]))) then {
