@@ -495,6 +495,15 @@ class dutyReportMenu
 			w = 0.103125 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
+		class RscText_1022: RscText
+		{
+			idc = 1324;
+			text = "Seized Assets: 0"; //--- ToDo: Localize;
+			x = 0.494844 * safezoneW + safezoneX;
+			y = 0.643 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
