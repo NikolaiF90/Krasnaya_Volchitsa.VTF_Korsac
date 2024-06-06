@@ -251,21 +251,6 @@ class persistentMenu
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
-		/* #Hotoqu
-		$[
-			1.063,
-			["persistentMenu",[[0,0,1,1],0.025,0.04,"GUI_GRID"],0,0,0],
-			[1000,"RscText_1000",[1,"",["0.005 * safezoneW + safezoneX","0.00500001 * safezoneH + safezoneY","0.299062 * safezoneW","0.44 * safezoneH"],[-1,-1,-1,-1],[0.071,0.239,0.11,1],[-1,-1,-1,-1],"","-1"],["idc = 1101;"]],
-			[1001,"listBox_saveList: RscListBox",[1,"",["0.0153125 * safezoneW + safezoneX","0.071 * safezoneH + safezoneY","0.195937 * safezoneW","0.341 * safezoneH"],[-1,-1,-1,-1],[0.235,0.388,0.306,1],[-1,-1,-1,-1],"","-1"],["idc = 1102;"]],
-			[1600,"button_save",[1,"Save",["0.216406 * safezoneW + safezoneX","0.071 * safezoneH + safezoneY","0.0721875 * safezoneW","0.033 * safezoneH"],[-1,-1,-1,-1],[0.235,0.388,0.306,1],[-1,-1,-1,-1],"Save progress to selected slot","-1"],["idc = 1103;","action = |[] call F90_fnc_saveToSlot|;"]],
-			[1601,"button_load",[1,"Load",["0.216406 * safezoneW + safezoneX","0.115 * safezoneH + safezoneY","0.0721875 * safezoneW","0.033 * safezoneH"],[-1,-1,-1,-1],[0.235,0.388,0.306,1],[-1,-1,-1,-1],"Load progress from selected slot","-1"],["idc = 1104;","action = |[] call F90_fnc_loadFromSlot|;"]],
-			[1602,"button_delete",[1,"Delete",["0.216406 * safezoneW + safezoneX","0.379 * safezoneH + safezoneY","0.0721875 * safezoneW","0.033 * safezoneH"],[-1,-1,-1,-1],[0.569,0.059,0.059,1],[-1,-1,-1,-1],"Delete selected slot","-1"],["idc = 1105;","action = |[] call F90_fnc_deleteSlot|;"]],
-			[1002,"text_scenarioName",[1,"Scenario Name",["0.0153125 * safezoneW + safezoneX","0.027 * safezoneH + safezoneY","0.273281 * safezoneW","0.033 * safezoneH"],[-1,-1,-1,-1],[0.235,0.388,0.306,1],[-1,-1,-1,-1],"","-1"],["idc = 1106;"]],
-			[1603,"button_saveVehicle",[1,"Save Vehicle",["0.216406 * safezoneW + safezoneX","0.159 * safezoneH + safezoneY","0.0721875 * safezoneW","0.033 * safezoneH"],[-1,-1,-1,-1],[0.141,0.38,0.184,1],[-1,-1,-1,-1],"Save the vehicle you're looking at","-1"],["idc = 1107;","action = |[] call F90_fnc_saveTarget|;"]],
-			[1604,"button_saveContainer",[1,"Save Container",["0.216406 * safezoneW + safezoneX","0.203 * safezoneH + safezoneY","0.0721875 * safezoneW","0.033 * safezoneH"],[-1,-1,-1,-1],[0.141,0.38,0.184,1],[-1,-1,-1,-1],"Caution! Must point at container first.","-1"],["idc = 1108;","action = |[] call F90_fnc_saveTargetContainer|;"]],
-			[1605,"",[1,"Save Unit",["0.216406 * safezoneW + safezoneX","0.247 * safezoneH + safezoneY","0.0721875 * safezoneW","0.033 * safezoneH"],[-1,-1,-1,-1],[0.141,0.38,0.184,1],[-1,-1,-1,-1],"Save the unit you're looking at.","-1"],["idc = 1108;","action = |[] call F90_fnc_saveTargetContainer|;"]]
-		]
-		*/
 	};
 };
 
@@ -388,7 +373,7 @@ class dutyReportMenu
 			text = "Confirmed Kills: 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
 			y = 0.313 * safezoneH + safezoneY;
-			w = 0.0825 * safezoneW;
+			w = 0.103125 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
 		class RscText_1031: RscText
@@ -397,7 +382,7 @@ class dutyReportMenu
 
 			text = "HVT Killed: 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
-			y = 0.335 * safezoneH + safezoneY;
+			y = 0.357 * safezoneH + safezoneY;
 			w = 0.108281 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
@@ -407,7 +392,7 @@ class dutyReportMenu
 
 			text = "HVT Captured: 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
-			y = 0.357 * safezoneH + safezoneY;
+			y = 0.379 * safezoneH + safezoneY;
 			w = 0.0825 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
@@ -501,10 +486,18 @@ class dutyReportMenu
 			w = 0.108281 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
+		class RscText_1021: RscText
+		{
+			idc = 1323;
+			text = "Captured Prisoners: 0"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.335 * safezoneH + safezoneY;
+			w = 0.103125 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
-
 	};
 };
 
