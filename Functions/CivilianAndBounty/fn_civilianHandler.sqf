@@ -13,7 +13,14 @@ while {CAB_CivilianSpawningEnabled} do
                 // Handle stuck civ                
                 if (speed _civilian == 0) then
                 {
-                    private _newPos = position (selectRandom CAB_NearbyHouses);
+                    private _newPos = [];
+                    if (count CAB_NearbyHouses > 0) then 
+                    {
+                        _newPos = position (selectRandom CAB_NearbyHouses);
+                    } else 
+                    {
+                        _newPos = [position _civilian, 5, 100] call BIS_fnc_findSafePos;
+                    };
                     
                     _civilian doMove _newPos;
                     _civilian forcespeed 10;

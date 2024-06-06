@@ -25,25 +25,13 @@ VCR_TempTeamCasualtiesIDC = 1319;
 VCR_TempRewardsIDC = 1320;
 VCR_TempMissionSuccessIDC = 1321;
 VCR_TempTotalPointsIDC = 1322;
+VCR_TempCapturedPrisonersIDC = 1323;
+VCR_TempSeizedIDC = 1324;
 
 VCR_WantedListBoxIDC = 1212;
 
-// Task Record Variables
-VCR_TempKillCount = 0;
-VCR_TempHVTKilled = 0;
-VCR_TempHVTCaptured = 0;
-VCR_TempAirSupportUsed = 0;
-VCR_TempArtilleryUsed = 0;
-
-VCR_TempHeliUsed = 0;
-VCR_TempLightArmedHeliLoss = 0;
-VCR_TempLightUnarmedHeliLoss = 0;
-VCR_TempAttackHeliLoss = 0;
-
-VCR_TempVehiclesUsed = 0;
-VCR_TempCivilianCasualties = 0;
-VCR_TempTeamCasualties = 0;
-
+// Set the default value of VCR variables
+[] call F90_fnc_resetTempRecord;
 
 private _defaultUnitVariables = [
     ["Record_ConfirmedKills", 0],
@@ -54,15 +42,12 @@ private _defaultUnitVariables = [
 ];
 
 {
-    private _unit = _x;
+    private _currentValue = player getVariable [_x select 0, -1];
+    if (_currentValue == -1) then 
     {
-        private _currentValue = _unit getVariable [_x select 0, -1];
-        if (_currentValue == -1) then 
-        {
-            _unit setVariable [_x select 0, _x select 1];
-        };
-    } forEach _defaultUnitVariables;
-} forEach (Mission_Playables + [Mission_Host]);
+        player setVariable [_x select 0, _x select 1];
+    };
+} forEach _defaultUnitVariables;
 
 player addAction 
 [
