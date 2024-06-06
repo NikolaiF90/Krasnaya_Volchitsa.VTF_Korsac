@@ -264,7 +264,7 @@ class dutyReportMenu
 		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Bunyve)
 		////////////////////////////////////////////////////////
 
-		class RscText_1021: RscText
+		class bg_DutyReport1: RscText
 		{
 			idc = 1301;
 
@@ -274,7 +274,7 @@ class dutyReportMenu
 			h = 0.572 * safezoneH;
 			colorBackground[] = {0.125,0.235,0.2,1};
 		};
-		class RscText_1022: RscText
+		class bg_DutyReport2: RscText
 		{
 			idc = 1302;
 
@@ -486,7 +486,7 @@ class dutyReportMenu
 			w = 0.108281 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1021: RscText
+		class text_CapturedPrisoners: RscText
 		{
 			idc = 1323;
 			text = "Captured Prisoners: 0"; //--- ToDo: Localize;
@@ -495,7 +495,7 @@ class dutyReportMenu
 			w = 0.103125 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1022: RscText
+		class text_SeizedAssets: RscText
 		{
 			idc = 1324;
 			text = "Seized Assets: 0"; //--- ToDo: Localize;
