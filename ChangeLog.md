@@ -1,10 +1,17 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-    Civilian spawning in night time
+    - Civilian spawning in night time
 ## ToDO
     Task update
 ## Version History
+
+* Version 1.16.0a
+    - Enemy surrendering after being revived.
+    - Arrest every enemy. But they should drop their weapons first.
+    - Captured enemy now grants you points after completing mission. HVT grants more points.
+    - Dead HVT can now be identified by players no matter who pulls the trigger.
+    - Major optimization and bugfixes.
 
 * Version 1.15.0a
     - Ambush mission is fully playable.
