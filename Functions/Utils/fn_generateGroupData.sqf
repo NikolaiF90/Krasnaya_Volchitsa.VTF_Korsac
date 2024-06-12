@@ -18,14 +18,10 @@ params ["_leader"];
 private _groupArray = units group _leader;
 private _unitsData = [];
 
-[PersistentDebug, "generateGroupData", format ["Generating group data for leader %1...", _leader], false] call F90_fnc_debug;
-
 {
     if (_x != _leader && alive _x) then
     {
         _unitsData pushBack ([_x, false] call F90_fnc_generateUnitData);
     };
 } forEach _groupArray;
-
-[PersistentDebug, "generateGroupData", format ["Group data for leader %1 has been successfully generated.", _leader], false] call F90_fnc_debug;
 _unitsData;

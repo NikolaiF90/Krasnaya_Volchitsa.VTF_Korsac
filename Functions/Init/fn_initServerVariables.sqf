@@ -1,17 +1,17 @@
 
-CAB_PlayerOldPos = [0,0,0];
-CAB_SpawnedCivilians = [];
-CAB_NearbyHouses = [];
-CAB_HousesNearPlayer = [];
-CAB_CivilianCount = 0;
-CAB_MinCivilianWaitingTime = 6;
-CAB_MaxCivilianWaitingTime = 10;
-CAB_HabitableHouses = [];
-CAB_AllHousesOnMap = [];
+// Contains server-only variables
+
+// Debug 
+EconomyDebug = true;
+RECDebug = true;
+
+Mission_StartingPosition = [2585.14,2064.66,0];
+Mission_TaskOfficerStartPos = [2586.12,2051.29,0];
+Mission_EnemySide = west;
+
 CAB_AllCivilianClassnames = [];
 
-CAB_WantedList = [];
-CAB_PotentialHVT = 
+REC_PotentialHVT = 
 [
     ["James Smith", "James", "Smith"], 
     ["Michael Johnson", "Michael", "Johnson"], 
@@ -45,29 +45,30 @@ CAB_PotentialHVT =
     ["Adam Rivera", "Adam", "Rivera"] 
 ];
 
-[CAB_WantedCounts] call F90_fnc_addWantedPerson;
+// For deleting created units on map reset
+Mission_CreatedUnits = [];
 
-// Civilians
-private _cfg = (configFile >> "CfgVehicles");
-private _str = "c_man";
-for "_i" from 0 to (count _cfg)-1 do 
-{
-    if (isClass ((_cfg select _i))) then 
-    {
-        private _cfgName = configName (_cfg select _i);
+Mission_WestFIAUnits = 
+[
+    "B_G_Soldier_A_F",
+    "B_G_Soldier_AR_F",
+    "B_G_medic_F",
+    "B_G_engineer_F",
+    "B_G_Soldier_exp_F",
+    "B_G_Soldier_GL_F",
+    "B_G_Soldier_M_F",
+    "B_G_officer_F",
+    "B_G_Soldier_F",
+    "B_G_Soldier_LAT_F",
+    "B_G_Soldier_LAT2_F",
+    "B_G_Soldier_lite_F",
+    "B_G_Sharpshooter_F",
+    "B_G_Soldier_SL_F",
+    "B_G_Soldier_TL_F"
+];
 
-        if (_cfgName isKindOf "camanbase" AND (getNumber ((_cfg select _i) >> "scope") == 2) AND ([_str,str _cfgName] call BIS_fnc_inString)) then 
-        {
-            CAB_AllCivilianClassnames pushBack _cfgName;
-        };
-    };
-};
-
-// Get all houses on the map
-CAB_AllHousesOnMap = nearestObjects [position vehicle player, CAB_HouseClassnames, 50000];
-
-if (CAB_MaxSpawnedCivilians > 100) then {CAB_MaxSpawnedCivilians = 100};
-sleep CAB_CivilianSpawnDelay;
-
-[] spawn F90_fnc_scanHouses;
-[] spawn F90_fnc_civilianHandler;
+Mission_HVTUnits = 
+[
+    "B_officer_F",
+    "B_Captain_Pettka_F"
+];

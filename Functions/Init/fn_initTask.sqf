@@ -1,21 +1,24 @@
-[TaskDebug, "initTask", "Initializing task system...", true] call F90_fnc_debug;
-
 Task_TaskTrigger = objNull;
+
 // Reset Task if already exist
 if (!isNil {Task_CurrentTaskID}) then 
 {
     if (Task_CurrentTaskID != "") then 
     {
-        [] call F90_fnc_resetTask;
+        [true] call F90_fnc_resetTask;
     };
 };
 
 Task_CreatedPatrolGroups = []; // Created patrol units
 Task_CurrentTaskID = "";
-Task_ActiveTask = -1; // -1 None, 0 Assigned, 1 Completed, 2 Failed
+Task_MainTaskStatus = -1; // -1 None, 0 Assigned, 1 Completed, 2 Failed
+publicVariable "Task_MainTaskStatus";
 Task_DutyName = "";
+publicVariable "Task_DutyName";
 Task_DutyDescription = "";
+publicVariable "Task_DutyDescription";
 Task_DutyStatus = -1; // -1 None, 0 Ongoing, 1 Completed, 2 Failed
+publicVariable "Task_DutyStatus";
 
 Task_PatrolTimeMin = Task_PatrolTimeMin * 60;
 Task_PatrolTimeMax = Task_PatrolTimeMax * 60;
@@ -39,25 +42,23 @@ if (!isNil {Mission_TaskOfficer}) then
 // Create reporting officer
 private _group = createGroup [east, true];
 Mission_TaskOfficer = _group createUnit ["min_rf_officer", Mission_TaskOfficerStartPos, [], 0, "FORM"];
-Mission_TaskOfficer addAction 
-[
-    "<t color='#23d1cd'>Report Duty</t>", 
-    {
-        params ["_target", "_caller", "_actionId", "_arguments"];
-        
-        [] call F90_fnc_requestMission;
-        _target removeAction _actionID;
-    },
-    nil, 
-    1.5, 
-    true, 
-    true, 
-    "", 
-    "_this == Mission_Host", 
-    5
-];
+Mission_TaskOfficer setCombatBehaviour "SAFE";
+Mission_TaskOfficer setUnitPos "Up";
+[Mission_TaskOfficer, "MOVE"] remoteExec ["disableAI", 0, true];
+
+[Mission_TaskOfficer, "AmovPercMstpSnonWnonDnon"] remoteExec ["switchMove", 0, true]; 
+[Mission_TaskOfficer, "HubBriefing_loop"] remoteExec ["playMoveNow", 0, true];
+
+// Create a report duty action
+private _reportDutyActionID = Mission_TaskOfficer getVariable ["Mission_ReportDutyActionID", -1];
+if (_reportDutyActionID != -1) then 
+{
+    [Mission_TaskOfficer, _reportDutyActionID] remoteExec ["removeAction", 0, true];
+};
+[Mission_TaskOfficer] remoteExec ["F90_fnc_addReportDutyAction", 0, true];
+
 [Mission_TaskOfficer] call AIS_System_fnc_loadAIS;
-["SETMONEY", [Mission_TaskOfficer, Economy_PlayerStartingMoney]] call F90_fnc_economyHandler;
+// ["SETMONEY", [Mission_TaskOfficer, Economy_PlayerStartingMoney]] call F90_fnc_economyHandler;
 
 // Hide or unhide markers based on debug option
 if (TaskDebug) then 
@@ -76,5 +77,4 @@ if (TaskDebug) then
 {
     Persistent_MarkerBlacklists pushBack _x;
 } forEach Task_TownMarkers + Task_BaseMarkers + Task_HideoutMarkers;
-
-[TaskDebug, "initTask", "Done initializing task system.", true] call F90_fnc_debug;
+publicVariable "Persistent_MarkerBlacklists";

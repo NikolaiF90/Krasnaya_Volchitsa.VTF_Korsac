@@ -17,8 +17,6 @@
 
 params ["_slot"];
 
-[PersistentDebug, "loadMapMarkers", format ["Loading map markers from slot %1...", _slot], false] call F90_fnc_debug;
-
 private _allMarkers = allMapMarkers;
 
 {
@@ -55,5 +53,3 @@ private _markers = ["markers", _slot] call F90_fnc_LoadData;
     _marker setMarkerText _text;
     _marker setMarkerType _type;
 } forEach _markers;
-
-[PersistentDebug, "loadMapMarkers", "Map markers loaded.", false] call F90_fnc_debug;

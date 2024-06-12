@@ -23,5 +23,3 @@
 params ["_key", "_value", "_slot"];
 
 missionProfileNamespace setVariable [format ["%1.%2.%3", Persistent_SavePrefix, _slot, _key], _value];
-
-[PersistentDebug, "saveData", format["Data saved to %1.%2.%3", Persistent_SavePrefix, _slot, _key],false] call F90_fnc_debug;

@@ -1,10 +1,19 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-    - Civilian spawning in night time
+    - None currently.
 ## ToDO
     Task update
 ## Version History
+
+* Version 1.17.0a
+    - Multiplayer update.
+    - Task system is fully updated and optimized for multiplayer environment.
+    - Optimized civilian and bounty system to better fit multiplayer.
+    - Changed how the code initialization works.
+    - Minor tweak to the Persistent system.
+    - VETCOMREC will also works perfectly with multiplayer environment.
+    - Major optimizations and bugfixes.
 
 * Version 1.16.0a
     - Enemy surrendering after being revived.
@@ -37,7 +46,7 @@
     - Minor optimization.
 
 * Version 1.11.0a
-    - Added total conducted and successful missions into VCR.
+    - Added total conducted and successful missions into VETCOMREC.
     - Updated the looks of Tactical Menu.
     - Minor optimization and bugfixes.
 
@@ -48,7 +57,7 @@
 
 * Version 1.9.0a
     - Added duty report menu. The menu will be shown to player after every end of duty.
-    - Added new records into VCR like killed hvt, casualties, and total used assets.
+    - Added new records into VETCOMREC like killed hvt, casualties, and total used assets.
 
 * Version 1.8.0a
     - Added ambush, support, and kill hvt mission.
@@ -70,11 +79,11 @@
 
 * Version 1.6.0a
     - Added task system.
-    - Play as another units. But VCR only available for mission host.
+    - Play as another units. But VETCOMREC only available for mission host.
     - Reworked persistence system to better intergrate for the task system. 
 
 * Version 1.5.0a
-    - Added confirmed kills count to VCR.
+    - Added confirmed kills count to VETCOMREC.
     - Approach killed unit to confirm kills.
     - Updated persistence system to better adapt to new features. 
     - Updated Tactical Tab interfaces.
@@ -88,8 +97,8 @@
 
 * Version 1.2.0a
     - Added Economy System
-    - Added VCR - Veteran Combat Record System
-    - Updated persistence system to better adapt to the new economy system and VCR
+    - Added VETCOMREC - Veteran Combat Record System
+    - Updated persistence system to better adapt to the new economy system and VETCOMREC
 
 * Version 1.1.0a
     - Added ARMAPERSCORE as the persistence system

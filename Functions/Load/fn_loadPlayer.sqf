@@ -15,7 +15,5 @@
 */
 params ["_slot"];
 
-[PersistentDebug, "loadPlayer", format ["Loading player data from slot %1.", _slot], false]call F90_fnc_debug;
-
 private _unitData = ["player", _slot] call F90_fnc_loadData;
 [player, _unitData, objNull] call F90_fnc_loadUnitData;

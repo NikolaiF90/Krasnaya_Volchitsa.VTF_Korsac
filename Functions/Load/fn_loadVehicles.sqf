@@ -15,12 +15,10 @@
 */
 params ["_slot"];
 
-[PersistentDebug, "loadVehicles", format["Loading persistent vehicles from slot %1", _slot], false] call F90_fnc_debug;
-
 private ["_vehicles"];
 
 _vehicles = ["vehicles", _slot] call F90_fnc_loadData;
-if (isNil "_vehicles") exitWith {[PersistentDebug, "loadVehicles", format["No vehicles to load from slot %1", _slot], false] call F90_fnc_debug;};
+if (isNil "_vehicles") exitWith {};
 
 //  Delete old existing vehicles
 if (count Persistent_VehiclesToSave > 0) then

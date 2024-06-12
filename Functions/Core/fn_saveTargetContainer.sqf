@@ -18,4 +18,3 @@
 private _cursorTarget = cursorTarget;
 
 [_cursorTarget, Persistent_ContainersToSave] call F90_fnc_makePersistent;
-[PersistentDebug, "saveTargetContainer", format ["%1 is now persistent.", _cursorTarget], true] call F90_fnc_debug;

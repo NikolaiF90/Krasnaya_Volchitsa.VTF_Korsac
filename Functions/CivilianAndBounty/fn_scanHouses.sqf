@@ -10,27 +10,30 @@
     Returns:
         None
 */
+params ["_unit"];
 private _outOfSpawnArea = false;
 
-while {CAB_CivilianSpawningEnabled} do 
+while {true} do 
 {
-    if (CAB_PlayerOldPos distance (position player) > CAB_CivilianSpawnRadius && speed player < 130) then 
+    if (CAB_PlayerOldPos distance (position _unit) > CAB_CivilianSpawnRadius && speed _unit < 130) then 
     {
         _outOfSpawnArea = true;
-        CAB_PlayerOldPos = position player;
+        CAB_PlayerOldPos = position _unit;
     };
 
     if (_outOfSpawnArea) then 
     {
-        CAB_HousesNearPlayer = CAB_AllHousesOnMap select {_x distance player <= CAB_CivilianSpawnRadius};
+        // Find another nearby houses
+        CAB_HousesNearPlayer = CAB_AllHousesOnMap select {_x distance _unit <= CAB_CivilianSpawnRadius};
 
+        // Filter only habitable houses
         CAB_NearbyHouses = [CAB_CivilianSpawnRadius] call F90_fnc_filterGoodHouses;
         CAB_NearbyHouses = CAB_NearbyHouses select {damage _x < 0.75};
 
-        // Civilian count
+        // Generate civilian count
         CAB_CivilianCount = floor ((count CAB_NearbyHouses)/ CAB_CivilianDensity);
         // Make sure civilian count doesn't reach over the limit
-        CAB_CivilianCount = CAB_CivilianCount min CAB_MaxSpawnedCivilians;
+        CAB_CivilianCount = CAB_CivilianCount min CAB_MaxCivilianCounts;
         // Disable spawning if raining or nightime
         if ((rain > 0.2) || (daytime > 20 && daytime < 6)) then 
         {
@@ -38,49 +41,29 @@ while {CAB_CivilianSpawningEnabled} do
         };
 
         // Remove dead player from spawner list of each civilian
-        if (isMultiplayer) then 
-        {
-            {
-                if (isPlayer _x && !(alive _x)) then 
-                {
-                    private _deadPlayer = _x;
-                    private _spawnedCivs = _x getVariable ["CIV_SpawnedUnits", []];
-                    if (count _spawnedCivs != 0) then 
-                    {
-                        {
-                            private _spawnerList = _x getVariable ["CIV_SpawnerUnits", objNull];
-                            if (_spawnerList != objNull) then 
-                            {
-                                _spawnerList = _spawnerList - [_deadPlayer];
-                                _x setVariable ["CIV_SpawnerUnits", _spawnerList, true];
-                            };
-                        } forEach _spawnedCivs;
-                    };
-                };
-            } forEach allUnits;
-        };
+        [_unit] call F90_fnc_updateSpawnerList;
         
         _outOfSpawnArea = false;
     };
 
-    if ((count CAB_SpawnedCivilians < CAB_CivilianCount) && (count CAB_NearbyHouses > 0)) then 
+    if ((CAB_TotalSpawnedCivilians < CAB_CivilianCount) && (count CAB_NearbyHouses > 0)) then 
     {
         private _sharedCivExist = false;
 
         if (isMultiplayer) then 
         {
             {
-                private _unit = _x;
+                private _civ = _x;
 
-                if ((_unit distance vehicle player < CAB_CivilianSpawnRadius) && (alive _unit)) then 
+                if ((_civ distance vehicle _unit < CAB_CivilianSpawnRadius) && (alive _civ)) then 
                 {
-                    private _spawnerList = _unit getVariable "CIV_SpawnerUnits";
+                    private _spawnerList = _civ getVariable "CIV_SpawnerUnits";
 
-                    if (count _spawnerList > 0 && !(player in _spawnerList)) then 
+                    if (count _spawnerList > 0 && !(_unit in _spawnerList)) then 
                     {
                         _sharedCivExist = true;
-                        _spawnerList pushBack player;
-                        _unit setVariable ["CIV_SpawnerUnits", _spawnerList, true];
+                        _spawnerList pushBack _unit;
+                        _civ setVariable ["CIV_SpawnerUnits", _spawnerList, true];
                     };
                 };
             } forEach CAB_SpawnedCivilians;
@@ -93,6 +76,8 @@ while {CAB_CivilianSpawningEnabled} do
             {
                 [] call F90_fnc_spawnCivilian;
             };
+            CAB_TotalSpawnedCivilians = CAB_TotalSpawnedCivilians + (count CAB_SpawnedCivilians);
+            publicVariable "CAB_TotalSpawnedCivilians";
         };
     };
 

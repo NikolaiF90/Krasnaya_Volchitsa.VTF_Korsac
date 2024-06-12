@@ -1,14 +1,18 @@
-while {CAB_CivilianSpawningEnabled} do 
+params ["_unit"];
+
+while {true} do 
 {
     if (count CAB_SpawnedCivilians > 0) then 
     {
+        private _civsArray = + CAB_SpawnedCivilians;
         {
-            private _civilian = CAB_SpawnedCivilians # _forEachIndex;
+            private _civilian = CAB_SpawnedCivilians select _forEachIndex;
+            if (_civilian == objNull) exitWith {};
 
-            if (alive _civilian) then 
+            if (_civilian != objNull && alive _civilian) then 
             {
                 // Get distance from player
-                private _distance = _civilian distance player;
+                private _distance = _civilian distance _unit;
 
                 // Handle stuck civ                
                 if (speed _civilian == 0) then
@@ -32,7 +36,7 @@ while {CAB_CivilianSpawningEnabled} do
                 };
 
                 // Handles civs running away
-                if (rain > 0.2 || (_distance < 25 && !(weaponlowered player))) then 
+                if (rain > 0.2 || (_distance < 25 && !(weaponlowered _unit))) then 
                 {
                     _civilian forcespeed 4;
                     _civilian setspeedmode "FULL";
@@ -53,7 +57,7 @@ while {CAB_CivilianSpawningEnabled} do
                 if (_distance > CAB_CivilianSpawnRadius || (daytime > 20.000 && daytime < 5.000) || diag_ticktime > _civilian getvariable "CIV_Lifetime") then
                 {
                     private _spawner = _civilian getvariable "CIV_SpawnerUnits";
-                    _spawner = _spawner - [player];
+                    _spawner = _spawner - [_unit];
                     _civilian setvariable ["CIV_SpawnerUnits", _spawner, true];            
                 };
 
@@ -67,18 +71,23 @@ while {CAB_CivilianSpawningEnabled} do
                     };
                     deletevehicle _civilian;
                     deletegroup _group;
-                    CAB_SpawnedCivilians deleteAt _forEachIndex; 
-                    [CABDebug, "civilianHandler", format ["Civilian #%1 despawned.", _forEachIndex], false] call F90_fnc_debug;
+                    _civsArray deleteAt _forEachIndex; 
 
                     sleep 0.1;	
                 };
             }else
             {
                 // Remove from array, but not dead body
-                CAB_SpawnedCivilians deleteAt _forEachIndex;
+                _civsArray deleteAt _forEachIndex;
             };
         } forEach CAB_SpawnedCivilians;
-        player setVariable ["CIV_SpawnedUnits",CAB_SpawnedCivilians,true];   
+
+        private _deletedCounts = (count CAB_SpawnedCivilians) - (count _civsArray);
+        CAB_TotalSpawnedCivilians = CAB_TotalSpawnedCivilians - _deletedCounts;
+        publicVariable "CAB_TotalSpawnedCivilians";
+        
+        CAB_SpawnedCivilians = _civsArray;
+        _unit setVariable ["CIV_SpawnedUnits",CAB_SpawnedCivilians,true];   
     };
 
     sleep CAB_CivilianCheckInterval;

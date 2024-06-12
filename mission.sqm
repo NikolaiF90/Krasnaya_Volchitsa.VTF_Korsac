@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=227;
+		nextID=229;
 	};
 	class MarkerIDProvider
 	{
@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=41;
+		nextID=92;
 	};
 	class Camera
 	{
-		pos[]={2579.958,857.39661,2085.8987};
-		dir[]={-0.34556982,-0.71387678,-0.60906601};
-		up[]={-0.35228384,0.70027137,-0.6208995};
-		aside[]={-0.86975724,1.4901161e-008,0.49347991};
+		pos[]={2562.2229,857.42151,2069.1863};
+		dir[]={0.78095669,-0.56983376,-0.25572678};
+		up[]={0.54153949,0.82176006,-0.17732884};
+		aside[]={-0.311194,0,-0.95034653};
 	};
 };
 binarizationWanted=0;
@@ -147,7 +147,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=10;
+		items=11;
 		class Item0
 		{
 			dataType="Group";
@@ -167,7 +167,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						name="missionHost";
+						name="missionCaptain";
 						description="Team Leader";
 						isPlayer=1;
 						class Inventory
@@ -409,7 +409,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="missionHost";
+							value="missionCaptain";
 						};
 					};
 				};
@@ -837,6 +837,7 @@ class Mission
 					a=50;
 					b=50;
 					id=199;
+					atlOffset=0.00024414063;
 				};
 				class Item5
 				{
@@ -897,6 +898,7 @@ class Mission
 					a=50;
 					b=56.054443;
 					id=205;
+					atlOffset=0.00036621094;
 				};
 			};
 			id=196;
@@ -917,6 +919,67 @@ class Mission
 			};
 			id=224;
 			type="Land_HelipadSquare_F";
+		};
+		class Item10
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2574.366,843.86145,2061.481};
+						angles[]={0,5.0412087,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						init="this addAction  " \n "[ " \n "    ""<t color='#23d1cd'>Report to officer</t>"",  " \n "    { " \n "        params [""_target"", ""_caller"", ""_actionId"", ""_arguments""];  " \n "        [] remoteExec [""F90_fnc_testFunction"", 0];" \n "        " \n "        _target removeAction _actionId; " \n "        _target setVariable [""Mission_ReportMissionActionID"", nil]; " \n "    },  " \n "    nil,  " \n "    1.5,  " \n "    true,  " \n "    true,  " \n "    """",  " \n "    ""true"",  " \n "    5 " \n "]; ";
+					};
+					id=228;
+					type="min_rf_officer";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male01RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1.02;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=227;
 		};
 	};
 };

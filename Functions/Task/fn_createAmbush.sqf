@@ -19,7 +19,6 @@ private _spawnPos = [[_marker]] call BIS_fnc_randomPos;
 
 if (_spawnPercentage >= _random) then 
 {
-    [TaskDebug, "createAmbush", "Creating ambush group...", true] call F90_fnc_debug;
     private _group = createGroup [west, true];
     private _groupSize = [4, 16] call BIS_fnc_randomInt;
 

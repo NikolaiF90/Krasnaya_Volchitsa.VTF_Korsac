@@ -51,4 +51,3 @@ private _vehicles = [];
 } forEach Persistent_VehiclesToSave;
 
 ["vehicles", _vehicles, _slot] call F90_fnc_saveData;
-[PersistentDebug, "saveCustomVehicles", format ["Vehicles saved to slot %1.",_slot], false] call F90_fnc_debug;

@@ -8,6 +8,7 @@
 CABDebug = true;
 // Turns the mod on and off       
 CAB_CivilianSpawningEnabled = true;
+publicVariable "CAB_CivilianSpawningEnabled";
 
 // Time interval (in seconds) to check for civilian activity
 CAB_CivilianCheckInterval = 3;
@@ -20,9 +21,13 @@ CAB_CivilianSpawnRadius = 300;
 // House count to spawn 1 civilian  
 CAB_CivilianDensity = 1;
 // Max spawned civs count. WARNING: This variable can override CAB_CivilianDensity if the value is lower
-CAB_MaxSpawnedCivilians = 20;
+CAB_MaxCivilianCounts = 20;
 // This will generate names based on nationality. Can be "English", "Russian"
 CAB_CivilianNationality = "Russian";
+// Minimum time before civilian look for next waypoint
+CAB_MinCivilianWaitingTime = 6;
+// Maximum time before civilian look for next waypoint
+CAB_MaxCivilianWaitingTime = 10;
 // The counts of wanted persons available
 CAB_WantedCounts = 3;
 

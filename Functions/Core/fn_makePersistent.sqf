@@ -16,15 +16,13 @@
 */
 params ["_object", "_persistentArray"];
 
-[PersistentDebug, "makePersistent", format ["Trying to make %1 persistent...", _object], true] call F90_fnc_debug;
-
 private _objectID = _persistentArray find _object;
 
 if (_objectID == -1) then 
 {
     _persistentArray pushback _object;
-    [PersistentDebug, "makePersistent", format ["%1 is now persistent.", _object], true] call F90_fnc_debug;
+    hint format ["%1 is now persistent.", _object];
 } else 
 {
-    [PersistentDebug, "makePersistent", format ["%1 is already persistent.", _object], true] call F90_fnc_debug;
+    hint format ["%1 is already persistent.", _object];
 };

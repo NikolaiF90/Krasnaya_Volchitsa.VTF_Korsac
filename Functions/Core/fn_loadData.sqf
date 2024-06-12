@@ -14,7 +14,6 @@
 */
 
 params ["_key", "_slot"];
-[PersistentDebug, "loadData", format ["Loading data for key %1 on save slot %2.", _key, _slot], false] call F90_fnc_debug;
 
 private ["_returnData", "_loadKey", "_default", "_keyToFind"];
 if (typeName _key == "STRING") then 
@@ -30,7 +29,5 @@ if (typeName _key == "ARRAY") then
 	_keyToFind = format ["%1.%2.%3", Persistent_SavePrefix, _slot, _loadKey];
 	_returnData = missionProfileNamespace getVariable [_keyToFind, _default];
 };
-
-[PersistentDebug, "loadData", format ["Key %1 loaded.", _key, _slot], false] call F90_fnc_debug;
 
 _returnData;

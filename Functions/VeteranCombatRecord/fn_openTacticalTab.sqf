@@ -41,32 +41,31 @@ if (_created) then
     };
 
     // Personal Statistic
-    ctrlSetText [VCR_MoneyTextIDC, _moneyText];
-    ctrlSetText [VCR_TotalConductedIDC, _conductedText];
-    ctrlSetText [VCR_TotalCompletedIDC, _successfulText];
-    ctrlSetText [VCR_ConfirmedKillsIDC, _killText];
-    ctrlSetText [VCR_ActiveTaskIDC, _activeTask];
-    ctrlSetText [VCR_TotalArrestedHVTIDC, _arrestedHVTText];
-    ctrlSetText [VCR_TotalKilledHVTIDC, _killedHVTText];
+    ctrlSetText [REC_MoneyTextIDC, _moneyText];
+    ctrlSetText [REC_TotalConductedIDC, _conductedText];
+    ctrlSetText [REC_TotalCompletedIDC, _successfulText];
+    ctrlSetText [REC_ConfirmedKillsIDC, _killText];
+    ctrlSetText [REC_ActiveTaskIDC, _activeTask];
+    ctrlSetText [REC_TotalArrestedHVTIDC, _arrestedHVTText];
+    ctrlSetText [REC_TotalKilledHVTIDC, _killedHVTText];
 
     // Wanted List
-    lbClear VCR_WantedListBoxIDC;
+    lbClear REC_WantedListBoxIDC;
 
-    if (count CAB_WantedList > 0) then 
+    if (count REC_WantedList > 0) then 
     {
         {
             private _wantedName = _x # 0;
             private _wantedValue = _x # 3;
             private _text = format ["%1milcash: %2", _wantedValue, _wantedName];
 
-            lbAdd [VCR_WantedListBoxIDC, _text];
+            lbAdd [REC_WantedListBoxIDC, _text];
         }
-        forEach CAB_WantedList;
+        forEach REC_WantedList;
     } else 
     {
         private _text1 = "No persons of interest";
         private _text2 = "at this moment.";
-        lbAdd [VCR_WantedListBoxIDC, format ["%1\n%2", _text1, _text2]];
+        lbAdd [REC_WantedListBoxIDC, format ["%1\n%2", _text1, _text2]];
     };
-    
 };

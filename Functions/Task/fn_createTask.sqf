@@ -1,7 +1,5 @@
 params ["_taskType"];
 
-[TaskDebug, "createTask", format ["Creating task %1...", _taskType], false] call F90_fnc_debug;
-
 private _taskCreated = false;
 
 // Task variables
@@ -125,7 +123,7 @@ switch (_taskType) do
         _taskAreaY = _taskArea # 1;
         _taskAreaDir = markerDir _taskMarker;
 
-        _condition = "Mission_Host in thisList";
+        _condition = "missionCaptain in thisList";
     };
 };
 
@@ -138,10 +136,13 @@ switch (_taskType) do
 // Notify player
 [east, Task_CurrentTaskID, "CREATED"] call F90_fnc_showTaskNotification;
 
+// Make current task public to all players
+publicVariable "Task_DutyName";
+publicVariable "Task_DutyDescription";
+publicVariable "Task_DutyStatus";
+
 // Let player know task has been created and assigned
-Task_ActiveTask = 0;
-[TaskDebug, "createTask", format ["Current task: %1", Task_DutyName], true] call F90_fnc_debug;
-hint Task_DutyDescription;
+[Task_DutyDescription] remoteExec ["hint", 0, true];
 
 // Run task handler
 [_taskType] spawn F90_fnc_activeTaskHandler;

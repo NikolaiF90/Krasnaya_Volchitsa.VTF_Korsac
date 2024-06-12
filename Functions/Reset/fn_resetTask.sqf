@@ -1,10 +1,12 @@
-[TaskDebug, "resetTask", "Now resetting existing task...", false] call F90_fnc_debug;
-
-Task_ActiveTask = -1;
+Task_MainTaskStatus = -1;
+publicVariable "Task_MainTaskStatus";
 Task_CurrentTaskID = "";
 Task_DutyName = "";
+publicVariable "Task_DutyName";
 Task_DutyDescription = "";
+publicVariable "Task_DutyDescription";
 Task_DutyStatus = -1; // -1 None, 0 Ongoing, 1 Completed, 2 Failed
+publicVariable "Task_DutyStatus";
 
 if (count Task_CreatedPatrolGroups > 0) then 
 {
@@ -25,10 +27,10 @@ if (!isNil {Task_AoMarker}) then
 };
 
 Persistent_MarkerBlacklists = [];
+publicVariable "Persistent_MarkerBlacklists";
+
 if (!isNull Task_TaskTrigger) then
 {
     deleteVehicle Task_TaskTrigger;
     Task_TaskTrigger = objNull;
 };
-
-[TaskDebug, "resetTask", "All task has been cleared.", false] call F90_fnc_debug;

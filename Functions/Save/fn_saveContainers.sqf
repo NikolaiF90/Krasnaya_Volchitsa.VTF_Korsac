@@ -16,8 +16,6 @@
 
 params ["_slot"];
 
-[PersistentDebug, "saveCustomContainers", format ["Saving containers to slot %1.", _slot], false] call F90_fnc_debug;
-
 private _containers = [];
 
 {
@@ -33,5 +31,3 @@ private _containers = [];
 } forEach Persistent_ContainersToSave;
 
 ["containers", _containers, _slot] call F90_fnc_saveData;
-
-[PersistentDebug, "saveContainers", "Containers saved.", false] call F90_fnc_debug;

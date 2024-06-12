@@ -17,8 +17,6 @@
 
 params ["_slot"];
 
-[PersistentDebug, "loadEnvironment", format ["Loading environment information from slot %1", _slot], false] call F90_fnc_debug;
-
 private _environment = ["environment", _slot] call F90_fnc_loadData;
 
 private _date = [_environment, "date"] call F90_fnc_getByKey;

@@ -1,9 +1,15 @@
 /*
-	Generate a string Date and Time using format [hh:mm dd/mm/yy]
-	returns string Date and Time 
-*/
+	Author: PrinceF90
 
-[PersistentDebug, "generateSaveDate", "Generating date and time string...", false] call F90_fnc_debug;
+	Description:
+		This function generates a string representing the current date and time in the format [hh:mm dd/mm/yy].
+
+	Parameter(s):
+		None
+
+	Returns:
+		STRING - String representing the current date and time in the specified format.
+*/
 
 private _returnData = "";
 private _time = systemTime;
@@ -17,7 +23,5 @@ private _string = format ["%1:%2 %3/%4/%5",_hour,_minute,_day,_month,_year];
 
 AWSP_Savetime = _string;
 _returnData = _string;
-
-[PersistentDebug, "generateSaveDate", "Date and time string generated.", false] call F90_fnc_debug;
 
 _returnData;

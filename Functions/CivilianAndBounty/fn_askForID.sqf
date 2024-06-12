@@ -1,6 +1,6 @@
 params ["_unit", "_caller"];
         
-_unit stop true;
+[_unit, true] remoteExec ["stop", 0, true];
 
 private _idChecked = _unit getVariable "CAB_IDChecked";
 private _isBeingArrested = _unit getVariable "CAB_IsArrested";
@@ -15,10 +15,10 @@ if (!_idChecked) then
 {
     // generate bounty 
     private _bountyChance = floor random 101;
-    if (CAB_HVTChance >= _bountyChance && (count CAB_WantedList) > 0) then 
+    if (CAB_HVTChance >= _bountyChance && (count REC_WantedList) > 0) then 
     {
-        _bountyIndex = floor random (count CAB_WantedList);
-        private _unitData = CAB_WantedList # _bountyIndex;
+        _bountyIndex = floor random (count REC_WantedList);
+        private _unitData = REC_WantedList # _bountyIndex;
         
         _fullName = _unitData # 0;
         _firstName = _unitData # 1;
@@ -26,8 +26,8 @@ if (!_idChecked) then
         
         _unit setName [_fullName, _firstName, _surname];
 
-        _unit setVariable ["Record_IsHVT", true];
-        _unit setVariable ["CAB_WantedID", _bountyIndex];
+        _unit setVariable ["Record_IsHVT", true, true];
+        _unit setVariable ["CAB_WantedID", _bountyIndex, true];
 
         _isWanted = true;
     } else 
@@ -40,7 +40,7 @@ if (!_idChecked) then
 
         _unit setName [_fullName, _firstName, _surname];
 
-        _unit setVariable ["Record_IsHVT", false];
+        _unit setVariable ["Record_IsHVT", false, true];
     };
 } else 
 {
@@ -61,7 +61,7 @@ if (!_idChecked) then
 
 hint "";
 hint format ["First Name: %1\nSurname: %2", _firstName, _surname];
-_unit setVariable ["CAB_IDChecked", true];
+_unit setVariable ["CAB_IDChecked", true, true];
 
 sleep CAB_CivilianWaitingTime;
 
@@ -74,5 +74,5 @@ if (_isBeingArrested) then
 } else 
 {
     _unit doWatch objNull;
-    _unit stop false;
+    [_unit, false] remoteExec ["stop", 0, true];
 };

@@ -16,8 +16,6 @@
 
 params ["_slot"];
 
-[PersistentDebug, "loadVariables", format ["Loading all variables from slot %1...", _slot], false] call F90_fnc_debug;
-
 private _allVariables = ["variables", _slot] call F90_fnc_loadData;
 
 [Persistent_VariablesToSave] call F90_fnc_clearArray;
@@ -31,5 +29,3 @@ private _allVariables = ["variables", _slot] call F90_fnc_loadData;
 
 	Persistent_VariablesToSave pushBack [_namespace, _key];
 } forEach _allVariables;
-
-[PersistentDebug, "loadVariables", "All variables has been successfully loaded.", false] call F90_fnc_debug;

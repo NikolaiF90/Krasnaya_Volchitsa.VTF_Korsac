@@ -16,8 +16,6 @@
 
 params ["_slot"];
 
-[PersistentDebug, "saveVariables", format ["Saving all variables to slot %1...", _slot], false] call F90_fnc_debug;
-
 private _allVariables = [];
 
 {
@@ -29,5 +27,3 @@ private _allVariables = [];
 } forEach Persistent_VariablesToSave;
 
 ["variables", _allVariables, _slot] call F90_fnc_saveData;
-
-[PersistentDebug, "saveVariables", "All variables saved.", false] call F90_fnc_debug;

@@ -109,8 +109,6 @@ private _LoadSkills =
     } forEach _skillsArray;
 };
 
-[PersistentDebug, "loadUnitsInGroup", format["Loading unit data for unit under command of %1", _leader], false] call F90_fnc_debug;
-
 private _class = [_unitData, "class"] call F90_fnc_getByKey;
 private _side = [_unitData, "side"] call F90_fnc_getByKey;
 private _group = [_unitData, "group"] call F90_fnc_getByKey;

@@ -20,8 +20,6 @@
 
 params ["_slot"];
 
-[PersistentDebug, "saveMapMarkers", format["Saving map markers to slot %1.", _slot], false] call F90_fnc_debug;
-
 private _markersArray = [];
 private _userMarkersCounter = 1;
 private _allMarkers = allMapMarkers;

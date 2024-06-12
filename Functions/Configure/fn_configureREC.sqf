@@ -10,8 +10,6 @@
 	Returns: 
 		None
 */
-VCRDebug = true; // true to turn on debug
-[VCRDebug, "configureVCR", "Configuring VCR system...", true] call F90_fnc_debug;
 
 Points_ConfirmedKill = 2;
 Points_CapturedPrisoners = 4;
@@ -31,6 +29,3 @@ Points_LightUnarmedHeliLoss = 10;
 Points_AttackHeliLoss = 16;
 
 Points_MissionCompleted = 50;
-
-configureVCRDone = true;// do not change this
-[VCRDebug, "configureVCR", "Done configuring VCR system.", true] call F90_fnc_debug;

@@ -16,8 +16,6 @@
 
 params ["_slot"];
 
-[PersistentDebug, "loadContainers", format ["Loading containers from slot %1...", _slot], false] call F90_fnc_debug;
-
 private _containers = ["containers", _slot] call F90_fnc_loadData;
 
 {
@@ -36,5 +34,3 @@ private _containers = ["containers", _slot] call F90_fnc_loadData;
     [_container, _cargo] call F90_fnc_applyCargoData;
     [_container, Persistent_ContainersToSave] call F90_fnc_makePersistent;
 } forEach _containers;
-
-[PersistentDebug, "loadContainers", "All containers has been successfully loaded.", false] call F90_fnc_debug;

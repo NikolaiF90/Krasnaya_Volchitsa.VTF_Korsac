@@ -16,12 +16,9 @@
 params ["_entity"];
 
 private ["_returnData", "_entityPos", "_entityRotation"];
-[PersistentDebug, "generatePositioningData", format ["Generating position and rotation array for entity %1...", _entity], false] call F90_fnc_debug;
 
 _entityPos = getPosATL _entity;
 _entityRotation = getDir _entity;
 _returnData = [_entityPos, _entityRotation];
-
-[PersistentDebug, "generatePositioningData", format ["Position and rotation array for entity %1 has been successfully generated.", _entity], false] call F90_fnc_debug;
 
 _returnData;

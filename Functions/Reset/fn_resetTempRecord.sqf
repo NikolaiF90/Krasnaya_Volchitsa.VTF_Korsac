@@ -1,21 +1,31 @@
-[VCRDebug, "resetTempRecord", "Resetting temporary records...", false] call F90_fnc_debug;
-
+params ["_unit"];
 // Task Record Variables
-VCR_TempKillCount = 0;
-VCR_TempCapturedPrisoners = 0;
-VCR_TempHVTKilled = 0;
-VCR_TempHVTCaptured = 0;
-VCR_TempAirSupportUsed = 0;
-VCR_TempArtilleryUsed = 0;
 
-VCR_TempHeliUsed = 0;
-VCR_TempLightArmedHeliLoss = 0;
-VCR_TempLightUnarmedHeliLoss = 0;
-VCR_TempAttackHeliLoss = 0;
+private _RECData = 
+[
+    "REC_TempKillCount",
+    "REC_TempCapturedPrisoners",
+    "REC_TempHVTKilled",
+    "REC_TempHVTCaptured",
+    "REC_TempAirSupportUsed",
+    "REC_TempArtilleryUsed",
 
-VCR_TempVehiclesUsed = 0;
-VCR_TempCivilianCasualties = 0;
-VCR_TempTeamCasualties = 0;
-VCR_TempSeized = 0;
+    "REC_TempHeliUsed",
+    "REC_TempLightArmedHeliLoss",
+    "REC_TempLightUnarmedHeliLoss",
+    "REC_TempAttackHeliLoss",
 
-[VCRDebug, "resetTempRecord", "Temporary records has been resetted.", false] call F90_fnc_debug;
+    "REC_TempVehiclesUsed",
+    "REC_TempCivilianCasualties",
+    "REC_TempTeamCasualties",
+    "REC_TempSeized"
+];
+
+{
+    _unit setVariable [_x, 0, true];
+} forEach _RECData;
+
+_unit setVariable ["TASK_IsSuccessfulMission", false, true];
+_unit setVariable ["REC_OperationPoints", nil, true];
+_unit setVariable ["REC_TempRewards", nil, true];
+_unit setVariable ["REC_TotalPoints", nil, true];

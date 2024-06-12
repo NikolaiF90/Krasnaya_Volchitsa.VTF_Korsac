@@ -20,8 +20,6 @@
 */
 params ["_unit", "_isLeader"];
 
-[PersistentDebug, "generateUnitData", format["Generating data for %1 (isLeader = %2)...", _unit, _isLeader], false] call F90_fnc_debug;
-
 private _GenerateOrdersArray =
 {
     params ["_unit"];
@@ -135,7 +133,6 @@ if (vehicle _unit != _unit) then
             private _turretPath = _x # 3;
             private _personTurret = _x # 4;
             _roleData = [_role, _cargoIndex, _turretPath, _personTurret];
-            [PersistentDebug, "generateUnitData", format ["Role data for %1 generated : %2", _unit, _roleData], false] call F90_fnc_debug;
         };
     } forEach _vehicleCrew;
     _vehicleData pushBack ["id", [_vehicle] call F90_fnc_generateVehicleID];
@@ -151,5 +148,4 @@ if (_isLeader) then
 };
 */
 
-[PersistentDebug, "generateUnitData", format["Data for %1 (isLeader = %2) has been successfully generated.", _unit, _isLeader], false] call F90_fnc_debug;
 _unitData;

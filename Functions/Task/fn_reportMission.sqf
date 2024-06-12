@@ -1,97 +1,36 @@
+params ["_unit"];
 
-private _reward = 0;
+[_unit, "Reporting out."] remoteExec ["sideChat", 0, true];
+
 private _totalPoints = 0;
-private _successfulOperation = 0;
-private _mainCompleted = nil;
+private _operationPoints = 0;
+private _isSuccessfulMission = _unit getVariable "TASK_IsSuccessfulMission";
 
-if (Task_ActiveTask == 1) then 
+if (_isSuccessfulMission) then 
 {
-    _mainCompleted = true;
-} else
-{
-    _mainCompleted = false;
+    _operationPoints = Points_MissionCompleted;    
+    _totalPoints = _totalPoints + _operationPoints;
+    [_unit, "Mission is a success"] remoteExec ["sideChat", 0, true];
 };
+_unit setVariable ["REC_OperationPoints", _operationPoints, true];
 
-if (_mainCompleted) then 
-{
-    _successfulOperation = Points_MissionCompleted;
-    _totalPoints = _totalPoints + _successfulOperation;
-};
+private _pointsData = [_unit] call F90_fnc_calculatePoints;
+private _deductions = _pointsData select 0;
+private _additions = _pointsData select 1;
 
-// Deduction 
-private _heliDeduction = 0;
-
-private _heliUsedDeduction = VCR_TempHeliUsed * Points_HeliUsedDeduction;
-private _lightArmedHeliDeduction = VCR_TempLightArmedHeliLoss * Points_LightArmedHeliLoss;
-private _lightUnarmedHeliDeduction = VCR_TempLightUnarmedHeliLoss * Points_LightUnarmedHeliLoss;
-private _atttackHeliDeduction = VCR_TempAttackHeliLoss * Points_AttackHeliLoss;
-
-_heliDeduction = _heliDeduction - (_heliUsedDeduction + _lightArmedHeliDeduction + _lightUnarmedHeliDeduction + _atttackHeliDeduction);
-[VCRDebug, "reportMission", format ["Heli Points: %1", _heliDeduction], false] call F90_fnc_debug;
-_totalPoints = _totalPoints + _heliDeduction;
-
-// Addition 
-private _killPoints = VCR_TempKillCount * Points_ConfirmedKill;
-private _prisonerPoints = VCR_TempCapturedPrisoners * Points_CapturedPrisoners;
-private _hvtKillPoints = VCR_TempHVTKilled * Points_HVTKill;
-private _hvtCapturePoints = VCR_TempHVTCaptured + Points_HVTCapture;
-
-VCR_TempAirSupportUsed = 0;
-VCR_TempArtilleryUsed = 0;
-VCR_TempVehiclesUsed = 0;
-VCR_TempCivilianCasualties = 0;
-VCR_TempTeamCasualties = 0;
-
-// Casualty check
-// Team Casualty
-// Transport Casualty
-// Civilan Casualty
-
-// Asset used check 
-// Air support
-// Artillery
-// Vehicles
-private _seizePoints = VCR_TempSeized * Points_Seized;
-
-_totalPoints = _totalPoints + _killPoints + _prisonerPoints + _hvtKillPoints + _hvtCapturePoints + _seizePoints;
+_totalPoints = _totalPoints + _deductions + _additions;
 
 // Reward player 
-_reward = _totalPoints * 10; 
+private _reward = _totalPoints * 10; 
 if (_reward > 0) then 
 {
-    ["ADDMONEY", [Mission_Host, _reward]] call F90_fnc_economyHandler;
+    ["ADDMONEY", [_unit, _reward]] call F90_fnc_economyHandler;
 } else 
 {
     if (_reward < 0) then 
     {
-        ["DEDUCTMONEY", [Mission_Host, _reward]] call F90_fnc_economyHandler;
+        ["DEDUCTMONEY", [_unit, _reward]] call F90_fnc_economyHandler;
     };
 };
-[] call F90_fnc_resetTask;
-
-[_heliDeduction, _successfulOperation, _seizePoints, _totalPoints, _reward] call F90_fnc_showReport;
-[Mission_Host, _mainCompleted] call F90_fnc_transferRecord;
-
-Mission_TaskOfficer addAction 
-[
-    "<t color='#23d1cd'>Report Duty</t>", 
-    {
-        params ["_target", "_caller", "_actionId", "_arguments"];
-        
-        [_target, _caller, _actionId] call F90_fnc_requestMission;
-        _target removeAction _actionID;
-        hint "";
-    },
-    nil, 
-    1.5, 
-    true, 
-    true, 
-    "", 
-    "_this == Mission_Host", 
-    5
-];
-
-Task_ActiveTask = -1;
-Task_DutyStatus = -1;
-Task_DutyName = "";
-Task_DutyDescription = "";
+_unit setVariable ["REC_TempRewards", _reward, true];
+_unit setVariable ["REC_TotalPoints", _totalPoints, true];

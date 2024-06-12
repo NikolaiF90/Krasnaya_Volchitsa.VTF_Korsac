@@ -9,6 +9,8 @@ class F90
     class CivilianAndBounty
     {
         file = "Functions\CivilianAndBounty";
+        class addArrestAction {};
+        class addAskIDAction {};
         class addWantedPerson {};
         class arrest {};
         class askForID {};
@@ -16,6 +18,7 @@ class F90
         class registerCivilian {};
         class scanHouses {};
         class spawnCivilian {};
+        class updateSpawnerList {};
     };
 
     class Configure 
@@ -27,7 +30,7 @@ class F90
         class configureIdentity {};
         class configurePersistent {};
         class configureTask {};
-        class configureVCR {};
+        class configureREC {};
     };
     class Core 
     {
@@ -59,12 +62,15 @@ class F90
     {
         file = "Functions\Init";
         class initAmbient {};
-        class initCAB {};
-        class persistentInit {};
-        class initTask {};
-        class initVariables {};
-        class initVCR {};
+        class initCABPlayer {};
+        class initCABServer {};
+        class initCivilian {};
         class initEconomy {};
+        class initGlobalVariables {};
+        class initPersistent {};
+        class initREC {};
+        class initServerVariables {};
+        class initTask {};
     };
 
     class Load
@@ -74,7 +80,6 @@ class F90
         class loadEnvironment {};
         class loadGame {};
         class loadMapMarkers {};
-        class loadPlayables {};
         class loadPlayer {};
         class loadUnitData {};
         class loadUnitsInGroup {};
@@ -98,7 +103,6 @@ class F90
         class saveEnvironment {};
         class saveGame {};
         class saveMapMarkers {};
-        class savePlayables {};
         class savePlayer {};
         class saveVariables {};
         class saveVehicles {};
@@ -108,6 +112,8 @@ class F90
     {
         file = "Functions\Task";
         class activeTaskHandler {};
+        class addReportDutyAction {};
+        class addReportMissionAction {};
         class completePatrol {};
         class createAmbush {};
         class createAOMarker {};
@@ -140,15 +146,19 @@ class F90
         class generateVehicleID {};
         class getByKey {};
         class loadFromNamespace {};
+        class removeActionGlobal {};
         class saveToNamespace {};
     }; 
 
     class VeteranCombatRecord 
     {
         file = "Functions\VeteranCombatRecord";
+        class addConfirmKillAction {};
         class addKillCount {};
+        class calculatePoints {};
         class closeReport {};
         class confirmKill {};
+        class getWantedList {};
         class openTacticalTab {};
         class showReport {};
         class transferRecord {};

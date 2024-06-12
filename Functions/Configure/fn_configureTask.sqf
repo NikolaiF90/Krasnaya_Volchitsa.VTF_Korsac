@@ -15,7 +15,6 @@
 */
 
 TaskDebug = true; // true to turn on debug
-[TaskDebug, "configureTask", "Configuring task system...", true] call F90_fnc_debug;
 
 // Minimum patrol time in minutes
 Task_PatrolTimeMin = 1;
@@ -31,4 +30,3 @@ Task_AmbushHVTSpawnChance = 45;
 
 // Do not edit
 configureTaskDone = true;
-[TaskDebug, "configureTask", "Done configuring task.", true] call F90_fnc_debug;

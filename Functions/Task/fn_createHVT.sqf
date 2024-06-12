@@ -23,8 +23,8 @@ if (_spawnChance >= (floor random 101)) then
 
     [_unit] joinSilent _group;
 
-    private _wantedID = floor random (count CAB_WantedList);
-    private _unitData = CAB_WantedList # _wantedID;
+    private _wantedID = floor random (count REC_WantedList);
+    private _unitData = REC_WantedList # _wantedID;
     
     private _fullName = _unitData # 0;
     private _firstName = _unitData # 1;
@@ -32,8 +32,8 @@ if (_spawnChance >= (floor random 101)) then
     
     _unit setName [_fullName, _firstName, _surname];
 
-    _unit setVariable ["Record_IsHVT", true];
-    _unit setVariable ["CAB_WantedID", _wantedID];
+    _unit setVariable ["Record_IsHVT", true, true];
+    _unit setVariable ["CAB_WantedID", _wantedID, true];
 
     Mission_CreatedUnits pushBack _unit;
 };

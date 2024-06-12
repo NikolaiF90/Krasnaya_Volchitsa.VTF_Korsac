@@ -65,8 +65,6 @@ private _GetBackpacksArray =
     _backpacksArray;
 };
 
-[PersistentDebug, "generateCargoData", format ["Generating cargo data for container %1.", _container], false] call F90_fnc_debug;
-
 private _itemsArray = ["items", getItemCargo _container];
 private _magazinesArray = ["magazines", magazinesAmmoCargo _container];
 private _weaponsArray = ["weapons", weaponsItemsCargo _container];
@@ -81,7 +79,5 @@ private _cargo =
     _containersArray,
     _backpacksArray
 ];
-
-[PersistentDebug, "generateCargoData", format ["Cargo data for container %1 successfully generated.", _container], false] call F90_fnc_debug;
 
 _cargo;

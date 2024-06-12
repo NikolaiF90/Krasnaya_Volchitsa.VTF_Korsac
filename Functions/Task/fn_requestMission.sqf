@@ -14,11 +14,8 @@
         // To request a mission task
         ["target", "caller", "actionID"] call F90_fnc_requestMission;
 */
-
-[TaskDebug, "requestMission", "Requesting mission...", false] call F90_fnc_debug;
-
 // Assign Task
-if (Task_ActiveTask == -1) then 
+if (Task_MainTaskStatus == -1) then 
 {
     private _task = selectRandom Task_AllTask;
 
@@ -30,5 +27,6 @@ if (Task_ActiveTask == -1) then
 
     [_task] call F90_fnc_createTask;
 
-    [TaskDebug, "requestMission", format ["Task %1 has been created.", _task], false] call F90_fnc_debug;
+    Task_MainTaskStatus = 0; // Assigned
+    publicVariable "Task_MainTaskStatus";
 };

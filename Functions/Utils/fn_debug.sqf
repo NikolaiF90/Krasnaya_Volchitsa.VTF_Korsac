@@ -22,11 +22,16 @@ if (isNil "_fileName") exitWith { diag_log "F90Debug: (ERROR) F90_fnc_debug does
 if (_fileName == "") then { _fileName = "DEBUG" };
 if (isNil "_visibleInGame") then { _visibleInGame = false };
 
+private _returnText = "";
+
 if (_debugOn) then
 {
-	diag_log format ["[F90 %1] %2", _fileName, _text];
+	_returnText = format ["[F90 %1] %2", _fileName, _text];
+	diag_log _returnText;
 	if (_visibleInGame) then 
 	{
-		systemChat format ["[F90 %1] %2", _fileName, _text];
+		systemChat _returnText;
 	};
 };
+
+_returnText

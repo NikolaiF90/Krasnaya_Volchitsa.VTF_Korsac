@@ -153,34 +153,28 @@ while {Task_DutyStatus == 0} do
 
             case "Task_RTB":
             {
-                hint "Report the mission to your reporting officer"; 
+                ["Report the mission to your reporting officer"] remoteExec ["hint", 0, true]; 
                 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
-                Task_ActiveTask = 1;
+                Task_MainTaskStatus = 1;
+                publicVariable "Task_MainTaskStatus";
                 Task_DutyStatus = 0;
                 Task_DutyName = "Report Out";
                 Task_DutyDescription = "Report the mission to your reporting officer";
+
                 deleteMarker Task_AoMarker;
                 deleteMarker Task_AoZone;
                 Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
 
-                Mission_TaskOfficer addAction 
-                [
-                    "<t color='#23d1cd'>Report to officer</t>", 
-                    {
-                        params ["_target", "_caller", "_actionId", "_arguments"]; 
+                {
+                    _x setVariable ["TASK_IsSuccessfulMission", true, true];
+                } forEach allPlayers;
 
-                        [] call F90_fnc_reportMission; 
-                        _target removeAction _actionId;
-                    }, 
-                    nil, 
-                    1.5, 
-                    true, 
-                    true, 
-                    "", 
-                    "_this == Mission_Host", 
-                    5
-                ];
+                private _reportMissionActionID = Mission_TaskOfficer getVariable ["Mission_ReportMissionActionID", -1];
+                if (_reportMissionActionID == -1) then 
+                {
+                    [Mission_TaskOfficer] remoteExec ["F90_fnc_addReportMissionAction", 0, true];
+                };
 
                 // prevent code running any further
                 _inAO = false;
@@ -202,5 +196,5 @@ while {Task_DutyStatus == 0} do
         };
     };
 
-    if (_taskCompleted) exitWith {[TaskDebug, "activeTaskHandler", "Task Handler ended.", false] call F90_fnc_debug;};
+    if (_taskCompleted) exitWith {};
 };

@@ -20,6 +20,6 @@ params ["_unit", "_killCount"];
 
 if !(isNil{_killCount})then{_killCount = _killCount}else{_killCount = 1};
 
-VCR_TempKillCount = VCR_TempKillCount + _killCount;
-
-[VCRDebug, "addKillCount", format ["%1 kills added to %2's confirmed kill counts.", _killCount, _unit], false] call F90_fnc_debug;
+private _tempKillCount = _unit getVariable "REC_TempKillCount";
+_tempKillCount = _tempKillCount + _killCount;
+_unit setVariable ["REC_TempKillCount", _tempKillCount];

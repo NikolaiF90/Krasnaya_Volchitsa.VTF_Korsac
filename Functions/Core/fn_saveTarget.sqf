@@ -22,8 +22,8 @@ if (_cursorTarget isKindOf "LandVehicle" || _cursorTarget isKindOf "Air" || _cur
 {
    _objectToSave = _cursorTarget; 
    [_objectToSave] call F90_fnc_generateVehicleID;
-   [PersistentDebug, "saveTarget", format ["%1 added to save queue.", _cursorTarget], true] call F90_fnc_debug;
+   hint format ["%1 added to save queue.", _cursorTarget];
 } else
 {
-    [PersistentDebug, "saveTarget", format ["%1 is not a vehicle.", _cursorTarget], true] call F90_fnc_debug;
+    hint format ["%1 is not a vehicle.", _cursorTarget];
 };

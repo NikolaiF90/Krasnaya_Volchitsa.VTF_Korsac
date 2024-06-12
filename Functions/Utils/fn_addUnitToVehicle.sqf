@@ -16,10 +16,9 @@
 */
 
 params ["_unit", "_vehicleData"];
-[PersistentDebug, "addUnitToVehicle", format ["Adding %1 to a vehicle..."], false] call F90_fnc_debug;
 
-if (isNil {_vehicleData}) exitWith { [PersistentDebug, "addUnitToVehicle", format ["%1 has no vehicle", _unit], false]call F90_fnc_debug; };
-if !(_vehicleData isEqualType []) exitWith {[PersistentDebug, "addUnitToVehicle", format ["%1 has no vehicle", _unit], false] call F90_fnc_debug;};
+if (isNil {_vehicleData}) exitWith {};
+if !(_vehicleData isEqualType []) exitWith {};
 private _FindAssignedVehicleInArray =
 {
 	params ["_id"];

@@ -17,8 +17,6 @@
 
 params ["_slot"];
 
-[PersistentDebug, "saveEnvironment", format ["Saving environment info to slot %1.", _slot], false] call F90_fnc_debug;
-
 private _environment = [];
 
 _environment pushBack ["date", date];

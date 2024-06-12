@@ -12,8 +12,7 @@
 */
 private _donePatrol = false;
 
-[TaskDebug, "completePatrol", "Patrol Completed", false] call F90_fnc_debug;
-hint "Patrol Completed"; 
+["Patrol Completed"] remoteExec ["hint", 0, true]; 
 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
 
 Task_DutyStatus = 1;

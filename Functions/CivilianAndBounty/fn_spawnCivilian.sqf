@@ -21,7 +21,8 @@ _spawnedCiv disableAI "CHECKVISIBLE";
 _spawnedCiv disableAI "AUTOCOMBAT";
 removeAllWeapons _spawnedCiv;
 _spawnedCiv setAnimSpeedCoef 0.7 + random 0.2;
-_spawnedCiv setvariable ["CIV_Lifetime", diag_ticktime + CAB_CivilianLifetime];
+
+_spawnedCiv setVariable ["CIV_Lifetime", diag_ticktime + CAB_CivilianLifetime];
 _spawnedCiv setVariable ["CIV_SpawnerUnits", [player], true];
 
 group _spawnedCiv setspeedmode "LIMITED";
@@ -31,5 +32,4 @@ _spawnedCiv enablesimulation true;
 
 CAB_SpawnedCivilians pushBack _spawnedCiv;
 
-[CABDebug, "spawnCivilian", "Civilian spawned", false] call F90_fnc_debug;
 _spawnedCiv;

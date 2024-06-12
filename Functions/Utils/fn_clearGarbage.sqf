@@ -13,9 +13,6 @@
     Examples:
         [] call F90_fnc_clearGarbage;
 */
-[PersistentDebug, "clearGarbage", "Clearing garbage...", false] call F90_fnc_debug;
 {
 	deleteVehicle _x;
 } forEach allDead;
-
-[PersistentDebug, "clearGarbage", "Garbage cleared.", false] call F90_fnc_debug;
