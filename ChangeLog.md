@@ -8,6 +8,7 @@
 
 ### Version 1.19.0a
     * Hire System overhaul. Renamed to SHARS (Subordinate Hiring And Reserve System).
+    * Minor bugfix.
 
 ### Version 1.18.0a
     * New notification system.
