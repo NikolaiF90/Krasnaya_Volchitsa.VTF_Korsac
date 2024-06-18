@@ -30,8 +30,8 @@ class F90
         class configureIdentity {};
         class configurePersistent {};
         class configureTask {};
-        class configureREC {};
         class configureSHARS {};
+        class configureREC {};
     };
     class Core 
     {
