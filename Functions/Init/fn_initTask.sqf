@@ -74,7 +74,7 @@ if (_reportDutyActionID != -1) then
 // Can add your custom location here. Formatted by [[STRING:location name, ARRAY[x,y,z]:position, NUMBER:direction, ARRAY[x,y]:size, BOOL:isRectangle]];
 Task_PatrolLocationDatas = []; 
 // Finds towns for patrol task
-Task_PatrolLocationDatas = ["NameVillage", "NameCity", "NameCityCapital"] call F90_fnc_getLocations;
+Task_PatrolLocationDatas = [["NameVillage", "NameCity", "NameCityCapital"]] call F90_fnc_getLocations;
 
 // Hide or unhide markers based on debug option
 if (TaskDebug) then 
