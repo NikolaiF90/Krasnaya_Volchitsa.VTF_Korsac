@@ -1,4 +1,4 @@
-private _hireActionID = recruitX getVariable ["HIRE_RecruitActionID", -1];
+private _hireActionID = recruitX getVariable ["SHARS_RecruitActionID", -1];
 
 // Remove hire action if already exist
 if (_hireActionID != -1) then 
@@ -15,10 +15,10 @@ if (_hireActionID != -1) then
         [] call F90_fnc_showHireMenu;
     },
     "alive _this",
-    "HIRE_RecruitActionID"
+    "SHARS_RecruitActionID"
 ] remoteExec ["F90_fnc_addAction", 0, true];
 
-private _dismissUnitActionID = recruitX getVariable ["HIRE_DismissUnitActionID", -1];
+private _dismissUnitActionID = recruitX getVariable ["SHARS_DismissUnitActionID", -1];
 
 if (_dismissUnitActionID != -1) then 
 {
@@ -33,10 +33,10 @@ if (_dismissUnitActionID != -1) then
         [_caller] call F90_fnc_dismissUnit;
     },
     "alive _this",
-    "HIRE_DismissUnitActionID"
+    "SHARS_DismissUnitActionID"
 ] remoteExec ["F90_fnc_addAction", 0, true];
 
-private _dismissSquadActionID = recruitX getVariable ["HIRE_DismissSquadActionID", -1];
+private _dismissSquadActionID = recruitX getVariable ["SHARS_DismissSquadActionID", -1];
 
 if (_dismissSquadActionID != -1) then 
 {
@@ -51,5 +51,5 @@ if (_dismissSquadActionID != -1) then
         [_caller] call F90_fnc_dismissSquad;
     },
     "alive _this",
-    "HIRE_DismissSquadActionID"
+    "SHARS_DismissSquadActionID"
 ] remoteExec ["F90_fnc_addAction", 0, true];

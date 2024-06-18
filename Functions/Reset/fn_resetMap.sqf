@@ -2,7 +2,7 @@
 [] call F90_fnc_initCivilian;
 [] call F90_fnc_initCABServer;
 [] call F90_fnc_initTask;
-[] call F90_fnc_initHire;
+[] call F90_fnc_initSHARS;
 
 if ((count Mission_CreatedUnits) > 0) then 
 {

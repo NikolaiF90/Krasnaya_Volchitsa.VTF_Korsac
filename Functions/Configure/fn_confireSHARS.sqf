@@ -1,12 +1,12 @@
-HIRE_TierOneSkill = 0.4;
-HIRE_TierTwoSkill = 0.6;
-HIRE_TierThreeSkill = 0.8;
+SHARS_TierOneSkill = 0.4;
+SHARS_TierTwoSkill = 0.6;
+SHARS_TierThreeSkill = 0.8;
 
-HIRE_TierOneName = "Regular";
-HIRE_TierTwoName = "Recon Units";
-HIRE_TierThreeName = "Special Forces";
+SHARS_TierOneName = "Regular";
+SHARS_TierTwoName = "Recon Units";
+SHARS_TierThreeName = "Special Forces";
 
-HIRE_TierOneSoldiers = 
+SHARS_TierOneSoldiers = 
 [
     ["Rifleman", "min_rf_soldier", 8],
     ["Rifleman AT", "min_rf_soldier_LAT", 10],
@@ -26,7 +26,7 @@ HIRE_TierOneSoldiers =
     ["Para Trooper", "min_rf_soldier_PG", 14]
 ];
 
-HIRE_TierTwoSoldiers = 
+SHARS_TierTwoSoldiers = 
 [
     ["Recon Demo Specialist", "min_rf_recon_exp", 16],
     ["Recon JTAC", "min_rf_recon_JTAC", 16],
@@ -39,7 +39,7 @@ HIRE_TierTwoSoldiers =
     ["Spotter", "min_rf_spotter", 20]
 ];
 
-HIRE_TierThreeSoldiers = 
+SHARS_TierThreeSoldiers = 
 [
     ["Spetsnaz Rifleman", "min_rf_spetsnaz", 20],
     ["Spetsnaz Autorifleman", "min_rf_spetsnaz_AR", 22],
@@ -49,7 +49,7 @@ HIRE_TierThreeSoldiers =
     ["Spetsnaz Team Leader", "min_rf_spetsnaz_TL", 24]
 ];
 
-HIRE_Squad = 
+SHARS_Squad = 
 [
     [
         "Fire Team", 
@@ -60,7 +60,7 @@ HIRE_Squad =
             "min_rf_soldier_LAT"
         ],
         40,
-        HIRE_TierOneSkill
+        SHARS_TierOneSkill
     ],
     [
         "Assault Squad",
@@ -73,7 +73,7 @@ HIRE_Squad =
             "min_rf_medic"
         ],
         62,
-        HIRE_TierOneSkill
+        SHARS_TierOneSkill
     ],
     [
         "Recon Team",
@@ -84,7 +84,7 @@ HIRE_Squad =
             "min_rf_recon"
         ],
         62,
-        HIRE_TierTwoSkill
+        SHARS_TierTwoSkill
     ],
     [
         "Recon Squad",
@@ -98,7 +98,7 @@ HIRE_Squad =
             "min_rf_recon_exp"
         ],
         113,
-        HIRE_TierTwoSkill
+        SHARS_TierTwoSkill
     ],
     [
         "Sniper Team",
@@ -107,7 +107,7 @@ HIRE_Squad =
             "min_rf_spotter"
         ],
         38,
-        HIRE_TierTwoSkill
+        SHARS_TierTwoSkill
     ],
     [
         "Spetsnaz Snipers",
@@ -116,7 +116,7 @@ HIRE_Squad =
             "min_rf_spetsnaz_O"
         ],
         44,
-        HIRE_TierThreeSkill
+        SHARS_TierThreeSkill
     ],
     [
         "Spetsnaz Team",
@@ -127,7 +127,7 @@ HIRE_Squad =
             "min_rf_spetsnaz"
         ],
         84,
-        HIRE_TierThreeSkill
+        SHARS_TierThreeSkill
     ]
 ];
 

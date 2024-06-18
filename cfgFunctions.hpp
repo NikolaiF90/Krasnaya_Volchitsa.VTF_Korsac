@@ -27,11 +27,11 @@ class F90
         class configureAmbient {};
         class configureCAB {};
         class configureEconomy {};
-        class configureHire {};
         class configureIdentity {};
         class configurePersistent {};
         class configureTask {};
         class configureREC {};
+        class configureSHARS {};
     };
     class Core 
     {
@@ -64,15 +64,6 @@ class F90
         class economyHandler {};
     };
 
-    class Hire
-    {
-        file = "Functions\Hire";
-        class dismissSquad {};
-        class dismissUnit {};
-        class hireUnit {};
-        class showHireMenu {};
-    };
-
     class Init 
     {
         file = "Functions\Init";
@@ -82,10 +73,10 @@ class F90
         class initCivilian {};
         class initEconomy {};
         class initGlobalVariables {};
-        class initHire {};
         class initPersistent {};
         class initREC {};
         class initServerVariables {};
+        class initSHARS {};
         class initTask {};
     };
 
@@ -122,6 +113,15 @@ class F90
         class savePlayer {};
         class saveVariables {};
         class saveVehicles {};
+    };
+
+    class SHARS
+    {
+        file = "Functions\SHARS";
+        class dismissSquad {};
+        class dismissUnit {};
+        class hireUnit {};
+        class showHireMenu {};
     };
 
     class Task

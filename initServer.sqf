@@ -7,7 +7,7 @@
 [] remoteExec ["F90_fnc_configureIdentity", 0, true];
 [] remoteExec ["F90_fnc_configureCAB", 0, true];
 [] remoteExec ["F90_fnc_configureTask", 0, true];
-[] remoteExec ["F90_fnc_configureHire", 0, true];
+[] remoteExec ["F90_fnc_configureSHARS", 0, true];
 
 [] call F90_fnc_resetMap;
 REC_WantedList = [CAB_WantedCounts] call F90_fnc_addWantedPerson;

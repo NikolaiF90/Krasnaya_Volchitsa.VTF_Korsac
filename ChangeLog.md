@@ -6,6 +6,9 @@
     Task update
 ## Version History
 
+### Version 1.19.0a
+    * Hire System overhaul. Renamed to SHARS (Subordinate Hiring And Reserve System).
+
 ### Version 1.18.0a
     * New notification system.
     * Added splash screen.

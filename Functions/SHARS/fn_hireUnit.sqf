@@ -24,7 +24,7 @@ switch (_type) do {
             _selectedItem = 0;
         };
 
-        private _item = HIRE_TierOneSoldiers select _selectedItem;
+        private _item = SHARS_TierOneSoldiers select _selectedItem;
         private _className = _item select 1;
         private _price = _item select 2;
 
@@ -35,7 +35,7 @@ switch (_type) do {
 
             private _group = createGroup [east, true];
             private _unit = [_group, _className, _spawnPos] call F90_fnc_createUnit;
-            _unit setSkill HIRE_TierOneSkill;
+            _unit setSkill SHARS_TierOneSkill;
             [_unit] join _caller; 
 
         } else 
@@ -52,7 +52,7 @@ switch (_type) do {
             _selectedItem = 0;
         };
 
-        private _item = HIRE_TierTwoSoldiers select _selectedItem;
+        private _item = SHARS_TierTwoSoldiers select _selectedItem;
         private _className = _item select 1;
         private _price = _item select 2;
 
@@ -63,7 +63,7 @@ switch (_type) do {
 
             private _group = createGroup [east, true];
             private _unit = [_group, _className, _spawnPos] call F90_fnc_createUnit;
-            _unit setSkill HIRE_TierTwoSkill;
+            _unit setSkill SHARS_TierTwoSkill;
             [_unit] join _caller;
         } else 
         {
@@ -79,7 +79,7 @@ switch (_type) do {
             _selectedItem = 0;
         };
 
-        private _item = HIRE_TierThreeSoldiers select _selectedItem;
+        private _item = SHARS_TierThreeSoldiers select _selectedItem;
         private _className = _item select 1;
         private _price = _item select 2;
 
@@ -90,7 +90,7 @@ switch (_type) do {
 
             private _group = createGroup [east, true];
             private _unit = [_group, _className, _spawnPos] call F90_fnc_createUnit;
-            _unit setSkill HIRE_TierThreeSkill;
+            _unit setSkill SHARS_TierThreeSkill;
             [_unit] join _caller;
         } else 
         {
@@ -106,7 +106,7 @@ switch (_type) do {
             _selectedItem = 0;
         };
 
-        private _selectedSquad = HIRE_Squad select _selectedItem;
+        private _selectedSquad = SHARS_Squad select _selectedItem;
         private _members = _selectedSquad select 1;
         private _price = _selectedSquad select 2;
         private _skill = _selectedSquad select 3;
