@@ -10,5 +10,5 @@ if (PersistentMenu_SelectedList != 0) then
     };
 } else 
 {
-    hint "Empty slot selected. Nothing to load from here.";
+    ["Empty slot selected. Nothing to load from here.", "ERROR"] call F90_fnc_textNotification;
 };

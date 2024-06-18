@@ -40,8 +40,9 @@ if (!isNil {Mission_TaskOfficer}) then
 };
 
 // Create reporting officer
+private _spawnPos = [Mission_TaskOfficerStartPos, 0, 2] call BIS_fnc_findSafePos;
 private _group = createGroup [east, true];
-Mission_TaskOfficer = _group createUnit ["min_rf_officer", Mission_TaskOfficerStartPos, [], 0, "FORM"];
+Mission_TaskOfficer = _group createUnit ["min_rf_officer", _spawnPos, [], 0, "FORM"];
 Mission_TaskOfficer setCombatBehaviour "SAFE";
 Mission_TaskOfficer setUnitPos "Up";
 [Mission_TaskOfficer, "MOVE"] remoteExec ["disableAI", 0, true];
@@ -55,26 +56,41 @@ if (_reportDutyActionID != -1) then
 {
     [Mission_TaskOfficer, _reportDutyActionID] remoteExec ["removeAction", 0, true];
 };
-[Mission_TaskOfficer] remoteExec ["F90_fnc_addReportDutyAction", 0, true];
+
+[
+    Mission_TaskOfficer,
+    "Report Duty",
+    {
+        params ["_target", "_caller", "_actionId", "_arguments"];
+        
+        [] remoteExec ["F90_fnc_requestMission", 2];
+    },
+    "Task_MainTaskStatus == -1",
+    "Mission_ReportDutyActionID"    
+] remoteExec ["F90_fnc_addAction", 0, true];
 
 [Mission_TaskOfficer] call AIS_System_fnc_loadAIS;
-// ["SETMONEY", [Mission_TaskOfficer, Economy_PlayerStartingMoney]] call F90_fnc_economyHandler;
+
+// Can add your custom location here. Formatted by [[STRING:location name, ARRAY[x,y,z]:position, NUMBER:direction, ARRAY[x,y]:size, BOOL:isRectangle]];
+Task_PatrolLocationDatas = []; 
+// Finds towns for patrol task
+Task_PatrolLocationDatas = ["NameVillage", "NameCity", "NameCityCapital"] call F90_fnc_getLocations;
 
 // Hide or unhide markers based on debug option
 if (TaskDebug) then 
 {
     {
         _x setMarkerAlpha 1;
-    } forEach Task_TownMarkers + Task_BaseMarkers + Task_HideoutMarkers;
+    } forEach Task_BaseMarkers + Task_HideoutMarkers;
 } else 
 {
     {
         _x setMarkerAlpha 0;
-    } forEach Task_TownMarkers + Task_BaseMarkers + Task_HideoutMarkers;
+    } forEach Task_BaseMarkers + Task_HideoutMarkers;
 };
 
 // Blacklist markers
 {
     Persistent_MarkerBlacklists pushBack _x;
-} forEach Task_TownMarkers + Task_BaseMarkers + Task_HideoutMarkers;
+} forEach Task_BaseMarkers + Task_HideoutMarkers;
 publicVariable "Persistent_MarkerBlacklists";

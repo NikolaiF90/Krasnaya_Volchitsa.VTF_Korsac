@@ -22,8 +22,8 @@ if (_cursorTarget isKindOf "LandVehicle" || _cursorTarget isKindOf "Air" || _cur
 {
    _objectToSave = _cursorTarget; 
    [_objectToSave] call F90_fnc_generateVehicleID;
-   hint format ["%1 added to save queue.", _cursorTarget];
+   [format ["%1 added to save queue.", _cursorTarget]] call F90_fnc_textNotification;
 } else
 {
-    hint format ["%1 is not a vehicle.", _cursorTarget];
+    [format ["%1 is not a vehicle.", _cursorTarget], "ERROR"] call F90_fnc_textNotification;
 };

@@ -7,6 +7,7 @@
 [] remoteExec ["F90_fnc_configureIdentity", 0, true];
 [] remoteExec ["F90_fnc_configureCAB", 0, true];
 [] remoteExec ["F90_fnc_configureTask", 0, true];
+[] remoteExec ["F90_fnc_configureHire", 0, true];
 
 [] call F90_fnc_resetMap;
 REC_WantedList = [CAB_WantedCounts] call F90_fnc_addWantedPerson;
@@ -18,7 +19,48 @@ civilian setFriend [east, 1];
 
 addMissionEventHandler ["TeamSwitch", 
 {
-    params ["_previousUnit", "_newUnit"];
+	params ["_previousUnit", "_newUnit"];
 
-    //[_previousUnit, _newUnit] call F90_fnc_switchUnitAddAction;
+    // Delete action if already exist. To prevent duplicate action on mission host
+    if (!isNil {_RECActionID}) then { _newUnit removeAction _RECActionID};
+
+    _RECActionID = _newUnit addAction 
+    [
+        "<t color='#23d1cd'>Open Tactical Tab</t>", 
+        {
+            params ["_target", "_caller", "_actionId", "_arguments"]; 
+            [_caller] call F90_fnc_openTacticalTab;
+        }, 
+        nil, 
+        4, 
+        false, 
+        false, 
+        "", 
+        "_target == _this"
+    ];
+
+    _newUnit setVariable ["REC_ActionID", _RECActionID];
+
+    // Remove persistent action if already exist (to avoid duplicate action on server host)
+    private _persistentActionID = _newUnit getVariable ["Persistent_ActionID", nil];
+    if (!isNil {_persistentActionID}) then {_newUnit removeAction _persistentActionID};
+
+    // Create a new persistent action
+    _persistentActionID = _newUnit addAction 
+    [
+        "<t color='#0089f2'>Persistent</t>", 
+        {
+            [] call F90_fnc_openPersistentTab;
+        },
+        nil,
+        4,
+        false,
+        true,
+        "",
+        "_this == _target"
+    ];
+
+    _newUnit setVariable ["Persistent_ActionID", _persistentActionID];
 }];
+
+Mission_InitDone = true;

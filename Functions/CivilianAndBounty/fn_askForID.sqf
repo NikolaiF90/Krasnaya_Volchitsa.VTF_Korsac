@@ -59,8 +59,9 @@ if (!_idChecked) then
     };
 };
 
-hint "";
-hint format ["First Name: %1\nSurname: %2", _firstName, _surname];
+private _civInfo = format ["First Name: %1<br />Surname: %2", _firstName, _surname];
+[_civInfo] call F90_fnc_textNotification;
+
 _unit setVariable ["CAB_IDChecked", true, true];
 
 sleep CAB_CivilianWaitingTime;

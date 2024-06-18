@@ -25,5 +25,5 @@ if (PersistentMenu_SelectedList != 0) then
     [PersistentMenu_ListBox] call F90_fnc_updatePersistentList;
 } else
 {
-    hint "Can't delete empty slot!";
+    ["Can't delete empty slot!", "ERROR"] call F90_fnc_textNotification;
 };

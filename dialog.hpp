@@ -510,3 +510,218 @@ class dutyReportMenu
 	};
 };
 
+class hireMenu 
+{
+	idd = 1400;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Maqocy)
+		////////////////////////////////////////////////////////
+
+		class bg_hire1: RscText
+		{
+			idc = 1401;
+
+			x = 0.005 * safezoneW + safezoneX;
+			y = 0.016 * safezoneH + safezoneY;
+			w = 0.500156 * safezoneW;
+			h = 0.33 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class bg_hire2: RscText
+		{
+			idc = 1402;
+
+			x = 0.0101562 * safezoneW + safezoneX;
+			y = 0.071 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.22 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class bg_hire3: RscText
+		{
+			idc = 1403;
+
+			x = 0.133906 * safezoneW + safezoneX;
+			y = 0.071 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.22 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class bg_hire4: RscText
+		{
+			idc = 1404;
+
+			x = 0.257656 * safezoneW + safezoneX;
+			y = 0.071 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.22 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class bg_hire5: RscText
+		{
+			idc = 1405;
+
+			x = 0.381406 * safezoneW + safezoneX;
+			y = 0.071 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.22 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_hire1: RscText
+		{
+			idc = 1406;
+
+			text = "RECRUIT MENU"; //--- ToDo: Localize;
+			x = 0.231875 * safezoneW + safezoneX;
+			y = 0.016 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class text_TierOne: RscText
+		{
+			idc = 1407;
+
+			text = "Tier 1"; //--- ToDo: Localize;
+			x = 0.0514062 * safezoneW + safezoneX;
+			y = 0.06 * safezoneH + safezoneY;
+			w = 0.061875 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class text_TierTwo: RscText
+		{
+			idc = 1408;
+
+			text = "Tier 2"; //--- ToDo: Localize;
+			x = 0.180312 * safezoneW + safezoneX;
+			y = 0.06 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class text_TierThree: RscText
+		{
+			idc = 1409;
+
+			text = "Tier 3"; //--- ToDo: Localize;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.06 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class text_Squad: RscText
+		{
+			idc = 1410;
+
+			text = "Squad"; //--- ToDo: Localize;
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.06 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class button_CloseHire: RscButton
+		{
+			idc = 1411;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "CLOSE"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.027 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_RecruitT1: RscButton
+		{
+			idc = 1412;
+			action = "['TierOne'] call F90_fnc_hireUnit";
+
+			text = "Recruit Unit"; //--- ToDo: Localize;
+			x = 0.0101562 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_RecruitT2: RscButton
+		{
+			idc = 1413;
+			action = "['TierTwo'] call F90_fnc_hireUnit";
+
+			text = "Recruit Unit"; //--- ToDo: Localize;
+			x = 0.133906 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_RecruitT3: RscButton
+		{
+			idc = 1414;
+			action = "['TierThree'] call F90_fnc_hireUnit";
+
+			text = "Recruit Unit"; //--- ToDo: Localize;
+			x = 0.257656 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_RecruitSquad: RscButton
+		{
+			idc = 1415;
+			action = "['Squad'] call F90_fnc_hireUnit";
+
+			text = "Recruit Squad"; //--- ToDo: Localize;
+			x = 0.381406 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class listbox_TierOne: RscListBox
+		{
+			idc = 1416;
+
+			x = 0.0101562 * safezoneW + safezoneX;
+			y = 0.104 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.176 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class listbox_TierTwo: RscListBox
+		{
+			idc = 1417;
+
+			x = 0.133906 * safezoneW + safezoneX;
+			y = 0.104 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.176 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class listbox_TierThree: RscListBox
+		{
+			idc = 1418;
+
+			x = 0.257656 * safezoneW + safezoneX;
+			y = 0.104 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.176 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class listbox_Squad: RscListBox
+		{
+			idc = 1419;
+
+			x = 0.381406 * safezoneW + safezoneX;
+			y = 0.104 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.176 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};

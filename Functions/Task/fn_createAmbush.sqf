@@ -6,7 +6,7 @@
     
     Parameter(s): 
         0: NUMBER - _spawnPercentage: Percentage chance for the ambush group to spawn
-        1: OBJECT - _marker: Marker object where the ambush group will spawn
+        1: STRING - _marker: Marker where the ambush group will spawn
     
     Returns:  
         None

@@ -21,8 +21,8 @@ private _objectID = _persistentArray find _object;
 if (_objectID == -1) then 
 {
     _persistentArray pushback _object;
-    hint format ["%1 is now persistent.", _object];
+    [format ["%1 is now persistent.", _object]] call F90_fnc_textNotification;
 } else 
 {
-    hint format ["%1 is already persistent.", _object];
+    [format ["%1 is already persistent.", _object]] call F90_fnc_textNotification;
 };

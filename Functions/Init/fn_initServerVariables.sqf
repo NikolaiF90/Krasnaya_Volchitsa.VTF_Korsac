@@ -3,10 +3,9 @@
 
 // Debug 
 EconomyDebug = true;
-RECDebug = true;
+Mission_InitDone = false;
 
-Mission_StartingPosition = [2585.14,2064.66,0];
-Mission_TaskOfficerStartPos = [2586.12,2051.29,0];
+Mission_TaskOfficerStartPos = getPos mapX;
 Mission_EnemySide = west;
 
 CAB_AllCivilianClassnames = [];

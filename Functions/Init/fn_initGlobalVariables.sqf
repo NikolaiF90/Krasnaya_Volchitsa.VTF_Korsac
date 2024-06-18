@@ -2,6 +2,8 @@
 Scenario_Name = "Krasnaya Volchitsa";
 MissionDebug = true;
 
+Mission_StartingPosition = [2585.14,2064.66,0];
+
 // Dialog IDC
 
 PersistentMenu_ListBox = 1102;
@@ -33,3 +35,12 @@ REC_TempTotalPointsIDC = 1322;
 REC_TempCapturedPrisonersIDC = 1323;
 REC_TempSeizedIDC = 1324;
 REC_WantedListBoxIDC = 1212;
+
+HireMenu_TierOneTextIDC = 1407;
+HireMenu_TierTwoTextIDC = 1408;
+HireMenu_TierThreeTextIDC = 1409;
+HireMenu_SquadTextIDC = 1410;
+HireMenu_TierOneListBoxIDC = 1416;
+HireMenu_TierTwoListBoxIDC = 1417;
+HireMenu_TierThreeListBoxIDC = 1418;
+HireMenu_SquadListBoxIDC = 1419;

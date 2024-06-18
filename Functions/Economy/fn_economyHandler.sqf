@@ -5,8 +5,8 @@
         This function handles various operations related to economy system, such as getting, setting, adding, or deducting money for a specific unit.
 
     Parameter(s):
-        0: STRING - The operation to be performed (e.g., "GETMONEY", "SETMONEY", "ADDMONEY", "DEDUCTMONEY")
-        1: ARRAY - An array containing necessary arguments based on the operation being performed
+        0: STRING - _operation: The operation to be performed (e.g., "GETMONEY", "SETMONEY", "ADDMONEY", "DEDUCTMONEY")
+        1: ARRAY - _args: An array containing necessary arguments based on the operation being performed. For "GETMONEY", the args: OBJECT - unit to add money. For "SETMONEY", "GETMONEY", and "DEDUCTMONEY", the args: ARRAY [OBEJCT,NUMBER] where index 0(object) is the unit to do the operation on, index 1(NUMBER) will be the amount to set, add, or deduct depending on the given operation.
 
     Returns:
         _returnValue = the updated money value after performing the specified operation.

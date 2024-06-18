@@ -87,7 +87,7 @@ while {Task_DutyStatus == 0} do
                     } forEach Task_CreatedPatrolGroups;
                 } else 
                 {
-                    hint "Ambush Completed"; 
+                    ["Ambush Completed"] call F90_fnc_textNotification; 
                     [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                     
                     Task_DutyStatus = 1;
@@ -109,7 +109,7 @@ while {Task_DutyStatus == 0} do
 
             case "Task_KillHVT":
             {
-                hint "HVT Killed"; 
+                ["HVT Killed"] call F90_fnc_textNotification; 
                 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
                 Task_DutyStatus = 1;
@@ -131,7 +131,7 @@ while {Task_DutyStatus == 0} do
 
             case "Task_Support":
             {
-                hint "Support Provided"; 
+                ["Support Provided"] call F90_fnc_textNotification; 
                 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
                 Task_DutyStatus = 1;
@@ -153,7 +153,7 @@ while {Task_DutyStatus == 0} do
 
             case "Task_RTB":
             {
-                ["Report the mission to your reporting officer"] remoteExec ["hint", 0, true]; 
+                ["Report the mission to your reporting officer"] remoteExec ["F90_fnc_textNotification", 0, true]; 
                 [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
                 Task_MainTaskStatus = 1;
@@ -170,11 +170,26 @@ while {Task_DutyStatus == 0} do
                     _x setVariable ["TASK_IsSuccessfulMission", true, true];
                 } forEach allPlayers;
 
-                private _reportMissionActionID = Mission_TaskOfficer getVariable ["Mission_ReportMissionActionID", -1];
-                if (_reportMissionActionID == -1) then 
+                // Delete action if already exist
+                private _actionID = Mission_TaskOfficer getVariable ["Mission_ReportMissionActionID", -1];
+                if (_actionID != -1) then 
                 {
-                    [Mission_TaskOfficer] remoteExec ["F90_fnc_addReportMissionAction", 0, true];
+                    [Mission_TaskOfficer, _actionID, "Mission_ReportMissionActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
                 };
+                
+                [
+                    Mission_TaskOfficer, 
+                    "Report to officer", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"]; 
+                        
+                        [_target, _actionId, "Mission_ReportMissionActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
+                        [] remoteExec ["F90_fnc_showReport", 0];
+                        [] remoteExec ["F90_fnc_resetTask", 2];
+                    },
+                    "true",
+                    "Mission_ReportMissionActionID"
+                ] remoteExec ["F90_fnc_addAction", 0, true];
 
                 // prevent code running any further
                 _inAO = false;

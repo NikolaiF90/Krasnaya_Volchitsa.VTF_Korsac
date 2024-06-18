@@ -64,8 +64,6 @@ if (_created) then
         forEach REC_WantedList;
     } else 
     {
-        private _text1 = "No persons of interest";
-        private _text2 = "at this moment.";
-        lbAdd [REC_WantedListBoxIDC, format ["%1\n%2", _text1, _text2]];
+        lbAdd [REC_WantedListBoxIDC, "No persons of interest<br />at this moment."];
     };
 };

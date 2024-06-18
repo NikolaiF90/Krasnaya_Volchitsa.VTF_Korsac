@@ -20,5 +20,5 @@ if (_caller == _killer) then
     };
 } else 
 {
-    hint "It's not your kill";
+    ["It's not your kill", "WARNING"] call F90_fnc_textNotification;
 }

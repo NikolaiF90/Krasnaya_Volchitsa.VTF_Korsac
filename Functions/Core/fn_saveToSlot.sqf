@@ -31,5 +31,5 @@ if (PersistentMenu_SelectedList == 0) then
 [_saveSlot] call F90_fnc_saveGame;
 profileNamespace setVariable [Persistent_PersistentListKey, Persistent_Slots];
 
-hint "Progress saved.";
+["Progress saved."] call F90_fnc_textNotification;
 [PersistentMenu_ListBox] call F90_fnc_updatePersistentList;

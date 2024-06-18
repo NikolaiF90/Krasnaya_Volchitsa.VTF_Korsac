@@ -27,6 +27,7 @@ class F90
         class configureAmbient {};
         class configureCAB {};
         class configureEconomy {};
+        class configureHire {};
         class configureIdentity {};
         class configurePersistent {};
         class configureTask {};
@@ -35,10 +36,14 @@ class F90
     class Core 
     {
         file = "Functions\Core";
+        class addAction {};
         class clearSave {};
+        class closeMenu {};
         class createUnit {};
         class deleteSlot {};
         class generateSaveDate {};
+        class getDate {};
+        class getLocations {};
         class getSelectedList {};
         class loadData {};
         class loadFromSlot {};
@@ -48,7 +53,8 @@ class F90
         class saveTargetContainer {};
         class saveData {};
         class saveToSlot {};
-        class switchUnitAddAction {};
+        class splashScreen {};
+        class textNotification {};
         class updatePersistentList {};
     };
 
@@ -56,6 +62,15 @@ class F90
     {
         file = "Functions\Economy";
         class economyHandler {};
+    };
+
+    class Hire
+    {
+        file = "Functions\Hire";
+        class dismissSquad {};
+        class dismissUnit {};
+        class hireUnit {};
+        class showHireMenu {};
     };
 
     class Init 
@@ -67,6 +82,7 @@ class F90
         class initCivilian {};
         class initEconomy {};
         class initGlobalVariables {};
+        class initHire {};
         class initPersistent {};
         class initREC {};
         class initServerVariables {};
