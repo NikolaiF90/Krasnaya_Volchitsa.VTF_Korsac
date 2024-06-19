@@ -64,6 +64,6 @@ if (_created) then
         forEach REC_WantedList;
     } else 
     {
-        lbAdd [REC_WantedListBoxIDC, "No persons of interest<br />at this moment."];
+        lbAdd [REC_WantedListBoxIDC, parseText "No persons of interest<br />at this moment."];
     };
 };
