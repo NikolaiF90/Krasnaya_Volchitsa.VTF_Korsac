@@ -6,7 +6,7 @@
 
     Parameter(s):
         0: STRING - _operation: The operation to be performed (e.g., "GETMONEY", "SETMONEY", "ADDMONEY", "DEDUCTMONEY")
-        1: ARRAY - _args: An array containing necessary arguments based on the operation being performed. For "GETMONEY", the args: OBJECT - unit to get the money count. For "SETMONEY", "ADDMONEY", and "DEDUCTMONEY", the args: ARRAY [OBEJCT,NUMBER] where index 0(object) is the unit to do the operation on, index 1(NUMBER) will be the amount to set, add, or deduct depending on the given operation.
+        1: ARRAY - _args: An array containing necessary arguments based on the operation being performed. For "GETMONEY", the args: ARRAY [OBJECT] - unit to get the money count. For "SETMONEY", "ADDMONEY", and "DEDUCTMONEY", the args: ARRAY [OBEJCT,NUMBER] where index 0(object) is the unit to do the operation on, index 1(NUMBER) will be the amount to set, add, or deduct depending on the given operation.
 
     Returns:
         _returnValue = the updated money value after performing the specified operation.
@@ -32,8 +32,17 @@ if (isNil {_operation}) then
 if (_operation == "GETMONEY") then 
 {
 	if (isNil {_args}) exitWith {[EconomyDebug, "economyHandler", "(ERROR) Handler 'GETMONEY' prevented from running because _args is not provided", true] call F90_fnc_debug};
+	
+	private _unit = objNull;
+	
+	if (_args isEqualType []) then 
+	{
+		_unit = _args # 0;
+	} else 
+	{
+		_unit = _args;
+	};
 
-	private _unit = _args;
 	private _money = _unit getVariable ["Milcash", Economy_DefaultCIVMoney];
 	_returnValue = _money;
 };
