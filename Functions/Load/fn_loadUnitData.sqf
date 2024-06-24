@@ -150,6 +150,8 @@ private _totalConductedMissions = [_unitData, "totalConductedMissions"] call F90
 private _totalSuccessfulMissions = [_unitData, "totalSuccessfulMissions"] call F90_fnc_getByKey;
 private _totalArrestedHVT = [_unitData, "totalArrestedHVT"] call F90_fnc_getByKey;
 private _totalKilledHVT = [_unitData, "totalKilledHVT"] call F90_fnc_getByKey;
+private _unitSide = [_unitData, "unitSide"] call F90_fnc_getByKey;
+private _reservePools = [_unitData, "reservePools"] call F90_fnc_getByKey;
         
 _unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
 _unit setVariable ["BIS_enableRandomization", false];
@@ -177,6 +179,8 @@ _unit setVariable ["Record_TotalConductedMissions", _totalConductedMissions];
 _unit setVariable ["Record_TotalSuccessfulMissions", _totalSuccessfulMissions];
 _unit setVariable ["Record_TotalArrestedHVT", _totalArrestedHVT];
 _unit setVariable ["Record_TotalKilledHVT", _totalKilledHVT];
+_unit setVariable ["Mission_UnitSide", _unitSide];
+_unit setVariable ["SHARS_ReservePool", _reservePools];
 
 if (rating _unit > _rating) then
 {

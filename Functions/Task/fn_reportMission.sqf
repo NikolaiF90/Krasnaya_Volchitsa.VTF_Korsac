@@ -22,15 +22,21 @@ _totalPoints = _totalPoints + _deductions + _additions;
 
 // Reward player 
 private _reward = _totalPoints * 10; 
+private _milcashDeduction = 0; 
+private _wages = _unit getVariable "REC_TempWages";
+_milcashDeduction = _milcashDeduction - _wages;
+private _totalRewards = _reward + _milcashDeduction;
+
 if (_reward > 0) then 
 {
-    ["ADDMONEY", [_unit, _reward]] call F90_fnc_economyHandler;
+    ["ADDMONEY", [_unit, _totalRewards]] call F90_fnc_economyHandler;
 } else 
 {
     if (_reward < 0) then 
     {
-        ["DEDUCTMONEY", [_unit, _reward]] call F90_fnc_economyHandler;
+        ["DEDUCTMONEY", [_unit, _totalRewards]] call F90_fnc_economyHandler;
     };
 };
+_unit setVariable ["REC_TotalRewards", _totalRewards, true];
 _unit setVariable ["REC_TempRewards", _reward, true];
 _unit setVariable ["REC_TotalPoints", _totalPoints, true];

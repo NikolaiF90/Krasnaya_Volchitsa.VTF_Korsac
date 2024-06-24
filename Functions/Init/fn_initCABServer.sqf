@@ -11,4 +11,3 @@ if (CAB_MaxCivilianCounts > 100) then {CAB_MaxCivilianCounts = 100};
 
 CAB_TotalSpawnedCivilians = 0;
 publicVariable "CAB_TotalSpawnedCivilians";
-sleep CAB_CivilianSpawnDelay;

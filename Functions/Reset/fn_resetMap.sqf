@@ -7,6 +7,7 @@
 if ((count Mission_CreatedUnits) > 0) then 
 {
     {
-        deleteVehicle _x;
+        [_x, false] call F90_fnc_deleteUnit;
     } forEach Mission_CreatedUnits;
+    publicVariable "Mission_CreatedUnits";
 };

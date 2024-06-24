@@ -191,6 +191,9 @@ while {Task_DutyStatus == 0} do
                     "Mission_ReportMissionActionID"
                 ] remoteExec ["F90_fnc_addAction", 0, true];
 
+                // Generate wages
+                [] remoteExec ["F90_fnc_generateGroupWages", 0, true];
+
                 // prevent code running any further
                 _inAO = false;
                 _detected = false;

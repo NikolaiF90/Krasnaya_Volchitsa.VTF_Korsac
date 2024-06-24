@@ -1,9 +1,12 @@
+// Generate unit data like skills and hire cost
+[] remoteExec ["F90_fnc_generateHireData", 0, true];
+
 private _hireActionID = recruitX getVariable ["SHARS_RecruitActionID", -1];
 
 // Remove hire action if already exist
 if (_hireActionID != -1) then 
 {
-    [_hireActionID] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
+    [recruitX, _hireActionID, "SHARS_RecruitActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
 };
 
 [
@@ -18,38 +21,20 @@ if (_hireActionID != -1) then
     "SHARS_RecruitActionID"
 ] remoteExec ["F90_fnc_addAction", 0, true];
 
-private _dismissUnitActionID = recruitX getVariable ["SHARS_DismissUnitActionID", -1];
+private _squadManagementActionID = reserveX getVariable ["SHARS__SquadManagementActionID", -1];
 
-if (_dismissUnitActionID != -1) then 
+if (_squadManagementActionID != -1) then 
 {
-    [_dismissUnitActionID] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
+    [reserveX, _squadManagementActionID, "SHARS__SquadManagementActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
 };
 
 [
-    recruitX,
-    "Dismiss Selected Unit",
+    reserveX,
+    "Manage Squads",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
-        [_caller] call F90_fnc_dismissUnit;
+        [_caller] call F90_fnc_showSquadManagementMenu;
     },
     "alive _this",
-    "SHARS_DismissUnitActionID"
-] remoteExec ["F90_fnc_addAction", 0, true];
-
-private _dismissSquadActionID = recruitX getVariable ["SHARS_DismissSquadActionID", -1];
-
-if (_dismissSquadActionID != -1) then 
-{
-    [_dismissSquadActionID] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
-};
-
-[
-    recruitX,
-    "Dismiss Selected Squad",
-    {
-        params ["_target", "_caller", "_actionId", "_arguments"];
-        [_caller] call F90_fnc_dismissSquad;
-    },
-    "alive _this",
-    "SHARS_DismissSquadActionID"
+    "SHARS__SquadManagementActionID"
 ] remoteExec ["F90_fnc_addAction", 0, true];

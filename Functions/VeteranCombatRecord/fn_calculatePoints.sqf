@@ -36,7 +36,7 @@ private _hvtKilled = _unit getVariable "REC_TempHVTKilled";
 private _hvtKillPoints = _hvtKilled * Points_HVTKill;
 
 private _hvtCaptured = _unit getVariable "REC_TempHVTCaptured";
-private _hvtCapturePoints = _hvtCaptured + Points_HVTCapture;
+private _hvtCapturePoints = _hvtCaptured * Points_HVTCapture;
 
 // For seized assets, points will be shown instead of count, since there wont be more than 5 assets per mission
 private _seized = _unit getVariable "REC_TempSeized";
@@ -50,8 +50,6 @@ _returnValue set [1, _totalAddition];
 // REC_TempAirSupportUsed = 0;
 // REC_TempArtilleryUsed = 0;
 // REC_TempVehiclesUsed = 0;
-// REC_TempCivilianCasualties = 0;
-// REC_TempTeamCasualties = 0;
 
 // Casualty check
 // Team Casualty

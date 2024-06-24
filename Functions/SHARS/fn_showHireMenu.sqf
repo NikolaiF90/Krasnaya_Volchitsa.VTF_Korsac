@@ -18,7 +18,7 @@ if (_dialogShown) then
     {
         private _item = SHARS_TierOneSoldiers select _i;
         private _displayName = _item select 0;
-        private _price = _item select 2;
+        private _price = _item select 3;
         private _text = format ["%1 %2mc", _displayName, _price];
         lbAdd [HireMenu_TierOneListBoxIDC, _text];
     };
@@ -29,7 +29,7 @@ if (_dialogShown) then
     {
         private _item = SHARS_TierTwoSoldiers select _i;
         private _displayName = _item select 0;
-        private _price = _item select 2;
+        private _price = _item select 3;
         private _text = format ["%1 %2mc", _displayName, _price];
         lbAdd [HireMenu_TierTwoListBoxIDC, _text];
     };
@@ -40,7 +40,7 @@ if (_dialogShown) then
     {
         private _item = SHARS_TierThreeSoldiers select _i;
         private _displayName = _item select 0;
-        private _price = _item select 2;
+        private _price = _item select 3;
         private _text = format ["%1 %2mc", _displayName, _price];
         lbAdd [HireMenu_TierThreeListBoxIDC, _text];
     };

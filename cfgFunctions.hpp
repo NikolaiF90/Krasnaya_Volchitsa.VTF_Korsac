@@ -37,10 +37,13 @@ class F90
     {
         file = "Functions\Core";
         class addAction {};
+        class addToHighCommand {};
         class clearSave {};
         class closeMenu {};
         class createUnit {};
         class deleteSlot {};
+        class deleteUnit {};
+        class delVeh {};
         class generateSaveDate {};
         class getDate {};
         class getLocations {};
@@ -77,6 +80,7 @@ class F90
         class initREC {};
         class initServerVariables {};
         class initSHARS {};
+        class initSHARSPlayers {};
         class initTask {};
     };
 
@@ -118,10 +122,31 @@ class F90
     class SHARS
     {
         file = "Functions\SHARS";
+        class addNewHC {};
+        class addToPlayerSquad {};
+        class addTrainEH {};
+        class addUnitToHC {};
+        class disbandSquad {};
         class dismissSquad {};
         class dismissUnit {};
+        class generateGroupWages {};
+        class generateHireCost {};
+        class generateHireData {};
+        class generateReserveData {};
+        class generateSquadData {};
+        class generateUnitSkills {};
+        class generateWage {};
+        class getTierMultiplier {};
+        class getUnitsTier {};
         class hireUnit {};
+        class refreshSquadMenu {};
+        class renameHC {};
+        class reserveUnit {};
         class showHireMenu {};
+        class showRenameHCMenu {};
+        class showSquadManagementMenu {};
+        class showTrainMenu {};
+        class trainUnit {};
     };
 
     class Task

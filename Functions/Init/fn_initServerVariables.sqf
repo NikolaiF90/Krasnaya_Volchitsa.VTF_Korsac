@@ -44,8 +44,9 @@ REC_PotentialHVT =
     ["Adam Rivera", "Adam", "Rivera"] 
 ];
 
-// For deleting created units on map reset
+// Stores all units created by the mission script. Useful for deleting created units on map reset
 Mission_CreatedUnits = [];
+publicVariable "Mission_CreatedUnits";
 
 Mission_WestFIAUnits = 
 [

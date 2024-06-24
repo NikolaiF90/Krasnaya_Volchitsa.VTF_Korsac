@@ -33,15 +33,15 @@ if (isNil {_layer}) then
 switch (_type) do {
     case "DEFAULT": 
     {
-        _text = format ["<t font='PuristaSemibold' size='0.4' color='#00ff00'>NEW NOTIFICATION <br />%1</t>", _text];
+        _text = format ["<t font='PuristaSemibold' size='0.5' color='#00ff00'>NEW NOTIFICATION <br />%1</t>", _text];
     };
     case "WARNING":
     {
-        _text = format ["<t font='PuristaSemibold' size='0.4' color='#ffb200'>WARNING <br />%1</t>", _text];
+        _text = format ["<t font='PuristaSemibold' size='0.5' color='#ffb200'>WARNING <br />%1</t>", _text];
     };
     case "ERROR":
     {
-        _text = format ["<t font='PuristaSemibold' size='0.4' color='#ff0000'>ERROR <br />%1</t>", _text];
+        _text = format ["<t font='PuristaSemibold' size='0.5' color='#ff0000'>ERROR <br />%1</t>", _text];
     };
 };
 

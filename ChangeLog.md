@@ -14,7 +14,9 @@
     * Reserve pools persistent across saves.
     * Create your own high command squads.
     * Rename squads under your command.
-    * Minor bugfix.
+    * Wage system where every units in your group demands you to pay for their wage for every mission.
+    * Total wages to be paid will be shown in report menu.
+    * Major bugfixes and optimizations.
 
 ### Version 1.18.0a
     * New notification system.

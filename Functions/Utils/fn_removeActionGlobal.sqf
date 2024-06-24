@@ -14,5 +14,8 @@
 */
 params ["_unit", "_actionID", "_key"];
 
-_unit removeAction _actionID;
-_unit setVariable [_key, nil, true];
+if (!isNil {_actionID}) then 
+{
+    _unit removeAction _actionID;
+    _unit setVariable [_key, nil, true];
+};

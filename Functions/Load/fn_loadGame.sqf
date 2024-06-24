@@ -20,10 +20,12 @@
 		[_slot] call F90_fnc_loadGame;
 */
 params ["_slot"];
-
-[true] call F90_fnc_resetTask;
-[] call F90_fnc_resetMap;
-[] call F90_fnc_clearGarbage;
+if (isServer) then 
+{
+	[] call F90_fnc_resetMap;
+	[] call F90_fnc_resetTask;
+	[] call F90_fnc_clearGarbage;
+};
 
 [_slot] call F90_fnc_loadVehicles;
 [_slot] call F90_fnc_loadPlayer;

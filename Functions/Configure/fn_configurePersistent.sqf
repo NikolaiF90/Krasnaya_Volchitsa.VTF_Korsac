@@ -24,5 +24,5 @@ Persistent_VehiclesToSave = [];
 Persistent_ContainersToSave = [];
 Persistent_VariablesToSave = [];
 
-// Add anything you do not wish to save here
+// Add any markers you do not wish to save here
 Persistent_MarkerBlacklists = [];

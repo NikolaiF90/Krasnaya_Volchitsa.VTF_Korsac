@@ -16,7 +16,7 @@ private _RECData =
     "REC_TempAttackHeliLoss",
 
     "REC_TempVehiclesUsed",
-    "REC_TempCivilianCasualties",
+    "REC_TempWages",
     "REC_TempTeamCasualties",
     "REC_TempSeized"
 ];
@@ -29,3 +29,4 @@ _unit setVariable ["TASK_IsSuccessfulMission", false, true];
 _unit setVariable ["REC_OperationPoints", nil, true];
 _unit setVariable ["REC_TempRewards", nil, true];
 _unit setVariable ["REC_TotalPoints", nil, true];
+_unit setVariable ["REC_TotalRewards", nil, true];

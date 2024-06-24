@@ -36,4 +36,5 @@ if (_spawnChance >= (floor random 101)) then
     _unit setVariable ["CAB_WantedID", _wantedID, true];
 
     Mission_CreatedUnits pushBack _unit;
+    publicVariable "Mission_CreatedUnits";
 };

@@ -261,17 +261,17 @@ class dutyReportMenu
 	class controls
 	{
 		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Bunyve)
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Zuwiry)
 		////////////////////////////////////////////////////////
 
 		class bg_DutyReport1: RscText
 		{
 			idc = 1301;
 
-			x = 0.350468 * safezoneW + safezoneX;
+			x = 0.350469 * safezoneW + safezoneX;
 			y = 0.225 * safezoneH + safezoneY;
 			w = 0.278437 * safezoneW;
-			h = 0.572 * safezoneH;
+			h = 0.429 * safezoneH;
 			colorBackground[] = {0.125,0.235,0.2,1};
 		};
 		class bg_DutyReport2: RscText
@@ -281,52 +281,52 @@ class dutyReportMenu
 			x = 0.355625 * safezoneW + safezoneX;
 			y = 0.269 * safezoneH + safezoneY;
 			w = 0.128906 * safezoneW;
-			h = 0.198 * safezoneH;
+			h = 0.187 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
-		class RscText_1023: RscText
+		class bg_DutyReport3: RscText
 		{
 			idc = 1303;
 
 			x = 0.489687 * safezoneW + safezoneX;
 			y = 0.269 * safezoneH + safezoneY;
 			w = 0.134062 * safezoneW;
-			h = 0.198 * safezoneH;
+			h = 0.187 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
-		class RscText_1024: RscText
+		class bg_DutyReport4: RscText
 		{
 			idc = 1304;
 
 			x = 0.355625 * safezoneW + safezoneX;
-			y = 0.478 * safezoneH + safezoneY;
+			y = 0.467 * safezoneH + safezoneY;
 			w = 0.268125 * safezoneW;
-			h = 0.154 * safezoneH;
+			h = 0.033 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
-		class RscText_1025: RscText
+		class bg_DutyReport5: RscText
 		{
 			idc = 1305;
 
 			x = 0.355625 * safezoneW + safezoneX;
-			y = 0.643 * safezoneH + safezoneY;
+			y = 0.511 * safezoneH + safezoneY;
 			w = 0.268125 * safezoneW;
 			h = 0.088 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
-		class RscButton_1601: RscButton
+		class button_CloseDutyReport: RscButton
 		{
 			idc = 1306;
 			action = "[] call F90_fnc_closeReport";
 
 			text = "CLOSE"; //--- ToDo: Localize;
 			x = 0.355625 * safezoneW + safezoneX;
-			y = 0.742 * safezoneH + safezoneY;
+			y = 0.61 * safezoneH + safezoneY;
 			w = 0.268125 * safezoneW;
 			h = 0.033 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
-		class RscText_1026: RscText
+		class text_DutyReport1: RscText
 		{
 			idc = 1307;
 
@@ -336,37 +336,27 @@ class dutyReportMenu
 			w = 0.0464063 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1027: RscText
+		class text_DutyReport2: RscText
 		{
 			idc = 1308;
 
-			text = "KILLS"; //--- ToDo: Localize;
+			text = "POINTS RECEIVED"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
 			y = 0.269 * safezoneH + safezoneY;
-			w = 0.0825 * safezoneW;
+			w = 0.0979687 * safezoneW;
 			h = 0.044 * safezoneH;
 		};
-		class RscText_1028: RscText
+		class text_DutyReport3: RscText
 		{
 			idc = 1309;
 
-			text = "ASSETS USED"; //--- ToDo: Localize;
+			text = "POINTS DEDUCTION"; //--- ToDo: Localize;
 			x = 0.494844 * safezoneW + safezoneX;
-			y = 0.28 * safezoneH + safezoneY;
-			w = 0.0876563 * safezoneW;
-			h = 0.022 * safezoneH;
+			y = 0.269 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.044 * safezoneH;
 		};
-		class RscText_1029: RscText
-		{
-			idc = 1310;
-
-			text = "CASUALTIES"; //--- ToDo: Localize;
-			x = 0.360781 * safezoneW + safezoneX;
-			y = 0.489 * safezoneH + safezoneY;
-			w = 0.0825 * safezoneW;
-			h = 0.022 * safezoneH;
-		};
-		class RscText_1030: RscText
+		class text_DutyReportConfirmedKills: RscText
 		{
 			idc = 1311;
 
@@ -376,7 +366,7 @@ class dutyReportMenu
 			w = 0.103125 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1031: RscText
+		class text_DutyReportHVTKilled: RscText
 		{
 			idc = 1312;
 
@@ -386,7 +376,7 @@ class dutyReportMenu
 			w = 0.108281 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1032: RscText
+		class text_DutyReportHVTCaptured: RscText
 		{
 			idc = 1313;
 
@@ -396,99 +386,100 @@ class dutyReportMenu
 			w = 0.0825 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1033: RscText
+		class text_DutyReportAirSupports: RscText
 		{
 			idc = 1314;
 
 			text = "Air Supports: 0"; //--- ToDo: Localize;
 			x = 0.494844 * safezoneW + safezoneX;
 			y = 0.313 * safezoneH + safezoneY;
-			w = 0.0773437 * safezoneW;
+			w = 0.113437 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1034: RscText
+		class text_DutyReportArtillery: RscText
 		{
 			idc = 1315;
 
 			text = "Artillery: 0"; //--- ToDo: Localize;
 			x = 0.494844 * safezoneW + safezoneX;
 			y = 0.335 * safezoneH + safezoneY;
-			w = 0.0773437 * safezoneW;
+			w = 0.128906 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1035: RscText
+		class text_DutyReportHelicopters: RscText
 		{
 			idc = 1316;
 
 			text = "Helicopters: 0"; //--- ToDo: Localize;
 			x = 0.494844 * safezoneW + safezoneX;
 			y = 0.357 * safezoneH + safezoneY;
-			w = 0.0773437 * safezoneW;
+			w = 0.12375 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1036: RscText
+		class text_DutyReportVehicles: RscText
 		{
 			idc = 1317;
 
 			text = "Vehicles: 0"; //--- ToDo: Localize;
 			x = 0.494844 * safezoneW + safezoneX;
 			y = 0.379 * safezoneH + safezoneY;
-			w = 0.0825 * safezoneW;
+			w = 0.113437 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1037: RscText
+		class text_DutyReportWages: RscText
 		{
 			idc = 1318;
 
-			text = "Civilian Casualty: 0"; //--- ToDo: Localize;
+			text = "Subordinate Wages : 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
-			y = 0.522 * safezoneH + safezoneY;
-			w = 0.0825 * safezoneW;
+			y = 0.544 * safezoneH + safezoneY;
+			w = 0.139219 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1038: RscText
+		class text_DutyReportTotalReward: RscText
 		{
 			idc = 1319;
 
-			text = "Team Casualty: 0"; //--- ToDo: Localize;
+			text = "Total Milcash Reward: 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
-			y = 0.544 * safezoneH + safezoneY;
-			w = 0.0773437 * safezoneW;
+			y = 0.566 * safezoneH + safezoneY;
+			w = 0.170156 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1039: RscText
+		class text_DutyReportMilcash: RscText
 		{
 			idc = 1320;
 
 			text = "Milcash Rewards: 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
-			y = 0.687 * safezoneH + safezoneY;
-			w = 0.108281 * safezoneW;
+			y = 0.522 * safezoneH + safezoneY;
+			w = 0.159844 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1040: RscText
+		class text_DutyReportSuccessfulOperation: RscText
 		{
 			idc = 1321;
 
 			text = "Sucessful Operation: 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
-			y = 0.643 * safezoneH + safezoneY;
-			w = 0.108281 * safezoneW;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.139219 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class RscText_1041: RscText
+		class text_DutyReportTotalPoints: RscText
 		{
 			idc = 1322;
 
 			text = "Total Points: 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
-			y = 0.665 * safezoneH + safezoneY;
-			w = 0.108281 * safezoneW;
-			h = 0.022 * safezoneH;
+			y = 0.467 * safezoneH + safezoneY;
+			w = 0.128906 * safezoneW;
+			h = 0.033 * safezoneH;
 		};
 		class text_CapturedPrisoners: RscText
 		{
 			idc = 1323;
+
 			text = "Captured Prisoners: 0"; //--- ToDo: Localize;
 			x = 0.360781 * safezoneW + safezoneX;
 			y = 0.335 * safezoneH + safezoneY;
@@ -498,15 +489,17 @@ class dutyReportMenu
 		class text_SeizedAssets: RscText
 		{
 			idc = 1324;
+
 			text = "Seized Assets: 0"; //--- ToDo: Localize;
-			x = 0.494844 * safezoneW + safezoneX;
-			y = 0.643 * safezoneH + safezoneY;
-			w = 0.118594 * safezoneW;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
+
 	};
 };
 
@@ -719,6 +712,590 @@ class hireMenu
 			w = 0.118594 * safezoneW;
 			h = 0.176 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+class squadManagementMenu
+{
+	idd = 1500;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Boxade)
+		////////////////////////////////////////////////////////
+
+		class bg_Squad1: RscText
+		{
+			idc = 1501;
+			x = 0.29375 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.4125 * safezoneW;
+			h = 0.561 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class bg_Squad2: RscText
+		{
+			idc = 1502;
+			x = 0.510313 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.275 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class bg_Squad3: RscText
+		{
+			idc = 1503;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.198 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class bg_Squad4: RscText
+		{
+			idc = 1504;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.533 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.154 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_Squad1: RscText
+		{
+			idc = 1505;
+			text = "Squad Management"; //--- ToDo: Localize;
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class button_CloseSquad: RscButton
+		{
+			idc = 1506;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "CLOSE"; //--- ToDo: Localize;
+			x = 0.644375 * safezoneW + safezoneX;
+			y = 0.236 * safezoneH + safezoneY;
+			w = 0.0567187 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,0,0,1};
+		};
+		class text_Squad2: RscText
+		{
+			idc = 1507;
+			text = "Your Squad"; //--- ToDo: Localize;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.269 * safezoneH + safezoneY;
+			w = 0.061875 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class text_Squad3: RscText
+		{
+			idc = 1508;
+			text = "High Command"; //--- ToDo: Localize;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.522 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class text_Squad4: RscText
+		{
+			idc = 1509;
+			text = "Reserved Pool"; //--- ToDo: Localize;
+			x = 0.577344 * safezoneW + safezoneX;
+			y = 0.269 * safezoneH + safezoneY;
+			w = 0.103125 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class button_Pool1: RscButton
+		{
+			idc = 1510;
+			action = "[] call F90_fnc_addToPlayerSquad";
+
+			text = "To Your Squad"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.61 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Transfer The Selected Unit To Your Squad"; //--- ToDo: Localize;
+		};
+		class button_Pool2: RscButton
+		{
+			idc = 1511;
+			action = "[] call F90_fnc_addUnitToHC";
+
+			text = "To High Command"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.654 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Transfer The Selected Unit To The Selected Squad On High Command"; //--- ToDo: Localize;
+		};
+		class button_Pool3: RscButton
+		{
+			idc = 1512;
+			action = "[] call F90_fnc_addNewHC";
+			text = "To New Squad"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.698 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Transfer The Selected Unit To A New Squad"; //--- ToDo: Localize;
+		};
+		class button_TrainPool: RscButton
+		{
+			idc = 1513;
+			action = "[] call F90_fnc_showTrainMenu";
+			text = "Train"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.566 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.561,0.494,0.114,1};
+			tooltip = "Train The Selected Unit"; //--- ToDo: Localize;
+		};
+		class button_DismissPool: RscButton
+		{
+			idc = 1514;
+			action = "[] call F90_fnc_dismissUnit";
+			
+			text = "Dismiss"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.742 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,-1,-1,1};
+			tooltip = "Dismiss The Selected Unit"; //--- ToDo: Localize;
+		};
+		class button_UnitReserve: RscButton
+		{
+			idc = 1515;
+			action = "[] call F90_fnc_reserveUnit";
+
+			text = "To Reserve"; //--- ToDo: Localize;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.489 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Trasnfer The Selected Unit To Reserve Pool"; //--- ToDo: Localize;
+		};
+		class button_SquadDisband: RscButton
+		{
+			idc = 1516;
+			action = "[] call F90_fnc_disbandSquad";
+
+			text = "Disband Selected Squad"; //--- ToDo: Localize;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.698 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Disband The Squad And Transfer All Of Its Unit To Reserve Pool"; //--- ToDo: Localize;
+		};
+		class button_SquadRename: RscButton
+		{
+			idc = 1517;
+			action = "[] call F90_fnc_showRenameHCMenu";
+
+			text = "Rename Squad"; //--- ToDo: Localize;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.742 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Rename The Selected Squad"; //--- ToDo: Localize;
+		};
+		class listbox_PlayerSquad: RscListbox
+		{
+			idc = 1518;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.165 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class listbox_HighCommand: RscListbox
+		{
+			idc = 1519;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.555 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.121 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class listbox_ReservePool: RscListbox
+		{
+			idc = 1520;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.242 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+class renameHighCommandMenu 
+{
+	idd = 1600;
+
+	class controls 
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Sipoku)
+		////////////////////////////////////////////////////////
+
+		class bg_RenameHC1: RscText
+		{
+			idc = 1601;
+			x = 0.314375 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY;
+			w = 0.37125 * safezoneW;
+			h = 0.143 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_RenameHC1: RscText
+		{
+			idc = 1602;
+			text = "RENAME"; //--- ToDo: Localize;
+			x = 0.479375 * safezoneW + safezoneX;
+			y = 0.412 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class editbox_RenameHC1: RscEdit
+		{
+			idc = 1603;
+			x = 0.319531 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.360937 * safezoneW;
+			h = 0.055 * safezoneH;
+			tooltip = "Make Sure The New Name Is Not Already Exist On Another Squad. If It Does, The Name Will Be Swapped Instead";
+		};
+		class button_ConfirmRenameHC1: RscButton
+		{
+			idc = 1604;
+			action = "[] call F90_fnc_renameHC";
+
+			text = "CONFIRM"; //--- ToDo: Localize;
+			x = 0.613437 * safezoneW + safezoneX;
+			y = 0.522 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Apply Changes"; //--- ToDo: Localize;
+		};
+		class button_CancelRenameHC1: RscButton
+		{
+			idc = 1605;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "CANCEL"; //--- ToDo: Localize;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.522 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,-1,-1,1};
+			tooltip = "Cancel Any Changes Made"; //--- ToDo: Localize;
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+class trainMenu 
+{
+	idd = 1700;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Xarixi)
+		////////////////////////////////////////////////////////
+
+		class bg_TrainMenu1: RscText
+		{
+			idc = 1701;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.252656 * safezoneW;
+			h = 0.385 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class bg_TrainMenu2: RscText
+		{
+			idc = 1702;
+			x = 0.381406 * safezoneW + safezoneX;
+			y = 0.258 * safezoneH + safezoneY;
+			w = 0.242344 * safezoneW;
+			h = 0.275 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_Cost: RscText
+		{
+			idc = 1703;
+			text = "Cost: 0 milcash (0)"; //--- ToDo: Localize;
+			x = 0.381406 * safezoneW + safezoneX;
+			y = 0.533 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class button_ConfirmTraining: RscButton
+		{
+			idc = 1704;
+			action = "[] call F90_fnc_trainUnit";
+
+			text = "Train"; //--- ToDo: Localize;
+			x = 0.505156 * safezoneW + safezoneX;
+			y = 0.566 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_CancelTraining: RscButton
+		{
+			idc = 1705;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "CANCEL"; //--- ToDo: Localize;
+			x = 0.381406 * safezoneW + safezoneX;
+			y = 0.566 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,-1,-1,1};
+			tooltip = "Cancel Training"; //--- ToDo: Localize;
+		};
+		class text_AimingAccuracy: RscText
+		{
+			idc = 1706;
+			text = "Aiming Accuracy"; //--- ToDo: Localize;
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.269 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+			tooltip = "Affects how accurately the AI estimate range and calculates bullet drop"; //--- ToDo: Localize;
+		};
+		class text_AimingShake: RscText
+		{
+			idc = 1707;
+			text = "Aiming Shake"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.269 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+			tooltip = "Affects how steadily the AI can hold a weapon"; //--- ToDo: Localize;
+		};
+		class text_AimingSpeed: RscText
+		{
+			idc = 1708;
+
+			text = "Aiming Speed"; //--- ToDo: Localize;
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.335 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+			tooltip = "Affects how quickly the AI can rotate and stabilize its aim"; //--- ToDo: Localize;
+		};
+		class text_SpotDistance: RscText
+		{
+			idc = 1709;
+			text = "Spot Distance"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.335 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+			tooltip = "Affects the AI ability to spot targets within it is visual or audible range and the accuracy of the information"; //--- ToDo: Localize;
+		};
+		class text_SpotTime: RscText
+		{
+			idc = 1710;
+			text = "Spot Time"; //--- ToDo: Localize;
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+			tooltip = "Affects how quick the AI react to death, damage or observing an enemy"; //--- ToDo: Localize;
+		};
+		class text_Courage: RscText
+		{
+			idc = 1711;
+			text = "Courage"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+			tooltip = "Affects unit's subordinates' morale"; //--- ToDo: Localize;
+		};
+		class text_ReloadSpeed: RscText
+		{
+			idc = 1712;
+			text = "Reload Speed"; //--- ToDo: Localize;
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.467 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+			tooltip = "Affects the delay between switching or reloading a weapon"; //--- ToDo: Localize;
+		};
+		class text_Commanding: RscText
+		{
+			idc = 1713;
+			text = "Commanding"; //--- ToDo: Localize;
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.467 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+			tooltip = "Affects how quickly recognized targets are shared with the group"; //--- ToDo: Localize;
+		};
+		class slider_AimingAccuracy: RscSlider
+		{
+			idc = 1714;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class slider_AimingShake: RscSlider
+		{
+			idc = 1715;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class slider_AimingSpeed: RscSlider
+		{
+			idc = 1716;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.368 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class slider_SpotDistance: RscSlider
+		{
+			idc = 1717;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.368 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class slider_SpotTime: RscSlider
+		{
+			idc = 1718;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.434 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class slider_Courage: RscSlider
+		{
+			idc = 1719;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.434 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class slider_ReloadSpeed: RscSlider
+		{
+			idc = 1720;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.5 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class slider_Commanding: RscSlider
+		{
+			idc = 1721;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.510312 * safezoneW + safezoneX;
+			y = 0.5 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.022 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class text_SoldierName: RscText
+		{
+			idc = 1722;
+			text = "Soldier Name Goes Here"; //--- ToDo: Localize;
+			x = 0.383333 * safezoneW + safezoneX;
+			y = 0.211926 * safezoneH + safezoneY;
+			w = 0.232031 * safezoneW;
+			h = 0.055 * safezoneH;
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END

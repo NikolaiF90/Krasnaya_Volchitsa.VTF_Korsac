@@ -1,5 +1,7 @@
 waitUntil {!isNil "Scenario_Name" && !isNull player};
 
+hcRemoveAllGroups player;
+
 sleep 5;
 [] spawn F90_fnc_splashScreen;
 sleep 3;
@@ -10,3 +12,4 @@ sleep 3;
 [player] call F90_fnc_initEconomy;
 [player] call F90_fnc_initREC;
 [player] call F90_fnc_initCABPlayer;
+[player] call F90_fnc_initSHARSPlayers;

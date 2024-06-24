@@ -17,9 +17,15 @@ enableTeamSwitch true;
 
 civilian setFriend [east, 1];
 
+setGroupIconsVisible [true, false]; 
+setGroupIconsSelectable true;
+
 addMissionEventHandler ["TeamSwitch", 
 {
 	params ["_previousUnit", "_newUnit"];
+
+    setGroupIconsVisible [true, false]; 
+    setGroupIconsSelectable true;
 
     // Delete action if already exist. To prevent duplicate action on mission host
     if (!isNil {_RECActionID}) then { _newUnit removeAction _RECActionID};
@@ -61,6 +67,12 @@ addMissionEventHandler ["TeamSwitch",
     ];
 
     _newUnit setVariable ["Persistent_ActionID", _persistentActionID];
+}];
+
+addMissionEventHandler ["PlayerDisconnected", 
+{
+	params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];
+
 }];
 
 Mission_InitDone = true;
