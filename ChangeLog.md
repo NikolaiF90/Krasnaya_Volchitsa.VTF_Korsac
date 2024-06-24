@@ -1,13 +1,19 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-    None currently.
+    None currently
 ## ToDO
     Task update
 ## Version History
 
 ### Version 1.19.0a
     * Hire System overhaul. Renamed to SHARS (Subordinate Hiring And Reserve System).
+    * Reserve system where you can reserve subordinates instead of dimissing them completely and you can call them back to combat whenever needed.
+    * Disband your high command subordinate.
+    * Train individual skills on individual units.
+    * Reserve pools persistent across saves.
+    * Create your own high command squads.
+    * Rename squads under your command.
     * Minor bugfix.
 
 ### Version 1.18.0a
