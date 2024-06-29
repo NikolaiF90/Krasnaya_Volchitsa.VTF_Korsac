@@ -10,7 +10,8 @@
     * Mission guide
     * Time skip
     * FOB
-    * Custom teams
+    * Ability for mission designers to change teams and sides
+    * Transfer milcash
 
 ## Version History
 
