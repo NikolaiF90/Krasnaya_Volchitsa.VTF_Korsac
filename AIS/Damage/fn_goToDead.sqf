@@ -51,7 +51,7 @@ if (!isNull _killer) then
 	if (_unitIsHVT) then 
 	{
 		[_unit, "Confirm Identity"] remoteExec ["F90_fnc_addConfirmKillAction", 0, true];
-	}
+	};
 };
 
 // dead... if some issues with the deadcam (shown killer) give the dead a deleay of 1 frame --> need testing
