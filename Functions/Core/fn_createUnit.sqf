@@ -18,7 +18,6 @@
 
 params ["_group", "_type", "_position", "_skill", "_unitName", "_wageArray"];
 
-private _returnValue = nil;
 private _unit = _group createUnit [_type, _position, [], 0, "FORM"];
 
 if (isNil {_skill}) then 
@@ -52,11 +51,16 @@ if (isNil {_unitName}) then
     _unitName = "";
 };
 
-if (_unitName != "") then 
+if (_unitName isEqualType []) then 
 {
-    private _nameArray = _unitName splitString " ";
-
-    _unit setName [_unitName, _nameArray select 0, _nameArray select 1];
+    _unit setName _unitName;
+} else
+{
+    if (_unitName != "") then 
+    {
+        private _nameArray = _unitName splitString " ";
+        _unit setName [_unitName, _nameArray select 0, _nameArray select 1];
+    };
 };
 
 if (isNil {_wageArray}) then 
@@ -72,7 +76,10 @@ if (count _wageArray == 2) then
     if (_shouldGenerate) then
     {
         private _wage = [_unit] call F90_fnc_generateWage;
-        _unit setVariable ["SHARS_Wage", _wage];
+        _unit setVariable ["SHARS_Wage", _wage, true];
+    } else 
+    {
+        _unit setVariable ["SHARS_Wage", _initialCost, true];
     };
 } else 
 {
@@ -87,5 +94,4 @@ _unit setVariable ["Mission_UnitClass", _type, true];
 Mission_CreatedUnits pushBack _unit;
 publicVariable "Mission_CreatedUnits";
 
-_returnValue = _unit;
-_returnValue;
+_unit

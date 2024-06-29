@@ -9,32 +9,24 @@
         1: ARRAY - _position: The position (format AGL) where the unit should be spawned
 
     Returns:
-        None
+        _hvt - spawned HVT
 */
 
 params ["_spawnChance", "_position"];
 
 if (_spawnChance >= (floor random 101)) then 
 {
+    private _wantedID = floor random (count REC_WantedList);
+    private _wantedData = REC_WantedList # _wantedID;
+    private _nameData = [_wantedData select 0, _wantedData select 1, _wantedData select 2];
+
     private _group = createGroup [west, true];
     private _type = selectRandom Mission_HVTUnits;
-    private _unit = _group createUnit [_type, _position, [], 0, "FORM"];
-    [_unit] call AIS_System_fnc_loadAIS;
-
-    [_unit] joinSilent _group;
-
-    private _wantedID = floor random (count REC_WantedList);
-    private _unitData = REC_WantedList # _wantedID;
-    
-    private _fullName = _unitData # 0;
-    private _firstName = _unitData # 1;
-    private _surname = _unitData # 2;
-    
-    _unit setName [_fullName, _firstName, _surname];
+    private _unit = [_group, _type, _position, Mission_DefaultAISkill, _nameData] call F90_fnc_createUnit;
 
     _unit setVariable ["Record_IsHVT", true, true];
     _unit setVariable ["CAB_WantedID", _wantedID, true];
-
-    Mission_CreatedUnits pushBack _unit;
-    publicVariable "Mission_CreatedUnits";
+    Task_SpawnedHVT pushBack _unit;
+    
+    _unit
 };

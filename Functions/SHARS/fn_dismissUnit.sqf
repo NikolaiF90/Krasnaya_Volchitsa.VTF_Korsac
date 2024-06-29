@@ -11,7 +11,7 @@ if (lbSize SquadMenu_ReservePoolListBoxIDC > 0) then
     private _selectedUnit = _reservePools select _selectedIndex;
 
     // Remove from pool 
-    SHARS_ReservePool deleteAt _selectedIndex;
+    _reservePools deleteAt _selectedIndex;
     _caller setVariable ["SHARS_ReservePool", _reservePools, true];
     ["RESERVE"] call F90_fnc_refreshSquadMenu;
 };

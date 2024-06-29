@@ -23,7 +23,7 @@ switch (_taskType) do
         Task_DutyStatus = 0;
 
         // Generate AO
-        private _patrolLocation = selectRandom TASK_PatrolLocationDatas;
+        private _patrolLocation = selectRandom Task_PatrolLocations;
         private _markerName = [_patrolLocation select 0] call F90_fnc_generateUniqueID;
         _taskLocation = [_patrolLocation select 1 select 0, _patrolLocation select 1 select 1, 0];
         _taskMarker = createMarker [_markerName, _taskLocation];
@@ -34,11 +34,6 @@ switch (_taskType) do
         _taskMarker setMarkerAlpha 0;
 
         _condition = "this";
-
-        [60, _taskMarker] call F90_fnc_createAmbush;
-
-        Persistent_MarkerBlacklists pushBack _taskMarker;
-        publicVariable "Persistent_MarkerBlacklists";
     };
     
     case "Task_Ambush": 
@@ -50,19 +45,27 @@ switch (_taskType) do
         Task_DutyStatus = 0;
 
         // Generate AO
-        _taskMarker = selectRandom Task_HideoutMarkers;
-        _taskLocation = markerPos _taskMarker;
-
-        _taskArea = markerSize _taskMarker;
+        private _ambushLocation = selectRandom Task_HideoutLocations;
+        private _markerName = [_ambushLocation select 0] call F90_fnc_generateUniqueID;
+        _taskLocation = [_ambushLocation select 1 select 0, _ambushLocation select 1 select 1, 0];
+        _taskMarker = createMarker [_markerName, _taskLocation];
+        _taskArea = _ambushLocation select 3;
         _taskAreaX = _taskArea # 0;
         _taskAreaY = _taskArea # 1;
-        _taskAreaDir = markerDir _taskMarker;
-
+        _taskAreaDir = _ambushLocation select 2;
+        
         _condition = "this";
-        Task_CreatedPatrolGroups = [1, 4, _taskLocation] call F90_fnc_createPatrol;
+        [1, 4, _taskLocation] spawn F90_fnc_createPatrol;
 
         private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
-        [Task_AmbushHVTSpawnChance, _hvtSpawnPos] call F90_fnc_createHVT;
+        [Task_AmbushHVTSpawnChance, _hvtSpawnPos] spawn F90_fnc_createHVT;
+
+        // Randomly spawn seizable assets
+        private _random = random 101;
+        if (Task_SeizableAssetSpawnChance >= _random) then 
+        {
+            [_taskLocation] spawn F90_fnc_createSeizableAsset;
+        };
     };
 
     case "Task_KillHVT": 
@@ -75,23 +78,31 @@ switch (_taskType) do
         Task_DutyStatus = 0;
 
         // Generate AO
-        private _patrolLocation = selectRandom TASK_PatrolLocationDatas;
-        private _markerName = [_patrolLocation select 0] call F90_fnc_generateUniqueID;
+        private _possibleHVTLocation = Task_PatrolLocations + Task_HideoutLocations;
+        private _hvtLocation = selectRandom _possibleHVTLocation;
+        private _markerName = [_hvtLocation select 0] call F90_fnc_generateUniqueID;
 
-        _taskLocation = [_patrolLocation select 1 select 0, _patrolLocation select 1 select 1, 0];
+        _taskLocation = [_hvtLocation select 1 select 0, _hvtLocation select 1 select 1, 0];
         _taskMarker = createMarker [_markerName, _taskLocation];
-        _taskArea = _patrolLocation select 3;
-        _taskAreaX = _taskArea # 0;
-        _taskAreaY = _taskArea # 1;
-        _taskAreaDir = _patrolLocation select 2;
+        _taskArea = _hvtLocation select 3;
+        _taskAreaX = _taskArea select 0;
+        _taskAreaY = _taskArea select 1;
+        _taskAreaDir = _hvtLocation select 2;
         _taskMarker setMarkerAlpha 0;
 
         _condition = "this";
 
-        [80, _taskMarker] call F90_fnc_createAmbush;
-        
-        Persistent_MarkerBlacklists pushBack _taskMarker;
-        publicVariable "Persistent_MarkerBlacklists";
+        [1, 1, _taskLocation] spawn F90_fnc_createPatrol;
+
+        private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
+        [100, _hvtSpawnPos] spawn F90_fnc_createHVT;
+
+        // Randomly spawn seizable assets
+        private _random = random 101;
+        if (Task_SeizableAssetSpawnChance >= _random) then 
+        {
+            [_taskLocation] spawn F90_fnc_createSeizableAsset;
+        };
     };
 
     case "Task_Support": 
@@ -104,7 +115,7 @@ switch (_taskType) do
         Task_DutyStatus = 0;
 
         // Generate AO
-        private _patrolLocation = selectRandom TASK_PatrolLocationDatas;
+        private _patrolLocation = selectRandom Task_PatrolLocations;
         private _markerName = [_patrolLocation select 0] call F90_fnc_generateUniqueID;
 
         _taskLocation = [_patrolLocation select 1 select 0, _patrolLocation select 1 select 1, 0];
@@ -116,10 +127,7 @@ switch (_taskType) do
         _taskMarker setMarkerAlpha 0;
 
         _condition = "this";
-        [40, _taskMarker] call F90_fnc_createAmbush;
-
-        Persistent_MarkerBlacklists pushBack _taskMarker;
-        publicVariable "Persistent_MarkerBlacklists";
+        [40, _taskMarker] spawn F90_fnc_createAmbush;
     };
 
     case "Task_RTB": 
@@ -132,17 +140,21 @@ switch (_taskType) do
         Task_DutyStatus = 0;
 
         // Generate AO
-        _taskMarker = "base_0";
-        _taskLocation = markerPos _taskMarker;
-
-        _taskArea = markerSize _taskMarker;
-        _taskAreaX = _taskArea # 0;
-        _taskAreaY = _taskArea # 1;
-        _taskAreaDir = markerDir _taskMarker;
+        private _markerName = ["base"] call F90_fnc_generateUniqueID;
+        _taskLocation = markerPos "base_0";
+        _taskMarker = createMarker [_markerName, _taskLocation];
+        _taskArea = markerSize "base_0";
+        _taskAreaX = _taskArea select 0;
+        _taskAreaY = _taskArea select 1;
+        _taskAreaDir = markerDir "base_0";
+        _taskMarker setMarkerAlpha 0;
 
         _condition = "missionCaptain in thisList";
     };
 };
+
+// Remove unused marker
+deleteMarker _taskMarker;
 
 // Create task trigger
 [_taskLocation, _taskAreaX, _taskAreaY, _taskAreaDir, _condition] call F90_fnc_createAOTrigger;
@@ -169,4 +181,4 @@ if (Task_CurrentTaskID != "") then
     _taskCreated = true;
 };
 
-_taskCreated;
+_taskCreated

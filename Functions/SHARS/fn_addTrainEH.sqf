@@ -37,14 +37,14 @@ findDisplay TrainMenu_MainIDD displayCtrl _sliderIDC ctrlAddEventHandler ["Slide
     {
         _totalAddedPoints = _totalAddedPoints + _x;
     } forEach _trainArray;
-    player setVariable ["SHARS_TotalAddedPoints", _totalAddedPoints];
+    player setVariable ["SHARS_TotalAddedPoints", _totalAddedPoints, true];
 
     // Find cost text 
     private _costPriceIDC = player getVariable "TrainMenu_CostTextIDC";
     // Calculate total cost 
     private _trainCost = (_totalAddedPoints * 100) * SHARS_TrainingCost;
     // Save to player namespace so the Train Unit action can access it
-    player setVariable ["SHARS_TrainUnitCost", _trainCost]; 
+    player setVariable ["SHARS_TrainUnitCost", _trainCost, true]; 
     // Update cost text
     private _costText = format ["Cost: %1 milcash (%2)", _trainCost, _totalAddedPoints];
     ctrlSetText [_costPriceIDC, _costText];

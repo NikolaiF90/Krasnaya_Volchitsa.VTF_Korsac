@@ -12,10 +12,8 @@
     Returns:  
         _groupArray - Array of created groups
 */
-
 params ["_minGroup", "_maxGroup", "_position"];
 
-private _returnValue = nil;
 private _groupCount = [_minGroup, _maxGroup] call BIS_fnc_randomInt;
 private _createdGroups = [];
 
@@ -31,10 +29,8 @@ for "_i" from 1 to _groupCount do
         private _unit = [_group, _unitClass, _position] call F90_fnc_createUnit;
     };
     _createdGroups pushBack _group;
-    
+    Task_CreatedPatrolGroups pushBack _group;
     [_group, _position, 100] call BIS_fnc_taskPatrol;
 };
 
-_returnValue = _createdGroups;
-
-_returnValue;
+_createdGroups

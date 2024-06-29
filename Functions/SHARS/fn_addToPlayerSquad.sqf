@@ -15,9 +15,10 @@ if (lbSize SquadMenu_ReservePoolListBoxIDC > 0) then
     private _className = _selectedUnit select 0;
     private _unitName = _selectedUnit select 1;
     private _unitSkills = _selectedUnit select 2;
+    private _unitWage = _selectedUnit select 3;
     private _spawnPos = [position _caller, 0, 10] call BIS_fnc_findSafePos;
 
-    [group _caller, _className, _spawnPos, _unitSkills, _unitName] call F90_fnc_createUnit;
+    [group _caller, _className, _spawnPos, _unitSkills, _unitName, [false, _unitWage]] call F90_fnc_createUnit;
 
     // Remove from pool 
     _reservePools deleteAt _selectedIndex;

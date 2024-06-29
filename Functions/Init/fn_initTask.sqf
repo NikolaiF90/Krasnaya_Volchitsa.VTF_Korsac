@@ -9,7 +9,13 @@ if (!isNil {Task_CurrentTaskID}) then
     };
 };
 
-Task_CreatedPatrolGroups = []; // Created patrol units
+// Created patrol units
+Task_CreatedPatrolGroups = []; 
+// Spawned HVT. Used for resetting map
+Task_SpawnedHVT = [];
+// Created Assets. Used for resetting map and mission.
+Task_CreatedAssets = [];
+
 Task_CurrentTaskID = "";
 Task_MainTaskStatus = -1; // -1 None, 0 Assigned, 1 Completed, 2 Failed
 publicVariable "Task_MainTaskStatus";
@@ -26,10 +32,10 @@ Task_PatrolTimeMid = (Task_PatrolTimeMin + Task_PatrolTimeMax) / 2;
 
 Task_AllTask = 
 [
-    "Task_Patrol", 
-    "Task_Ambush", 
+    //"Task_Patrol", 
+    //"Task_Ambush", 
     "Task_KillHVT",
-    "Task_Support",
+    //"Task_Support",
     "Task_RTB"
 ];
 
@@ -71,26 +77,41 @@ if (_reportDutyActionID != -1) then
 
 [Mission_TaskOfficer] call AIS_System_fnc_loadAIS;
 
-// Can add your custom location here. Formatted by [[STRING:location name, ARRAY[x,y,z]:position, NUMBER:direction, ARRAY[x,y]:size, BOOL:isRectangle]];
-Task_PatrolLocationDatas = []; 
 // Finds towns for patrol task
-Task_PatrolLocationDatas = [["NameVillage", "NameCity", "NameCityCapital"]] call F90_fnc_getLocations;
+Task_PatrolLocations = [["NameVillage", "NameCity", "NameCityCapital"]] call F90_fnc_getLocations;
+// Finds locations for other task
+Task_HideoutLocations = [["NameLocal"]] call F90_fnc_getLocations;
+
+{
+    private _key = _x;
+    {
+        private _nameArray = (_x select 0) splitString " ";
+        private _index = _forEachIndex;
+        if (_key in _nameArray) then 
+        {
+            Task_HideoutLocations deleteAt _index;
+        };
+    } forEach Task_HideoutLocations;
+} forEach Task_HideoutBlacklist;
 
 // Hide or unhide markers based on debug option
 if (TaskDebug) then 
 {
     {
         _x setMarkerAlpha 1;
-    } forEach Task_BaseMarkers + Task_HideoutMarkers;
+    } forEach Task_BaseMarkers;
 } else 
 {
     {
         _x setMarkerAlpha 0;
-    } forEach Task_BaseMarkers + Task_HideoutMarkers;
+    } forEach Task_BaseMarkers;
 };
 
 // Blacklist markers
 {
-    Persistent_MarkerBlacklists pushBack _x;
-} forEach Task_BaseMarkers + Task_HideoutMarkers;
+    if !(_x in Persistent_MarkerBlacklists) then 
+    {
+        Persistent_MarkerBlacklists pushBack _x;
+    };
+} forEach Task_BaseMarkers;
 publicVariable "Persistent_MarkerBlacklists";

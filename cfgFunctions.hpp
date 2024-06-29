@@ -161,9 +161,11 @@ class F90
         class createAOTrigger {};
         class createHVT {};
         class createPatrol {};
+        class createSeizableAsset {};
         class createTask {};
         class reportMission {};
         class requestMission {};
+        class seizeAsset {};
         class showTaskNotification {};
     };
 

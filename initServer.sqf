@@ -17,14 +17,14 @@ enableTeamSwitch true;
 
 civilian setFriend [east, 1];
 
-setGroupIconsVisible [true, false]; 
+setGroupIconsVisible [false, false]; 
 setGroupIconsSelectable true;
 
 addMissionEventHandler ["TeamSwitch", 
 {
 	params ["_previousUnit", "_newUnit"];
 
-    setGroupIconsVisible [true, false]; 
+    setGroupIconsVisible [false, false]; 
     setGroupIconsSelectable true;
 
     // Delete action if already exist. To prevent duplicate action on mission host

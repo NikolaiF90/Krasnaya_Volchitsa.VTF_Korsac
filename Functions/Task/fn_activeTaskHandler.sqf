@@ -39,18 +39,25 @@ while {Task_DutyStatus == 0} do
             {
                 if (_remaining >= 0) then 
                 {
-                    hint "";
-                    hint format ["Please patrol the area for %1 seconds.", _remaining];
+                    // Spawn QRF groups 
+                    [60, position Task_TaskTrigger] spawn F90_fnc_createAmbush;
+
+                    // Notify remining patrol time to all players
+                    [""] remoteExec ["hintSilent", 0, true];
+                    private _text = format ["Please patrol the area for %1 seconds.", _remaining];
+                    [_text] remoteExec ["hintSilent", 0, true];
+
                     _remaining = _remaining - 1;
-                    sleep 1;
                 };
 
                 if (_remaining <= 0) then
                 {
+                    // Stop hinting to all players 
+                    [""] remoteExec ["hintSilent", 0, true];
+
                     // prevent code running any further
                     _inAO = false;
                     _detected = false;
-                    sleep 1;
 
                     // RTB mission
                     _taskCompleted = [] call F90_fnc_completePatrol;
@@ -59,7 +66,11 @@ while {Task_DutyStatus == 0} do
 
             case "Task_Ambush":
             {
-                if (count Task_CreatedPatrolGroups > 0) then 
+                private _patrolGroups = [];
+                private _hvtGroup = group (Task_SpawnedHVT select 0);
+                _patrolGroups append Task_CreatedPatrolGroups;
+                _patrolGroups append _hvtGroup;
+                if ((count _patrolGroups) > 0) then 
                 {
                     {
                         private _groupArray = units _x;
@@ -82,9 +93,9 @@ while {Task_DutyStatus == 0} do
                         // Remove the group from patrol groups if none alive and able to combat
                         if (_aliveUnitCount <= 0) then 
                         {
-                            Task_CreatedPatrolGroups = Task_CreatedPatrolGroups - [_x];
+                            _patrolGroups = _patrolGroups - [_x];
                         };
-                    } forEach Task_CreatedPatrolGroups;
+                    } forEach _patrolGroups;
                 } else 
                 {
                     ["Ambush Completed"] call F90_fnc_textNotification; 
@@ -93,13 +104,13 @@ while {Task_DutyStatus == 0} do
                     Task_DutyStatus = 1;
                     Task_DutyName = "";
                     Task_DutyDescription = "";
+                    Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
+                    publicVariable "Persistent_MarkerBlacklists";
                     deleteMarker Task_AoMarker;
                     deleteMarker Task_AoZone;
-                    Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
                     // prevent code running any further
                     _inAO = false;
                     _detected = false;
-                    sleep 1;
 
                     // RTB mission
                     ["Task_RTB"] call F90_fnc_createTask;
@@ -109,24 +120,42 @@ while {Task_DutyStatus == 0} do
 
             case "Task_KillHVT":
             {
-                ["HVT Killed"] call F90_fnc_textNotification; 
-                [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
-                
-                Task_DutyStatus = 1;
-                Task_DutyName = "";
-                Task_DutyDescription = "";
-                deleteMarker Task_AoMarker;
-                deleteMarker Task_AoZone;
-                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
+                if ((count Task_SpawnedHVT) == 1) then 
+                {
+                    private _hvtUnit = Task_SpawnedHVT select 0;
+                    if !(alive _hvtUnit) then 
+                    {
+                        // Remove unit from array 
+                        Task_SpawnedHVT deleteAt 0;
 
-                // prevent code running any further
-                _inAO = false;
-                _detected = false;
-                sleep 1;
+                        // Spawn enemy QRF
+                        [80, position Task_TaskTrigger] spawn F90_fnc_createAmbush;
 
-                // RTB mission
-                ["Task_RTB"] call F90_fnc_createTask;
-                _taskCompleted = true;
+                        // Notify player
+                        ["HVT Killed"] call F90_fnc_textNotification; 
+                        [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
+
+                        // Update task status
+                        Task_DutyStatus = 1;
+                        Task_DutyName = "";
+                        Task_DutyDescription = "";
+                        Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
+                        publicVariable "Persistent_MarkerBlacklists";
+                        deleteMarker Task_AoMarker;
+                        deleteMarker Task_AoZone;
+
+                        // prevent code running any further
+                        _inAO = false;
+                        _detected = false;
+
+                        // RTB mission
+                        ["Task_RTB"] call F90_fnc_createTask;
+                        _taskCompleted = true;
+                    };
+                } else 
+                {
+                    [true, "activeTaskHandler\Task_KillHVT", format ["Array Task_SpawnedHVT count is not 1! Task_SpawnedHVT = %1", Task_SpawnedHVT], true] call F90_fnc_debug;
+                };
             };
 
             case "Task_Support":
@@ -137,14 +166,14 @@ while {Task_DutyStatus == 0} do
                 Task_DutyStatus = 1;
                 Task_DutyName = "";
                 Task_DutyDescription = "";
+                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
+                publicVariable "Persistent_MarkerBlacklists";
                 deleteMarker Task_AoMarker;
                 deleteMarker Task_AoZone;
-                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
 
                 // prevent code running any further
                 _inAO = false;
                 _detected = false;
-                sleep 1;
 
                 // RTB mission
                 ["Task_RTB"] call F90_fnc_createTask;
@@ -162,9 +191,10 @@ while {Task_DutyStatus == 0} do
                 Task_DutyName = "Report Out";
                 Task_DutyDescription = "Report the mission to your reporting officer";
 
+                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
+                publicVariable "Persistent_MarkerBlacklists";
                 deleteMarker Task_AoMarker;
                 deleteMarker Task_AoZone;
-                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
 
                 {
                     _x setVariable ["TASK_IsSuccessfulMission", true, true];
@@ -215,4 +245,6 @@ while {Task_DutyStatus == 0} do
     };
 
     if (_taskCompleted) exitWith {};
+
+    sleep Task_CheckInterval;
 };

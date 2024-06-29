@@ -3,18 +3,37 @@
 ## Known Issues
     None currently
 ## ToDO
-    Task update
+    * More tasks
+    * Skill Tree
+    * Ways to get wanted list
+    * Ranking system
+    * Mission guide
+    * Time skip
+    * FOB
+    * Custom teams
+
 ## Version History
+
+### Version 1.20.0a
+    * Task Update.
+    * Mission designers no longer need to specify hideout locations using hideout markers. The mission will automatically do the job.
+    * Adjusted when to spawn enemy QRF groups.
+    * Instead of spawning inside task location, enemy QRF groups now spawns between 200m-300m from task location.
+    * Enemy QRF groups now moves to the task location more faster. 
+    * Remaining patrol time will now be shown to all players.
+    * Assets may appear in some mission and player will be rewarded for seizing assets.
+    * Removed debug messages when starting mission.
+    * Major bugfixes and optimization.
 
 ### Version 1.19.0a
     * Hire System overhaul. Renamed to SHARS (Subordinate Hiring And Reserve System).
-    * Reserve system where you can reserve subordinates instead of dimissing them completely and you can call them back to combat whenever needed.
+    * Reserve system where players can reserve subordinates instead of dimissing them completely and players can call them back to combat whenever needed.
     * Disband your high command subordinate.
     * Train individual skills on individual units.
     * Reserve pools persistent across saves.
     * Create your own high command squads.
     * Rename squads under your command.
-    * Wage system where every units in your group demands you to pay for their wage for every mission.
+    * Wage system where every units in your group demands players to pay for their wage for every mission.
     * Total wages to be paid will be shown in report menu.
     * Major bugfixes and optimizations.
 
@@ -42,8 +61,8 @@
 ### Version 1.16.0a
     * Enemy surrendering after being revived.
     * Arrest every enemy. But they should drop their weapons first.
-    * Captured enemy now grants you points after completing mission. HVT grants more points.
-    * Dead HVT can now be identified by players no matter who pulls the trigger.
+    * Captured enemy now grant players points after completing mission. HVT grants more points.
+    * Dead HVT can now be identified by any players no matter who pulls the trigger.
     * Major optimization and bugfixes.
 
 ### Version 1.15.0a
@@ -58,7 +77,7 @@
     * Civilian Presence major overhaul.
     * Civilian will now react to surrounding. 
     * Tactical Tab updated. Wanted list will be shown on tactical tab.
-    * Reward for capturing HVT will be shown on Tactical Tab.
+    * Rewards for capturing HVT will be shown on Tactical Tab.
     * Arrest civilian.
     * Player will be rewarded for every arrested/killed HVT.
     * Player will get less reward for killing HVT.
@@ -77,7 +96,7 @@
 ### Version 1.10.0a
     * Points system. Points will be given for each kills, and will be deducted for each casualties and asset used. 
     * Added artillery support used in the duty report.
-    * Now with less luck, enemy might ambush you while on patrol. So watch out.
+    * Now with less luck, enemy might ambush players while on patrol. So watch out.
 
 ### Version 1.9.0a
     * Added duty report menu. The menu will be shown to player after every end of duty.
@@ -114,14 +133,14 @@
     * Minor optimization.
 
 ### Version 1.4.0a
-    * Added a new revive system * Alternative Injury System by Psychobastard. 
+    * Added a new revive system - Alternative Injury System by Psychobastard. 
 
 ### Version 1.3.0a
-    * Added Tactical Tab. This is where player can access their Milcash(in*game currency).
+    * Added Tactical Tab. This is where player can access their Milcash(in-game currency).
 
 ### Version 1.2.0a
     * Added Economy System
-    * Added VETCOMREC * Veteran Combat Record System
+    * Added VETCOMREC - Veteran Combat Record System
     * Updated persistence system to better adapt to the new economy system and VETCOMREC
 
 ### Version 1.1.0a

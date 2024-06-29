@@ -42,3 +42,4 @@ Task_AoMarker setMarkerType "hd_dot";
 // Blacklist marker from saving
 Persistent_MarkerBlacklists pushBack Task_AoMarker;
 Persistent_MarkerBlacklists pushBack Task_AoZone;
+publicVariable "Persistent_MarkerBlacklists";

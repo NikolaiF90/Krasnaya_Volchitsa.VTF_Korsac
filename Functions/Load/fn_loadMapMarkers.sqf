@@ -17,7 +17,8 @@
 
 params ["_slot"];
 
-private _allMarkers = allMapMarkers;
+private _allMarkers = [];
+_allMarkers append allMapMarkers;
 
 {
     _allMarkers = _allMarkers - [_x];

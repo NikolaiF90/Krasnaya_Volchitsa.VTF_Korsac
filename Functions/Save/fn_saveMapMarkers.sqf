@@ -22,7 +22,8 @@ params ["_slot"];
 
 private _markersArray = [];
 private _userMarkersCounter = 1;
-private _allMarkers = allMapMarkers;
+private _allMarkers = [];
+__allMarkers append allMapMarkers;
 
 {
     _allMarkers = _allMarkers - [_x];

@@ -18,9 +18,10 @@ private _donePatrol = false;
 Task_DutyStatus = 1;
 Task_DutyName = "";
 Task_DutyDescription = "";
+Persistent_MarkerBlacklists = [Task_AoMarker, Task_AoZone];
+publicVariable "Persistent_MarkerBlacklists";
 deleteMarker Task_AoMarker;
 deleteMarker Task_AoZone;
-Persistent_MarkerBlacklists = [];
 
 ["Task_RTB"] call F90_fnc_createTask;
 

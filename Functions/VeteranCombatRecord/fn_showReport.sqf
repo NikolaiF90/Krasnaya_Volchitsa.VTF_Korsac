@@ -29,8 +29,8 @@ ctrlSetText [REC_TempHelicoptersIDC, format ["Transport Heli: %1pts", _heliUsed]
 ctrlSetText [REC_TempMissionSuccessIDC, format ["Successful Operation: %1pts", _successfulOperation]];
 ctrlSetText [REC_TempSeizedIDC, format ["Seized Assets Points: %1pts", _seizePoints]];
 ctrlSetText [REC_TempTotalPointsIDC, format ["Total Points: %1pts", _totalPoints]];
-ctrlSetText [REC_TempRewardsIDC, format ["Milcash Rewards: %1", _rewards]];
-ctrlSetText [REC_TempTotalRewardsIDC, format ["Total Milcash Rewards: %1", _totalRewards]];
-ctrlSetText [REC_TempWagesIDC, format ["Subordinate Wages: %1", str (0 - _wages)]];
+ctrlSetText [REC_TempRewardsIDC, format ["Milcash Rewards: %1 milcash", _rewards]];
+ctrlSetText [REC_TempTotalRewardsIDC, format ["Total Milcash Rewards: %1 milcash", _totalRewards]];
+ctrlSetText [REC_TempWagesIDC, format ["Subordinate Wages: %1 milcash", str (0 - _wages)]];
 
 [_unit] call F90_fnc_transferRecord;

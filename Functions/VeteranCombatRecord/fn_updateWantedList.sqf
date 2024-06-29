@@ -24,13 +24,13 @@ switch _operation do
     };
     case "KILL": 
     {
-        private _killed = _args # 0;
-        private _killer = _args # 1;
+        private _killer = _args # 0;
+        private _killed = _args # 1;
         private _index = _args # 2;
 
-        private _tempHVTKilled = _killer getVariable "REC_TempHVTKilled";
+        private _tempHVTKilled = _killer getVariable ["REC_TempHVTKilled", 0];
         _tempHVTKilled = _tempHVTKilled + 1;
-        _killer setVariable ["REC_TempHVTKilled", _tempHVTKilled];
+        _killer setVariable ["REC_TempHVTKilled", _tempHVTKilled, true];
 
         // Reward 
         private _killedData = REC_WantedList # _index;
@@ -47,5 +47,4 @@ switch _operation do
 
 publicVariable "REC_WantedList";
 
-sleep 3; // Temporary
-_returnValue;
+_returnValue

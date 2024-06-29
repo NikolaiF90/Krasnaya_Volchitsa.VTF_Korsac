@@ -14,18 +14,43 @@
 		[] call F90_fnc_taskEconomy;
 */
 
-TaskDebug = true; // true to turn on debug
+// true to turn on debug
+TaskDebug = true; 
 
+// Time interval to check for task status
+Task_CheckInterval = 5;
 // Minimum patrol time in minutes
 Task_PatrolTimeMin = 1;
 // Maximum patrol time in minutes
 Task_PatrolTimeMax = 2;
 
 Task_BaseMarkers = ["base_0"];
-Task_HideoutMarkers = ["ho_01", "ho_02", "ho_03", "ho_04", "ho_05", "ho_06", "ho_07", "ho_08", "ho_09", "ho_10"]; 
+// Add your custom patrol task location here. Formatted by [[STRING:location name, ARRAY[x,y,z]:position, NUMBER:direction, ARRAY[x,y]:size, BOOL:isRectangle]];
+Task_PatrolLocations = []; 
+// Add your custom ambush task location here. Formatted by [[STRING:location name, ARRAY[x,y,z]:position, NUMBER:direction, ARRAY[x,y]:size, BOOL:isRectangle]];
+Task_HideoutLocations = []; 
+// Locations that are not suitable as hideout markers
+Task_HideoutBlacklist = ["factory", "refinery", "radio", "industrial", "Comms", "power"];
+// Classnames of seizeable assets.
+Task_SeizableAssetModels = 
+[
+	"Box_FIA_Wps_F", 
+	"Box_FIA_Ammo_F", 
+	"B_G_Offroad_01_F", 
+	"B_G_Van_01_fuel_F", 
+	"B_G_Offroad_01_AT_F", 
+	"B_G_Offroad_01_armed_F", 
+	"B_G_Offroad_01_repair_F", 
+	"B_G_Quadbike_01_F", 
+	"B_G_Van_01_transport_F", 
+	"B_G_Van_02_vehicle_F", 
+	"B_G_Van_02_transport_F"
+];
 
 // Chance that hvt will appear on ambush mission
 Task_AmbushHVTSpawnChance = 45;
+// Chance that assets will appear on mission. Note that not all missions will spawn assets
+Task_SeizableAssetSpawnChance = 100;
 
 // Do not edit
 configureTaskDone = true;
