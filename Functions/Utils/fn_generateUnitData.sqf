@@ -115,6 +115,7 @@ _unitData pushBack ["totalConductedMissions", _unit getVariable "Record_TotalCon
 _unitData pushBack ["totalSuccessfulMissions", _unit getVariable "Record_TotalSuccessfulMissions"];
 _unitData pushBack ["totalArrestedHVT", _unit getVariable "Record_TotalArrestedHVT"];
 _unitData pushBack ["totalKilledHVT", _unit getVariable "Record_TotalKilledHVT"];
+_unitData pushBack ["recentNotification", _unit getVariable "Record_RecentNotification"];
 _unitData pushBack ["unitSide", _unit getVariable "Mission_UnitSide"];
 _unitData pushBack ["reservePools", _unit getVariable "SHARS_ReservePool"];
 

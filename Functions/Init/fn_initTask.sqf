@@ -32,10 +32,10 @@ Task_PatrolTimeMid = (Task_PatrolTimeMin + Task_PatrolTimeMax) / 2;
 
 Task_AllTask = 
 [
-    //"Task_Patrol", 
-    //"Task_Ambush", 
+    "Task_Patrol", 
+    "Task_Ambush", 
     "Task_KillHVT",
-    //"Task_Support",
+    "Task_Support",
     "Task_RTB"
 ];
 

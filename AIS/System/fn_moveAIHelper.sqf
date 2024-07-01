@@ -19,7 +19,7 @@ if (
 	!alive _injured ||
 	(!(_injured getVariable ["ais_unconscious", false])) ||
 	(_helper getVariable ["ais_unconscious", false]) ||
-	(!isNull (_injured getVariable ["ais_hasHelper", objNull]))
+	(!isNull (_injured getVariable ["ais_helperUnit", objNull]))
 ) exitWith {
 	if (alive _helper) then {
 		_helper enableAI "AUTOCOMBAT";
@@ -45,7 +45,7 @@ _dist = if (!isNull objectParent _injured) then {(sizeOf (typeOf (vehicle _injur
 
 // start revive if close enough and ready for handling. Otherwise reset and repeat searching loop.
 if (_helper distance2D (vehicle _injured) < _dist) exitWith {
-	if (isNull (_injured getVariable ["ais_hasHelper", objNull])) then {
+	if (isNull (_injured getVariable ["ais_helperUnit", objNull])) then {
 		_helper disableAI "AUTOCOMBAT";
 		[_helper, _injured] spawn AIS_System_fnc_ReviveAI;
 	} else {

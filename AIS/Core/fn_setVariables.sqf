@@ -26,8 +26,8 @@ ais_reenable_teamswitch = false;
 if (isNil {_unit getVariable "ais_unconscious"}) then {
 	_unit setVariable ["ais_unconscious", false, true];
 	_unit setVariable ["ais_stabilized", false, true];
-	_unit setVariable ["ais_hasHelper", objNull, true];
-	_unit setVariable ["ais_DragDrop_Player", objNull, true];
+	_unit setVariable ["ais_helperUnit", objNull, true];
+	_unit setVariable ["ais_DraggerUnit", objNull, true];
 	_unit setVariable ["ais_DragDrop_Torso", objNull];// local is enough?
 	_unit setVariable ["AIS_MedicalStore", [0,0,0,0,0,0,0,0,0,0,0], true];
 	_unit setVariable ["ais_man_pullOut", false, true];

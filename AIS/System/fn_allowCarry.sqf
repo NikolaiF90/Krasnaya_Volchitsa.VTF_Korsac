@@ -14,7 +14,7 @@ private _target = _this;
 
 _isUnc = _target getVariable ["ais_unconscious",false];
 _isUncHealer = player getVariable ["ais_unconscious",false];
-_Drag = !(isNull (_target getVariable ['ais_DragDrop_Player', objNull]));
+_Drag = !(isNull (_target getVariable ['ais_DraggerUnit', objNull]));
 _Draging = !(isNull (player getVariable ['ais_DragDrop_Torso', objNull]));
 
 

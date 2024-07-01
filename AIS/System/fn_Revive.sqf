@@ -18,7 +18,7 @@ params [
 ];
 
 // Set variable to indicate that _healer is helping _injured
-_injured setVariable ["ais_hasHelper", _healer, true];
+_injured setVariable ["ais_helperUnit", _healer, true];
 
 // Play a specific move on _injured remotely
 [_injured, "AinjPpneMstpSnonWrflDnon_rolltoback"] remoteExec ["playMove", 0];
@@ -81,7 +81,7 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateReviveTime;
 
 		_healer playAction "medicStop";
 
-		_injured setVariable ["ais_hasHelper", ObjNull, true];
+		_injured setVariable ["ais_helperUnit", ObjNull, true];
 		call AIS_Effects_fnc_garbage;
 		
 		// healing if enabled
@@ -102,7 +102,7 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateReviveTime;
 		
 		["GetOutMan"] remoteExec ["removeAllEventHandlers", _injured, false];
 		
-		private _injuredSide = _injured getVariable "Mission_UnitSide";
+		private _injuredSide = _injured getVariable ["Mission_UnitSide", nil];
 		if (_injuredSide == Mission_EnemySide && _injuredSide != side _healer) then
 		{
 			[_injured] remoteExec ["removeAllWeapons", 0, false];
@@ -144,7 +144,7 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateReviveTime;
 	{
 		params ["_injured", "_healer"];
 		
-		_injured setVariable ["ais_hasHelper", ObjNull, true];
+		_injured setVariable ["ais_helperUnit", ObjNull, true];
 		
 		_healer removeEventHandler ["AnimChanged", ais_animChangeEVH];
 		detach _healer;

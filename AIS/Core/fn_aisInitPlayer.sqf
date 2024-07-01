@@ -18,7 +18,7 @@ if (local _player) then {
 		
 		_player addEventHandler ["Killed", {_this call AIS_System_fnc_killed}];
 		
-		_player addEventHandler ["Respawn", {_this call AIS_System_fnc_respawn}];
+//		_player addEventHandler ["Respawn", {_this call AIS_System_fnc_respawn}];
 		
 		_player addEventHandler ["HandleHeal", {_this call AIS_System_fnc_handleHeal}];
 		
@@ -45,10 +45,12 @@ if (!isServer && (count (units group player) > 1)) then {
 				_x removeAllEventHandlers "Killed";
 				_x addEventHandler ["Killed", {_this call AIS_System_fnc_killed}];
 				
+				/*
 				_x removeAllEventHandlers "Respawn";
 				if ([_x] call AIS_Core_fnc_isPlayable) then {
 					_x addEventHandler ["Respawn", {_this call AIS_System_fnc_respawn}];
 				};
+				*/
 				
 				_x addEventHandler ["HandleHeal", {_this call AIS_System_fnc_handleHeal}];
 				
@@ -78,7 +80,7 @@ private _init_units = call {
 	_x addEventHandler ["HandleHeal", {_this call AIS_System_fnc_handleHeal}];
 	
 	if (_x getVariable ["ais_unconscious", false]) then {
-		if (!isNull(_x getVariable ["ais_DragDrop_Player", objNull])) then {
+		if (!isNull(_x getVariable ["ais_DraggerUnit", objNull])) then {
 			_x switchMove "AinjPpneMrunSnonWnonDb";
 		} else {
 			_x playActionNow "agonyStart";

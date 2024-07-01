@@ -14,7 +14,7 @@
 params ["_healer", "_injured"];
 
 
-_injured setVariable ["ais_hasHelper", _healer, true];
+_injured setVariable ["ais_helperUnit", _healer, true];
 
 //_injured playMove "AinjPpneMstpSnonWrflDnon_rolltoback";	// from AIS fsm
 [_injured, "AinjPpneMstpSnonWrflDnon_rolltoback"] remoteExec ["playMove", 0];
@@ -63,14 +63,14 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateStabilizeTi
 
 		_healer playAction "medicStop";
 
-		_injured setVariable ["ais_hasHelper", ObjNull, true];
+		_injured setVariable ["ais_helperUnit", ObjNull, true];
 		call AIS_Effects_fnc_garbage;
     },
     [_injured, _healer],
 	{
 		params ["_injured", "_healer"];
 
-		_injured setVariable ["ais_hasHelper", ObjNull, true];
+		_injured setVariable ["ais_helperUnit", ObjNull, true];
 		
 		_healer removeEventHandler ["AnimChanged", ais_animChangeEVH];
 		detach _healer;

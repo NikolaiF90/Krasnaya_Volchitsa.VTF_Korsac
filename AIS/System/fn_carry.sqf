@@ -55,7 +55,7 @@ _unit setVariable ["ais_CarryDrop_Torso", true];
 	if (!alive _target || {!alive _unit} || {_state}) then {
 		if (alive _target) then {
 			[_target, "agonyStart"] remoteExec ["playActionNow", 0, false];
-			_target setVariable ["ais_DragDrop_Player", objNull, true];
+			_target setVariable ["ais_DraggerUnit", objNull, true];
 		};
 		if (alive _unit && {!(_state)}) then {
 			[_unit, "amovpknlmstpsraswrfldnon"] remoteExec ["playMoveNow", 0, false];

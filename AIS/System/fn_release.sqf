@@ -15,10 +15,10 @@ private _target = _unit getVariable "ais_DragDrop_Torso";
 private _pos = getPos _target;
 
 _unit setVariable ["ais_DragDrop_Torso", objNull];
-_target setVariable ["ais_DragDrop_Player", objNull, true];
+_target setVariable ["ais_DraggerUnit", objNull, true];
 _unit setVariable ["ais_CarryDrop_Torso", false];
 
-_target setVariable ["ais_hasHelper", objNull, true];
+_target setVariable ["ais_helperUnit", objNull, true];
 _unit playAction "released";
 
 detach _unit;

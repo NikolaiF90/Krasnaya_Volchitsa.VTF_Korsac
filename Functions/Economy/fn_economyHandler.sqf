@@ -6,7 +6,7 @@
 
     Parameter(s):
         0: STRING - _operation: The operation to be performed (e.g., "GETMONEY", "SETMONEY", "ADDMONEY", "DEDUCTMONEY")
-        1: ARRAY - _args: An array containing necessary arguments based on the operation being performed. For "GETMONEY", the args: ARRAY [OBJECT] or args: OBJECT - unit to get the money count. For "SETMONEY", "ADDMONEY", and "DEDUCTMONEY", the args: ARRAY [OBEJCT,NUMBER] where index 0(object) is the unit to do the operation on, index 1(NUMBER) will be the amount to set, add, or deduct depending on the given operation.
+        1: ARRAY - _args: An array containing necessary arguments based on the operation being performed. For "GETMONEY", the args: ARRAY [OBJECT] or args: OBJECT - unit to get the money count. For "SETMONEY", "ADDMONEY", and "DEDUCTMONEY", the args: ARRAY [OBJECT,NUMBER] where index 0(object) is the unit to do the operation on, index 1(NUMBER) will be the amount to set, add, or deduct depending on the given operation.
 
     Returns:
         _returnValue = the updated money value after performing the specified operation.

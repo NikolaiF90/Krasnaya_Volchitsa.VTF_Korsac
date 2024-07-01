@@ -18,7 +18,6 @@ params [
 
 if (isNull _unit) exitWith {diag_log format ["Non existing unit or wrong data type passed. AIS_System_fnc_unconcsiousRemote.sqf"];};
 
-
 if (_is_unoncsious) then {
 	[_unit, "agonyStart"] remoteExec ["playActionNow", 0, false];
 	//_unit playActionNow "agonyStart";
@@ -67,4 +66,4 @@ if (_is_unoncsious) then {
 };
 
 
-true
+_is_unoncsious

@@ -11,9 +11,19 @@
     * Time skip
     * FOB
     * Ability for mission designers to change teams and sides
-    * Transfer milcash
 
 ## Version History
+
+### Version 1.21.0a
+    * Updated the looks of Tactical Tab.
+    * All recent notification including debug messages will now appear on Tactical Tab.
+    * Updated some codes and functions to better integrate Tactical Notification.
+    * Unique ID for each joined players.
+    * All task will provide grid position.
+    * Player can now transfer milcash to another player.
+    * Added infirmary. 
+    * Arma 3 respawn system and AIS respawn system has been replaced with Krasnaya Volchitsa Spawn System which integrate with the mission better.
+    * Player will turn into crow while waiting respawn countdown.
 
 ### Version 1.20.0a
     * Task Update.
@@ -124,7 +134,7 @@
 ### Version 1.6.0a
     * Added task system.
     * Play as another units. But VETCOMREC only available for mission host.
-    * Reworked persistence system to better intergrate for the task system. 
+    * Reworked persistence system to better integrate for the task system. 
 
 ### Version 1.5.0a
     * Added confirmed kills count to VETCOMREC.

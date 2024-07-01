@@ -16,7 +16,6 @@ PersistentMenu_SaveVehicleButton = 1107;
 
 REC_MoneyTextIDC = 1204;
 REC_ConfirmedKillsIDC = 1205;
-REC_ActiveTaskIDC = 1206;
 REC_TotalConductedIDC = 1207;
 REC_TotalCompletedIDC = 1208;
 REC_TotalArrestedHVTIDC = 1209;
@@ -36,6 +35,8 @@ REC_TempTotalPointsIDC = 1322;
 REC_TempCapturedPrisonersIDC = 1323;
 REC_TempSeizedIDC = 1324;
 REC_WantedListBoxIDC = 1212;
+REC_PlayerIDTextIDC = 1214;
+REC_NotificationListBoxIDC = 1215;
 
 HireMenu_TierOneTextIDC = 1407;
 HireMenu_TierTwoTextIDC = 1408;
@@ -71,3 +72,6 @@ TrainMenu_CourageSliderIDC = 1719;
 TrainMenu_ReloadSpeedSliderIDC = 1720;
 TrainMenu_CommandingSliderIDC = 1721;
 TrainMenu_SoldierNameTextIDC = 1722;
+
+TransferMenu_PlayerIDEditBox = 1803;
+TransferMenu_AmountEditBox = 1804;

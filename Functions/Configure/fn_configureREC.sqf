@@ -11,6 +11,10 @@
 		None
 */
 
+// Total count of recent notification count to be shown on Tactical Tab. 
+VETCOMREC_NotificationCount = 10;
+
+// Points
 Points_ConfirmedKill = 2;
 Points_CapturedPrisoners = 4;
 Points_HVTKill = 6;

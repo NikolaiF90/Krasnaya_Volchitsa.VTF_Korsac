@@ -5,68 +5,67 @@ class tacticalMenu
 	class controls
 	{
 		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Tofasy)
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Qynahy)
 		////////////////////////////////////////////////////////
 
 		class RscText_1000: RscText
 		{
 			idc = 1201;
 
-			x = 0.005 * safezoneW + safezoneX;
-			y = 0.016 * safezoneH + safezoneY;
-			w = 0.283594 * safezoneW;
-			h = 0.385 * safezoneH;
+			x = 0.345312 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.314531 * safezoneW;
+			h = 0.517 * safezoneH;
 			colorBackground[] = {0.125,0.235,0.2,1};
 		};
-		class text_TacticalTab: RscText
+		class text_TacticalTitle: RscText
 		{
 			idc = 1202;
 
 			text = "Tactical Tab"; //--- ToDo: Localize;
-			x = 0.123594 * safezoneW + safezoneX;
-			y = 0.016 * safezoneH + safezoneY;
-			w = 0.0464063 * safezoneW;
-			h = 0.044 * safezoneH;
+			x = 0.474219 * safezoneW + safezoneX;
+			y = 0.313 * safezoneH + safezoneY;
+			w = 0.0515625 * safezoneW;
+			h = 0.033 * safezoneH;
 		};
 		class RscText_1003: RscText
 		{
 			idc = 1203;
 
-			x = 0.0101562 * safezoneW + safezoneX;
-			y = 0.06 * safezoneH + safezoneY;
-			w = 0.134062 * safezoneW;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.544 * safezoneH + safezoneY;
+			w = 0.149531 * safezoneW;
 			h = 0.176 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
-		class text_Money: RscText
+		class text_TacticalMoney: RscText
 		{
 			idc = 1204;
 
 			text = "Money: 000000"; //--- ToDo: Localize;
-			x = 0.0101562 * safezoneW + safezoneX;
-			y = 0.016 * safezoneH + safezoneY;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.313 * safezoneH + safezoneY;
 			w = 0.113437 * safezoneW;
-			h = 0.044 * safezoneH;
+			h = 0.033 * safezoneH;
 		};
 		class text_ConfirmedKills: RscText
 		{
 			idc = 1205;
 
 			text = "Confirmed Kills: 00000"; //--- ToDo: Localize;
-			x = 0.0153125 * safezoneW + safezoneX;
-			y = 0.06 * safezoneH + safezoneY;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.544 * safezoneH + safezoneY;
 			w = 0.12375 * safezoneW;
 			h = 0.044 * safezoneH;
 		};
-		class text_ActiveTask: RscText
+		class bg_Tactical6: RscText
 		{
 			idc = 1206;
 
-			text = "There are no active task currently."; //--- ToDo: Localize;
-			x = 0.0101562 * safezoneW + safezoneX;
-			y = 0.247 * safezoneH + safezoneY;
-			w = 0.273281 * safezoneW;
-			h = 0.132 * safezoneH;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.357 * safezoneH + safezoneY;
+			w = 0.304219 * safezoneW;
+			h = 0.176 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
 		class RscText_1006: RscText
@@ -74,8 +73,8 @@ class tacticalMenu
 			idc = 1207;
 
 			text = "Total Conducted Missions: 0"; //--- ToDo: Localize;
-			x = 0.0153125 * safezoneW + safezoneX;
-			y = 0.093 * safezoneH + safezoneY;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.577 * safezoneH + safezoneY;
 			w = 0.12375 * safezoneW;
 			h = 0.044 * safezoneH;
 		};
@@ -84,8 +83,8 @@ class tacticalMenu
 			idc = 1208;
 
 			text = "Total Successful Missions: 0"; //--- ToDo: Localize;
-			x = 0.0153125 * safezoneW + safezoneX;
-			y = 0.126 * safezoneH + safezoneY;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.61 * safezoneH + safezoneY;
 			w = 0.12375 * safezoneW;
 			h = 0.044 * safezoneH;
 		};
@@ -94,8 +93,8 @@ class tacticalMenu
 			idc = 1209;
 
 			text = "Total Arrested HVT: 0"; //--- ToDo: Localize;
-			x = 0.0153125 * safezoneW + safezoneX;
-			y = 0.159 * safezoneH + safezoneY;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.643 * safezoneH + safezoneY;
 			w = 0.12375 * safezoneW;
 			h = 0.044 * safezoneH;
 		};
@@ -104,42 +103,101 @@ class tacticalMenu
 			idc = 1210;
 
 			text = "Total Killed HVT: 0"; //--- ToDo: Localize;
-			x = 0.0153125 * safezoneW + safezoneX;
-			y = 0.192 * safezoneH + safezoneY;
-			w = 0.12375 * safezoneW;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.676 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
 			h = 0.044 * safezoneH;
 		};
 		class RscText_1010: RscText
 		{
 			idc = 1211;
-			x = 0.149375 * safezoneW + safezoneX;
-			y = 0.06 * safezoneH + safezoneY;
-			w = 0.134062 * safezoneW;
+
+			x = 0.505156 * safezoneW + safezoneX;
+			y = 0.544 * safezoneH + safezoneY;
+			w = 0.149531 * safezoneW;
 			h = 0.176 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
 		};
-		class RscListbox_1500: RscListbox
+		class RscListbox_1500: RscListBox
 		{
 			idc = 1212;
-			x = 0.154531 * safezoneW + safezoneX;
-			y = 0.093 * safezoneH + safezoneY;
-			w = 0.12375 * safezoneW;
+
+			x = 0.505156 * safezoneW + safezoneX;
+			y = 0.577 * safezoneH + safezoneY;
+			w = 0.149531 * safezoneW;
 			h = 0.132 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
 		};
-		class RscText_1011: RscText
+		class text_TacticalWantedList: RscText
 		{
 			idc = 1213;
+
 			text = "WANTED LIST"; //--- ToDo: Localize;
-			x = 0.180312 * safezoneW + safezoneX;
-			y = 0.049 * safezoneH + safezoneY;
-			w = 0.0721875 * safezoneW;
-			h = 0.044 * safezoneH;
+			x = 0.551562 * safezoneW + safezoneX;
+			y = 0.544 * safezoneH + safezoneY;
+			w = 0.0567187 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class text_TacticalID: RscText
+		{
+			idc = 1214;
+
+			text = "ID: 12345"; //--- ToDo: Localize;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.313 * safezoneH + safezoneY;
+			w = 0.0928125 * safezoneW;
+			h = 0.033 * safezoneH;
+			tooltip = "Your Unique ID. Not To Be Confused With Multiplayer PlayerUID";
+		};
+		class listBox_TacticalNotification: RscListbox
+		{
+			idc = 1215;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.39 * safezoneH + safezoneY;
+			w = 0.304219 * safezoneW;
+			h = 0.132 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_TacticalNotification: RscText
+		{
+			idc = 1216;
+			text = "Recent Notification"; //--- ToDo: Localize;
+			x = 0.463906 * safezoneW + safezoneX;
+			y = 0.357 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class button_TacticalClose: RscButton
+		{
+			idc = 1217;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "CLOSE"; //--- ToDo: Localize;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.775 * safezoneH + safezoneY;
+			w = 0.304219 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Close Tactical Tab"; //--- ToDo: Localize;
+		};
+		class button_TacticalTransferMilcash: RscButton
+		{
+			idc = 1218;
+			action = "[] call F90_fnc_openTransferMenu";
+
+			text = "TRANSFER MILCASH"; //--- ToDo: Localize;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.731 * safezoneH + safezoneY;
+			w = 0.304219 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Transfer Milcash To Your Friend"; //--- ToDo: Localize;
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
 	};
-}
+};
 
 
 class persistentMenu
@@ -1300,5 +1358,84 @@ class trainMenu
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
+	};
+};
+
+class transferMenu 
+{
+	idd = 1800;
+
+	class controls 
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Fitymu)
+		////////////////////////////////////////////////////////
+
+		class bg_Transfer1: RscText
+		{
+			idc = 1801;
+			x = 0.381405 * safezoneW + safezoneX;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.237187 * safezoneW;
+			h = 0.176 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_Transfer1: RscText
+		{
+			idc = 1802;
+			text = "TRANSFER MILCASH"; //--- ToDo: Localize;
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class editBox_TransferPlayerID: RscEdit
+		{
+			idc = 1803;
+			x = 0.386563 * safezoneW + safezoneX;
+			y = 0.445 * safezoneH + safezoneY;
+			w = 0.226875 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "ID Of The Player To Transfer Your Milcash"; //--- ToDo: Localize;
+		};
+		class editBox_TransferAmount: RscEdit
+		{
+			idc = 1804;
+			x = 0.386561 * safezoneW + safezoneX;
+			y = 0.489 * safezoneH + safezoneY;
+			w = 0.226875 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Amount Of Milcash To Transfer"; //--- ToDo: Localize;
+		};
+		class button_TransferConfirm: RscButton
+		{
+			idc = 1805;
+			action = "[] call F90_fnc_transferMilcash";
+
+			text = "TRANSFER"; //--- ToDo: Localize;
+			x = 0.458747 * safezoneW + safezoneX;
+			y = 0.533 * safezoneH + safezoneY;
+			w = 0.154687 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_TransferClose: RscButton
+		{
+			idc = 1806;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "CANCEL"; //--- ToDo: Localize;
+			x = 0.386562 * safezoneW + safezoneX;
+			y = 0.533 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,0,0,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+
 	};
 };

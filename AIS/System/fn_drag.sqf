@@ -15,9 +15,9 @@
 params ["_unit", "_target"];
 
 _unit setVariable ["ais_DragDrop_Torso", _target];
-_target setVariable ["ais_DragDrop_Player", _unit, true];
+_target setVariable ["ais_DraggerUnit", _unit, true];
 
-_target setVariable ["ais_hasHelper", _unit, true];
+_target setVariable ["ais_helperUnit", _unit, true];
 
 
 detach _unit;
@@ -33,7 +33,7 @@ _target attachTo [_unit, _attachPoint];
 
 // release the injured if the helper getin a vehicle
 [
-	{isNull ((_this select 1) getVariable ["ais_DragDrop_Player", objNull]) || {!(isNull objectParent (_this select 0))}},
+	{isNull ((_this select 1) getVariable ["ais_DraggerUnit", objNull]) || {!(isNull objectParent (_this select 0))}},
 	{if (!(isNull objectParent (_this select 0))) then {[(_this select 0)] call AIS_System_fnc_release}},
 	[_unit,_target]
 ] call AIS_Core_fnc_waitUntilAndExecute;

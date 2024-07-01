@@ -15,6 +15,8 @@ if (_created) then
     private _successfulMissions = _unit getVariable "Record_TotalSuccessfulMissions";
     private _arrestedHVTs = _unit getVariable "Record_TotalArrestedHVT";
     private _killedHVTs = _unit getVariable "Record_TotalKilledHVT";
+    private _notificationList = _unit getVariable "Record_RecentNotification";
+    private _playerUID = _unit getVariable "Record_PlayerUID";
 
     private _moneyText = format ["Milcash: %1", _amount];
     private _killText = format ["Confirmed Kills: %1", _killCount];
@@ -22,22 +24,20 @@ if (_created) then
     private _successfulText = format ["Total Successful Missions: %1", _successfulMissions];
     private _arrestedHVTText = format ["Total Arrested HVTs: %1", _arrestedHVTs];
     private _killedHVTText = format ["Total Killed HVTs: %1", _killedHVTs];
+    private _playerUIDText = format ["UID: %1", _playerUID];
 
-    // Get any active task
-    private _activeTask = "There are no active task currently.";
+    // Show recent notification 
+    private _reversedNotificationList = [];
+    _reversedNotificationList = +_notificationList;
+    reverse _reversedNotificationList;
 
-    if (Task_DutyStatus != -1) then 
+    lbClear REC_NotificationListBoxIDC;
+    
+    if (count _reversedNotificationList > 0) then 
     {
-        private _status = "";
-
-        switch (Task_DutyStatus) do 
         {
-            case 0: {_status = "Ongoing"};
-            case 1: {_status = "Completed"};
-            case 2: {_status = "Failed"};
-        };
-
-        _activeTask = format ["[%1] %2: %3", _status, Task_DutyName, Task_DutyDescription];
+            lbAdd [REC_NotificationListBoxIDC, _x];
+        } forEach _reversedNotificationList;
     };
 
     // Personal Statistic
@@ -45,9 +45,9 @@ if (_created) then
     ctrlSetText [REC_TotalConductedIDC, _conductedText];
     ctrlSetText [REC_TotalCompletedIDC, _successfulText];
     ctrlSetText [REC_ConfirmedKillsIDC, _killText];
-    ctrlSetText [REC_ActiveTaskIDC, _activeTask];
     ctrlSetText [REC_TotalArrestedHVTIDC, _arrestedHVTText];
     ctrlSetText [REC_TotalKilledHVTIDC, _killedHVTText];
+    ctrlSetText [REC_PlayerIDTextIDC, _playerUID];
 
     // Wanted List
     lbClear REC_WantedListBoxIDC;

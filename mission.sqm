@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=529;
+		nextID=534;
 	};
 	class MarkerIDProvider
 	{
@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=155;
+		nextID=164;
 	};
 	class Camera
 	{
-		pos[]={2445.5762,858.60809,2050.7563};
-		dir[]={-0.72296035,-0.22841807,0.65203798};
-		up[]={-0.16962147,0.97356319,0.15298162};
-		aside[]={0.66974396,-1.4901161e-008,0.74259222};
+		pos[]={2582.6782,846.35205,2104.2068};
+		dir[]={-0.56391239,-0.17821302,-0.80637652};
+		up[]={-0.10213146,0.98399192,-0.14604467};
+		aside[]={-0.81949508,-7.4505806e-009,0.57308638};
 	};
 };
 binarizationWanted=0;
@@ -65,13 +65,14 @@ addons[]=
 	"A3_Structures_F_EPB_Civ_Camping",
 	"A3_Structures_F_Enoch_Military_Barracks",
 	"A3_Structures_F_Civ_Lamps",
-	"A3_Modules_F_Hc"
+	"A3_Modules_F_Hc",
+	"A3_Props_F_Orange_Humanitarian_Camps"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=20;
+		items=21;
 		class Item0
 		{
 			className="min_rf_units";
@@ -203,6 +204,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item20
+		{
+			className="A3_Props_F_Orange";
+			name="Arma 3 Orange - Decorative and Mission Objects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
@@ -210,7 +218,8 @@ dlcs[]=
 	"min_rf_mod",
 	"Heli",
 	"Tank",
-	"Enoch"
+	"Enoch",
+	"Orange"
 };
 randomSeed=5916253;
 class ScenarioData
@@ -303,7 +312,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=19;
+		items=20;
 		class Item0
 		{
 			dataType="Group";
@@ -317,7 +326,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2423.1445,844.08649,2091.2202};
-						angles[]={0,0.47404566,-0};
+						angles[]={0,0.47404566,0};
 					};
 					side="East";
 					flags=7;
@@ -496,7 +505,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2425.8235,844.08649,2089.8325};
-						angles[]={0,0.4866218,-0};
+						angles[]={0,0.4866218,0};
 					};
 					side="East";
 					flags=7;
@@ -624,7 +633,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2424.4497,844.08649,2090.5596};
-						angles[]={0,0.47522181,-0};
+						angles[]={0,0.47522181,0};
 					};
 					side="East";
 					flags=7;
@@ -1170,7 +1179,7 @@ class Mission
 			name="BASE";
 			class Entities
 			{
-				items=74;
+				items=76;
 				class Item0
 				{
 					dataType="Object";
@@ -3287,9 +3296,41 @@ class Mission
 					id=528;
 					type="I_HMG_02_high_F";
 				};
+				class Item74
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2580.2891,845.80713,2102.012};
+						angles[]={0,3.3712952,0};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=529;
+					type="Land_Barracks_02_F";
+				};
+				class Item75
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2577.1868,845.19507,2105.7378};
+						angles[]={0,5.2981176,0};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=530;
+					type="Land_PortableLight_double_F";
+				};
 			};
 			id=420;
-			atlOffset=0.27252197;
+			atlOffset=4.0349121;
 		};
 		class Item11
 		{
@@ -3348,7 +3389,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={2422.729,844.08502,2090.5454};
-				angles[]={-0,4.788291,0};
+				angles[]={0,4.788291,0};
 			};
 			name="Mission_HC_01";
 			id=487;
@@ -3360,7 +3401,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={2424.0669,844.08502,2089.7949};
-				angles[]={-0,4.788291,0};
+				angles[]={0,4.788291,0};
 			};
 			name="Mission_HC_02";
 			id=488;
@@ -3372,7 +3413,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={2425.4407,844.08502,2089.1091};
-				angles[]={-0,4.788291,0};
+				angles[]={0,4.788291,0};
 			};
 			name="Mission_HC_03";
 			id=489;
@@ -3548,6 +3589,22 @@ class Mission
 				};
 			};
 			id=526;
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2580.4526,844.35291,2099.4038};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="infirmaryX";
+			};
+			id=532;
+			type="Land_Stretcher_01_olive_F";
 		};
 	};
 	class Connections

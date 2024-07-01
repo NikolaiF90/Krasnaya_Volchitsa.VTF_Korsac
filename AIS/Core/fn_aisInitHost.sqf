@@ -24,9 +24,11 @@ if (local _unit && !(isPlayer _unit)) then {
 		
 		ais_hkEH = _unit addEventHandler ["Killed", {_this call AIS_System_fnc_killed}];
 		
+		/*
 		if ([_unit] call AIS_Core_fnc_isPlayable) then {
 			ais_hrEH = _unit addEventHandler ["Respawn", {_this call AIS_System_fnc_respawn}];
 		};
+		*/
 		_unit removeAllEventHandlers "HandleHeal";
 		ais_hhEH = _unit addEventHandler ["HandleHeal", {_this call AIS_System_fnc_handleHeal}];
 	};

@@ -15,8 +15,8 @@ private _target = _this;
 _isUnc = _target getVariable ["ais_unconscious",false];
 _isStabil = _target getVariable ["ais_stabilized",false];
 _isUncHealer = player getVariable ["ais_unconscious",false];
-_noHealer = isNull (_target getVariable ['ais_hasHelper', objNull]);
-_noDrag = isNull (_target getVariable ['ais_DragDrop_Player', objNull]);
+_noHealer = isNull (_target getVariable ['ais_helperUnit', objNull]);
+_noDrag = isNull (_target getVariable ['ais_DraggerUnit', objNull]);
 _noDraging = isNull (player getVariable ['ais_DragDrop_Torso', objNull]);
 
 private _station = true;

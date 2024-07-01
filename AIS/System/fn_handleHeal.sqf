@@ -38,7 +38,7 @@ if (_injured getVariable ["ais_unconscious", false]) then {
 		[_txt] remoteExecCall ["AIS_Core_fnc_dynamicText", _healer, false];
 	} else {
 		// we can use the AI handling at this point to start our own revive process...
-		if (isNull (_injured getVariable ["ais_hasHelper", objNull])) then {
+		if (isNull (_injured getVariable ["ais_helperUnit", objNull])) then {
 			[_healer, _injured] spawn AIS_System_fnc_ReviveAI;
 		};
 	};

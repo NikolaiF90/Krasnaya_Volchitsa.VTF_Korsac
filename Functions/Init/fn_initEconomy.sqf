@@ -6,4 +6,4 @@ params [["_unit", player]];
 
 private _money = ["SETMONEY", [_unit, Economy_PlayerStartingMoney]] call F90_fnc_economyHandler;
 
-[MissionDebug, "initEconomy", format ["%1 milcash has been given to %2", _money, name _unit], false] call F90_fnc_debug;
+[MissionDebug, "initEconomy", format ["%1 milcash has been given to %2", _money, name _unit], false, true] call F90_fnc_debug;

@@ -16,12 +16,6 @@ switch (_taskType) do
 {
     case "Task_Patrol": 
     {
-        Task_CurrentTaskID = "Patrol";
-
-        Task_DutyName = "Patrol";
-        Task_DutyDescription = "Perform a patrol on marked location.";
-        Task_DutyStatus = 0;
-
         // Generate AO
         private _patrolLocation = selectRandom Task_PatrolLocations;
         private _markerName = [_patrolLocation select 0] call F90_fnc_generateUniqueID;
@@ -34,16 +28,16 @@ switch (_taskType) do
         _taskMarker setMarkerAlpha 0;
 
         _condition = "this";
+
+        Task_CurrentTaskID = "Patrol";
+
+        Task_DutyName = "Patrol";
+        Task_DutyDescription = format ["Perform a patrol on marked location(GRID %1).", mapGridPosition _taskLocation];
+        Task_DutyStatus = 0;
     };
     
     case "Task_Ambush": 
     {
-        Task_CurrentTaskID = "Ambush";
-
-        Task_DutyName = "Ambush";
-        Task_DutyDescription = "We've got intels on recent rebels hideout. Perform an ambush on the location and clean the area.";
-        Task_DutyStatus = 0;
-
         // Generate AO
         private _ambushLocation = selectRandom Task_HideoutLocations;
         private _markerName = [_ambushLocation select 0] call F90_fnc_generateUniqueID;
@@ -55,6 +49,13 @@ switch (_taskType) do
         _taskAreaDir = _ambushLocation select 2;
         
         _condition = "this";
+
+        Task_CurrentTaskID = "Ambush";
+
+        Task_DutyName = "Ambush";
+        Task_DutyDescription = format ["We've got intels on recent rebels hideout (GRID %1). Perform an ambush on the location and clean the area.", mapGridPosition _taskLocation];
+        Task_DutyStatus = 0;
+
         [1, 4, _taskLocation] spawn F90_fnc_createPatrol;
 
         private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
@@ -70,13 +71,6 @@ switch (_taskType) do
 
     case "Task_KillHVT": 
     {
-        // Task Kill HVT
-        Task_CurrentTaskID = "KillHVT";
-
-        Task_DutyName = "HVT";
-        Task_DutyDescription = "Take out or capture the High Value Target.";
-        Task_DutyStatus = 0;
-
         // Generate AO
         private _possibleHVTLocation = Task_PatrolLocations + Task_HideoutLocations;
         private _hvtLocation = selectRandom _possibleHVTLocation;
@@ -91,6 +85,13 @@ switch (_taskType) do
         _taskMarker setMarkerAlpha 0;
 
         _condition = "this";
+
+        // Task Kill HVT
+        Task_CurrentTaskID = "KillHVT";
+
+        Task_DutyName = "HVT";
+        Task_DutyDescription = format ["Take out or capture the High Value Target(GRID %1).", mapGridPosition _taskLocation];
+        Task_DutyStatus = 0;
 
         [1, 1, _taskLocation] spawn F90_fnc_createPatrol;
 
@@ -107,13 +108,6 @@ switch (_taskType) do
 
     case "Task_Support": 
     {
-        // Task Support 
-        Task_CurrentTaskID = "Support";
-
-        Task_DutyName = "Support";
-        Task_DutyDescription = "Provide a support on marked location";
-        Task_DutyStatus = 0;
-
         // Generate AO
         private _patrolLocation = selectRandom Task_PatrolLocations;
         private _markerName = [_patrolLocation select 0] call F90_fnc_generateUniqueID;
@@ -127,6 +121,14 @@ switch (_taskType) do
         _taskMarker setMarkerAlpha 0;
 
         _condition = "this";
+
+        // Task Support 
+        Task_CurrentTaskID = "Support";
+
+        Task_DutyName = "Support";
+        Task_DutyDescription = format ["Provide a support on marked location(GRID %1).", mapGridPosition _taskLocation];
+        Task_DutyStatus = 0;
+
         [40, _taskMarker] spawn F90_fnc_createAmbush;
     };
 

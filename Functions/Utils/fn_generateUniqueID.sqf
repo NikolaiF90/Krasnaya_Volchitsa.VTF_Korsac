@@ -27,6 +27,18 @@ private _unique4 = floor random 10;
 
 if (!isNil {_additionalID}) then 
 {
+    private _additionalIDArray = _additionalID splitString "_-,. ";
+    if (count _additionalIDArray > 1) then 
+    {
+        _additionalID = _additionalIDArray select 0;
+        for "_i" from 1 to (count _additionalIDArray) -1 do 
+        {
+            _additionalID = _additionalID + (_additionalIDArray select _i);
+        };
+    } else 
+    {
+        _additionalID = _additionalIDArray select 0;
+    };
     _uniqueID = format ["%1%2%3%4%5", _additionalID, _unique1, _unique2, _unique3, _unique4];
 }else 
 {

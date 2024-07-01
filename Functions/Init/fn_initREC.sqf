@@ -1,7 +1,12 @@
 /*
     VETCOMREC - Veteran Combat Record is a system that records the player's progress in the mission like score, kill counts, successful mission etcetera.
 */
-params [["_unit", player]];
+params ["_unit"];
+
+if (isNull _unit) then 
+{
+    _unit = player;
+};
 
 // Set the default value of VETCOMREC variables
 [_unit] call F90_fnc_resetTempRecord;
@@ -22,6 +27,16 @@ private _defaultUnitVariables =
     };
 } forEach _defaultUnitVariables;
 
+private _notificationList = _unit getVariable ["Record_RecentNotification", nil];
+if (isNil {_notificationList}) then 
+{
+    _unit setVariable ["Record_RecentNotification", [], true];
+};
+
+// Add Player Unique ID
+private _playerUID = [name _unit] call F90_fnc_generateUniqueID;
+_unit setVariable ["Record_PlayerUID", _playerUID, true];
+
 private _RECActionID = _unit getVariable ["REC_ActionID", nil];
 
 // Delete action if already exist. To prevent duplicate action on mission host
@@ -37,7 +52,7 @@ _RECActionID = _unit addAction
     nil, 
     4, 
     false, 
-    false, 
+    true, 
     "", 
     "_target == _this"
 ];

@@ -1,5 +1,5 @@
 [0] call BIS_fnc_cinemaBorder;
-private _date = [] call F90_fnc_getDate;
+private _date = [true, false, true] call F90_fnc_getDate;
 
 sleep 0.0001;
 private _content = "<t font='PuristaSemibold' size='4.0'>Krasnaya Volchitsa</t><br />by PrinceF90";
