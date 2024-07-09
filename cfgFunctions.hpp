@@ -26,6 +26,7 @@ class F90
         file = "Functions\Configure";
         class configureAmbient {};
         class configureCAB {};
+        class configureDSC {};
         class configureEconomy {};
         class configureIdentity {};
         class configurePersistent {};
@@ -45,6 +46,7 @@ class F90
         class deleteUnit {};
         class delVeh {};
         class generateSaveDate {};
+        class generateSquadData {};
         class getDate {};
         class getLocations {};
         class getSelectedList {};
@@ -52,6 +54,8 @@ class F90
         class loadData {};
         class loadFromSlot {};
         class makePersistent {};
+        class missionKeyHandler {};
+        class openTimeSkipMenu {};
         class openPersistentTab {};
         class saveTarget {};
         class saveTargetContainer {};
@@ -59,9 +63,13 @@ class F90
         class respawnUnit {};
         class saveData {};
         class saveToSlot {};
+        class skipTime {};
+        class spawnBaseGuard {};
+        class showServerStartMenu {};
         class splashScreen {};
         class startDeadCamTimer {};
         class startRespawnTimer {};
+        class startServer {};
         class teleportUnit {};
         class textNotification {};
         class updatePersistentList {};
@@ -80,6 +88,7 @@ class F90
         class initCABPlayer {};
         class initCABServer {};
         class initCivilian {};
+        class initDSC {};
         class initEconomy {};
         class initGlobalVariables {};
         class initPersistent {};
@@ -87,6 +96,7 @@ class F90
         class initServerVariables {};
         class initSHARS {};
         class initSHARSPlayers {};
+        class initStartGame {};
         class initTask {};
     };
 
@@ -137,13 +147,11 @@ class F90
         class dismissUnit {};
         class generateGroupWages {};
         class generateHireCost {};
-        class generateHireData {};
         class generateReserveData {};
-        class generateSquadData {};
-        class generateUnitSkills {};
+        class generateShopData {};
+        class generateSquadShopData {};
+        class generateUnitTiers {};
         class generateWage {};
-        class getTierMultiplier {};
-        class getUnitsTier {};
         class hireUnit {};
         class refreshSquadMenu {};
         class renameHC {};
@@ -153,6 +161,11 @@ class F90
         class showSquadManagementMenu {};
         class showTrainMenu {};
         class trainUnit {};
+    };
+    
+    class SideChange
+    {
+        file = "Functions\SideChange";
     };
 
     class Task
@@ -183,10 +196,14 @@ class F90
         class applyDamage {};
         class applyPositioningData {};
         class clearArray {};
+        class convertToTime {};
         class clearGarbage {};
         class debug {};
+        class filterArray {};
         class filterGoodHouses {};
+        class findFactionAddons {};
         class generateCargoData {};
+        class generateDisplayName {};
         class generateGroupData {};
         class generateName {};
         class generatePositioningData {};
@@ -194,9 +211,13 @@ class F90
         class generateUnitData {};
         class generateVehicleID {};
         class getByKey {};
+        class getSuitableClass {};
+        class getFactionUnits {};
         class loadFromNamespace {};
+        class populateListBox {};
         class removeActionGlobal {};
         class saveToNamespace {};
+        class setMissionDate {};
     }; 
 
     class VeteranCombatRecord 

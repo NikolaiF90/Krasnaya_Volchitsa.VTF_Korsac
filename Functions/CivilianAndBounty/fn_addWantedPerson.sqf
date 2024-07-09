@@ -2,20 +2,20 @@
     Author: PrinceF90
 
     Description: 
-        Function to generate a specified number of wanted persons from a list of potential high-value targets.
+        Function to generate a specified number of wanted persons from a list of potential high-value targets including generating a bounty rewards for each HVT.
 
     Parameter(s):
-        0: NUMBER - _count: Number or HVT to add to the wanted list;
+        _count - Number or HVT to add to the wanted list [INT]
 
     Returns: 
-        _addedPOI - An array containing the added HVTs
+        _addedPOI - An array containing the added HVTs including their bounty rewards
 */
 
 params ["_count"];
 
 private _addedPOI = [];
 
-for "_i" from 0 to (_count)-1 do 
+for "_i" from 0 to (floor _count)-1 do 
 {
     private _wantedIndex = floor random (count REC_PotentialHVT);
     private _wantedData = REC_PotentialHVT # _wantedIndex;

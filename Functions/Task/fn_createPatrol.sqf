@@ -1,35 +1,43 @@
 /*
-    Author: PrinceF90 
- 
-    Description: 
-        This function creates an ambush group with a random size and composition at a specified marker location based on a given spawn percentage. 
-    
-    Parameter(s): 
-        0: INT - _minGroup: the minimum count of group(s) to spawn.
-        1: INT - _maxGroup: the maximum count of group(s) to spawn.
-        2: ARRAY - _position: the position for spawning the patrol groups.
-    
-    Returns:  
-        _groupArray - Array of created groups
-*/
-params ["_minGroup", "_maxGroup", "_position"];
+    Author: PrinceF90
 
-private _groupCount = [_minGroup, _maxGroup] call BIS_fnc_randomInt;
+    Description:
+        This function creates multiple(random from _min to _max) groups of units at a specified position for the given side and assigns a patrol task for each of the created groups.
+
+    Parameter(s):
+        _position - The position where the groups will be spawned [ARRAY]
+        _side - The side of the groups to be created [SIDE]
+        _unitList - The list from which units are selected [ARRAY]
+        _skill - (Optional, default Mission_DefaultAISkill) The skill level of the units [SCALAR]
+        _minGroup - (Optional, default 1) The minimum number of groups to create [INT]
+        _maxGroup - (Optional, default 1) The maximum number of groups to create [INT]
+        _patrolRadius = (Optional, default 100) The radius in meters for each group's patrol distance.
+
+    Returns: 
+        _createdGroups - An array containing all the created groups 
+*/
+params ["_position", "_side", "_unitList", "_skill", "_minGroup", "_maxGroup", "_patrolRadius"];
+
+if (isNil {_skill}) then {_skill = Mission_DefaultAISkill};
+if (isNil {_minGroup}) then {_minGroup = 1};
+if (isNil {_maxGroup}) then {_maxGroup = 1};
+if (isNil {_patrolRadius}) then {_patrolRadius = 100};
+
+private _groupCount = [floor _minGroup,floor _maxGroup] call BIS_fnc_randomInt;
 private _createdGroups = [];
 
 for "_i" from 1 to _groupCount do 
 {
     private _spawnPos = _position;
-    private _group = createGroup [west, true];
+    private _group = createGroup [_side, true];
     private _groupSize = [2, 6] call BIS_fnc_randomInt;
 
     for "_j" from 1 to _groupSize do 
     {
-        private _unitClass = selectRandom Mission_WestFIAUnits;
-        private _unit = [_group, _unitClass, _position] call F90_fnc_createUnit;
+        private _unitClass = selectRandom _unitList;
+        private _unit = [_group, _unitClass, _position, _skill] call F90_fnc_createUnit;
     };
     _createdGroups pushBack _group;
-    Task_CreatedPatrolGroups pushBack _group;
     [_group, _position, 100] call BIS_fnc_taskPatrol;
 };
 

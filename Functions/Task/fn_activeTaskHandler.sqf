@@ -99,7 +99,7 @@ while {Task_DutyStatus == 0} do
                 } else 
                 {
                     ["Ambush Completed"] call F90_fnc_textNotification; 
-                    [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
+                    [Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                     
                     Task_DutyStatus = 1;
                     Task_DutyName = "";
@@ -133,7 +133,7 @@ while {Task_DutyStatus == 0} do
 
                         // Notify player
                         ["HVT Killed"] call F90_fnc_textNotification; 
-                        [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
+                        [Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
 
                         // Update task status
                         Task_DutyStatus = 1;
@@ -154,14 +154,14 @@ while {Task_DutyStatus == 0} do
                     };
                 } else 
                 {
-                    [true, "activeTaskHandler\Task_KillHVT", format ["Array Task_SpawnedHVT count is not 1! Task_SpawnedHVT = %1", Task_SpawnedHVT], true] call F90_fnc_debug;
+                    [MissionDebug, "activeTaskHandler\Task_KillHVT", format ["Array Task_SpawnedHVT count is not 1! Task_SpawnedHVT = %1", Task_SpawnedHVT], true] call F90_fnc_debug;
                 };
             };
 
             case "Task_Support":
             {
                 ["Support Provided"] call F90_fnc_textNotification; 
-                [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
+                [Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
                 Task_DutyStatus = 1;
                 Task_DutyName = "";
@@ -183,7 +183,7 @@ while {Task_DutyStatus == 0} do
             case "Task_RTB":
             {
                 ["Report the mission to your reporting officer"] remoteExec ["F90_fnc_textNotification", 0, true]; 
-                [east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
+                [Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
                 
                 Task_MainTaskStatus = 1;
                 publicVariable "Task_MainTaskStatus";

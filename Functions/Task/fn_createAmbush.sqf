@@ -30,13 +30,13 @@ if (_position isEqualType []) then
 
 if (_spawnPercentage >= _random) then 
 {
-    private _group = createGroup [west, true];
+    private _group = createGroup [Mission_EnemySide, true];
     private _groupSize = [4, 16] call BIS_fnc_randomInt;
 
     for "_i" from 1 to _groupSize do 
     {
-        private _unitClass = selectRandom Mission_WestFIAUnits;
-        private _unit = [_group, _unitClass, _spawnPos] call F90_fnc_createUnit;
+        private _unitClass = selectRandom DSC_EnemyFaction;
+        private _unit = [_group, _unitClass, _spawnPos, Mission_DefaultEnemySkill] call F90_fnc_createUnit;
     };
     sleep 1;
     private _wp1 = _group addWaypoint [markerPos _position, 20];

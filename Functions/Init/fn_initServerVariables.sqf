@@ -3,10 +3,8 @@
 
 // Debug 
 EconomyDebug = true;
-Mission_InitDone = false;
 
 Mission_TaskOfficerStartPos = getPos mapX;
-Mission_EnemySide = west;
 
 CAB_AllCivilianClassnames = [];
 
@@ -47,28 +45,3 @@ REC_PotentialHVT =
 // Stores all units created by the mission script. Useful for deleting created units on map reset
 Mission_CreatedUnits = [];
 publicVariable "Mission_CreatedUnits";
-
-Mission_WestFIAUnits = 
-[
-    "B_G_Soldier_A_F",
-    "B_G_Soldier_AR_F",
-    "B_G_medic_F",
-    "B_G_engineer_F",
-    "B_G_Soldier_exp_F",
-    "B_G_Soldier_GL_F",
-    "B_G_Soldier_M_F",
-    "B_G_officer_F",
-    "B_G_Soldier_F",
-    "B_G_Soldier_LAT_F",
-    "B_G_Soldier_LAT2_F",
-    "B_G_Soldier_lite_F",
-    "B_G_Sharpshooter_F",
-    "B_G_Soldier_SL_F",
-    "B_G_Soldier_TL_F"
-];
-
-Mission_HVTUnits = 
-[
-    "B_officer_F",
-    "B_Captain_Pettka_F"
-];

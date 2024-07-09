@@ -13,7 +13,7 @@
 private _donePatrol = false;
 
 ["Patrol Completed"] remoteExec ["F90_fnc_textNotification", 0, true]; 
-[east, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
+[Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
 
 Task_DutyStatus = 1;
 Task_DutyName = "";

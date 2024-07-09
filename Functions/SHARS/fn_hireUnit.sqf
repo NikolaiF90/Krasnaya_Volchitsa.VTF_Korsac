@@ -35,7 +35,7 @@ switch (_type) do {
         {
             ["DEDUCTMONEY", [_caller, _price]] call F90_fnc_economyHandler;
 
-            private _group = createGroup [east, true];
+            private _group = createGroup [Mission_AlliedSide, true];
             private _unit = [_group, _className, _spawnPos, _skill, "", [true, _price]] call F90_fnc_createUnit;
             [_unit] join _caller; 
 
@@ -64,7 +64,7 @@ switch (_type) do {
         {
             ["DEDUCTMONEY", [_caller, _price]] call F90_fnc_economyHandler;
 
-            private _group = createGroup [east, true];
+            private _group = createGroup [Mission_AlliedSide, true];
             private _unit = [_group, _className, _spawnPos, _skill, "", [true, _price]] call F90_fnc_createUnit;
             [_unit] join _caller;
         } else 
@@ -92,7 +92,7 @@ switch (_type) do {
         {
             ["DEDUCTMONEY", [_caller, _price]] call F90_fnc_economyHandler;
 
-            private _group = createGroup [east, true];
+            private _group = createGroup [Mission_AlliedSide, true];
             private _unit = [_group, _className, _spawnPos, _skill, "", [true, _price]] call F90_fnc_createUnit;
             [_unit] join _caller;
         } else 
@@ -110,7 +110,7 @@ switch (_type) do {
             _selectedItem = 0;
         };
 
-        private _selectedSquad = SHARS_Squad select _selectedItem;
+        private _selectedSquad = SHARS_SquadsData select _selectedItem;
         private _members = _selectedSquad select 1;
         private _squadPrice = _selectedSquad select 2;
 
@@ -119,7 +119,7 @@ switch (_type) do {
         {
             ["DEDUCTMONEY", [_caller, _squadPrice]] call F90_fnc_economyHandler;
 
-            private _group = createGroup [east, true];
+            private _group = createGroup [Mission_AlliedSide, true];
             for "_i" from 0 to (count _members)-1 do 
             {
                 private _unitData = _members select _i;

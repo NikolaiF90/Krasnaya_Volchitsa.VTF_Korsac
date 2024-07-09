@@ -8,14 +8,14 @@ class tacticalMenu
 		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Qynahy)
 		////////////////////////////////////////////////////////
 
-		class RscText_1000: RscText
+		class bg_TacticalMenu1: RscText
 		{
 			idc = 1201;
 
 			x = 0.345312 * safezoneW + safezoneX;
 			y = 0.302 * safezoneH + safezoneY;
 			w = 0.314531 * safezoneW;
-			h = 0.517 * safezoneH;
+			h = 0.539 * safezoneH;
 			colorBackground[] = {0.125,0.235,0.2,1};
 		};
 		class text_TacticalTitle: RscText
@@ -167,38 +167,70 @@ class tacticalMenu
 			w = 0.0773437 * safezoneW;
 			h = 0.033 * safezoneH;
 		};
-		class button_TacticalClose: RscButton
+		class bg_TacticalMenu7: RscText
 		{
 			idc = 1217;
-			action = "[] call F90_fnc_closeMenu";
-
-			text = "CLOSE"; //--- ToDo: Localize;
-			x = 0.350469 * safezoneW + safezoneX;
-			y = 0.775 * safezoneH + safezoneY;
-			w = 0.304219 * safezoneW;
-			h = 0.033 * safezoneH;
-			colorBackground[] = {0.192,0.365,0.31,1};
-			tooltip = "Close Tactical Tab"; //--- ToDo: Localize;
-		};
-		class button_TacticalTransferMilcash: RscButton
-		{
-			idc = 1218;
-			action = "[] call F90_fnc_openTransferMenu";
-
-			text = "TRANSFER MILCASH"; //--- ToDo: Localize;
 			x = 0.350469 * safezoneW + safezoneX;
 			y = 0.731 * safezoneH + safezoneY;
 			w = 0.304219 * safezoneW;
-			h = 0.033 * safezoneH;
+			h = 0.099 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_TacticalPersistent: RscButton
+		{
+			idc = 1218;
+			action = "[] call F90_fnc_openPersistentTab";
+
+			text = "PERSISTENT"; //--- ToDo: Localize;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.742 * safezoneH + safezoneY;
+			w = 0.144375 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+			tooltip = "Open Persistent Menu"; //--- ToDo: Localize;
+		};
+		class button_TacticalTransferMilcash: RscButton
+		{
+			idc = 1219;
+			action = "[] call F90_fnc_openTransferMenu";
+
+			text = "TRANSFER MILCASH"; //--- ToDo: Localize;
+			x = 0.355625 * safezoneW + safezoneX;
+			y = 0.786 * safezoneH + safezoneY;
+			w = 0.144375 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
 			tooltip = "Transfer Milcash To Your Friend"; //--- ToDo: Localize;
+		};
+		class button_TacticalClose: RscButton
+		{
+			idc = 1220;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "CLOSE"; //--- ToDo: Localize;
+			x = 0.505156 * safezoneW + safezoneX;
+			y = 0.786 * safezoneH + safezoneY;
+			w = 0.144375 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class button_tacticalTimeSkip: RscButton
+		{
+			idc = 1221;
+			action = "[] call F90_fnc_openTimeSkipMenu";
+			text = "TIME SKIP"; //--- ToDo: Localize;
+			x = 0.505156 * safezoneW + safezoneX;
+			y = 0.742 * safezoneH + safezoneY;
+			w = 0.144375 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+			tooltip = "Skips The Time"; //--- ToDo: Localize;
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
 	};
 };
-
 
 class persistentMenu
 {
@@ -1430,6 +1462,338 @@ class transferMenu
 			x = 0.386562 * safezoneW + safezoneX;
 			y = 0.533 * safezoneH + safezoneY;
 			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,0,0,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+
+	};
+};
+
+class serverStartMenu 
+{
+	idd = 1900;
+
+	class controls 
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Keriji)
+		////////////////////////////////////////////////////////
+
+		class bg_serverStart01: RscText
+		{
+			idc = 1901;
+			x = 0.355624 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.283594 * safezoneW;
+			h = 0.396 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class bg_serverStart02: RscText
+		{
+			idc = 1902;
+			x = 0.360779 * safezoneW + safezoneX;
+			y = 0.269 * safezoneH + safezoneY;
+			w = 0.273281 * safezoneW;
+			h = 0.297 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_serverStartTitle: RscText
+		{
+			idc = 1903;
+			text = "Server Setup: Krasnaya Volchitsa"; //--- ToDo: Localize;
+			x = 0.438125 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.118594 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class text_serverStartSideLabel01: RscText
+		{
+			idc = 1904;
+			text = "Allied Side: "; //--- ToDo: Localize;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.044 * safezoneH;
+			tooltip = "Choose Your Side"; //--- ToDo: Localize;
+		};
+		class combo_serverStartSideSelection01: RscCombo
+		{
+			idc = 1905;
+			x = 0.438126 * safezoneW + safezoneX;
+			y = 0.291 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_serverStartFactionLabel01: RscText
+		{
+			idc = 1906;
+			text = "Allied Faction: "; //--- ToDo: Localize;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.313 * safezoneH + safezoneY;
+			w = 0.0567187 * safezoneW;
+			h = 0.044 * safezoneH;
+			tooltip = "Choose Your Faction"; //--- ToDo: Localize;
+		};
+		class combo_serverStartFactionSelection01: RscCombo
+		{
+			idc = 1907;
+			x = 0.438125 * safezoneW + safezoneX;
+			y = 0.324 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_serverStartSideLabel02: RscText
+		{
+			idc = 1908;
+			text = "Enemy Side: "; //--- ToDo: Localize;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
+			w = 0.0464063 * safezoneW;
+			h = 0.044 * safezoneH;
+			tooltip = "Choose Enemy Side"; //--- ToDo: Localize;
+		};
+		class combo_serverStartSideSelection02: RscCombo
+		{
+			idc = 1909;
+			x = 0.438125 * safezoneW + safezoneX;
+			y = 0.357 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_serverStartFactionLabel02: RscText
+		{
+			idc = 1910;
+			text = "Enemy Faction: "; //--- ToDo: Localize;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.379 * safezoneH + safezoneY;
+			w = 0.0567187 * safezoneW;
+			h = 0.044 * safezoneH;
+			tooltip = "Choose Enemy Faction"; //--- ToDo: Localize;
+		};
+		class combo_serverStartFactionSelection02: RscCombo
+		{
+			idc = 1911;
+			x = 0.438125 * safezoneW + safezoneX;
+			y = 0.39 * safezoneH + safezoneY;
+			w = 0.190781 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_serverStartTimeLabel01: RscText
+		{
+			idc = 1912;
+			text = "Start Time:"; //--- ToDo: Localize;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class slider_serverStartTimeSelection: RscSlider
+		{
+			idc = 1913;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.434 * safezoneH + safezoneY;
+			w = 0.170156 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class text_serverStartTimeLabel02: RscText
+		{
+			idc = 1914;
+			text = "1200hrs"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY;
+			w = 0.0360937 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class text_serverStartAlliedSkillLabel01: RscText
+		{
+			idc = 1915;
+			text = "Allied Skill:"; //--- ToDo: Localize;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.467 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.044 * safezoneH;
+			tooltip = "Skill Level Of Allied Units"; //--- ToDo: Localize;
+		};
+		class text_serverStartAlliedSkillLabel02: RscText
+		{
+			idc = 1916;
+			text = "0.25"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.467 * safezoneH + safezoneY;
+			w = 0.0257812 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class text_serverStartEnemySkillLabel01: RscText
+		{
+			idc = 1917;
+			text = "Enemy Skill:"; //--- ToDo: Localize;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.511 * safezoneH + safezoneY;
+			w = 0.0464063 * safezoneW;
+			h = 0.044 * safezoneH;
+			tooltip = "Skill Level Of Enemy Units"; //--- ToDo: Localize;
+		};
+		class text_serverStartEnemySkillLabel02: RscText
+		{
+			idc = 1918;
+			text = "0.25"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.511 * safezoneH + safezoneY;
+			w = 0.0257812 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class slider_serverStartAlliedSkillSelection: RscSlider
+		{
+			idc = 1919;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.478 * safezoneH + safezoneY;
+			w = 0.170156 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class slider_serverStartEnemySkillSelection: RscSlider
+		{
+			idc = 1920;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER ;
+
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.522 * safezoneH + safezoneY;
+			w = 0.170156 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class button_serverStartConfirm: RscButton
+		{
+			idc = 1921;
+			action = "[] call F90_fnc_startServer";
+
+			text = "START MISSION"; //--- ToDo: Localize;
+			x = 0.360781 * safezoneW + safezoneX;
+			y = 0.577 * safezoneH + safezoneY;
+			w = 0.273281 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+
+	};
+};
+
+class timeskipMenu
+{
+	idd = 2000;
+
+	class controls 
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Qatico)
+		////////////////////////////////////////////////////////
+
+		class bg_timeskipMenu1: RscText
+		{
+			idc = 2001;
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.368 * safezoneH + safezoneY;
+			w = 0.33 * safezoneW;
+			h = 0.22 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_timeskipTitle: RscText
+		{
+			idc = 2002;
+			text = "Time Skip"; //--- ToDo: Localize;
+			x = 0.474219 * safezoneW + safezoneX;
+			y = 0.368 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class slider_timeskipSelection: RscSlider
+		{
+			idc = 2003;
+			style = SL_HORZ + SL_TEXTURES;
+			type = CT_XSLIDER;
+
+			x = 0.345312 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY;
+			w = 0.309375 * safezoneW;
+			h = 0.033 * safezoneH;
+
+			arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+			arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+			border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+			thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+		};
+		class text_timeskipTotal: RscText
+		{
+			idc = 2004;
+			text = "+ 24 hours"; //--- ToDo: Localize;
+			x = 0.345312 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class text_timeskipNextTime: RscText
+		{
+			idc = 2005;
+			text = "00:00 hrs"; //--- ToDo: Localize;
+			x = 0.608281 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.0464063 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class button_timeskipConfirm: RscButton
+		{
+			idc = 2006;
+			action = "[] call F90_fnc_skipTime";
+
+			text = "SKIP TIME"; //--- ToDo: Localize;
+			x = 0.345312 * safezoneW + safezoneX;
+			y = 0.5 * safezoneH + safezoneY;
+			w = 0.309375 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_timeskipCancel: RscButton
+		{
+			idc = 2007;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "CANCEL"; //--- ToDo: Localize;
+			x = 0.345312 * safezoneW + safezoneX;
+			y = 0.544 * safezoneH + safezoneY;
+			w = 0.309375 * safezoneW;
 			h = 0.033 * safezoneH;
 			colorBackground[] = {0.5,0,0,1};
 		};

@@ -1,5 +1,9 @@
-[] call F90_fnc_initServerVariables;
+Mission_DoneInitGlobalVariables = false;
 [] remoteExec ["F90_fnc_initGlobalVariables", 0, true];
+["Server"] call F90_fnc_initStartGame;
+["Client"] remoteExec ["F90_fnc_initStartGame", 0, true];
+waitUntil {Server_Started};
+[] call F90_fnc_initServerVariables;
 
 [] remoteExec ["F90_fnc_configurePersistent", 0, true];
 [] remoteExec ["F90_fnc_configureEconomy", 0, true];
@@ -8,6 +12,7 @@
 [] remoteExec ["F90_fnc_configureCAB", 0, true];
 [] remoteExec ["F90_fnc_configureTask", 0, true];
 [] remoteExec ["F90_fnc_configureSHARS", 0, true];
+[] remoteExec ["F90_fnc_configureDSC", 0, true];
 
 [] call F90_fnc_resetMap;
 REC_WantedList = [CAB_WantedCounts] call F90_fnc_addWantedPerson;
@@ -15,10 +20,13 @@ publicVariable "REC_WantedList";
 
 enableTeamSwitch true;
 
-civilian setFriend [east, 1];
+civilian setFriend [Mission_AlliedSide, 1];
 
 setGroupIconsVisible [false, false]; 
 setGroupIconsSelectable true;
+
+// Set Time 
+["TIME", Mission_Time] remoteExec ["F90_fnc_setMissionDate", 0, true];
 
 addMissionEventHandler ["TeamSwitch", 
 {
@@ -26,47 +34,6 @@ addMissionEventHandler ["TeamSwitch",
 
     setGroupIconsVisible [false, false]; 
     setGroupIconsSelectable true;
-
-    // Delete action if already exist. To prevent duplicate action on mission host
-    if (!isNil {_RECActionID}) then { _newUnit removeAction _RECActionID};
-
-    _RECActionID = _newUnit addAction 
-    [
-        "<t color='#23d1cd'>Open Tactical Tab</t>", 
-        {
-            params ["_target", "_caller", "_actionId", "_arguments"]; 
-            [_caller] call F90_fnc_openTacticalTab;
-        }, 
-        nil, 
-        4, 
-        false, 
-        false, 
-        "", 
-        "_target == _this"
-    ];
-
-    _newUnit setVariable ["REC_ActionID", _RECActionID];
-
-    // Remove persistent action if already exist (to avoid duplicate action on server host)
-    private _persistentActionID = _newUnit getVariable ["Persistent_ActionID", nil];
-    if (!isNil {_persistentActionID}) then {_newUnit removeAction _persistentActionID};
-
-    // Create a new persistent action
-    _persistentActionID = _newUnit addAction 
-    [
-        "<t color='#0089f2'>Persistent</t>", 
-        {
-            [] call F90_fnc_openPersistentTab;
-        },
-        nil,
-        4,
-        false,
-        true,
-        "",
-        "_this == _target"
-    ];
-
-    _newUnit setVariable ["Persistent_ActionID", _persistentActionID];
 }];
 
 addMissionEventHandler ["PlayerDisconnected", 
@@ -76,3 +43,4 @@ addMissionEventHandler ["PlayerDisconnected",
 }];
 
 Mission_InitDone = true;
+publicVariable "Mission_InitDone";

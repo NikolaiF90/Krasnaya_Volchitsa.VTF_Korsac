@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=534;
+		nextID=591;
 	};
 	class MarkerIDProvider
 	{
@@ -20,32 +20,27 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=164;
+		nextID=185;
 	};
 	class Camera
 	{
-		pos[]={2582.6782,846.35205,2104.2068};
-		dir[]={-0.56391239,-0.17821302,-0.80637652};
-		up[]={-0.10213146,0.98399192,-0.14604467};
-		aside[]={-0.81949508,-7.4505806e-009,0.57308638};
+		pos[]={2497.9238,908.09479,1952.3124};
+		dir[]={-0.28260705,-0.61962575,0.73225492};
+		up[]={-0.22310001,0.78489745,0.5780679};
+		aside[]={0.93293077,1.4901161e-008,0.36005604};
 	};
 };
 binarizationWanted=0;
 sourceName="Krasnaya_Volchitsa";
 addons[]=
 {
-	"min_rf_units",
-	"min_rf_wp",
-	"A3_Weapons_F_Acc",
-	"A3_Weapons_F_Pistols_Rook40",
-	"jsrs_soundmod_complete_edition",
-	"jsrs_soundmod_ce_reloadingsounds",
+	"A3_Characters_F",
 	"A3_Weapons_F",
-	"A3_Weapons_F_Items",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Ui_F",
 	"min_rf_vehicle",
 	"A3_Structures_F_EPB_Items_Documents",
+	"min_rf_wp",
 	"A3_Missions_F_Oldman",
 	"A3_Supplies_F_Heli_CargoNets",
 	"A3_Structures_F_Ind_Shed",
@@ -72,139 +67,128 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=21;
+		items=19;
 		class Item0
 		{
-			className="min_rf_units";
-			name="min_rf_units";
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 		class Item1
-		{
-			className="min_rf_wp";
-			name="min_rf_wp";
-		};
-		class Item2
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
-		{
-			className="A3_Sounds_F";
-			name="Arma 3 - Sound Effects";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item4
-		{
-			className="jsrs_soundmod_ce_reloadingsounds";
-			name="jsrs_soundmod_ce_reloadingsounds";
-			author="LordJarhead";
-		};
-		class Item5
+		class Item2
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item3
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item4
 		{
 			className="min_rf_vehicle";
 			name="min_rf_vehicle";
 		};
-		class Item8
+		class Item5
 		{
 			className="A3_Structures_F_EPB";
 			name="Arma 3 Adapt Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item9
+		class Item6
+		{
+			className="min_rf_wp";
+			name="min_rf_wp";
+		};
+		class Item7
 		{
 			className="A3_Missions_F_Oldman";
 			name="Arma 3 Old Man - Playable Content";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item10
+		class Item8
 		{
 			className="A3_Supplies_F_Heli";
 			name="Arma 3 Helicopters - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item11
+		class Item9
 		{
 			className="A3_Structures_F_Ind";
 			name="Arma 3 - Industrial Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item12
+		class Item10
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item13
+		class Item11
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item14
+		class Item12
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item15
+		class Item13
 		{
 			className="min_rf_air";
 			name="min_rf_air";
 		};
-		class Item16
+		class Item14
 		{
 			className="A3_Static_F";
 			name="Arma 3 Alpha - Turrets";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item17
+		class Item15
 		{
 			className="A3_Structures_F_EPA";
 			name="Arma 3 Survive Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item18
+		class Item16
 		{
 			className="A3_Structures_F_Tank";
 			name="Arma 3 Tank - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item19
+		class Item17
 		{
 			className="A3_Structures_F_Enoch_Military";
 			name="Arma 3 Contact Platform - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item20
+		class Item18
 		{
 			className="A3_Props_F_Orange";
 			name="Arma 3 Orange - Decorative and Mission Objects";
@@ -312,7 +296,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=20;
+		items=15;
 		class Item0
 		{
 			dataType="Group";
@@ -325,136 +309,27 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2423.1445,844.08649,2091.2202};
-						angles[]={0,0.47404566,0};
+						position[]={2423.3,844.08643,2091.3291};
+						angles[]={0,0.60948646,0};
 					};
 					side="East";
 					flags=7;
 					class Attributes
 					{
 						name="missionCaptain";
-						description="Team Leader";
 						isPlayer=1;
 						class Inventory
 						{
-							class primaryWeapon
-							{
-								name="arifle_min_rf_aek_a545";
-								optics="optic_DMS";
-								muzzle="muzzle_min_rf_tgp_a";
-								flashlight="acc_min_rf_perst_1ik";
-								class primaryMuzzleMag
-								{
-									name="30Rnd_min_rf_545x39_Mag";
-									ammoLeft=30;
-								};
-							};
-							class handgun
-							{
-								name="hgun_Rook40_F";
-								class primaryMuzzleMag
-								{
-									name="18Rnd_min_rf_9x19_Mag";
-									ammoLeft=18;
-								};
-							};
-							class binocular
-							{
-								name="Rangefinder";
-							};
-							class uniform
-							{
-								typeName="min_rf_tactical_skol";
-								isBackpack=0;
-								class MagazineCargo
-								{
-									items=2;
-									class Item0
-									{
-										name="18Rnd_min_rf_9x19_Mag";
-										count=2;
-										ammoLeft=18;
-									};
-									class Item1
-									{
-										name="MiniGrenade";
-										count=1;
-										ammoLeft=1;
-									};
-								};
-								class ItemCargo
-								{
-									items=1;
-									class Item0
-									{
-										name="FirstAidKit";
-										count=1;
-									};
-								};
-							};
-							class vest
-							{
-								typeName="min_rf_lite_vest_black";
-								isBackpack=0;
-								class MagazineCargo
-								{
-									items=7;
-									class Item0
-									{
-										name="30Rnd_min_rf_545x39_Mag";
-										count=6;
-										ammoLeft=30;
-									};
-									class Item1
-									{
-										name="MiniGrenade";
-										count=1;
-										ammoLeft=1;
-									};
-									class Item2
-									{
-										name="SmokeShell";
-										count=1;
-										ammoLeft=1;
-									};
-									class Item3
-									{
-										name="SmokeShellRed";
-										count=1;
-										ammoLeft=1;
-									};
-									class Item4
-									{
-										name="SmokeShellOrange";
-										count=1;
-										ammoLeft=1;
-									};
-									class Item5
-									{
-										name="SmokeShellYellow";
-										count=1;
-										ammoLeft=1;
-									};
-									class Item6
-									{
-										name="Chemlight_red";
-										count=2;
-										ammoLeft=1;
-									};
-								};
-							};
 							map="ItemMap";
 							compass="ItemCompass";
 							watch="ItemWatch";
 							radio="ItemRadio";
 							gps="ItemGPS";
-							goggles="min_rf_balaclava_goggles_black";
-							hmd="NVGoggles_OPFOR";
-							headgear="min_rf_helmet_recon_black";
 						};
 					};
-					id=1;
-					type="min_rf_spetsnaz_TL";
+					id=582;
+					type="O_Soldier_TL_F";
+					atlOffset=0.22497559;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -466,69 +341,7 @@ class Mission
 								class data
 								{
 									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-			};
-			class Attributes
-			{
-			};
-			id=0;
-		};
-		class Item1
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2425.8235,844.08649,2089.8325};
-						angles[]={0,0.4866218,0};
-					};
-					side="East";
-					flags=7;
-					class Attributes
-					{
-						name="player1";
-						description="Scout";
-						isPlayable=1;
-					};
-					id=3;
-					type="min_rf_recon";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01RUS";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -545,16 +358,30 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="WhiteHead_06";
+								};
+							};
+						};
+						nAttributes=3;
 					};
 				};
 			};
 			class Attributes
 			{
 			};
-			id=2;
+			id=0;
+			atlOffset=0.22497559;
 		};
-		class Item2
+		class Item1
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -620,69 +447,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item3
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2424.4497,844.08649,2090.5596};
-						angles[]={0,0.47522181,0};
-					};
-					side="East";
-					flags=7;
-					class Attributes
-					{
-						name="player2";
-						description="Demo Specialist";
-						isPlayable=1;
-					};
-					id=16;
-					type="min_rf_recon_exp";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.94999999;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-			};
-			class Attributes
-			{
-			};
-			id=17;
-		};
-		class Item4
+		class Item2
 		{
 			dataType="Layer";
 			name="BaseMarkers";
@@ -705,7 +470,7 @@ class Mission
 			};
 			id=35;
 		};
-		class Item5
+		class Item3
 		{
 			dataType="Object";
 			class PositionInfo
@@ -721,7 +486,7 @@ class Mission
 			id=82;
 			type="min_rf_gaz_2330";
 		};
-		class Item6
+		class Item4
 		{
 			dataType="Object";
 			class PositionInfo
@@ -737,7 +502,7 @@ class Mission
 			id=83;
 			type="min_rf_gaz_2330_HMG";
 		};
-		class Item7
+		class Item5
 		{
 			dataType="Layer";
 			name="Essentials";
@@ -1079,7 +844,7 @@ class Mission
 			id=232;
 			atlOffset=0.0095825195;
 		};
-		class Item8
+		class Item6
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1123,57 +888,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item9
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2527.8105,843.86145,2088.6033};
-					};
-					side="East";
-					flags=7;
-					class Attributes
-					{
-					};
-					id=419;
-					type="min_rf_soldier";
-				};
-			};
-			class Attributes
-			{
-			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=1;
-				};
-				class Links
-				{
-					items=1;
-					class Item0
-					{
-						linkID=0;
-						item0=419;
-						item1=417;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=418;
-		};
-		class Item10
+		class Item7
 		{
 			dataType="Layer";
 			name="BASE";
@@ -1931,13 +1646,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2527.8105,845.53973,2088.5532};
-						angles[]={0,0.19995323,0};
+						position[]={2527.811,845.53973,2088.553};
+						angles[]={0,0.19994493,0};
 					};
-					side="East";
-					flags=6;
+					side="Empty";
+					flags=4;
 					class Attributes
 					{
+						init="this setVariable [""DSC_IsBaseTurret"", true, true];";
 					};
 					id=417;
 					type="I_HMG_02_high_F";
@@ -2065,8 +1781,8 @@ class Mission
 						position[]={2540.7004,849.88379,2105.011};
 						angles[]={0,5.9764643,0};
 					};
-					side="East";
-					flags=6;
+					side="Empty";
+					flags=4;
 					class Attributes
 					{
 					};
@@ -3252,49 +2968,54 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2408.6907,863.42926,2121.949};
-						angles[]={0,0.51881063,0};
+						position[]={2408.6909,863.42889,2121.949};
+						angles[]={0,0.51881659,0};
 					};
-					side="East";
-					flags=6;
+					side="Empty";
+					flags=4;
 					class Attributes
 					{
+						init="this setVariable [""DSC_IsBaseTurret"", true, true];";
 					};
 					id=522;
 					type="I_HMG_02_high_F";
-					atlOffset=0.16143799;
+					atlOffset=0.16107178;
 				};
 				class Item72
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2407.6599,863.33167,2111.5032};
-						angles[]={0,2.088284,0};
+						position[]={2407.6599,863.33173,2111.5029};
+						angles[]={0,2.0882864,0};
 					};
-					side="East";
-					flags=6;
+					side="Empty";
+					flags=4;
 					class Attributes
 					{
+						init="this setVariable [""DSC_IsBaseTurret"", true, true];";
 					};
 					id=525;
 					type="I_HMG_02_high_F";
+					atlOffset=6.1035156e-005;
 				};
 				class Item73
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2399.0908,863.42926,2117.8232};
-						angles[]={0,5.243793,0};
+						position[]={2399.0911,863.42975,2117.823};
+						angles[]={0,5.2437892,0};
 					};
-					side="East";
-					flags=6;
+					side="Empty";
+					flags=4;
 					class Attributes
 					{
+						init="this setVariable [""DSC_IsBaseTurret"", true, true];";
 					};
 					id=528;
 					type="I_HMG_02_high_F";
+					atlOffset=0.00048828125;
 				};
 				class Item74
 				{
@@ -3330,60 +3051,9 @@ class Mission
 				};
 			};
 			id=420;
-			atlOffset=4.0349121;
+			atlOffset=4.0350342;
 		};
-		class Item11
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2541.3984,843.86145,2105.1462};
-						angles[]={0,5.9764643,0};
-					};
-					side="East";
-					flags=7;
-					class Attributes
-					{
-					};
-					id=423;
-					type="min_rf_soldier";
-				};
-			};
-			class Attributes
-			{
-			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=1;
-				};
-				class Links
-				{
-					items=1;
-					class Item0
-					{
-						linkID=0;
-						item0=423;
-						item1=424;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=422;
-		};
-		class Item12
+		class Item8
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -3395,7 +3065,7 @@ class Mission
 			id=487;
 			type="HighCommand";
 		};
-		class Item13
+		class Item9
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -3407,7 +3077,7 @@ class Mission
 			id=488;
 			type="HighCommand";
 		};
-		class Item14
+		class Item10
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -3419,7 +3089,7 @@ class Mission
 			id=489;
 			type="HighCommand";
 		};
-		class Item15
+		class Item11
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3435,162 +3105,7 @@ class Mission
 			id=515;
 			type="Land_Cargo_Tower_V1_F";
 		};
-		class Item16
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2383.6641,843.86145,2126.6746};
-						angles[]={0,0.51881063,0};
-					};
-					side="East";
-					flags=7;
-					class Attributes
-					{
-					};
-					id=521;
-					type="min_rf_soldier";
-				};
-			};
-			class Attributes
-			{
-			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=1;
-				};
-				class Links
-				{
-					items=1;
-					class Item0
-					{
-						linkID=0;
-						item0=521;
-						item1=522;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=520;
-			atlOffset=0.16143799;
-		};
-		class Item17
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2382.6333,843.76385,2116.2288};
-						angles[]={0,2.088284,0};
-					};
-					side="East";
-					flags=7;
-					class Attributes
-					{
-					};
-					id=524;
-					type="min_rf_soldier";
-					atlOffset=-0.097595215;
-				};
-			};
-			class Attributes
-			{
-			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=1;
-				};
-				class Links
-				{
-					items=1;
-					class Item0
-					{
-						linkID=0;
-						item0=524;
-						item1=525;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=523;
-		};
-		class Item18
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2374.0642,843.86145,2122.5488};
-						angles[]={0,5.243793,0};
-					};
-					side="East";
-					flags=7;
-					class Attributes
-					{
-					};
-					id=527;
-					type="min_rf_soldier";
-				};
-			};
-			class Attributes
-			{
-			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=1;
-				};
-				class Links
-				{
-					items=1;
-					class Item0
-					{
-						linkID=0;
-						item0=527;
-						item1=528;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=526;
-		};
-		class Item19
+		class Item12
 		{
 			dataType="Object";
 			class PositionInfo
@@ -3606,6 +3121,172 @@ class Mission
 			id=532;
 			type="Land_Stretcher_01_olive_F";
 		};
+		class Item13
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2424.5654,844.08649,2090.7849};
+						angles[]={0,0.60948646,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						name="player2";
+						isPlayable=1;
+						class Inventory
+						{
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+						};
+					};
+					id=584;
+					type="O_Soldier_TL_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male02ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.98000002;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="WhiteHead_07";
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=583;
+		};
+		class Item14
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2425.792,844.08643,2089.876};
+						angles[]={0,0.60948646,0};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						name="player1";
+						isPlayable=1;
+						class Inventory
+						{
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="ItemGPS";
+						};
+					};
+					id=586;
+					type="O_Soldier_TL_F";
+					atlOffset=0.22497559;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.98000002;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="WhiteHead_09";
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=585;
+			atlOffset=0.22497559;
+		};
 	};
 	class Connections
 	{
@@ -3620,7 +3301,7 @@ class Mission
 			{
 				linkID=0;
 				item0=487;
-				item1=1;
+				item1=582;
 				class CustomData
 				{
 					type="Sync";
@@ -3629,8 +3310,8 @@ class Mission
 			class Item1
 			{
 				linkID=1;
-				item0=488;
-				item1=16;
+				item0=584;
+				item1=488;
 				class CustomData
 				{
 					type="Sync";
@@ -3639,8 +3320,8 @@ class Mission
 			class Item2
 			{
 				linkID=2;
-				item0=489;
-				item1=3;
+				item0=586;
+				item1=489;
 				class CustomData
 				{
 					type="Sync";

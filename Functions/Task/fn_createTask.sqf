@@ -56,7 +56,10 @@ switch (_taskType) do
         Task_DutyDescription = format ["We've got intels on recent rebels hideout (GRID %1). Perform an ambush on the location and clean the area.", mapGridPosition _taskLocation];
         Task_DutyStatus = 0;
 
-        [1, 4, _taskLocation] spawn F90_fnc_createPatrol;
+        private _patrolGroup = [_taskLocation, Mission_EnemySide, DSC_EnemyUnitList, Mission_DefaultEnemySkill, 1, 4, 100] spawn F90_fnc_createPatrol;
+        {
+            Task_CreatedPatrolGroups pushBack _x;
+        } forEach _patrolGroup;
 
         private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
         [Task_AmbushHVTSpawnChance, _hvtSpawnPos] spawn F90_fnc_createHVT;
@@ -93,7 +96,10 @@ switch (_taskType) do
         Task_DutyDescription = format ["Take out or capture the High Value Target(GRID %1).", mapGridPosition _taskLocation];
         Task_DutyStatus = 0;
 
-        [1, 1, _taskLocation] spawn F90_fnc_createPatrol;
+        [_taskLocation, Mission_EnemySide, DSC_EnemyUnitList, Mission_DefaultEnemySkill, 1, 1, 100] spawn F90_fnc_createPatrol;
+        {
+            Task_CreatedPatrolGroups pushBack _x;
+        } forEach _patrolGroup;
 
         private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
         [100, _hvtSpawnPos] spawn F90_fnc_createHVT;
@@ -165,7 +171,7 @@ deleteMarker _taskMarker;
 [Task_CurrentTaskID, _taskLocation, _taskAreaX, _taskAreaY, _taskAreaDir] call F90_fnc_createAOMarker;
 
 // Notify player
-[east, Task_CurrentTaskID, "CREATED"] call F90_fnc_showTaskNotification;
+[Mission_AlliedSide, Task_CurrentTaskID, "CREATED"] call F90_fnc_showTaskNotification;
 
 // Make current task public to all players
 publicVariable "Task_DutyName";

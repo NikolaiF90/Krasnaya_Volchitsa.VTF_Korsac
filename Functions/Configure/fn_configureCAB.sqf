@@ -14,8 +14,6 @@ publicVariable "CAB_CivilianSpawningEnabled";
 CAB_CivilianCheckInterval = 3;
 // Time interval (in seconds) to checks for civilian spawning
 CAB_SpawnCheckInterval = 8;
-// Time until civilian starts spawning in
-// CAB_CivilianSpawnDelay = 5;
 // Radius (in meters) to spawn civilians. Civs won't spawn outside this radius
 CAB_CivilianSpawnRadius = 300;
 // House count to spawn 1 civilian  
@@ -37,6 +35,8 @@ CAB_CivilianWaitingTime = 8;
 CAB_CivilianLifetime = 60;
 // Chance(in percentage) of spawned civilian being in the wanted list 
 CAB_HVTChance = 20;
+// Chance (in percentage) that enemy unit holds intel
+CAB_IntelDropChance = 20;
 // Reward range for arresting or killing HVT
 CAB_HVTReward = [250, 1000];
 // Reward deduction (in percentage) if the HVT killed instead of captured

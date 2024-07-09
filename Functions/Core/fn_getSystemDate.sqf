@@ -50,7 +50,7 @@ if (_fullMonthName) then
         "June", 
         "July", 
         "August", 
-        "Septembre",
+        "September",
         "October",
         "November",
         "December"

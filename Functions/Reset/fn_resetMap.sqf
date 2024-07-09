@@ -1,4 +1,5 @@
 // Executed by server every mission start or before loading saves.
+[] call F90_fnc_initDSC;
 [] call F90_fnc_initCivilian;
 [] call F90_fnc_initCABServer;
 [] call F90_fnc_initTask;
@@ -11,3 +12,4 @@ if ((count Mission_CreatedUnits) > 0) then
     } forEach Mission_CreatedUnits;
     publicVariable "Mission_CreatedUnits";
 };
+[] call F90_fnc_spawnBaseGuard;

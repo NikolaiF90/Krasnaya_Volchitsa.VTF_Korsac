@@ -47,9 +47,9 @@ if (_dialogShown) then
 
     // Squad Listbox
     lbClear HireMenu_SquadListBoxIDC;
-    for "_i" from 0 to (count SHARS_Squad)-1 do 
+    for "_i" from 0 to (count SHARS_SquadsData)-1 do 
     {
-        private _item = SHARS_Squad select _i;
+        private _item = SHARS_SquadsData select _i;
         private _displayName = _item select 0;
         private _price = _item select 2;
         private _text = format ["%1 %2mc", _displayName, _price];

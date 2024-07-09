@@ -22,7 +22,16 @@ if (!isNull Task_TaskTrigger) then
     deleteVehicle Task_TaskTrigger;
     Task_TaskTrigger = objNull;
 }; 
+
+private _activatorSide = nil;
+switch (Mission_AlliedSide) do 
+{
+    case west: { _activatorSide = "WEST"};
+    case east: { _activatorSide = "EAST"};
+    case independent: { _activatorSide = "GUER"};
+};
+
 Task_TaskTrigger = createTrigger ["EmptyDetector", _location];
 Task_TaskTrigger setTriggerArea [_areaX, _areaY, _areaDirection, true];
-Task_TaskTrigger setTriggerActivation ["EAST", "PRESENT", true];
+Task_TaskTrigger setTriggerActivation [_activatorSide, "PRESENT", true];
 Task_TaskTrigger setTriggerStatements [_condition, "", ""];

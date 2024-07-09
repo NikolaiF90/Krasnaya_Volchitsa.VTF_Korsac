@@ -5,14 +5,25 @@
 ## ToDO
     * More tasks
     * Skill Tree
-    * Ways to get wanted list
     * Ranking system
     * Mission guide
-    * Time skip
     * FOB
-    * Ability for mission designers to change teams and sides
+    * Improve Patrol Script
 
 ## Version History
+
+### Version 1.22.0a
+    * Show server setup menu to server host. This adds the ability for the server host to make a few changes to the server setting before starting the server.
+    * Dynamic Side Change System. Ability for server host to change teams and sides. 
+    * Starting time can be set by the host at server setup screen.
+    * Reworked SHARS to integrate DSCS. Units available for recruit will be based on player faction.
+    * Spawned units will be based on player factions. Player initial loadout will also be based on selected faction.
+    * Persistent Tab will now accessible through Tactical Tab.
+    * Added the ability for server host to perform a time skip.
+    * Mission designers no longer need to manually place units to defend base as the mission will automatically spawns units based on base markers and turrets placed inside base.
+    * Killed enemy units will now drop intels. For now, only intels related to HVT will be dropped.
+    * Tactical Tab is now accessible by pressing Y key instead of action menu.
+    * Major optimizations and code improvements.
 
 ### Version 1.21.0a
     * Updated the looks of Tactical Tab.

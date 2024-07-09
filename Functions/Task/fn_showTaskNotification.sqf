@@ -13,7 +13,7 @@
         None
 
     Examples:
-        [east, "Patrol", "CREATED"] call F90_fnc_showTaskNotification;
+        [Mission_AlliedSide, "Patrol", "CREATED"] call F90_fnc_showTaskNotification;
 */
 
 params ["_side", "_type", "_operation"];

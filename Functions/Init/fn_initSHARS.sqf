@@ -1,5 +1,11 @@
+
+// Format [DisplayName, ClassName];
+SHARS_SoldiersData = [DSC_AlliedUnitList, configFile >> "CfgVehicles"] call F90_fnc_generateDisplayName;
+SHARS_SquadsData = [DSC_AlliedFaction] call F90_fnc_generateSquadData;
+
 // Generate unit data like skills and hire cost
-[] remoteExec ["F90_fnc_generateHireData", 0, true];
+//[] remoteExec ["F90_fnc_generateShopData", 0, true];
+[] call F90_fnc_generateShopData;
 
 private _hireActionID = recruitX getVariable ["SHARS_RecruitActionID", -1];
 

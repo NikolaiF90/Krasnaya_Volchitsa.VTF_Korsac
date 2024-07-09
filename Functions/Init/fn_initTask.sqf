@@ -47,8 +47,8 @@ if (!isNil {Mission_TaskOfficer}) then
 
 // Create reporting officer
 private _spawnPos = [Mission_TaskOfficerStartPos, 0, 2] call BIS_fnc_findSafePos;
-private _group = createGroup [east, true];
-Mission_TaskOfficer = _group createUnit ["min_rf_officer", _spawnPos, [], 0, "FORM"];
+private _group = createGroup [Mission_AlliedSide, true];
+Mission_TaskOfficer = _group createUnit [DSC_OfficerClass, _spawnPos, [], 0, "FORM"];
 Mission_TaskOfficer setCombatBehaviour "SAFE";
 Mission_TaskOfficer setUnitPos "Up";
 [Mission_TaskOfficer, "MOVE"] remoteExec ["disableAI", 0, true];

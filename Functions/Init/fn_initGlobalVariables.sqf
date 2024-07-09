@@ -6,6 +6,7 @@ Mission_StartingPosition = [2585.14,2064.66,0];
 Mission_DefaultAISkill = 0.5;
 
 // Dialog IDC
+Main_MissionDisplayIDD = 46;
 
 PersistentMenu_ListBox = 1102;
 PersistentMenu_SaveButton = 1103;
@@ -14,6 +15,7 @@ PersistentMenu_DeleteButton = 1105;
 PersistentMenu_ScenarioNameText = 1106;
 PersistentMenu_SaveVehicleButton = 1107;
 
+REC_TacticalMenuIDD = 1200;
 REC_MoneyTextIDC = 1204;
 REC_ConfirmedKillsIDC = 1205;
 REC_TotalConductedIDC = 1207;
@@ -75,3 +77,23 @@ TrainMenu_SoldierNameTextIDC = 1722;
 
 TransferMenu_PlayerIDEditBox = 1803;
 TransferMenu_AmountEditBox = 1804;
+
+ServerMenu_ServerStartMenuIDC = 1900;
+ServerMenu_TitleIDC = 1903;
+ServerMenu_AlliedSideComboIDC = 1905;
+ServerMenu_AlliedFactionComboIDC = 1907;
+ServerMenu_EnemySideComboIDC = 1909;
+ServerMenu_EnemyFactionComboIDC = 1911;
+ServerMenu_TimeSliderIDC = 1913;
+ServerMenu_TimeTextIDC = 1914;
+ServerMenu_AlliedSkillTextIDC = 1916;
+ServerMenu_EnemySkillTextIDC = 1918;
+ServerMenu_AlliedSkillSliderIDC = 1919;
+ServerMenu_EnemySkillSliderIDC = 1920;
+
+TimeMenu_TimeSkipMenuIDC = 2000;
+TimeMenu_TimeSliderIDC = 2003;
+TimeMenu_SkipTotalIDC = 2004;
+TimeMenu_NextHourIDC = 2005;
+
+Mission_DoneInitGlobalVariables = true;

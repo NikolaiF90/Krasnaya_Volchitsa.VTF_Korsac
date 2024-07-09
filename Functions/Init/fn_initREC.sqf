@@ -36,25 +36,3 @@ if (isNil {_notificationList}) then
 // Add Player Unique ID
 private _playerUID = [name _unit] call F90_fnc_generateUniqueID;
 _unit setVariable ["Record_PlayerUID", _playerUID, true];
-
-private _RECActionID = _unit getVariable ["REC_ActionID", nil];
-
-// Delete action if already exist. To prevent duplicate action on mission host
-if (!isNil {_RECActionID}) then { _unit removeAction _RECActionID};
-
-_RECActionID = _unit addAction 
-[
-    "<t color='#23d1cd'>Open Tactical Tab</t>", 
-    {
-        params ["_target", "_caller", "_actionId", "_arguments"]; 
-        [_caller] call F90_fnc_openTacticalTab;
-    }, 
-    nil, 
-    4, 
-    false, 
-    true, 
-    "", 
-    "_target == _this"
-];
-
-_unit setVariable ["REC_ActionID", _RECActionID];

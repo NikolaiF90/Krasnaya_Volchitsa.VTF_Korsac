@@ -20,9 +20,9 @@ if (_spawnChance >= (floor random 101)) then
     private _wantedData = REC_WantedList # _wantedID;
     private _nameData = [_wantedData select 0, _wantedData select 1, _wantedData select 2];
 
-    private _group = createGroup [west, true];
-    private _type = selectRandom Mission_HVTUnits;
-    private _unit = [_group, _type, _position, Mission_DefaultAISkill, _nameData] call F90_fnc_createUnit;
+    private _group = createGroup [Mission_EnemySide, true];
+    private _type = [DSC_EnemyFaction, ["officer", "sl", "tl", "commander", "squadleader"]] call F90_fnc_getSuitableClass;
+    private _unit = [_group, _type, _position, Mission_DefaultEnemySkill, _nameData] call F90_fnc_createUnit;
 
     _unit setVariable ["Record_IsHVT", true, true];
     _unit setVariable ["CAB_WantedID", _wantedID, true];

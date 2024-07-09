@@ -12,7 +12,7 @@ if (lbSize SquadMenu_ReservePoolListBoxIDC > 0) then
     private _selectedUnit = _reservePools select _selectedUnitIndex;
 
     // Create the unit
-    private _group = createGroup [east, true];
+    private _group = createGroup [Mission_AlliedSide, true];
     private _className = _selectedUnit select 0;
     private _unitName = _selectedUnit select 1;
     private _unitSkills = _selectedUnit select 2;
