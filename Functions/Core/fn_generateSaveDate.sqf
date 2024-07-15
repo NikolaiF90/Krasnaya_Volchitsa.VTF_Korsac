@@ -11,6 +11,9 @@
 		STRING - String representing the current date and time in the specified format.
 */
 
+// ToDo -----------------------------
+// Deprecated -----------------------
+
 private _returnData = "";
 private _time = systemTime;
 private _hour = _time # 3;

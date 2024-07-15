@@ -18,6 +18,9 @@
 	_selectedIndex = [1107] call F90_fnc_getSelectedList;
 */
 
+// ToDo --------------------------------------
+// Deprecated --------------------------------
+
 params ["_listID"];
 
 _selected = lbCurSel _listID;

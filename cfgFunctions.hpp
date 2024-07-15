@@ -30,6 +30,7 @@ class F90
         class configureEconomy {};
         class configureIdentity {};
         class configurePersistent {};
+        class configurePRS {};
         class configureTask {};
         class configureSHARS {};
         class configureREC {};
@@ -39,10 +40,11 @@ class F90
         file = "Functions\Core";
         class addAction {};
         class addToHighCommand {};
+        class checkCommandingEgibility {};
         class clearSave {};
         class closeMenu {};
+        class createSquad {};
         class createUnit {};
-        class deleteSlot {};
         class deleteUnit {};
         class delVeh {};
         class generateSaveDate {};
@@ -51,18 +53,16 @@ class F90
         class getLocations {};
         class getSelectedList {};
         class getSystemDate {};
+        class joinGroup {};
         class loadData {};
-        class loadFromSlot {};
         class makePersistent {};
         class missionKeyHandler {};
         class openTimeSkipMenu {};
-        class openPersistentTab {};
         class saveTarget {};
         class saveTargetContainer {};
         class resetRespawnedUnit {};
         class respawnUnit {};
         class saveData {};
-        class saveToSlot {};
         class skipTime {};
         class spawnBaseGuard {};
         class showServerStartMenu {};
@@ -92,6 +92,7 @@ class F90
         class initEconomy {};
         class initGlobalVariables {};
         class initPersistent {};
+        class initPRS {};
         class initREC {};
         class initServerVariables {};
         class initSHARS {};
@@ -112,6 +113,34 @@ class F90
         class loadUnitsInGroup {};
         class loadVariables {};
         class loadVehicles {};
+    };
+
+    class PerksAndRankingSystem
+    {
+        file = "Functions\PerksAndRankingSystem";
+        class addTotalOP {};
+        class createPersonnelOfficer {};
+        class getPerkKeyState {};
+        class getPromotionOP {};
+        class getRankIndex {};
+        class getTotalOP {};
+        class getUnitOperationPoints {};
+        class getUnitRank {};
+        class promoteUnit {};
+        class setTotalOP {};
+        class setUnitRank {};
+        class unlockPerk {};
+    };
+
+    class Persistent
+    {
+        file = "Functions\Persistent";
+        
+        class createNewSlot {};
+        class deleteSlot {};
+        class loadFromSlot {};
+        class openPersistentTab {};
+        class saveToSlot {};
     };
 
     class Reset 

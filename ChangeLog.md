@@ -4,13 +4,31 @@
     None currently
 ## ToDO
     * More tasks
+    * More perks
     * Skill Tree
-    * Ranking system
     * Mission guide
+    * Open Guide
     * FOB
     * Improve Patrol Script
+    * Interrogate
+    * Update report menu
 
 ## Version History
+
+### Version 1.23.0a
+    * Added PRS (Perks and Ranking System).
+    * Every player now has ranks (differs from ARMA 3 base ranks).
+    * Ability to ask for a rank promotion.
+    * Hundreds of perks to unlock. Each ranks unlocks different perks.
+    * Updated existing game mechanics to integrate PRS.
+    * Updated the looks of Hire Menu.
+    * Updated the splash screen.
+    * Updated the looks of Tactical Tab.
+    * Adjustments on player initialization. Optimized some codes to avoid data leak and errors.
+    * Persistent Menu updated. New looks of the persistent menu. Optimized some of the codes and fixed some bugs.
+    * Player can now name their saves. 
+    * Minor adjustments on Allied Base.
+    * Major optimization and bugfixes.
 
 ### Version 1.22.0a
     * Show server setup menu to server host. This adds the ability for the server host to make a few changes to the server setting before starting the server.

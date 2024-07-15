@@ -2,15 +2,15 @@
     Author: PrinceF90
 
     Description:
-        This function generates a formatted date string based on the current system time. . The params allows for customization of the date format.
+        This function formats the current system time into a customizable date string.
 
     Parameter(s):
-        0: BOOL - _fullMonthName (Optional, default true): Indicates whether to use full month names or abbreviations
-        1: BOOL - _singleLine (Optional, default true): Indicates whether the date should be displayed in a single line
-        2: BOOL - _largeText (Optional, default false): Indicates whether the text should be in large size 
+        _fullMonthName - (Optional, default true) Indicates whether to use full month names or abbreviations. [BOOL]
+        _singleLine - (Optional, default true) Indicates whether to format the date in a single line or with line breaks. [BOOL]
+        _largeText - (Optional, default false) Indicates whether to display the date string in larger text. [BOOL]
 
-    Returns:
-        _dateString - The formatted date string.
+    Returns: 
+        _dateString - A formatted date string based on the input parameters.
 */
 params ["_fullMonthName", "_singleLine", "_largeText"];
 
@@ -75,7 +75,7 @@ if (_fullMonthName) then
 };
 
 
-_month = _monthString select _month;
+_month = _monthString select (_month -1);
 
 if (_hours < 10) then 
 {

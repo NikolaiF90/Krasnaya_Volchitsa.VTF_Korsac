@@ -2,18 +2,18 @@
     Author: PrinceF90
 
     Description:
-        This function creates a new unit for a given group at a specified position, loads injury system for the unit, sets starting money for the unit, and adds the unit to a list of created units.
+        This script creates a unit with specified parameters such as skill levels, name, and wage details.
 
     Parameter(s):
-        0: OBJECT - _group: The group to which the unit belongs
-        1: STRING - _type: The type/classname of unit to create
-        2: ARRAY - _position: The position (format AGL) where the unit should be created
-        3: ARRAY - _skill: Optional, default Mission_DefaultAISkill. The skills to be applied to the unit. Can be NUMBER or ARRAY.
-        4: STRING - _name: Optional, default "". The name to apply to the unit. Can be ARRAY [STRING: fullname, STRING: firstName, STRING: surname].
-        5: ARRAY - _wageArray: Optional, default [false, 0]. The wage to generate based on unit's value. Should be ARRAY [BOOLEAN: generate wage, NUMBER: Unit's initial hire price];
+        _group - Group object to which the unit belongs [OBJECT]
+        _type - Type of unit to create [STRING]
+        _position - Position where the unit will be created [ARRAY]
+        _skill - (Optional, default Mission_DefaultAISkill) Skill levels of the unit [ARRAY or SCALAR]
+        _unitName - (Optional, default "") Name of the unit [STRING or ARRAY]
+        _wageArray - (Optional, default Array = Element1:false,Element2:0) Array containing wage generation details where Element1 BOOL:_shouldGenerate, Element2 SCALAR:_initialCost [ARRAY]
 
-    Returns:
-        OBJECT - The created unit
+    Returns: 
+        None
 */
 
 params ["_group", "_type", "_position", "_skill", "_unitName", "_wageArray"];
@@ -22,7 +22,12 @@ private _unit = _group createUnit [_type, _position, [], 0, "FORM"];
 
 if (isNil {_skill}) then 
 {
-    _skill = Mission_DefaultAISkill;
+    switch (side _group) do 
+    {
+        case Mission_EnemySide: {_skill = Mission_DefaultEnemySkill};
+        case Mission_AlliedSide: {_skill = Mission_DefaultAlliedSkill};
+        default {_skill = Mission_DefaultAISkill};
+    };
 };
 
 if (_skill isEqualType []) then 
@@ -83,7 +88,7 @@ if (count _wageArray == 2) then
     };
 } else 
 {
-    [true, "createUnit", "fn_createUnit params #5 only accepts ARRAY [boolean, number].", true];
+    [MissionDebug, "createUnit", "fn_createUnit params #5 only accepts ARRAY [boolean, number].", false, false] call F90_fnc_debug;
 };
 
 [_unit] call AIS_System_fnc_loadAIS;

@@ -38,7 +38,8 @@ switch _operation do
         private _killReward = _killedData # 3;
 
         ["ADDMONEY", [_killer, _killReward]] call F90_fnc_economyHandler;
-        [format ["%1 has been confirmed KIA.<br />You will be rewarded with %2 milcash.", _fullName, _killReward]] call F90_fnc_textNotification;
+        [format ["%1 has been confirmed KIA.<br />You will be rewarded with %2 milcash.", _fullName, _killReward], "DEFAULT", 4, 101, false] call F90_fnc_textNotification;
+        [format ["%1 has been confirmed KIA", _fullName], player] call F90_fnc_addToRecentNotification;
         REC_WantedList deleteAt _index;
 
         _returnValue = _killedData;

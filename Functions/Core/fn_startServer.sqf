@@ -16,10 +16,7 @@ if (lbCurSel ServerMenu_EnemySideComboIDC == 0 || lbCurSel ServerMenu_EnemySideC
     _completed = _completed +1;
 };
 
-if (lbCurSel ServerMenu_AlliedSideComboIDC == lbCurSel ServerMenu_EnemySideComboIDC) then 
-{
-    ["You can't have the same side as your enemy", "ERROR", 4, 101, false] call F90_fnc_textNotification;  
-} else 
+if (lbCurSel ServerMenu_AlliedSideComboIDC != lbCurSel ServerMenu_EnemySideComboIDC) then 
 {
     _completed = _completed +1;
 };
@@ -52,5 +49,12 @@ if (_completed == _allKeys) then
     };
 } else 
 {
-    ["Please Complete Server Setup First", "ERROR", 4, 101, false] call F90_fnc_textNotification;
+    private _errorText = "Please Complete Server Setup First";
+    
+    if (lbCurSel ServerMenu_AlliedSideComboIDC != lbCurSel ServerMenu_EnemySideComboIDC) then 
+    {
+        _errorText = "You can't have the same side as your enemy";
+    };
+
+    [_errorText, "ERROR", 4, 101, false] call F90_fnc_textNotification;  
 };

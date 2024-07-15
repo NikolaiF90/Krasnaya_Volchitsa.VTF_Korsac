@@ -192,9 +192,6 @@ while {true} do
 
         // Skill Slider
 
-        Mission_DefaultAlliedSkill = 0.05;
-        Mission_DefaultEnemySkill = 0.05;
-
         ctrlSetText [ServerMenu_AlliedSkillTextIDC, str Mission_DefaultAlliedSkill];
         ctrlSetText [ServerMenu_EnemySkillTextIDC, str Mission_DefaultEnemySkill];
 

@@ -5,11 +5,11 @@
         This function adds a custom action to a specified unit in the game. Same as engine command addAction, but this function will automatically stores the actionID to the unit.
 
     Parameter(s):
-        0: OBJECT - _unit: The unit to add the action to
-        1: STRING - _actionName: The name of the custom action
-        2: CODE - _code: The code to be executed when the action is performed
-        3: STRING - _condition: The condition under which the action can be performed. Use "true" if unsure.
-        4: STRING - _key: The key to identify the action
+        _unit - The unit to add the action to. [OBJECT]
+        _actionName - The name of the custom action. [STRING]
+        _code - The code to be executed when the action is performed. Parameters passed to the script in _this variable: "_target", "_caller", "_actionId", "_arguments"; [CODE]
+        _condition - The condition under which the action can be performed. _target: The object the action is attached to, _this: The person the action is shown. Use "true" if unsure. [STRING]
+        _key - The key to identify the action [STRING]
 
     Returns:
         None

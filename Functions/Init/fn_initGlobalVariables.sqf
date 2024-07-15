@@ -2,26 +2,26 @@
 Scenario_Name = "Krasnaya Volchitsa";
 MissionDebug = true;
 
-Mission_StartingPosition = [2585.14,2064.66,0];
-Mission_DefaultAISkill = 0.5;
+Mission_StartingPosition = [2501.92,2074.28,0];
+Mission_DefaultAISkill = 0.35;
+Mission_DefaultAlliedSkill = 0.35;
+Mission_DefaultEnemySkill = 0.35;
 
 // Dialog IDC
 Main_MissionDisplayIDD = 46;
 
-PersistentMenu_ListBox = 1102;
-PersistentMenu_SaveButton = 1103;
-PersistentMenu_LoadButton = 1104;
-PersistentMenu_DeleteButton = 1105;
-PersistentMenu_ScenarioNameText = 1106;
-PersistentMenu_SaveVehicleButton = 1107;
+PersistentMenu_SavesListBox = 1106;
+PersistentMenu_SaveNameEditBox = 1107;
+PersistentMenu_ScenarioNameText = 1108;
 
 REC_TacticalMenuIDD = 1200;
-REC_MoneyTextIDC = 1204;
-REC_ConfirmedKillsIDC = 1205;
-REC_TotalConductedIDC = 1207;
-REC_TotalCompletedIDC = 1208;
-REC_TotalArrestedHVTIDC = 1209;
-REC_TotalKilledHVTIDC = 1210;
+REC_WantedListBoxIDC = 1206;
+REC_NotificationListBoxIDC = 1208;
+REC_NameAndRankTextIDC = 1216;
+REC_MoneyTextIDC = 1217;
+REC_PlayerIDTextIDC = 1218;
+REC_StatisticListBoxIDC = 1220;
+
 REC_TempKillsIDC = 1311;
 REC_TempHVTKilledIDC = 1312;
 REC_TempHVTCapturedIDC = 1313;
@@ -36,9 +36,6 @@ REC_TempMissionSuccessIDC = 1321;
 REC_TempTotalPointsIDC = 1322;
 REC_TempCapturedPrisonersIDC = 1323;
 REC_TempSeizedIDC = 1324;
-REC_WantedListBoxIDC = 1212;
-REC_PlayerIDTextIDC = 1214;
-REC_NotificationListBoxIDC = 1215;
 
 HireMenu_TierOneTextIDC = 1407;
 HireMenu_TierTwoTextIDC = 1408;

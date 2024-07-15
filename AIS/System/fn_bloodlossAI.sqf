@@ -1,17 +1,19 @@
 ﻿/*
- * Author: Psycho
+	Author: Psycho, PrinceF90 (Revisited)
  
- * Calculate the time till the AI units will die (Revive-Time) and check if the get revived.
+	Description: 
+		Calculate the time till the AI units will die (Revive-Time) and check if the get revived.
  
- * Arguments:
-	0: Unit (Object)
+	Parameter(s):
+		_unit - The unit to handles the bloodloss mechanics. [OBJECT]
+		_source - The source that makes the unit unconscious. [OBJECT]
  
- * Return value:
-	-
+	Return
+		Nothing
 */
 
-params ["_unit"];
-if (!canSuspend) exitWith {[_unit] spawn AIS_System_fnc_bloodlossAI};
+params ["_unit", "_source"];
+if (!canSuspend) exitWith {[_unit, _source] spawn AIS_System_fnc_bloodlossAI};
 if (!local _unit) exitWith {};
 
 
@@ -34,7 +36,7 @@ waitUntil {
 };
 
 
-if (diag_tickTime > _ai_time_over) exitWith {[_unit] call AIS_Damage_fnc_goToDead};
+if (diag_tickTime > _ai_time_over) exitWith {[_unit, _source] call AIS_Damage_fnc_goToDead};
 
 if (_unit getVariable ["ais_stabilized", false]) then {
 	waitUntil {!alive _unit || {!(_unit getVariable ["ais_unconscious", false])}};

@@ -5,14 +5,23 @@ Mission_DoneInitGlobalVariables = false;
 waitUntil {Server_Started};
 [] call F90_fnc_initServerVariables;
 
-[] remoteExec ["F90_fnc_configurePersistent", 0, true];
-[] remoteExec ["F90_fnc_configureEconomy", 0, true];
-[] remoteExec ["F90_fnc_configureREC", 0, true];
-[] remoteExec ["F90_fnc_configureIdentity", 0, true];
-[] remoteExec ["F90_fnc_configureCAB", 0, true];
-[] remoteExec ["F90_fnc_configureTask", 0, true];
-[] remoteExec ["F90_fnc_configureSHARS", 0, true];
-[] remoteExec ["F90_fnc_configureDSC", 0, true];
+private _configurationFiles = 
+[
+    "F90_fnc_configurePersistent",
+    "F90_fnc_configureEconomy",
+    "F90_fnc_configureREC",
+    "F90_fnc_configureIdentity",
+    "F90_fnc_configureCAB",
+    "F90_fnc_configureTask",
+    "F90_fnc_configureSHARS",
+    "F90_fnc_configureDSC",
+    "F90_fnc_configurePRS"
+];
+
+// Configuration files must be executed on all clients
+{
+    [] remoteExec [_x, 0, true];
+} forEach _configurationFiles;
 
 [] call F90_fnc_resetMap;
 REC_WantedList = [CAB_WantedCounts] call F90_fnc_addWantedPerson;

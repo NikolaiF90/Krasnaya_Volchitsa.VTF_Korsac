@@ -1,10 +1,28 @@
 Mission_InitDone = false;
 waitUntil {!isNil "Scenario_Name" && !isNull player && Mission_InitDone};
 
-// Default Loadout 
-private _leaderClass = [DSC_AlliedUnitList, ["sl", "tl", "squadleader", "leader"]] call F90_fnc_getSuitableClass;
-private _defaultLoadout = getUnitLoadout _leaderClass;
-player setUnitLoadout _defaultLoadout;
+if (isServer && hasInterface) then {missionCaptain = player};
+
+// Player Side
+private _playerGroup = createGroup [Mission_AlliedSide, true];
+[player] joinSilent _playerGroup;
+
+// Create a clone
+private _cloneGroup = createGroup [Mission_AlliedSide, true];
+private _cloneType = [DSC_AlliedUnitList, ["tl", "sl", "leader"]] call F90_fnc_getSuitableClass;
+private _cloneUnit = [_cloneGroup, _cloneType, [0,0,0]] call F90_fnc_createUnit;
+// cloning identity and loadouts
+private _cloneFace = face _cloneUnit;
+[player, _cloneFace] remoteExec ["setFace", 0, true];
+private _cloneSpeaker = speaker _cloneUnit;
+[player, _cloneSpeaker] remoteExec ["setSpeaker", 0, true];
+private _clonePitch = pitch _cloneUnit;
+[player, _clonePitch] remoteExec ["setPitch", 0, true];
+private _cloneLoadout = getUnitLoadout _cloneUnit;
+player setUnitLoadout _cloneLoadout;
+// Delete Clone
+[_cloneUnit] call F90_fnc_deleteUnit;
+
 
 hcRemoveAllGroups player;
 
@@ -19,6 +37,7 @@ sleep 3;
 [player] call F90_fnc_initREC;
 [player] call F90_fnc_initCABPlayer;
 [player] call F90_fnc_initSHARSPlayers;
+[player] call F90_fnc_initPRS;
 
 waitUntil {!isNull (findDisplay Main_MissionDisplayIDD)};
 (findDisplay Main_MissionDisplayIDD) displayAddEventHandler ["KeyDown", 

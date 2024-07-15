@@ -13,7 +13,7 @@
 	[player] call AIS_System_fnc_unconsciousPlayer;
  */
 
-params ["_unit"];
+params ["_unit", "_source"];
 
 // set the variables
 _unit setVariable ["ais_unconscious", true, true];

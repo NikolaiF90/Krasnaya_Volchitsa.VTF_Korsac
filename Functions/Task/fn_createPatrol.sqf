@@ -14,7 +14,7 @@
         _patrolRadius = (Optional, default 100) The radius in meters for each group's patrol distance.
 
     Returns: 
-        _createdGroups - An array containing all the created groups 
+        _createdUnits - Array of all created units. 
 */
 params ["_position", "_side", "_unitList", "_skill", "_minGroup", "_maxGroup", "_patrolRadius"];
 
@@ -24,21 +24,13 @@ if (isNil {_maxGroup}) then {_maxGroup = 1};
 if (isNil {_patrolRadius}) then {_patrolRadius = 100};
 
 private _groupCount = [floor _minGroup,floor _maxGroup] call BIS_fnc_randomInt;
-private _createdGroups = [];
+private _createdUnits = [];
 
 for "_i" from 1 to _groupCount do 
 {
-    private _spawnPos = _position;
-    private _group = createGroup [_side, true];
     private _groupSize = [2, 6] call BIS_fnc_randomInt;
-
-    for "_j" from 1 to _groupSize do 
-    {
-        private _unitClass = selectRandom _unitList;
-        private _unit = [_group, _unitClass, _position, _skill] call F90_fnc_createUnit;
-    };
-    _createdGroups pushBack _group;
+    private _group = [_groupSize, _unitList, _position, _side, _skill] call F90_fnc_createSquad;
     [_group, _position, 100] call BIS_fnc_taskPatrol;
 };
 
-_createdGroups
+_createdUnits

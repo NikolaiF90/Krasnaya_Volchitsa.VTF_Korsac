@@ -8,7 +8,7 @@ private _isSuccessfulMission = _unit getVariable "TASK_IsSuccessfulMission";
 
 if (_isSuccessfulMission) then 
 {
-    _operationPoints = Points_MissionCompleted;    
+    _operationPoints = [_unit] call F90_fnc_getUnitOperationPoints;    
     _totalPoints = _totalPoints + _operationPoints;
     [_unit, "Mission is a success"] remoteExec ["sideChat", 0, true];
 };

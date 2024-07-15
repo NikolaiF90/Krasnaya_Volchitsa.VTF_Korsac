@@ -1,5 +1,29 @@
 params ["_taskType"];
 
+private _fn_getIncompetentUnit = 
+{
+    params ["_groupArray"];
+    
+    private _defeatedUnits = [];
+    {
+        private _member = _x;
+        private _isArrested = _member getVariable ["CAB_IsArrested", false];
+        private _isCaptive = _member getVariable ["ais_unconscious", false];
+
+        if ((_isArrested || _isCaptive) && !(_member in _defeatedUnits)) then 
+        {
+            _defeatedUnits pushBack _member;
+        };
+
+        if (!(alive _member) && !(_member in _defeatedUnits)) then 
+        {
+            _defeatedUnits pushBack _member;
+        };
+    } forEach _groupArray;
+
+    _defeatedUnits
+};
+
 private _detected = false;
 private _inAO = false;
 private _taskCompleted = false;
@@ -66,37 +90,18 @@ while {Task_DutyStatus == 0} do
 
             case "Task_Ambush":
             {
-                private _patrolGroups = [];
-                private _hvtGroup = group (Task_SpawnedHVT select 0);
-                _patrolGroups append Task_CreatedPatrolGroups;
-                _patrolGroups append _hvtGroup;
-                if ((count _patrolGroups) > 0) then 
+                // Get all units
+                private _activeUnits = [];
                 {
-                    {
-                        private _groupArray = units _x;
-
-                        // Remove from group array if injured or being arrested
-                        {
-                            private _isArrested = _x getVariable ["CAB_IsArrested", false];
-                            
-                            private _isCaptive = _x getVariable ["ais_unconscious", false];
-
-                            if (_isCaptive || _isArrested) then 
-                            {
-                                _groupArray deleteAt _forEachIndex;
-                            };
-                        } forEach _groupArray;
-
-                        // Counts remaining members thats still alive
-                        private _aliveUnitCount = count (_groupArray select {alive _x});
-
-                        // Remove the group from patrol groups if none alive and able to combat
-                        if (_aliveUnitCount <= 0) then 
-                        {
-                            _patrolGroups = _patrolGroups - [_x];
-                        };
-                    } forEach _patrolGroups;
-                } else 
+                    _activeUnits pushBack _x;
+                } forEach Task_SpawnedHVT + Task_EnemyPatrols;
+                private _allUnitsCounts = count _activeUnits;
+                
+                // Get injured or dead units
+                private _incompetentUnits = ([_activeUnits] call _fn_getIncompetentUnit);
+                private _aliveUnitsCount = _allUnitsCounts - (count _incompetentUnits);
+                
+                if (_aliveUnitsCount < 1) then 
                 {
                     ["Ambush Completed"] call F90_fnc_textNotification; 
                     [Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;

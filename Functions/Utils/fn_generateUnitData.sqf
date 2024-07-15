@@ -118,6 +118,8 @@ _unitData pushBack ["totalKilledHVT", _unit getVariable "Record_TotalKilledHVT"]
 _unitData pushBack ["recentNotification", _unit getVariable "Record_RecentNotification"];
 _unitData pushBack ["unitSide", _unit getVariable "Mission_UnitSide"];
 _unitData pushBack ["reservePools", _unit getVariable "SHARS_ReservePool"];
+_unitData pushBack ["totalOP", [_unit] call F90_fnc_getTotalOP];
+_unitData pushBack ["rank", [_unit] call F90_fnc_getUnitRank];
 
 /*
 //	If unit is on vehicle

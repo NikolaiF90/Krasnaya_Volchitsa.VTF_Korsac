@@ -27,11 +27,11 @@ if (_hireActionID != -1) then
     "SHARS_RecruitActionID"
 ] remoteExec ["F90_fnc_addAction", 0, true];
 
-private _squadManagementActionID = reserveX getVariable ["SHARS__SquadManagementActionID", -1];
+private _squadManagementActionID = reserveX getVariable ["SHARS_SquadManagementActionID", -1];
 
 if (_squadManagementActionID != -1) then 
 {
-    [reserveX, _squadManagementActionID, "SHARS__SquadManagementActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
+    [reserveX, _squadManagementActionID, "SHARS_SquadManagementActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
 };
 
 [
@@ -42,5 +42,5 @@ if (_squadManagementActionID != -1) then
         [_caller] call F90_fnc_showSquadManagementMenu;
     },
     "alive _this",
-    "SHARS__SquadManagementActionID"
+    "SHARS_SquadManagementActionID"
 ] remoteExec ["F90_fnc_addAction", 0, true];

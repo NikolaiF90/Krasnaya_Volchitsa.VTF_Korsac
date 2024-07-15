@@ -1,5 +1,5 @@
 # Krasnaya Volchitsa
-[![Change log Version 1.22.0a](https://img.shields.io/badge/Version-1.22.0a-white?style=plastic&logo=github&labelColor=black&color=teal)](ChangeLog.md)
+[![Change log Version 1.23.0a](https://img.shields.io/badge/Version-1.23.0a-white?style=plastic&logo=github&labelColor=black&color=teal)](ChangeLog.md)
 
 ## Credits
 [PrinceF90](https://github.com/NikolaiF90) - Author  

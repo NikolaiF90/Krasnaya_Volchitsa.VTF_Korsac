@@ -1,3 +1,16 @@
+/*
+    Author: PrinceF90
+
+    Description:
+        This function selects a suitable class from an array based on provided keywords, or randomly if no keywords are provided.
+
+    Parameter(s):
+        _array - The array containing classes to select from [ARRAY]
+        _keywords - The array containing keywords to filter classes. [ARRAY]
+
+    Returns:
+        _suitableClass - The selected suitable class from the input array
+*/
 params ["_array", "_keywords"];
 
 private _suitableClasses = [];
@@ -9,7 +22,7 @@ if (count _keywords == 0) then
 } else 
 {
     {
-        private _key = _x;
+        private _key = toLower _x;
         {
             private _class = _x;
             private _nameArray = _class splitString "-_, ";

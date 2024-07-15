@@ -1,20 +1,19 @@
 ﻿/*
- * Author: Psycho
+	Author: Psycho, PrinceF90 (Revisited)
  
- * Set the unit in unconcsious state. This is a public function.
+	Description:
+		Set the unit in unconcsious state. This is a public function.
  
- * Arguments:
-	0: Unit (Object)
+	Parameter(s):
+		_unit - Unit to set unconscious [OBJECT]
+		_source - Source that makes the unit unconscious [OBJECT]
  
- * Return value:
-	Nothing
-	
-* Exapmle:
-	[player] call AIS_System_fnc_setUnconscious;
+	Return:
+		Nothing
  */
 
 
-params ["_unit"];
+params ["_unit", "_source"];
 
 if (time <= 0) exitWith {
 	[
@@ -24,11 +23,10 @@ if (time <= 0) exitWith {
 	] call AIS_Core_fnc_waitUntilAndExecute;
 };
 
+if (isNil {_source}) then {_source = objNull};
+
 if (isPlayer _unit) then {
-	[_unit] call AIS_System_fnc_unconsciousPlayer
+	[_unit, _source] call AIS_System_fnc_unconsciousPlayer;
 } else {
-	[_unit] call AIS_System_fnc_unconsciousAI
+	[_unit, _source] call AIS_System_fnc_unconsciousAI;
 };
-
-
-true

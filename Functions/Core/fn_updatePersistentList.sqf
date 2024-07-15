@@ -17,6 +17,9 @@
 	// Example 2: 
 	["anotherListBox"] call F90_fnc_updatePersistentList;
 */
+
+// ToDo -------------------------------------------------
+// Deprecated -----------------------------------------------
 params ["_listID"];
 
 lbClear _listID;

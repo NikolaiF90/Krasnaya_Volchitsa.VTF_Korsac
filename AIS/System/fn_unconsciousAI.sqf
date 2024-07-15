@@ -1,10 +1,12 @@
 ﻿/*
 	Author: Psycho, PrinceF90(Revisited)
+
 	Description: 
 		Set the unit in unconcsious state for Non-players. Set all variables and handle things around.
  
 	Parameter(s):
-		0: OBJECT - _unit: The unit that is unconscious.
+		_unit - The unit that is to handle. [OBJECT]
+		_source - The source that makes the unit unconscious. [OBJECT] 
 
 	Return: 
 		None
@@ -12,7 +14,7 @@
 	Exapmle:
 		[unit] call AIS_System_fnc_unconsciousAI;
 */
-params ["_unit"];
+params ["_unit", "_source"];
 
 // set the variables
 _unit setVariable ["ais_unconscious", true, true];
@@ -53,7 +55,7 @@ _unit stop true;
 [_unit, true] remoteExec ["setCaptive", 0, false];
 
 // countdown for AI's
-[_unit] spawn AIS_System_fnc_bloodlossAI;
+[_unit, _source] spawn AIS_System_fnc_bloodlossAI;
 
 // correkt animation if unit get pushed out of a vehicle on other ways except the pull-out action
 _unit addEventHandler ["getOutMan", {_this call AIS_System_fnc_getOutMan}];

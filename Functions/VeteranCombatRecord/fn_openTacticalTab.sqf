@@ -9,6 +9,7 @@ private _created = createDialog "tacticalMenu";
 
 if (_created) then 
 {
+    // Get data
     private _amount = ["GETMONEY", _unit] call F90_fnc_economyHandler;
     private _killCount = _unit getVariable "Record_ConfirmedKills";
     private _conductedMissions = _unit getVariable "Record_TotalConductedMissions";
@@ -17,40 +18,37 @@ if (_created) then
     private _killedHVTs = _unit getVariable "Record_TotalKilledHVT";
     private _notificationList = _unit getVariable "Record_RecentNotification";
     private _playerUID = _unit getVariable "Record_PlayerUID";
+    private _playerName = name _unit;
+    private _playerRank = [_unit] call F90_fnc_getUnitRank;
+    private _totalOP = [_unit] call F90_fnc_getTotalOP;
 
-    private _moneyText = format ["Milcash: %1", _amount];
-    private _killText = format ["Confirmed Kills: %1", _killCount];
-    private _conductedText = format ["Total Conducted Missions: %1", _conductedMissions];
-    private _successfulText = format ["Total Successful Missions: %1", _successfulMissions];
-    private _arrestedHVTText = format ["Total Arrested HVTs: %1", _arrestedHVTs];
-    private _killedHVTText = format ["Total Killed HVTs: %1", _killedHVTs];
+    // Player info
+    private _nameRankText = format ["(%1)%2", _playerRank, _playerName];
     private _playerUIDText = format ["UID: %1", _playerUID];
-
-    // Show recent notification 
-    private _reversedNotificationList = [];
-    _reversedNotificationList = +_notificationList;
-    reverse _reversedNotificationList;
-
-    lbClear REC_NotificationListBoxIDC;
+    private _moneyText = format ["Milcash: %1", _amount];
     
-    if (count _reversedNotificationList > 0) then 
-    {
-        {
-            lbAdd [REC_NotificationListBoxIDC, _x];
-        } forEach _reversedNotificationList;
-    };
-
-    // Personal Statistic
+    ctrlSetText [REC_NameAndRankTextIDC, _nameRankText];
+    ctrlSetText [REC_PlayerIDTextIDC, _playerUIDText];
     ctrlSetText [REC_MoneyTextIDC, _moneyText];
-    ctrlSetText [REC_TotalConductedIDC, _conductedText];
-    ctrlSetText [REC_TotalCompletedIDC, _successfulText];
-    ctrlSetText [REC_ConfirmedKillsIDC, _killText];
-    ctrlSetText [REC_TotalArrestedHVTIDC, _arrestedHVTText];
-    ctrlSetText [REC_TotalKilledHVTIDC, _killedHVTText];
-    ctrlSetText [REC_PlayerIDTextIDC, _playerUID];
+
+    // Statistic
+    private _statistic = 
+    [
+        format ["Total OP: %1", _totalOP],
+        format ["Confirmed Kills: %1", _killCount],
+        format ["Total Conducted Missions: %1", _conductedMissions],
+        format ["Total Successful Missions: %1", _successfulMissions],
+        format ["Total Arrested HVTs: %1", _arrestedHVTs],
+        format ["Total Killed HVTs: %1", _killedHVTs]
+    ];
+
+    [REC_StatisticListBoxIDC, _statistic, -1] call F90_fnc_populateListBox;
+    
+    // Show recent notification 
+    [REC_NotificationListBoxIDC, _notificationList, -1, 1] call F90_fnc_populateListBox;
 
     // Wanted List
-    lbClear REC_WantedListBoxIDC;
+    private _wanted = [];
 
     if (count REC_WantedList > 0) then 
     {
@@ -59,11 +57,14 @@ if (_created) then
             private _wantedValue = _x # 3;
             private _text = format ["%1milcash: %2", _wantedValue, _wantedName];
 
-            lbAdd [REC_WantedListBoxIDC, _text];
+            _wanted pushBack _text;
         }
         forEach REC_WantedList;
     } else 
     {
-        lbAdd [REC_WantedListBoxIDC, parseText "No persons of interest<br />at this moment."];
+        // ToDo
+        _wanted = [parseText "No persons of interest<br />at this moment."];
     };
+
+    [REC_WantedListBoxIDC, _wanted, -1] call F90_fnc_populateListBox;
 };

@@ -21,7 +21,7 @@ private _unit = player;
 // Allow default key behavior
 private _override = false;
 
-if (_key isEqualTo DIK_Y) then 
+if (_key isEqualTo DIK_Y && _ctrl isEqualTo false) then 
 {
     [_unit] call F90_fnc_openTacticalTab;
     // Override to prevent default Y behavior

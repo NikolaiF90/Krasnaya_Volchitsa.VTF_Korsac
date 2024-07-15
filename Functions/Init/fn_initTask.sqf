@@ -10,7 +10,7 @@ if (!isNil {Task_CurrentTaskID}) then
 };
 
 // Created patrol units
-Task_CreatedPatrolGroups = []; 
+Task_EnemyPatrols = []; 
 // Spawned HVT. Used for resetting map
 Task_SpawnedHVT = [];
 // Created Assets. Used for resetting map and mission.
@@ -46,9 +46,9 @@ if (!isNil {Mission_TaskOfficer}) then
 };
 
 // Create reporting officer
-private _spawnPos = [Mission_TaskOfficerStartPos, 0, 2] call BIS_fnc_findSafePos;
 private _group = createGroup [Mission_AlliedSide, true];
-Mission_TaskOfficer = _group createUnit [DSC_OfficerClass, _spawnPos, [], 0, "FORM"];
+Mission_TaskOfficer = _group createUnit [DSC_OfficerClass, [0,0,0], [], 0, "FORM"];
+[Mission_TaskOfficer, mapX] spawn F90_fnc_teleportUnit;
 Mission_TaskOfficer setCombatBehaviour "SAFE";
 Mission_TaskOfficer setUnitPos "Up";
 [Mission_TaskOfficer, "MOVE"] remoteExec ["disableAI", 0, true];

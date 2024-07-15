@@ -153,6 +153,8 @@ private _totalKilledHVT = [_unitData, "totalKilledHVT"] call F90_fnc_getByKey;
 private _recentNotification = [_unitData, "recentNotification"] call F90_fnc_getByKey;
 private _unitSide = [_unitData, "unitSide"] call F90_fnc_getByKey;
 private _reservePools = [_unitData, "reservePools"] call F90_fnc_getByKey;
+private _totalOP = [_unitData, "totalOP"] call F90_fnc_getByKey;
+private _rank = [_unitData, "rank"] call F90_fnc_getByKey;
         
 _unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
 _unit setVariable ["BIS_enableRandomization", false];
@@ -183,6 +185,8 @@ _unit setVariable ["Record_TotalKilledHVT", _totalKilledHVT, true];
 _unit setVariable ["Record_RecentNotification", _recentNotification, true];
 _unit setVariable ["Mission_UnitSide", _unitSide, true];
 _unit setVariable ["SHARS_ReservePool", _reservePools, true];
+[_unit, _totalOP] call F90_fnc_setTotalOP;
+[_unit, _rank] call F90_fnc_setUnitRank;
 
 if (rating _unit > _rating) then
 {

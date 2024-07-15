@@ -8,18 +8,14 @@ publicVariable "Task_DutyDescription";
 Task_DutyStatus = -1; // -1 None, 0 Ongoing, 1 Completed, 2 Failed
 publicVariable "Task_DutyStatus";
 
-private _patrolCount = count Task_CreatedPatrolGroups;
+private _patrolCount = count Task_EnemyPatrols;
 if (_patrolCount > 0) then 
 {
     {
-        private _group = _x;
-        {
-            [_x] call F90_fnc_deleteUnit;
-        } forEach units _group;
-        deleteGroup _group;
-    } forEach Task_CreatedPatrolGroups;
+        [_x] call F90_fnc_deleteUnit;
+    } forEach Task_EnemyPatrols;
 };
-Task_CreatedPatrolGroups = [];
+Task_EnemyPatrols = [];
 
 private _spawnedHVTCount = count Task_SpawnedHVT;
 if (_spawnedHVTCount > 0) then

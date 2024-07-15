@@ -44,7 +44,7 @@ if (isPlayer _unit) then
 
 	_unit call AIS_System_fnc_restoreFaks;
 
-	if (!isNull _killer) then 
+	if !(isNull _killer) then 
 	{
 		_unit setVariable ["Record_UnitKiller", _killer, true];
 

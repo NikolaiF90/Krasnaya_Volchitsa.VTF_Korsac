@@ -159,7 +159,13 @@ if ((_damage > 1.5) && {_hitSelection in ["pelvis", "head", "body"]} && {_damage
 };
 if (_isUnconscious && {!(_unit getVariable ["ais_unconscious", false])}) then 
 {
-	[{[(_this select 0)] call AIS_System_fnc_setUnconscious}, [_unit]] call AIS_Core_fnc_onNextFrame;
+	[
+		{
+			[_this select 0, _this select 1] call AIS_System_fnc_setUnconscious;
+		},
+		[_unit, _source]
+	] call AIS_Core_fnc_onNextFrame;
+	
 	// need this delay to prevent new damage for some seconds after the unit go unconscious. after the delay it is possible to kill the unit when they get to much new damage.
 	_unit setVariable ["ais_protector_delay", (diag_tickTime + 6)];
 	

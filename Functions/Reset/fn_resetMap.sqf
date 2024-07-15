@@ -12,4 +12,11 @@ if ((count Mission_CreatedUnits) > 0) then
     } forEach Mission_CreatedUnits;
     publicVariable "Mission_CreatedUnits";
 };
+
+if (count Mission_AlliedBasePatrols > 0) then
+{
+    {
+        [_x] call F90_fnc_deleteUnit;
+    } forEach Mission_AlliedBasePatrols;
+};
 [] call F90_fnc_spawnBaseGuard;

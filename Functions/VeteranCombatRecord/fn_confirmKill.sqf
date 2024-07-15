@@ -25,7 +25,8 @@ if (_caller == _killer) then
         if (CAB_IntelDropChance >= _chance) then 
         {
             private _addedPOI = [1] call F90_fnc_addWantedPerson;
-            [format ["You have found an intel<br />%1 has been added to your wanted list", _addedPOI select 0], "DEFAULT"] call F90_fnc_textNotification;
+            [format ["You have found an intel<br />%1 has been added to your wanted list", (_addedPOI select 0) select 0], "DEFAULT", 4, 101, false] call F90_fnc_textNotification;
+            [format ["You have found an intel. %1 has been added to your wanted list",(_addedPOI select 0) select 0], _caller] call F90_fnc_addToRecentNotification;
         };
     };
 } else 

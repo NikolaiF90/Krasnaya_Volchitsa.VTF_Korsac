@@ -31,4 +31,8 @@ private _serverVehicles = vehicles;
 
 // BASE PATROLS
 private _patrolCenterPos = getMarkerPos "base_0";
-[_patrolCenterPos, Mission_AlliedSide, DSC_AlliedUnitList, Mission_DefaultAlliedSkill, 5, 5, 200] spawn F90_fnc_createPatrol;
+0 = [_patrolCenterPos] spawn 
+{
+    params ["_patrolCenterPos"];
+    Mission_AlliedBasePatrols = [_patrolCenterPos, Mission_AlliedSide, DSC_AlliedUnitList, Mission_DefaultAlliedSkill, 5, 5, 200] call F90_fnc_createPatrol;
+};
