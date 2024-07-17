@@ -103,6 +103,7 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
             0 = [_taskLocation] spawn 
             {
                 params ["_taskLocation"];
+
                 Task_EnemyPatrols = [_taskLocation, Mission_EnemySide, DSC_EnemyUnitList, Mission_DefaultEnemySkill, 1, 1, 100] call F90_fnc_createPatrol;
             };
 

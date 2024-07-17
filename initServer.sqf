@@ -1,7 +1,12 @@
+// These variables must be defined here as player might not exist yet
+Server_Started = false;
+publicVariable "Server_Started";
+Mission_InitDone = false;
+publicVariable "Mission_InitDone";
+
 Mission_DoneInitGlobalVariables = false;
 [] remoteExec ["F90_fnc_initGlobalVariables", 0, true];
-["Server"] call F90_fnc_initStartGame;
-["Client"] remoteExec ["F90_fnc_initStartGame", 0, true];
+[] remoteExec ["F90_fnc_initStartGame", 0, true];
 waitUntil {Server_Started};
 [] call F90_fnc_initServerVariables;
 

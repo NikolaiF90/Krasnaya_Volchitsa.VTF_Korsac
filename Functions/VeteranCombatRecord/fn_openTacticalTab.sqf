@@ -21,15 +21,18 @@ if (_created) then
     private _playerName = name _unit;
     private _playerRank = [_unit] call F90_fnc_getUnitRank;
     private _totalOP = [_unit] call F90_fnc_getTotalOP;
+    private _totalSP = _unit getVariable "Skill_Points";
 
     // Player info
     private _nameRankText = format ["(%1)%2", _playerRank, _playerName];
     private _playerUIDText = format ["UID: %1", _playerUID];
     private _moneyText = format ["Milcash: %1", _amount];
+    private _spText = format ["SP: %1", _totalSP];
     
     ctrlSetText [REC_NameAndRankTextIDC, _nameRankText];
     ctrlSetText [REC_PlayerIDTextIDC, _playerUIDText];
     ctrlSetText [REC_MoneyTextIDC, _moneyText];
+    ctrlSetText [REC_SPTextIDC, _spText];
 
     // Statistic
     private _statistic = 

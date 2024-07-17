@@ -1,31 +1,24 @@
-params ["_target"];
-
 waitUntil {Mission_DoneInitGlobalVariables};
-Server_Started = false;
 
-if (_target == "Server") then 
+if (isServer && hasInterface) then 
 {
-    if (isServer && hasInterface) then 
-    {
-        [] spawn F90_fnc_showServerStartMenu;
-    };
+    [] spawn F90_fnc_showServerStartMenu;
 };
 
-if (_target == "Client") then 
+if (hasInterface && !isServer) then 
 {
-    if (hasInterface && !isServer) then 
+    0 = [] spawn 
     {
-        0 = [] spawn 
+        while {true} do
         {
-            while {true} do
-            {
-                // Terminate loops once server started
-                if (Server_Started) exitWith {};
+            // Terminate loops once server started
+            if (Server_Started) exitWith {};
 
-                // Inform player that the server owner still setting up
-                ["Server host is setting up. Please wait", "DEFAULT", 4, 101, false] call F90_fnc_textNotification;
-                sleep 5;
-            };
+            // Debug
+            [true, "initStartGame", format ["Server_Started: %1, Mission_InitDone: %2", Server_Started, Mission_InitDone], false, false] call F90_fnc_debug;
+            // Inform player that the server owner still setting up
+            ["Server host is setting up. Please wait", "DEFAULT", 4, 101, false] call F90_fnc_textNotification;
+            sleep 5;
         };
     };
 };

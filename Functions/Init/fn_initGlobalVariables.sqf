@@ -21,21 +21,11 @@ REC_NameAndRankTextIDC = 1216;
 REC_MoneyTextIDC = 1217;
 REC_PlayerIDTextIDC = 1218;
 REC_StatisticListBoxIDC = 1220;
+REC_SPTextIDC = 1222;
 
-REC_TempKillsIDC = 1311;
-REC_TempHVTKilledIDC = 1312;
-REC_TempHVTCapturedIDC = 1313;
-REC_TempAirSupportIDC = 1314;
-REC_TempArtilleryIDC = 1315;
-REC_TempHelicoptersIDC = 1316;
-REC_TempVehiclesIDC = 1317;
-REC_TempWagesIDC = 1318;
-REC_TempTotalRewardsIDC = 1319;
-REC_TempRewardsIDC = 1320;
-REC_TempMissionSuccessIDC = 1321;
-REC_TempTotalPointsIDC = 1322;
-REC_TempCapturedPrisonersIDC = 1323;
-REC_TempSeizedIDC = 1324;
+REC_PointsReceivedListBoxIDC = 1309;
+REC_PointsDeductedListBoxIDC = 1310;
+REC_TotalEarningListBoxIDC = 1311;
 
 HireMenu_TierOneTextIDC = 1407;
 HireMenu_TierTwoTextIDC = 1408;
@@ -92,5 +82,10 @@ TimeMenu_TimeSkipMenuIDC = 2000;
 TimeMenu_TimeSliderIDC = 2003;
 TimeMenu_SkipTotalIDC = 2004;
 TimeMenu_NextHourIDC = 2005;
+
+SkillMenu_MenuIDD = 2100;
+SkillMenu_SkillsListBoxIDC = 2104;
+SkillMenu_UpgradeButtonIDC = 2106;
+SkillMenu_SPTextIDC = 2107;
 
 Mission_DoneInitGlobalVariables = true;

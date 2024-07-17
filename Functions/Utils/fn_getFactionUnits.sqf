@@ -1,5 +1,9 @@
 params ["_faction"];
 
+// Typo by bis = FIA faction for west is Guerilla instead of BLU_G_F
+// Fix this error
+if (_faction == "BLU_G_F") then {_faction = "Guerilla"}; // Not sure if another faction had this too. if so, fix it with the same method
+
 private _unitClasses = [];
 private _allUnits = [];
 private _cfgGroups = configFile >> "CfgGroups";

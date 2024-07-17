@@ -16,7 +16,8 @@ private _defaultUnitVariables =
     ["Record_TotalConductedMissions", 0, true],
     ["Record_TotalSuccessfulMissions", 0, true],
     ["Record_TotalArrestedHVT", 0, true],
-    ["Record_TotalKilledHVT", 0, true]
+    ["Record_TotalKilledHVT", 0, true], 
+    ["Record_SkillTreeBonus", 0, true]
 ];
 
 {

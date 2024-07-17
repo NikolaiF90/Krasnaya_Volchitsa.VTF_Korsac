@@ -1,4 +1,3 @@
-Mission_InitDone = false;
 waitUntil {!isNil "Scenario_Name" && !isNull player && Mission_InitDone};
 
 if (isServer && hasInterface) then {missionCaptain = player};
@@ -38,6 +37,7 @@ sleep 3;
 [player] call F90_fnc_initCABPlayer;
 [player] call F90_fnc_initSHARSPlayers;
 [player] call F90_fnc_initPRS;
+[player] call F90_fnc_initSkillTree;
 
 waitUntil {!isNull (findDisplay Main_MissionDisplayIDD)};
 (findDisplay Main_MissionDisplayIDD) displayAddEventHandler ["KeyDown", 

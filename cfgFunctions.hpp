@@ -60,6 +60,7 @@ class F90
         class openTimeSkipMenu {};
         class saveTarget {};
         class saveTargetContainer {};
+        class setStandingAnimation {};
         class resetRespawnedUnit {};
         class respawnUnit {};
         class saveData {};
@@ -97,6 +98,7 @@ class F90
         class initServerVariables {};
         class initSHARS {};
         class initSHARSPlayers {};
+        class initSkillTree {};
         class initStartGame {};
         class initTask {};
     };
@@ -195,6 +197,18 @@ class F90
     class SideChange
     {
         file = "Functions\SideChange";
+    };
+
+    class SkillTree
+    {
+        file = "Functions\SkillTree";
+
+        class addSP {};
+        class buySP {};
+        class createRangeOfficer {};
+        class deductSP {};
+        class openSkillMenu {};
+        class upgradeSkill {};
     };
 
     class Task

@@ -11,7 +11,7 @@
         _skill - (Optional, default Mission_DefaultAISkill) The skill level of the units [SCALAR]
         _minGroup - (Optional, default 1) The minimum number of groups to create [INT]
         _maxGroup - (Optional, default 1) The maximum number of groups to create [INT]
-        _patrolRadius = (Optional, default 100) The radius in meters for each group's patrol distance.
+        _patrolRadius - (Optional, default 100) The radius in meters for each group's patrol distance.
 
     Returns: 
         _createdUnits - Array of all created units. 

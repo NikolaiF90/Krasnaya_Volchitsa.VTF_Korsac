@@ -37,7 +37,7 @@ for "_i" from 1 to _groupSize do
             };
         } forEach _listNoOfficers;
     } forEach _keywords;
-
+    
     private _unitClass = selectRandom _listNoOfficers;
     private _unit = [_group, _unitClass, _spawnPos, _skill] call F90_fnc_createUnit;
 };

@@ -42,6 +42,9 @@ if (_completed == _allKeys) then
 
     Server_Started = true;
     publicVariable "Server_Started";
+    // Made public as player will access this once to change their unit side
+    publicVariable "Mission_AlliedSide";
+    publicVariable "Mission_EnemySide";
     
     if (dialog) then 
     {

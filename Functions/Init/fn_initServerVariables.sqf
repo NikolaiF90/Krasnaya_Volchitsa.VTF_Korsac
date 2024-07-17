@@ -1,10 +1,7 @@
 
 // Contains server-only variables
 
-// Debug 
 EconomyDebug = true;
-
-Mission_TaskOfficerStartPos = getPos mapX;
 
 CAB_AllCivilianClassnames = [];
 

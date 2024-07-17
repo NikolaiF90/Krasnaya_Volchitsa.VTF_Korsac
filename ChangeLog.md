@@ -1,19 +1,27 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-    None currently
+    Player seems to be always dead after integrate ais with F90 respawn
 ## ToDO
     * More tasks
     * More perks
-    * Skill Tree
+    * Skill Tree - More Skills
     * Mission guide
     * Open Guide
     * FOB
     * Improve Patrol Script
     * Interrogate
     * Update report menu
+    * Optimize Task
+    * Base location marker
 
 ## Version History
+
+### Version 1.24.0a
+    * Updated the looks of duty report menu.
+    * Player can now unlock and upgrade their skills, thanks to the newly introduced game mechanic, Skill Tree.
+    * Optimizations and bugfixes on tasks and VCR scripts.
+    * Major bugfixes and optimizations.
 
 ### Version 1.23.0a
     * Added PRS (Perks and Ranking System).

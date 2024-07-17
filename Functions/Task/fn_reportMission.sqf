@@ -12,7 +12,7 @@ if (_isSuccessfulMission) then
     _totalPoints = _totalPoints + _operationPoints;
     [_unit, "Mission is a success"] remoteExec ["sideChat", 0, true];
 };
-_unit setVariable ["REC_OperationPoints", _operationPoints, true];
+_unit setVariable ["REC_TempOP", _operationPoints, true];
 
 private _pointsData = [_unit] call F90_fnc_calculatePoints;
 private _deductions = _pointsData select 0;
