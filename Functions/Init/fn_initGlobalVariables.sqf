@@ -88,4 +88,8 @@ SkillMenu_SkillsListBoxIDC = 2104;
 SkillMenu_UpgradeButtonIDC = 2106;
 SkillMenu_SPTextIDC = 2107;
 
+PurchaseVehMenu_VehiclesListBoxIDC = 2204;
+
+TransportSMenu_VehiclesListBoxIDC = 2405;
+
 Mission_DoneInitGlobalVariables = true;

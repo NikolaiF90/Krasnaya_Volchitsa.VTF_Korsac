@@ -17,7 +17,8 @@ switch _operation do
         private _arrestReward = _detaineeData # 3;
 
         ["ADDMONEY", [_caller, _arrestReward]] call F90_fnc_economyHandler;
-        [format ["%1 has been arrested.<br />You will be rewarded with %2 milcash.", _fullName, _arrestReward]] call F90_fnc_textNotification;
+        [format ["%1 has been arrested.<br />You will be rewarded with %2 milcash.", _fullName, _arrestReward], "DEFALT", 4, 101, false] call F90_fnc_textNotification;
+        [format ["%1 has been arrested.", _fullName], player] call F90_fnc_addToRecentNotification;
         REC_WantedList deleteAt _index;
 
         _returnValue = _detaineeData;
@@ -39,7 +40,7 @@ switch _operation do
 
         ["ADDMONEY", [_killer, _killReward]] call F90_fnc_economyHandler;
         [format ["%1 has been confirmed KIA.<br />You will be rewarded with %2 milcash.", _fullName, _killReward], "DEFAULT", 4, 101, false] call F90_fnc_textNotification;
-        [format ["%1 has been confirmed KIA", _fullName], player] call F90_fnc_addToRecentNotification;
+        [format ["%1 has been confirmed KIA.", _fullName], player] call F90_fnc_addToRecentNotification;
         REC_WantedList deleteAt _index;
 
         _returnValue = _killedData;

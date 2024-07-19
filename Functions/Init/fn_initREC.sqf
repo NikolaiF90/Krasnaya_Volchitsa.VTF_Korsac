@@ -28,6 +28,11 @@ private _defaultUnitVariables =
     };
 } forEach _defaultUnitVariables;
 
+private _spawnedUnarmedVehs = _unit getVariable ["Support_SpawnedUnarmedVehicles", nil];
+if (isNil {_spawnedUnarmedVehs}) then {_unit setVariable ["Support_SpawnedUnarmedVehicles", [], true]};
+private _spawnedArmedVehs = _unit getVariable ["Support_SpawnedArmedVehicles", nil];
+if (isNil {_spawnedArmedVehs}) then {_unit setVariable ["Support_SpawnedArmedVehicles", [], true]};
+
 private _notificationList = _unit getVariable ["Record_RecentNotification", nil];
 if (isNil {_notificationList}) then 
 {

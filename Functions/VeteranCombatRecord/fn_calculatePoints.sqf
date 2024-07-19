@@ -21,7 +21,15 @@ private _attackHeli = _unit getVariable "REC_TempAttackHeliLoss";
 private _attackHeliDeduction = _attackHeli * Points_AttackHeliLoss;
 _unit setVariable ["REC_AttackHeliDeduction", _attackHeliDeduction, true];
 
-_totalDeduction = _totalDeduction - (_heliUsedDeduction + _lightArmedHeliDeduction + _lightUnarmedHeliDeduction + _attackHeliDeduction);
+private _unarmedCars = _unit getVariable "Support_SpawnedUnarmedVehicles";
+private _unarmedCarDeduction = (count _unarmedCars) * Points_UnarmedCars;
+_unit setVariable ["REC_UnarmedCarsDeduction", _unarmedCarDeduction];
+
+private _armedCars = _unit getVariable "Support_SpawnedArmedVehicles";
+private _armedCarsDeduction = (count _armedCars) * Points_ArmedCars;
+_unit setVariable ["REC_ArmedCarsDeduction", _armedCarsDeduction];
+
+_totalDeduction = _totalDeduction - (_heliUsedDeduction + _lightArmedHeliDeduction + _lightUnarmedHeliDeduction + _attackHeliDeduction + _unarmedCarDeduction + _armedCarsDeduction);
 
 _returnValue set [0, _totalDeduction];
 

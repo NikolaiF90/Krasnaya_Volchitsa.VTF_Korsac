@@ -229,12 +229,24 @@ class tacticalMenu
 		class text_TacticalSP: RscText
 		{
 			idc = 1222;
-
 			text = "SP: 000000"; //--- ToDo: Localize;
 			x = 0.102969 * safezoneW + safezoneX;
 			y = 0.00500001 * safezoneH + safezoneY;
 			w = 0.083 * safezoneW;
 			h = 0.044 * safezoneH;
+		};
+		class button_TacticalSupport: RscButton
+		{
+			idc = 1223;
+			action = "[] call F90_fnc_openSupportMenu";
+
+			text = "Support"; //--- ToDo: Localize;
+			x = 0.474219 * safezoneW + safezoneX;
+			y = 0.94 * safezoneH + safezoneY;
+			w = 0.144375 * safezoneW;
+			h = 0.044 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Open support menu"; //--- ToDo: Localize;
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END
@@ -1804,6 +1816,271 @@ class skillTreeMenu
 			w = 0.04125 * safezoneW;
 			h = 0.033 * safezoneH;
 			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+class purchaseVehicleMenu 
+{
+	idd = 2200;
+
+	class controls 
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Sopeme)
+		////////////////////////////////////////////////////////
+
+		class bg_PurchaseVeh1: RscText
+		{
+			idc = 2201;
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.335 * safezoneH + safezoneY;
+			w = 0.33 * safezoneW;
+			h = 0.385 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class bg_PurchaseVeh2: RscText
+		{
+			idc = 2202;
+			x = 0.340156 * safezoneW + safezoneX;
+			y = 0.39 * safezoneH + safezoneY;
+			w = 0.319688 * safezoneW;
+			h = 0.275 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_PurchaseVehTitle: RscText
+		{
+			idc = 2203;
+			text = "Purchase Vehicle"; //--- ToDo: Localize;
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class listBox_PurchaseVehList: RscListbox
+		{
+			idc = 2204;
+			x = 0.340156 * safezoneW + safezoneX;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.319688 * safezoneW;
+			h = 0.253 * safezoneH;
+		};
+		class button_PurchaseVehSpawn: RscButton
+		{
+			idc = 2205;
+			action = "[] call F90_fnc_spawnVehicle";
+
+			text = "Spawn"; //--- ToDo: Localize;
+			x = 0.603125 * safezoneW + safezoneX;
+			y = 0.676 * safezoneH + safezoneY;
+			w = 0.0567187 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+class supportMenu 
+{
+	idd = 2300;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Bakure)
+		////////////////////////////////////////////////////////
+
+		class bg_supportMenu1: RscText
+		{
+			idc = 2301;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.368 * safezoneH + safezoneY;
+			w = 0.2475 * safezoneW;
+			h = 0.264 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class button_SupportTransport: RscButton
+		{
+			idc = 2302;
+			action = "[] call F90_fnc_openTransportSupportMenu";
+
+			text = "Transport"; //--- ToDo: Localize;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.412 * safezoneH + safezoneY;
+			w = 0.237187 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Open transport support menu"; //--- ToDo: Localize;
+		};
+		class text_SupportTitle1: RscText
+		{
+			idc = 2303;
+			action = "";
+
+			text = "SUPPORT"; //--- ToDo: Localize;
+			x = 0.474219 * safezoneW + safezoneX;
+			y = 0.368 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class button_SupportCas: RscButton
+		{
+			idc = 2304;
+			action = "";
+
+			text = "Close Air Support"; //--- ToDo: Localize;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.237187 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Open CAS support menu"; //--- ToDo: Localize;
+		};
+		class button_SupportArtillery: RscButton
+		{
+			idc = 2305;
+			action = "";
+
+			text = "Artillery"; //--- ToDo: Localize;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.5 * safezoneH + safezoneY;
+			w = 0.237187 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Open artillery support menu"; //--- ToDo: Localize;
+		};
+		class button_SupportClose: RscButton
+		{
+			idc = 2306;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "Close"; //--- ToDo: Localize;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.588 * safezoneH + safezoneY;
+			w = 0.237187 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,0,0,1};
+		};
+		class button_SupportSupply: RscButton
+		{
+			idc = 2307;
+			action = "";
+
+			text = "Supply"; //--- ToDo: Localize;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.544 * safezoneH + safezoneY;
+			w = 0.237187 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Open supply support menu"; //--- ToDo: Localize;
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+class transportSupportMenu
+{
+	idd = 2400;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Nasudi)
+		////////////////////////////////////////////////////////
+
+		class bg_TransportSMenu1: RscText
+		{
+			idc = 2401;
+			x = 0.345312 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.309375 * safezoneW;
+			h = 0.33 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class bg_TransportSMenu2: RscText
+		{
+			idc = 2402;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
+			w = 0.299062 * safezoneW;
+			h = 0.231 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_TransportSTitle: RscText
+		{
+			idc = 2403;
+			text = "Transport Support"; //--- ToDo: Localize;
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.302 * safezoneH + safezoneY;
+			w = 0.0721875 * safezoneW;
+			h = 0.044 * safezoneH;
+		};
+		class listBox_TransportSList: RscListbox
+		{
+			idc = 2405;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.357 * safezoneH + safezoneY;
+			w = 0.299062 * safezoneW;
+			h = 0.209 * safezoneH;
+		};
+		class button_TransportSClose: RscButton
+		{
+			idc = 2406;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "Close"; //--- ToDo: Localize;
+			x = 0.350469 * safezoneW + safezoneX;
+			y = 0.588 * safezoneH + safezoneY;
+			w = 0.0567187 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,0,0,1};
+		};
+		class button_TransportSPickup: RscButton
+		{
+			idc = 2407;
+			action = "[] call F90_fnc_requestPickup";
+
+			text = "Pickup"; //--- ToDo: Localize;
+			x = 0.587656 * safezoneW + safezoneX;
+			y = 0.588 * safezoneH + safezoneY;
+			w = 0.061875 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Request for a pickup"; //--- ToDo: Localize;
+		};
+		class button_TransportSRtb: RscButton
+		{
+			idc = 2408;
+			action = "[] call F90_fnc_menuRequestRtb";
+
+			text = "RTB"; //--- ToDo: Localize;
+			x = 0.520625 * safezoneW + safezoneX;
+			y = 0.588 * safezoneH + safezoneY;
+			w = 0.061875 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Command the selected vehicle to return to base"; //--- ToDo: Localize;
+		};
+		class button_TransportSSitrep: RscButton
+		{
+			idc = 2409;
+			action = "[] call F90_fnc_transportSitrep";
+
+			text = "SITREP"; //--- ToDo: Localize;
+			x = 0.453594 * safezoneW + safezoneX;
+			y = 0.588 * safezoneH + safezoneY;
+			w = 0.061875 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Ask for the status of the selected vehicle"; //--- ToDo: Localize;
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END

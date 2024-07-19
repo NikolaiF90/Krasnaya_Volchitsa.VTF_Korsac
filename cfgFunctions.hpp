@@ -100,6 +100,7 @@ class F90
         class initSHARSPlayers {};
         class initSkillTree {};
         class initStartGame {};
+        class initSupport {};
         class initTask {};
     };
 
@@ -211,6 +212,24 @@ class F90
         class upgradeSkill {};
     };
 
+    class Support
+    {
+        file = "Functions\Support";
+
+        class addTransportHeliAction {};
+        class getFactionVehicles {};
+        class getHelicopter {};
+        class menuRequestRtb {};
+        class openSupportMenu {};
+        class openTransportSupportMenu {};
+        class requestDropOff {};
+        class requestPickup {};
+        class requestRtb {};
+        class showPurchaseVehicleAction {};
+        class spawnVehicle {};
+        class transportSitrep {};
+    };
+
     class Task
     {
         file = "Functions\Task";
@@ -239,9 +258,11 @@ class F90
         class applyDamage {};
         class applyPositioningData {};
         class clearArray {};
-        class convertToTime {};
         class clearGarbage {};
+        class convertToTime {};
+        class createMarker {};
         class debug {};
+        class deleteMarker {};
         class filterArray {};
         class filterGoodHouses {};
         class findFactionAddons {};

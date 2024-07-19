@@ -4,6 +4,7 @@
 [] call F90_fnc_initCABServer;
 [] call F90_fnc_initTask;
 [] call F90_fnc_initSHARS;
+[] call F90_fnc_initSupport;
 
 if ((count Mission_CreatedUnits) > 0) then 
 {

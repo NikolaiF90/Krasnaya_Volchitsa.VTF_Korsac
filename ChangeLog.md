@@ -1,7 +1,8 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-    Player seems to be always dead after integrate ais with F90 respawn
+    None currently
+
 ## ToDO
     * More tasks
     * More perks
@@ -11,11 +12,16 @@
     * FOB
     * Improve Patrol Script
     * Interrogate
-    * Update report menu
     * Optimize Task
     * Base location marker
 
 ## Version History
+
+### Version 1.25.0a
+    * Added support vehicles. Players can now spawn vehicles for use in missions or routine tasks.
+    * Points will be affected by every spawned vehicle upon completing a mission.
+    * Player can request support from Support Menu which accessible through Tactical Tab.
+    * Added transportation support. Player can request pickup, drop off and return to base (RTB) services.
 
 ### Version 1.24.0a
     * Updated the looks of duty report menu.
@@ -24,31 +30,29 @@
     * Major bugfixes and optimizations.
 
 ### Version 1.23.0a
-    * Added PRS (Perks and Ranking System).
-    * Every player now has ranks (differs from ARMA 3 base ranks).
-    * Ability to ask for a rank promotion.
-    * Hundreds of perks to unlock. Each ranks unlocks different perks.
-    * Updated existing game mechanics to integrate PRS.
-    * Updated the looks of Hire Menu.
-    * Updated the splash screen.
-    * Updated the looks of Tactical Tab.
-    * Adjustments on player initialization. Optimized some codes to avoid data leak and errors.
-    * Persistent Menu updated. New looks of the persistent menu. Optimized some of the codes and fixed some bugs.
-    * Player can now name their saves. 
-    * Minor adjustments on Allied Base.
+    * Added Perks and Ranking System (PRS).
+    * All players now possess ranks (distinct from ARMA 3 base ranks). 
+    * Capability to request a rank promotion.
+    * Numerous perks available for unlocking, with each rank granting access to different perks.
+    * Enhanced existing game mechanics to incorporate PRS.
+    * Redesigned the appearance of the Hire Menu, Tactical Tab, and the splash screen.
+    * Adjusted player initialization process by optimizing certain codes to prevent data leaks and errors.
+    * Updated the Persistent Menu with a new look, optimized codes, and bug fixes. 
+    * Players can now assign names to their saves.  
+    * Made minor adjustments to the Allied Base.
     * Major optimization and bugfixes.
 
 ### Version 1.22.0a
-    * Show server setup menu to server host. This adds the ability for the server host to make a few changes to the server setting before starting the server.
-    * Dynamic Side Change System. Ability for server host to change teams and sides. 
-    * Starting time can be set by the host at server setup screen.
-    * Reworked SHARS to integrate DSCS. Units available for recruit will be based on player faction.
-    * Spawned units will be based on player factions. Player initial loadout will also be based on selected faction.
-    * Persistent Tab will now accessible through Tactical Tab.
+    * Introduced a server setup menu for server hosts, allowing them to adjust server settings before initiating the server. 
+    * Implemented the Dynamic Side Change System, enabling server hosts to switch teams and sides. 
+    * Hosts can now set the starting time on the server setup screen. 
+    * Restructured SHARS to incorporate DSCS, with recruit-able units based on player factions.
+    * Spawned units and player initial loadouts are now determined by selected factions.
+    * The Persistent Tab is now accessible through the Tactical Tab. 
     * Added the ability for server host to perform a time skip.
-    * Mission designers no longer need to manually place units to defend base as the mission will automatically spawns units based on base markers and turrets placed inside base.
+    * Automated unit spawning for base defense, eliminating the need for manual placement by mission designers. 
     * Killed enemy units will now drop intels. For now, only intels related to HVT will be dropped.
-    * Tactical Tab is now accessible by pressing Y key instead of action menu.
+    * Access to the Tactical Tab is now available by pressing the Y key instead of the action menu.
     * Major optimizations and code improvements.
 
 ### Version 1.21.0a

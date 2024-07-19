@@ -31,3 +31,5 @@ Points_HeliUsedDeduction = 5;
 Points_LightArmedHeliLoss = 12;
 Points_LightUnarmedHeliLoss = 10;
 Points_AttackHeliLoss = 16;
+Points_UnarmedCars = 2;
+Points_ArmedCars = 5;

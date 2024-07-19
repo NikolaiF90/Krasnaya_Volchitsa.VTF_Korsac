@@ -7,6 +7,8 @@ private _capturedPrisoners = _unit getVariable "REC_TempCapturedPrisoners";
 private _hvtKilled = _unit getVariable "REC_TempHVTKilled";
 private _hvtCaptured = _unit getVariable "REC_TempHVTCaptured";
 private _heliUsed = _unit getVariable "REC_HeliUsedDeduction";
+private _armedCars = _unit getVariable "REC_ArmedCarsDeduction";
+private _unarmedCars = _unit getVariable "REC_UnarmedCarsDeduction";
 private _successfulOperation = _unit getVariable "REC_TempOP";
 private _seizePoints = _unit getVariable "REC_SeizePoints";
 private _totalPoints = _unit getVariable "REC_TotalPoints";
@@ -36,11 +38,13 @@ private _pointsReceived =
 // Points Deduction 
 private _pointsDeduction = 
 [
-    format ["Transport Heli: %1pts", _heliUsed]
+    format ["Transport Heli: %1pts", _heliUsed],
+    format ["Armed Cars: %1pts", _armedCars],
+    format ["Unarmed Cars: %1pts", _unarmedCars]
     // ToDo - Air Supports 
     // ToDo - Artillery 
     // ToDo - Helicopters 
-    // ToDo - Vehicles 
+    
 ];
 [REC_PointsDeductedListBoxIDC, _pointsDeduction, -1] call F90_fnc_populateListBox;
 
@@ -58,3 +62,16 @@ private _totalEarnings =
 [REC_TotalEarningListBoxIDC, _totalEarnings, -1] call F90_fnc_populateListBox;
 
 [_unit] call F90_fnc_transferRecord;
+
+// delete spawned vehicles 
+private _spawnedUnarmedCars = _unit getVariable "Support_SpawnedUnarmedVehicles";
+private _spawnedArmedCars = _unit getVariable "Support_SpawnedArmedVehicles";
+{
+    private _vehicle = _x;
+    if !(isNil {_vehicle}) then 
+    {
+        if (_vehicle in Support_SpawnedArmedVehicles) then {Support_SpawnedArmedVehicles = Support_SpawnedArmedVehicles - [_vehicle]};
+        if (_vehicle in Support_SpawnedUnarmedVehicles) then {Support_SpawnedUnarmedVehicles = Support_SpawnedUnarmedVehicles - [_vehicle]};
+        deleteVehicle _vehicle;
+    };
+} forEach _spawnedArmedCars + _spawnedUnarmedCars;
