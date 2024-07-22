@@ -36,7 +36,7 @@ if (_deleteEntity) exitWith {
 };
 
 // othrwise re-init the unit on the new owner (server)
-if (!isNil {_entity getVariable "ais_unconscious"}) then {
+if (!isNil {_entity getVariable "AIS_IsUnconscious"}) then {
 	_entity call AIS_Core_fnc_aisInitHost;
 };
 

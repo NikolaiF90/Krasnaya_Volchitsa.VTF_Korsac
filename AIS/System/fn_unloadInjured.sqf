@@ -17,7 +17,7 @@ params ["_unit", "_vehicle"];
 private _crew = crew _vehicle;
 private _injured = objNull;
 {
-	if (_x getVariable ["ais_unconscious", false]) exitWith {_injured = _x};
+	if (_x getVariable ["AIS_IsUnconscious", false]) exitWith {_injured = _x};
 	true
 } count _crew;
 

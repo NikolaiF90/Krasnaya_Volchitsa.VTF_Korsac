@@ -24,7 +24,7 @@ if (isNull _helper) then
 	{
 		private _aliveTeammates = [];
 		{
-			if (!(_x getVariable ["ais_unconscious", false]) && {!isPlayer _x}) then 
+			if (!(_x getVariable ["AIS_IsUnconscious", false]) && {!isPlayer _x}) then 
 			{
 				_aliveTeammates pushBack _x;
 			};
@@ -51,9 +51,9 @@ if (isNull _helper) then
 		if (count _nearbyUnits > 0) then 
 		{
 			private _allyUnits = [];
-			private _side = _injured getVariable "Mission_UnitSide";
+			private _side = _injured getVariable "RSW_UnitSide";
 			{
-				if ((_side isEqualTo (side _x)) && !(_x getVariable ["ais_unconscious", false]) && (!isPlayer _x)) then 
+				if ((_side isEqualTo (side _x)) && !(_x getVariable ["AIS_IsUnconscious", false]) && (!isPlayer _x)) then 
 				{
 					_allyUnits pushBack _x;
 				};

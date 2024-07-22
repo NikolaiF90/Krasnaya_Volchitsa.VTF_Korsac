@@ -41,5 +41,6 @@ private _marker = createMarker [_markerName, _position, _channel, _creator];
 _marker setMarkerType _markerType;
 
 Persistent_MarkerBlacklists pushBack _marker;
+publicVariable "Persistent_MarkerBlacklists";
 
 _marker

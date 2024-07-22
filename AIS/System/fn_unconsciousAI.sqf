@@ -17,8 +17,7 @@
 params ["_unit", "_source"];
 
 // set the variables
-_unit setVariable ["ais_unconscious", true, true];
-_unit setVariable ["Mission_UnitSide", side _unit];
+_unit setVariable ["AIS_IsUnconscious", true, true];
 
 // if player drag or carry someone release the body
 if (!(isNull (_unit getVariable ["ais_DragDrop_Torso", objNull]))) then {

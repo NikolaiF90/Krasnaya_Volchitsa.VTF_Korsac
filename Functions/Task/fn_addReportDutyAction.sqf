@@ -17,6 +17,6 @@ private _reportDutyActionID = _unit addAction
     5
 ];
 
-_unit setVariable ["Mission_ReportDutyActionID", _reportDutyActionID, true];
+_unit setVariable ["RSW_ReportDutyActionID", _reportDutyActionID, true];
 
 sleep 0.01;

@@ -9,13 +9,10 @@
 	
 	Returns: 
 		0
-
-	Example: 
-		[] call F90_fnc_taskEconomy;
 */
 
 // true to turn on debug
-TaskDebug = true; 
+TaskDebug = false; 
 
 // Time interval to check for task status
 Task_CheckInterval = 5;

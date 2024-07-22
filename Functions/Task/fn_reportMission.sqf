@@ -29,12 +29,12 @@ private _totalRewards = _reward + _milcashDeduction;
 
 if (_reward > 0) then 
 {
-    ["ADDMONEY", [_unit, _totalRewards]] call F90_fnc_economyHandler;
+    [_unit, _totalRewards] call F90_fnc_addMoney;
 } else 
 {
     if (_reward < 0) then 
     {
-        ["DEDUCTMONEY", [_unit, _totalRewards]] call F90_fnc_economyHandler;
+        [_unit, _totalRewards] call F90_fnc_deductMoney;
     };
 };
 _unit setVariable ["REC_TotalRewards", _totalRewards, true];

@@ -43,6 +43,7 @@ class F90
         class checkCommandingEgibility {};
         class clearSave {};
         class closeMenu {};
+        class createBaseLocationMarkers {};
         class createSquad {};
         class createUnit {};
         class deleteUnit {};
@@ -79,7 +80,11 @@ class F90
     class Economy 
     {
         file = "Functions\Economy";
-        class economyHandler {};
+        class addMoney {};
+        class deductMoney {};
+        class getMoney {};
+        class setMoney {};
+        class transferMilcash {};
     };
 
     class Init 
@@ -92,6 +97,8 @@ class F90
         class initDSC {};
         class initEconomy {};
         class initGlobalVariables {};
+        class initHeal {};
+        class initOP {};
         class initPersistent {};
         class initPRS {};
         class initREC {};
@@ -112,7 +119,6 @@ class F90
         class loadGame {};
         class loadMapMarkers {};
         class loadPlayer {};
-        class loadUnitData {};
         class loadUnitsInGroup {};
         class loadVariables {};
         class loadVehicles {};
@@ -141,7 +147,9 @@ class F90
         
         class createNewSlot {};
         class deleteSlot {};
+        class generateUnitData {};
         class loadFromSlot {};
+        class loadUnitData {};
         class openPersistentTab {};
         class saveToSlot {};
     };
@@ -217,9 +225,14 @@ class F90
         file = "Functions\Support";
 
         class addTransportHeliAction {};
+        class changeTransportHeli {};
+        class createSupportOfficer {};
+        class createTransportVehicles {};
         class getFactionVehicles {};
         class getHelicopter {};
+        class getTrucks {};
         class menuRequestRtb {};
+        class openChangeTransportHeliMenu {};
         class openSupportMenu {};
         class openTransportSupportMenu {};
         class requestDropOff {};
@@ -235,7 +248,6 @@ class F90
         file = "Functions\Task";
         class activeTaskHandler {};
         class addReportDutyAction {};
-        class addReportMissionAction {};
         class completePatrol {};
         class createAmbush {};
         class createAOMarker {};
@@ -244,6 +256,9 @@ class F90
         class createPatrol {};
         class createSeizableAsset {};
         class createTask {};
+        class createTaskOfficer {};
+        class createTaskSupport {};
+        class killHVTTaskHandler {};
         class reportMission {};
         class requestMission {};
         class seizeAsset {};
@@ -272,7 +287,6 @@ class F90
         class generateName {};
         class generatePositioningData {};
         class generateUniqueID {};
-        class generateUnitData {};
         class generateVehicleID {};
         class getByKey {};
         class getSuitableClass {};
@@ -297,7 +311,6 @@ class F90
         class openTacticalTab {};
         class openTransferMenu {};
         class showReport {};
-        class transferMilcash {};
         class transferRecord {};
         class updateWantedList {};
     };

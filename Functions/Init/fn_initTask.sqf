@@ -15,6 +15,11 @@ Task_EnemyPatrols = [];
 Task_SpawnedHVT = [];
 // Created Assets. Used for resetting map and mission.
 Task_CreatedAssets = [];
+// Support mission ambush units
+Task_AmbushUnits = [];
+// Support mission convoy units
+Task_SupportAlliedUnits = [];
+Task_SupportSpawnedVehicles = [];
 
 Task_CurrentTaskID = "";
 Task_MainTaskStatus = -1; // -1 None, 0 Assigned, 1 Completed, 2 Failed
@@ -39,37 +44,8 @@ Task_AllTask =
     "Task_RTB"
 ];
 
-// Create task officer if not exist
-if (isNil {Mission_TaskOfficer}) then 
-{
-    // Create reporting officer
-    private _group = createGroup [Mission_AlliedSide, true];
-    private _officerClass = [DSC_AlliedUnitList, ["officer", "sl", "tl", "commander", "squadleader"]] call F90_fnc_getSuitableClass;
-    Mission_TaskOfficer = _group createUnit [_officerClass, [0,0,0], [], 0, "FORM"];
-    [Mission_TaskOfficer, mapX] spawn F90_fnc_teleportUnit;
-    [Mission_TaskOfficer] call F90_fnc_setStandingAnimation;
-
-    // Create a report duty action
-    private _reportDutyActionID = Mission_TaskOfficer getVariable ["Mission_ReportDutyActionID", -1];
-    if (_reportDutyActionID != -1) then 
-    {
-        [Mission_TaskOfficer, _reportDutyActionID] remoteExec ["removeAction", 0, true];
-    };
-
-    [
-        Mission_TaskOfficer,
-        "Report Duty",
-        {
-            params ["_target", "_caller", "_actionId", "_arguments"];
-            
-            [] remoteExec ["F90_fnc_requestMission", 2];
-        },
-        "Task_MainTaskStatus == -1",
-        "Mission_ReportDutyActionID"    
-    ] remoteExec ["F90_fnc_addAction", 0, true];
-
-    [Mission_TaskOfficer] call AIS_System_fnc_loadAIS;
-};
+// Create task officer
+[] call F90_fnc_createTaskOfficer;
 
 // Finds towns for patrol task
 Task_PatrolLocations = [["NameVillage", "NameCity", "NameCityCapital"]] call F90_fnc_getLocations;

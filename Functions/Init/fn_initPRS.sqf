@@ -1,9 +1,3 @@
-/*
-    ToDo - 
-    1.Optimize total OP. 
-        - Not needed since fn_setTotalOP and fn_addTotalOP will sets the default value if not yet defined. 
-        - Change the default value -1 to 0.
-*/
 params ["_unit"];
 
 if (isNil {_unit}) then {_unit = player};
@@ -14,17 +8,11 @@ private _rank = [_unit] call F90_fnc_getUnitRank;
 if (isNil {_rank}) then 
 {
     // Get the rank name of the first element in PRS_AllRanks
-    private _rank = (PRS_AllRanks select 0) select 0;
-    
-    [_unit, _rank] call F90_fnc_setUnitRank;
+    _rank = (PRS_AllRanks select 0) select 0;    
 };
-
-// Unit's Operation Points 
-private _totalOP = [_unit] call F90_fnc_getTotalOP;
-if (_totalOP == -1) then 
-{
-    [_unit, 0] call F90_fnc_setTotalOP;
-};
+// Must be set again even if data exist. To make sure unlocked perks is properly generated
+[_unit, _rank] call F90_fnc_setUnitRank;
+[_unit] call F90_fnc_initOP;
 
 // Promotion
 [] remoteExec ["F90_fnc_createPersonnelOfficer", 2]; // Tells the server to create the officer

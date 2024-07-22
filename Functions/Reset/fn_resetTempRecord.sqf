@@ -29,6 +29,11 @@ private _RECData =
     "REC_TempAttackHeliLoss",
     "REC_TempVehiclesUsed",
 
+    "REC_HeliUsedDeduction",
+    "REC_ArmedCarsDeduction",
+    "REC_UnarmedCarsDeduction",
+    "REC_TempTeamDeduction",
+
     "REC_TotalPoints",
     "REC_TempRewards",
     "REC_TempOP",
@@ -40,4 +45,5 @@ private _RECData =
     _unit setVariable [_x, 0, true];
 } forEach _RECData;
 
+_unit setVariable ["REC_TempTeamRequested", false, true];
 _unit setVariable ["TASK_IsSuccessfulMission", false, true];

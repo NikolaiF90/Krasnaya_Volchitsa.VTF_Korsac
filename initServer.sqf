@@ -28,9 +28,20 @@ private _configurationFiles =
     [] remoteExec [_x, 0, true];
 } forEach _configurationFiles;
 
+// Init System 
+[] call F90_fnc_initDSC;
+[] call F90_fnc_initCivilian;
+[] call F90_fnc_initCABServer;
+[] call F90_fnc_initTask;
+[] call F90_fnc_initSHARS;
+[] call F90_fnc_initSupport;
+
 [] call F90_fnc_resetMap;
 REC_WantedList = [CAB_WantedCounts] call F90_fnc_addWantedPerson;
 publicVariable "REC_WantedList";
+
+// Create base markers
+[] spawn F90_fnc_createBaseLocationMarkers;
 
 enableTeamSwitch true;
 

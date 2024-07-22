@@ -30,7 +30,7 @@ private _ai_time_over = diag_tickTime + _revive_time;
 // wait until something happens
 waitUntil {
 	!alive _unit ||
-	{!(_unit getVariable ["ais_unconscious", false])} ||
+	{!(_unit getVariable ["AIS_IsUnconscious", false])} ||
 	{_unit getVariable ["ais_stabilized", false]} ||
 	{diag_tickTime > _ai_time_over}
 };
@@ -39,7 +39,7 @@ waitUntil {
 if (diag_tickTime > _ai_time_over) exitWith {[_unit, _source] call AIS_Damage_fnc_goToDead};
 
 if (_unit getVariable ["ais_stabilized", false]) then {
-	waitUntil {!alive _unit || {!(_unit getVariable ["ais_unconscious", false])}};
+	waitUntil {!alive _unit || {!(_unit getVariable ["AIS_IsUnconscious", false])}};
 };
 
 if (!alive _unit) exitWith {_unit call AIS_System_fnc_restoreFaks};

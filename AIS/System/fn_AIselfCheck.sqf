@@ -14,7 +14,7 @@ params ["_injured_ai"];
 
 // breack the self check loop if help is no longer needed or possible.
 if (!alive _injured_ai) exitWith {};
-if (!(_injured_ai getVariable ["ais_unconscious", false])) exitWith {};
+if (!(_injured_ai getVariable ["AIS_IsUnconscious", false])) exitWith {};
 
 // injured is in handling. check some seconds later if handlin was interrupted.
 if (!isNull (_injured_ai getVariable ["ais_helperUnit", objNull])) then {

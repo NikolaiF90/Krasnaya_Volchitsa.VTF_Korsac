@@ -1,19 +1,22 @@
 /*
     Author: PrinceF90
-    
+
     Description:
-        Sets the total operation points for a given unit.
+        This function sets the total operation points (OP) for a specified unit to a specific value.
 
     Parameter(s):
-        _unit - The unit to set the operation points for. [OBJECT]
-        _newOperationPoints - (Optional, default 0)The new total operation points value. [SCALAR]
+        _unit - The unit for which the total OP is set. [OBJECT]
+        _amount - The amount to set as the new total OP value. [SCALAR]
 
     Returns:
-        None
+        _amount - The amount that was set as the total OP for the specified unit.
 */
-params ["_unit", "_newOperationPoints"];
+params ["_unit", "_amount"];
 
-if (isNull _unit) exitWith {[MissionDebug, "setTotalOP", "ERROR - No object is provided for the variable _unit", false, false] call F90_fnc_debug};
+if (isNil {_unit}) exitWith {[MissionDebug, "setTotalOP", "(ERROR) Function not executed. Provided unit is not exist", true, true] call F90_fnc_debug};
+if (isNull _unit) exitWith {[MissionDebug, "setTotalOP", "(ERROR) Function not executed. Provided unit is not exist", true, true] call F90_fnc_debug};
+if (isNil {_amount}) then {_amount = 0};
 
-if (isNil {_newOperationPoints}) then {_newOperationPoints = 0};
-_unit setVariable ["PRS_TotalOP", floor _newOperationPoints, true];
+_unit setVariable [PRS_OPName,floor _amount, true];
+
+_amount

@@ -1,3 +1,6 @@
+// The name of Operation Point
+PRS_OPName = "PRS_OP";
+
 PRS_AllRanks = 
 // Array format [STRING:Rank, INT:OperationPoints, INT:OperationCountForPromotion, ARRAY:[STRING:PerkKey1,STRING:PerkKey2AndSoOn]]
 [

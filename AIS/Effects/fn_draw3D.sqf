@@ -23,7 +23,7 @@ if (!surfaceIsWater _playerPos) then {
     private _target = effectiveCommander _x;
 
 	if (
-		_target getVariable ["ais_unconscious", false] &&
+		_target getVariable ["AIS_IsUnconscious", false] &&
 		{_target != player} &&
 		//{isPlayer _target} &&
 		{!(_x in allUnitsUAV)} &&

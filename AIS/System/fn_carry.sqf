@@ -50,8 +50,8 @@ _unit setVariable ["ais_CarryDrop_Torso", true];
 	disableUserInput false;
 	
 	_timenow = time;
-	waitUntil {!alive _target || {!alive _unit} || {_unit getVariable ["ais_unconscious", false]} || {time > _timenow + 16}};
-	_state = _unit getVariable ["ais_unconscious", false];
+	waitUntil {!alive _target || {!alive _unit} || {_unit getVariable ["AIS_IsUnconscious", false]} || {time > _timenow + 16}};
+	_state = _unit getVariable ["AIS_IsUnconscious", false];
 	if (!alive _target || {!alive _unit} || {_state}) then {
 		if (alive _target) then {
 			[_target, "agonyStart"] remoteExec ["playActionNow", 0, false];

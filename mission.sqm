@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=735;
+		nextID=739;
 	};
 	class MarkerIDProvider
 	{
@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=227;
+		nextID=251;
 	};
 	class Camera
 	{
-		pos[]={2524.199,904.36383,1971.313};
-		dir[]={0.00054544624,-0.68251055,0.73088485};
-		up[]={0.00050903356,0.73086977,0.68251622};
-		aside[]={1.0000048,3.2434585e-008,-0.00074554811};
+		pos[]={2455.5063,907.00677,2027.574};
+		dir[]={0.75274599,-0.64646012,0.12434978};
+		up[]={0.63781589,0.76294774,0.10536393};
+		aside[]={0.16298597,7.4505806e-009,-0.98662835};
 	};
 };
 binarizationWanted=0;
@@ -441,7 +441,7 @@ class Mission
 			name="Essentials";
 			class Entities
 			{
-				items=10;
+				items=11;
 				class Item0
 				{
 					dataType="Object";
@@ -771,9 +771,26 @@ class Mission
 					id=601;
 					type="Land_PortableDesk_01_sand_F";
 				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2485.0681,844.80688,2089.627};
+						angles[]={0,5.7820597,0};
+					};
+					side="Empty";
+					class Attributes
+					{
+						name="supportDesk";
+					};
+					id=738;
+					type="Land_PortableDesk_01_sand_F";
+					atlOffset=0.50299072;
+				};
 			};
 			id=232;
-			atlOffset=0.40124512;
+			atlOffset=0.45214844;
 		};
 		class Item3
 		{
@@ -825,7 +842,7 @@ class Mission
 			name="BASE";
 			class Entities
 			{
-				items=141;
+				items=142;
 				class Item0
 				{
 					dataType="Object";
@@ -1450,7 +1467,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						name="helipadX";
+						name="helipadX_0";
 					};
 					id=224;
 					type="Land_HelipadSquare_F";
@@ -5089,9 +5106,26 @@ class Mission
 						nAttributes=1;
 					};
 				};
+				class Item141
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2492.6833,843.85999,2020.2687};
+						angles[]={0,5.2681022,0};
+					};
+					side="Empty";
+					flags=4;
+					class Attributes
+					{
+						name="helipadX_1";
+					};
+					id=735;
+					type="Land_HelipadSquare_F";
+				};
 			};
 			id=420;
-			atlOffset=0.71374512;
+			atlOffset=0.35687256;
 		};
 		class Item5
 		{

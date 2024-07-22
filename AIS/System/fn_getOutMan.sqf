@@ -15,7 +15,7 @@
  
 params ["_injured"];
 
-if (_injured getVariable ["ais_unconscious", false]) then {
+if (_injured getVariable ["AIS_IsUnconscious", false]) then {
 	if (!(_injured getVariable ["ais_man_pullOut", false])) then {
 		[_injured, "agonyStart"] remoteExec ["playActionNow", 0, false];
 	};

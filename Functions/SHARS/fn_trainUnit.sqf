@@ -4,7 +4,7 @@ private _unlocked = [_caller, "PERK_TrainUnit"] call F90_fnc_getPerkKeyState;
 
 if (_unlocked) then
 {
-    private _balance = ["GETMONEY", _caller] call F90_fnc_economyHandler;
+    private _balance = [_caller] call F90_fnc_getMoney;;
     private _cost = _caller getVariable ["SHARS_TrainUnitCost", 0];
 
     if (_cost > 0) then 
@@ -38,7 +38,7 @@ if (_unlocked) then
             _unit set [2, _newSkills];
 
             // Deduct player balance
-            ["DEDUCTMONEY", [_caller, _cost]] call F90_fnc_economyHandler;
+            [_caller, _cost] call F90_fnc_deductMoney;
 
             private _unitName = _unit select 1;
             [format ["%1 has been trained", _unitName], "DEFAULT"] call F90_fnc_textNotification;

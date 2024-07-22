@@ -83,7 +83,7 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateStabilizeTi
 		};
 		if (!alive _injured) then {["He is not with us anymore."] call AIS_Core_fnc_dynamicText};
 	},
-	(!alive _injured || _healer getVariable ["ais_unconscious", false])
+	(!alive _injured || _healer getVariable ["AIS_IsUnconscious", false])
 ] call AIS_Core_fnc_Progress_ShowBar;
 
 

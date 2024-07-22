@@ -15,7 +15,7 @@
 params ["_injured", "_healer"];
 private _return = false;
 
-if (_injured getVariable ["ais_unconscious", false]) then 
+if (_injured getVariable ["AIS_IsUnconscious", false]) then 
 {
 	// remove FAKS to avoid the damage processing
 	if (local _healer) then
@@ -37,7 +37,7 @@ if (_injured getVariable ["ais_unconscious", false]) then
 	} else 
 	{
 		// we can use the AI handling at this point to start our own revive process...
-		if ((_healer getVariable "Mission_UnitSide") == (_injured getVariable "Mission_UnitSide")) then 
+		if ((_healer getVariable "RSW_UnitSide") == (_injured getVariable "RSW_UnitSide")) then 
 		{
 			if (isNull (_injured getVariable ["ais_helperUnit", objNull])) then 
 			{

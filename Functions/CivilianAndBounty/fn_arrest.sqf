@@ -15,35 +15,26 @@ if (_bountyIndex != -1) then
 {
     if (_isWanted) then 
     {
-        ["ARREST", [_detainee, _arrestor, _bountyIndex]] call F90_fnc_updateWantedList;
-    };
-
-    // Update temporary captured hvts
-    if (Task_MainTaskStatus == 0) then 
-    {
-        private _tempCapturedHVT = _arrestor getVariable "REC_TempHVTCaptured";
-        
-        _tempCapturedHVT = _tempCapturedHVT + 1;
-        _arrestor setVariable ["REC_TempHVTCaptured", _tempCapturedHVT];
-    } else 
-    {
-        private _totalArrestedHVT = _arrestor getVariable "Record_TotalArrestedHVT";
-        
-        _totalArrestedHVT = _totalArrestedHVT + 1;
-        _arrestor setVariable ["Record_TotalArrestedHVT", _totalArrestedHVT];
+        ["ARREST", [_detainee, _arrestor]] call F90_fnc_updateWantedList;
     };
 } else 
 {
     // Get the original side of the unit. 
-    private _originalSide = _detainee getVariable ["Mission_UnitSide", civilian];
+    private _originalSide = _detainee getVariable ["RSW_UnitSide", civilian];
+    // Get arrest history 
+    private _hasBeenArrested = _detainee getVariable ["CAB_HasBeenArrested", false];
 
     // Update temporary captured prisoners
     if (Task_MainTaskStatus == 0 && _originalSide != civilian) then
     {
         private _tempPrisoners = _arrestor getVariable "REC_TempCapturedPrisoners";
-
-        _tempPrisoners = _tempPrisoners + 1;
-        _arrestor setVariable ["REC_TempCapturedPrisoners", _tempPrisoners];
+        
+        if !(_hasBeenArrested) then 
+        {
+            _tempPrisoners = _tempPrisoners + 1;
+            _arrestor setVariable ["REC_TempCapturedPrisoners", _tempPrisoners];
+            _detainee setVariable ["CAB_HasBeenArrested", true, true];
+        };
     };
 };
 

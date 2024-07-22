@@ -18,7 +18,7 @@ params ["_unit"];
 _marker = _unit getVariable ["ais_unitMarker", Nil];
 
 if (!isNil "_marker") then {
-	if (_unit getVariable ["ais_unconscious", false]) then {
+	if (_unit getVariable ["AIS_IsUnconscious", false]) then {
 		_marker setMarkerPosLocal (getPos _unit);
 		
 		_acc_time = diag_tickTime + 5;

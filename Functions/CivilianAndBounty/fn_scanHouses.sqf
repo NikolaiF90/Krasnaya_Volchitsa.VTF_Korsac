@@ -11,75 +11,72 @@
         None
 */
 params ["_unit"];
-private _outOfSpawnArea = false;
 
+// Initialize variables
+private _playerOldPos = [0,0,0];
+private _civilianCount = 0;
+private _nearbyHouseCount = 0;
+
+// Continuous loop
 while {true} do 
 {
-    if (CAB_PlayerOldPos distance (position _unit) > CAB_CivilianSpawnRadius && speed _unit < 130) then 
+    // Check if player is out of spawn area and not moving too fast
+    if (_playerOldPos distance (position _unit) > CAB_CivilianSpawnRadius && speed _unit < 130) then 
     {
-        _outOfSpawnArea = true;
-        CAB_PlayerOldPos = position _unit;
-    };
+        // Update player position
+        _playerOldPos = position _unit;
 
-    if (_outOfSpawnArea) then 
-    {
-        // Find another nearby houses
-        CAB_HousesNearPlayer = CAB_AllHousesOnMap select {_x distance _unit <= CAB_CivilianSpawnRadius};
+        // Find nearby houses within spawn radius
+        CAB_NearbyHouses = CAB_AllHousesOnMap select {_x distance _unit <= CAB_CivilianSpawnRadius};
+        _nearbyHouseCount = count CAB_NearbyHouses;
 
-        // Filter only habitable houses
-        CAB_NearbyHouses = [CAB_CivilianSpawnRadius] call F90_fnc_filterGoodHouses;
-        CAB_NearbyHouses = CAB_NearbyHouses select {damage _x < 0.75};
+        // Calculate civilian count based on house density
+        _civilianCount = floor((_nearbyHouseCount) / CAB_CivilianDensity);
 
-        // Generate civilian count
-        CAB_CivilianCount = floor ((count CAB_NearbyHouses)/ CAB_CivilianDensity);
-        // Make sure civilian count doesn't reach over the limit
-        CAB_CivilianCount = CAB_CivilianCount min CAB_MaxCivilianCounts;
-        // Disable spawning if raining or nightime
+        // Limit civilian count to maximum allowed
+        _civilianCount = _civilianCount min CAB_MaxCivilianCounts;
+
+        // Disable spawning if raining or nighttime
         if ((rain > 0.2) || (daytime > 20 && daytime < 6)) then 
         {
-            CAB_CivilianCount = 0;
+            _civilianCount = 0;
         };
 
-        // Remove dead player from spawner list of each civilian
+        // Update spawner list for each civilian to remove dead player
         [_unit] call F90_fnc_updateSpawnerList;
-        
-        _outOfSpawnArea = false;
     };
 
-    if ((CAB_TotalSpawnedCivilians < CAB_CivilianCount) && (count CAB_NearbyHouses > 0)) then 
+    // Check if total spawned civilians is less than required count
+    if (CAB_TotalSpawnedCivilians < _civilianCount) then
     {
-        private _sharedCivExist = false;
-
-        if (isMultiplayer) then 
         {
+            private _civ = _x;
+            if ((_civ distance (objectParent _unit) < CAB_CivilianSpawnRadius) && (alive _civ)) then 
             {
-                private _civ = _x;
-
-                if ((_civ distance vehicle _unit < CAB_CivilianSpawnRadius) && (alive _civ)) then 
+                private _spawnerList = _civ getVariable "CIV_SpawnerUnits";
+                if !(_unit in _spawnerList) then 
                 {
-                    private _spawnerList = _civ getVariable "CIV_SpawnerUnits";
-
-                    if (count _spawnerList > 0 && !(_unit in _spawnerList)) then 
-                    {
-                        _sharedCivExist = true;
-                        _spawnerList pushBack _unit;
-                        _civ setVariable ["CIV_SpawnerUnits", _spawnerList, true];
-                    };
+                    _spawnerList pushBack _unit;
+                    _civ setVariable ["CIV_SpawnerUnits", _spawnerList, true];
                 };
-            } forEach CAB_SpawnedCivilians;
-        };
-
-        if ((!_sharedCivExist) && (count CAB_NearbyHouses >= CAB_CivilianDensity) && (CAB_CivilianCount > 0)) then 
-        {
-            // Spawn civilian
-            for "_i" from (count CAB_SpawnedCivilians) to CAB_CivilianCount-1 do 
-            {
-                [] call F90_fnc_spawnCivilian;
             };
+        } forEach CAB_SpawnedCivilians;
+
+        // Check if nearby house count is sufficient for spawning
+        if (_nearbyHouseCount >= CAB_CivilianDensity) then
+        {
+            // Spawn civilians up to required count
+            for "_i" from (count CAB_SpawnedCivilians) to _civilianCount - 1 do 
+            {
+                [CAB_NearbyHouses] call F90_fnc_spawnCivilian;
+            };
+
+            // Update total spawned civilians count
             CAB_TotalSpawnedCivilians = CAB_TotalSpawnedCivilians + (count CAB_SpawnedCivilians);
             publicVariable "CAB_TotalSpawnedCivilians";
         };
     };
 
+    // Pause before next spawn check
     sleep CAB_SpawnCheckInterval;
 };

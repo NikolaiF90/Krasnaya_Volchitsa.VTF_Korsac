@@ -17,7 +17,7 @@ private _isUncInside = false;
 
 if (count _crew > 0) then {
 	{
-		if (_x getVariable ["ais_unconscious", false]) then {
+		if (_x getVariable ["AIS_IsUnconscious", false]) then {
 			if (_x call AIS_System_fnc_checkUnload) exitWith {_isUncInside = true};
 		};
 		true

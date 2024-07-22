@@ -14,7 +14,7 @@
 params ["_unit", "_deadTime"];
 
 // Stop loops if unit is no longer on respawning state
-if !(_unit getVariable ["Mission_IsRespawning", false]) exitWith {_unit setDamage 0};
+if !(_unit getVariable ["RSW_IsRespawning", false]) exitWith {_unit setDamage 0};
 
 private _spawnTime = RESPAWN_Timer;
 private _timeLeft = (_deadTime + _spawnTime) - diag_tickTime;

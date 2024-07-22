@@ -13,7 +13,7 @@
 
 params ["_unit"]; 
 
-private _className = _unit getVariable "Mission_UnitClass";
+private _className = _unit getVariable "RSW_UnitClass";
 private _aimAccuracy = _unit skill "aimingAccuracy";
 private _aimShake = _unit skill "aimingShake";
 private _aimSpeed = _unit skill "aimingSpeed";

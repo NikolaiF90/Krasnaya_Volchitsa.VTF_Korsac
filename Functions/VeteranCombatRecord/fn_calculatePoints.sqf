@@ -8,28 +8,41 @@ private _returnValue = [0, 0];
 private _heliUsed = _unit getVariable "REC_TempHeliUsed";
 private _heliUsedDeduction = _heliUsed * Points_HeliUsedDeduction;
 _unit setVariable ["REC_HeliUsedDeduction", _heliUsedDeduction, true];
+_totalDeduction = _totalDeduction - _heliUsedDeduction;
 
 private _lightArmedHeli = _unit getVariable "REC_TempLightArmedHeliLoss";
 private _lightArmedHeliDeduction = _lightArmedHeli * Points_LightArmedHeliLoss;
 _unit setVariable ["REC_LightArmedHeliDeduction", _lightArmedHeliDeduction, true];
+_totalDeduction = _totalDeduction - _lightArmedHeliDeduction;
 
 private _lightUnarmedHeli = _unit getVariable "REC_TempLightUnarmedHeliLoss";
 private _lightUnarmedHeliDeduction = _lightUnarmedHeli * Points_LightUnarmedHeliLoss;
 _unit setVariable ["REC_LightUnarmedHeliDeduction", _lightArmedHeliDeduction, true];
+_totalDeduction = _totalDeduction - _lightUnarmedHeliDeduction;
 
 private _attackHeli = _unit getVariable "REC_TempAttackHeliLoss";
 private _attackHeliDeduction = _attackHeli * Points_AttackHeliLoss;
 _unit setVariable ["REC_AttackHeliDeduction", _attackHeliDeduction, true];
+_totalDeduction = _totalDeduction - _attackHeliDeduction;
 
 private _unarmedCars = _unit getVariable "Support_SpawnedUnarmedVehicles";
 private _unarmedCarDeduction = (count _unarmedCars) * Points_UnarmedCars;
-_unit setVariable ["REC_UnarmedCarsDeduction", _unarmedCarDeduction];
+_unit setVariable ["REC_UnarmedCarsDeduction", _unarmedCarDeduction, true];
+_totalDeduction = _totalDeduction - _unarmedCarDeduction;
 
 private _armedCars = _unit getVariable "Support_SpawnedArmedVehicles";
 private _armedCarsDeduction = (count _armedCars) * Points_ArmedCars;
-_unit setVariable ["REC_ArmedCarsDeduction", _armedCarsDeduction];
+_unit setVariable ["REC_ArmedCarsDeduction", _armedCarsDeduction, true];
+_totalDeduction = _totalDeduction - _armedCarsDeduction;
 
-_totalDeduction = _totalDeduction - (_heliUsedDeduction + _lightArmedHeliDeduction + _lightUnarmedHeliDeduction + _attackHeliDeduction + _unarmedCarDeduction + _armedCarsDeduction);
+private _requestedTempTeam = _unit getVariable ["REC_TempTeamRequested", false];
+private _tempTeamDeduction = 0;
+if (_requestedTempTeam) then 
+{
+    _tempTeamDeduction = Points_TempTeamRequested;
+};
+_unit setVariable ["REC_TempTeamDeduction", _tempTeamDeduction, true];
+_totalDeduction = _totalDeduction - _tempTeamDeduction;
 
 _returnValue set [0, _totalDeduction];
 

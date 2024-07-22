@@ -22,7 +22,7 @@ if (isNull _killer) then {_killer = objNull};
 if (isPlayer _unit) then 
 {
 	_unit setDamage 0;
-	if !(_unit getVariable ["Mission_IsRespawning", false]) then
+	if !(_unit getVariable ["RSW_IsRespawning", false]) then
 	{
 		private _accTime = diag_tickTime + 0.01;
 		[

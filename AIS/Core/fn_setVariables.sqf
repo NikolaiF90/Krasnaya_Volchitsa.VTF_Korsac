@@ -23,8 +23,8 @@ ais_reenable_teamswitch = false;
 
 // global (players and AI's)
 // set Vars only if it is Nil. Isnt't everytime Nil(f.e. JIP's use AI to join in - get the last state from this AI)
-if (isNil {_unit getVariable "ais_unconscious"}) then {
-	_unit setVariable ["ais_unconscious", false, true];
+if (isNil {_unit getVariable "AIS_IsUnconscious"}) then {
+	_unit setVariable ["AIS_IsUnconscious", false, true];
 	_unit setVariable ["ais_stabilized", false, true];
 	_unit setVariable ["ais_helperUnit", objNull, true];
 	_unit setVariable ["ais_DraggerUnit", objNull, true];

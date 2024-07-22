@@ -2,9 +2,9 @@ params ["_helicopter", "_caller", "_dropOffPoint"];
 
 if !(alive _helicopter) exitWith {};
 
-if ((_helicopter getVariable "Mission_IsIdle")) then 
+if ((_helicopter getVariable "RSW_IsIdle")) then 
 {
-    _helicopter setVariable ["Mission_IsIdle", false, true];
+    _helicopter setVariable ["RSW_IsIdle", false, true];
     private _heliWaitingTime = 3;
 
     // Feedback
@@ -73,7 +73,7 @@ if ((_helicopter getVariable "Mission_IsIdle")) then
             sleep _heliWaitingTime;
         };
 
-        _helicopter setVariable ["Mission_IsIdle", true, true];
+        _helicopter setVariable ["RSW_IsIdle", true, true];
         [_helicopter] spawn F90_fnc_requestRtb;
     };
 } else 

@@ -21,7 +21,7 @@ private _unitsData = [];
 {
     if (_x != _leader && alive _x) then
     {
-        _unitsData pushBack ([_x, false] call F90_fnc_generateUnitData);
+        _unitsData pushBack ([_x] call F90_fnc_generateUnitData);
     };
 } forEach _groupArray;
 _unitsData;

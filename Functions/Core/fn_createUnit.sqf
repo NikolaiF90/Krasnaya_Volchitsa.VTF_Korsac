@@ -92,8 +92,8 @@ if (count _wageArray == 2) then
 };
 
 [_unit] call AIS_System_fnc_loadAIS;
-_unit setVariable ["Mission_UnitClass", _type, true];
-_unit setVariable ["Mission_UnitSide", side _group, true];
+_unit setVariable ["RSW_UnitClass", _type, true];
+_unit setVariable ["RSW_UnitSide", side _group, true];
 
 [_unit] joinSilent _group;
 

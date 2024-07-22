@@ -73,7 +73,7 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateReviveTime;
     {
 		params ["_injured", "_healer"];
 
-		_injured setVariable ["ais_unconscious", false, true];
+		_injured setVariable ["AIS_IsUnconscious", false, true];
 		
 		_healer removeEventHandler ["AnimChanged", ais_animChangeEVH];
 		detach _healer;
@@ -102,7 +102,7 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateReviveTime;
 		
 		["GetOutMan"] remoteExec ["removeAllEventHandlers", _injured, false];
 		
-		private _injuredSide = _injured getVariable ["Mission_UnitSide", nil];
+		private _injuredSide = _injured getVariable "RSW_UnitSide";
 		if (_injuredSide == Mission_EnemySide && _injuredSide != side _healer) then
 		{
 			[_injured] remoteExec ["removeAllWeapons", 0, false];
@@ -157,5 +157,5 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateReviveTime;
 		};
 		if (!alive _injured) then {["He is not with us anymore."] call AIS_Core_fnc_dynamicText};
 	},
-	(!alive _injured || _healer getVariable ["ais_unconscious",false])
+	(!alive _injured || _healer getVariable ["AIS_IsUnconscious",false])
 ] call AIS_Core_fnc_Progress_ShowBar;

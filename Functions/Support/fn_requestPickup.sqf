@@ -1,9 +1,9 @@
 private _caller = player;
 
-private _selectedItem = Support_TransportVehicles select (lbCurSel TransportSMenu_VehiclesListBoxIDC);
+private _selectedItem = Support_TransportHelicopters select (lbCurSel TransportSMenu_VehiclesListBoxIDC);
 private _transportVehicle = _selectedItem select 0;
 
-if (!(isNil {_transportVehicle}) && alive _transportVehicle && !(_transportVehicle getVariable "Mission_OnTransportMission")) then 
+if (!(isNil {_transportVehicle}) && alive _transportVehicle && !(_transportVehicle getVariable "RSW_OnTransportMission")) then 
 {
     if (dialog) then {closeDialog 2};
 
@@ -16,17 +16,17 @@ if (!(isNil {_transportVehicle}) && alive _transportVehicle && !(_transportVehic
             
             if !(alive _transportVehicle) exitWith {};
 
-            if ((_transportVehicle getVariable "Mission_IsIdle")) then 
+            if ((_transportVehicle getVariable "RSW_IsIdle")) then 
             {
-                _transportVehicle setVariable ["Mission_IsIdle", false, true];
+                _transportVehicle setVariable ["RSW_IsIdle", false, true];
 
                 private _requestChat = format ["Requesting for a pickup at location: Grid %1", mapGridPosition _pickupPoint];
                 [_caller, _requestChat] remoteExec ["sideChat", 0];
 
-                private _pickupMarker = [["Pickup", true], _dropOffPoint, "mil_pickup"] call F90_fnc_createMarker;
+                private _pickupMarker = [["Pickup", true], _pickupPoint, "mil_pickup"] call F90_fnc_createMarker;
                 _pickupMarker setMarkerText "Pickup Point";
 
-                _transportVehicle setVariable ["Mission_OnTransportMission", true, true];
+                _transportVehicle setVariable ["RSW_OnTransportMission", true, true];
                 _transportVehicle move _pickupPoint;
                 [_transportVehicle, "Affirmative!"] remoteExec ["sideChat", 0];
 
@@ -40,7 +40,7 @@ if (!(isNil {_transportVehicle}) && alive _transportVehicle && !(_transportVehic
                 {
                     _transportVehicle land "GET IN";
                     [_pickupMarker] call F90_fnc_deleteMarker;
-                    _transportVehicle setVariable ["Mission_IsIdle", true, true];
+                    _transportVehicle setVariable ["RSW_IsIdle", true, true];
                 };
             } else 
             {
@@ -62,7 +62,7 @@ if (!(isNil {_transportVehicle}) && alive _transportVehicle && !(_transportVehic
         [format ["No response from %1", _selectedItem select 1], "WARNING"] call F90_fnc_textNotification;
     };
 
-    if (_transportVehicle getVariable "Mission_OnTransportMission") then 
+    if (_transportVehicle getVariable "RSW_OnTransportMission") then 
     {
         ["Transport vehicle is already assigned for another task", "ERROR"] call F90_fnc_textNotification;
     };

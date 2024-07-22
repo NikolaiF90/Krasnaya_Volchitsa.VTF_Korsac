@@ -4,7 +4,8 @@ private _centerPos = [_axis, _axis, 0];
 private _radius = sqrt 2 * _axis;
 
 waitUntil {!isNil "CAB_HouseClassnames"};
-CAB_AllHousesOnMap = nearestObjects [_centerPos, CAB_HouseClassnames, _radius];
+private _allHousesOnMap = nearestObjects [_centerPos, CAB_HouseClassnames, _radius];
+CAB_AllHousesOnMap = [_allHousesOnMap] call F90_fnc_filterGoodHouses;
 publicVariable "CAB_AllHousesOnMap";
 
 if (CAB_MaxCivilianCounts > 100) then {CAB_MaxCivilianCounts = 100};

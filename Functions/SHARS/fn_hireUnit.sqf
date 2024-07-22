@@ -34,10 +34,10 @@ switch (_type) do {
             private _skill = _item select 2;
             private _price = _item select 3;
 
-            private _balance = ["GETMONEY", _caller] call F90_fnc_economyHandler;
+            private _balance = [_caller] call F90_fnc_getMoney;
             if (_balance >= _price) then 
             {
-                ["DEDUCTMONEY", [_caller, _price]] call F90_fnc_economyHandler;
+                [_caller, _price] call F90_fnc_deductMoney;
 
                 private _group = createGroup [Mission_AlliedSide, true];
                 private _unit = [_group, _className, _spawnPos, _skill, "", [true, _price]] call F90_fnc_createUnit;
@@ -46,7 +46,7 @@ switch (_type) do {
                 if !(_added) then 
                 {
                     [format ["%1 has been refunded to you", _price], "DEFAULT"] call F90_fnc_textNotification;
-                    ["ADDMONEY", [_caller, _price]] call F90_fnc_economyHandler;
+                    [_caller, _price] call F90_fnc_addMoney;
                 };
             } else 
             {
@@ -74,10 +74,10 @@ switch (_type) do {
             private _skill = _item select 2;
             private _price = _item select 3;
 
-            private _balance = ["GETMONEY", _caller] call F90_fnc_economyHandler;
+            private _balance = [_caller] call F90_fnc_getMoney;
             if (_balance >= _price) then 
             {
-                ["DEDUCTMONEY", [_caller, _price]] call F90_fnc_economyHandler;
+                [_caller, _price] call F90_fnc_deductMoney;
 
                 private _group = createGroup [Mission_AlliedSide, true];
                 private _unit = [_group, _className, _spawnPos, _skill, "", [true, _price]] call F90_fnc_createUnit;
@@ -85,7 +85,7 @@ switch (_type) do {
                 if !(_added) then 
                 {
                     [format ["%1 has been refunded to you", _price], "DEFAULT"] call F90_fnc_textNotification;
-                    ["ADDMONEY", [_caller, _price]] call F90_fnc_economyHandler;
+                    [_caller, _price] call F90_fnc_addMoney;
                 };
             } else 
             {
@@ -113,10 +113,10 @@ switch (_type) do {
             private _skill = _item select 2;
             private _price = _item select 3;
 
-            private _balance = ["GETMONEY", _caller] call F90_fnc_economyHandler;
+            private _balance = [_caller] call F90_fnc_getMoney;
             if (_balance >= _price) then 
             {
-                ["DEDUCTMONEY", [_caller, _price]] call F90_fnc_economyHandler;
+                [_caller, _price] call F90_fnc_deductMoney;
 
                 private _group = createGroup [Mission_AlliedSide, true];
                 private _unit = [_group, _className, _spawnPos, _skill, "", [true, _price]] call F90_fnc_createUnit;
@@ -124,7 +124,7 @@ switch (_type) do {
                 if !(_added) then 
                 {
                     [format ["%1 has been refunded to you", _price], "DEFAULT"] call F90_fnc_textNotification;
-                    ["ADDMONEY", [_caller, _price]] call F90_fnc_economyHandler;
+                    [_caller, _price] call F90_fnc_addMoney;
                 };
             } else 
             {
@@ -160,10 +160,10 @@ switch (_type) do {
 
         if (_unlocked) then 
         {
-            private _balance = ["GETMONEY", _caller] call F90_fnc_economyHandler;
+            private _balance = [_caller] call F90_fnc_getMoney;
             if (_balance >= _squadPrice) then 
             {
-                ["DEDUCTMONEY", [_caller, _squadPrice]] call F90_fnc_economyHandler;
+                [_caller, _squadPrice] call F90_fnc_deductMoney;
 
                 private _group = createGroup [Mission_AlliedSide, true];
                 for "_i" from 0 to (count _members)-1 do 
@@ -179,7 +179,7 @@ switch (_type) do {
                 if !(_added) then 
                 {
                     [format ["%1 has been refunded to you", _squadPrice], "DEFAULT"] call F90_fnc_textNotification;
-                    ["ADDMONEY", [_caller, _squadPrice]] call F90_fnc_economyHandler;
+                    [_caller, _squadPrice] call F90_fnc_addMoney;
                 };
             } else 
             {

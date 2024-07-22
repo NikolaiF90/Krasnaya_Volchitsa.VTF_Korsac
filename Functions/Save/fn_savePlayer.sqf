@@ -15,5 +15,5 @@
 */
 params ["_slot"];
 
-private _playerData = [player, true] call F90_fnc_generateUnitData;
+private _playerData = [player] call F90_fnc_generateUnitData;
 ["player", _playerData, _slot] call F90_fnc_saveData;

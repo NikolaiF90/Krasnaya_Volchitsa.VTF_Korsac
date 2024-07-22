@@ -23,7 +23,10 @@ publicVariable "Persistent_MarkerBlacklists";
 deleteMarker Task_AoMarker;
 deleteMarker Task_AoZone;
 
+{  
+    _x setVariable ["TASK_IsSuccessfulMission", true, true];
+} forEach allPlayers;
 ["Task_RTB"] call F90_fnc_createTask;
 
 _donePatrol = true;
-_donePatrol;
+_donePatrol

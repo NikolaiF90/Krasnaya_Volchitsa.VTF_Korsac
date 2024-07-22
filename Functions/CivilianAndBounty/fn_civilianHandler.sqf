@@ -4,12 +4,11 @@ while {true} do
 {
     if (count CAB_SpawnedCivilians > 0) then 
     {
-        private _civsArray = + CAB_SpawnedCivilians;
+        private _civsArray = [];
         {
-            private _civilian = CAB_SpawnedCivilians select _forEachIndex;
-            if (_civilian == objNull) exitWith {};
+            private _civilian = _x;
 
-            if (_civilian != objNull && alive _civilian) then 
+            if ((!isNull _civilian) && alive _civilian) then 
             {
                 // Get distance from player
                 private _distance = _civilian distance _unit;
@@ -61,33 +60,25 @@ while {true} do
                     _civilian setvariable ["CIV_SpawnerUnits", _spawner, true];            
                 };
 
-                if (_civilian getvariable "CIV_SpawnerUnits" isequalto []) then
+                if (_civilian getVariable "CIV_SpawnerUnits" isEqualTo []) then
                 {
                     // Despawn civilian
                     private _group = group _civilian;	
-                    for "_i" from count (waypoints _group) to 1 step -1 do
                     {
-                        deleteWaypoint ((waypoints _group) # _i);
-                    };
-                    deletevehicle _civilian;
-                    deletegroup _group;
-                    _civsArray deleteAt _forEachIndex; 
-
-                    sleep 0.1;	
+                        deleteWaypoint _x;
+                    } forEach waypoints _group;
+                    deleteVehicle _civilian;
+                    deleteGroup _group;
+                }
+                else
+                {
+                    _civsArray pushBack _civilian;
                 };
-            }else
-            {
-                // Remove from array, but not dead body
-                _civsArray deleteAt _forEachIndex;
             };
         } forEach CAB_SpawnedCivilians;
 
-        private _deletedCounts = (count CAB_SpawnedCivilians) - (count _civsArray);
-        CAB_TotalSpawnedCivilians = CAB_TotalSpawnedCivilians - _deletedCounts;
-        publicVariable "CAB_TotalSpawnedCivilians";
-        
         CAB_SpawnedCivilians = _civsArray;
-        _unit setVariable ["CIV_SpawnedUnits",CAB_SpawnedCivilians,true];   
+        _unit setVariable ["CIV_SpawnedUnits", CAB_SpawnedCivilians, true];
     };
 
     sleep CAB_CivilianCheckInterval;

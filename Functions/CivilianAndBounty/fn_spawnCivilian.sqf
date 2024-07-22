@@ -1,6 +1,6 @@
+params ["_houseList"];
 // Find house as spawn point 
-private _houseIndex = floor random (count CAB_NearbyHouses);
-private _spawnHouse = CAB_NearbyHouses # _houseIndex;
+private _spawnHouse = selectRandom _houseList;
 private _spawnPos = [_spawnHouse, 0, 20] call BIS_fnc_findSafePos;
 
 // Spawn the civilian 

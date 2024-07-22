@@ -55,7 +55,7 @@ _texUpper ctrlcommit 0.2;
 
 // remove effect if player get revived/stabilized or died or character changed (teamswitch or zeus f.e.)
 [
-	{!alive player || {!(player getVariable ["ais_unconscious", false])} || {(player getVariable ["ais_stabilized", false])}},
+	{!alive player || {!(player getVariable ["AIS_IsUnconscious", false])} || {(player getVariable ["ais_stabilized", false])}},
 	{_this spawn AIS_Effects_fnc_deleteBloodSplatterScreen},
 	[_texLower,_texMiddle,_texUpper]
 ] call AIS_Core_fnc_waitUntilAndExecute;

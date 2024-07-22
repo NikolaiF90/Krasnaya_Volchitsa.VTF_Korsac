@@ -77,7 +77,7 @@ waitUntil {
 	diag_tickTime > _startTime ||
 	!alive _healer ||
 	!alive _injured ||
-	_healer getVariable ["ais_unconscious", false]
+	_healer getVariable ["AIS_IsUnconscious", false]
 };
 
 _injured setVariable ["ais_helperUnit", ObjNull, true];
@@ -85,7 +85,7 @@ _injured setVariable ["ais_helperUnit", ObjNull, true];
 detach _healer;
 detach _injured;
 
-if (!alive _healer || _healer getVariable ["ais_unconscious", false]) exitWith {};
+if (!alive _healer || _healer getVariable ["AIS_IsUnconscious", false]) exitWith {};
 _healer playActionNow "medicStop";
 
 _healer stop false;
@@ -97,7 +97,7 @@ _healer setBehaviour _oldBehaviour;
 
 if (alive _injured) then 
 {
-	_injured setVariable ["ais_unconscious", false, true];
+	_injured setVariable ["AIS_IsUnconscious", false, true];
 	
 	// healing if enabled
 	if (AIS_REVIVE_HEAL) then 

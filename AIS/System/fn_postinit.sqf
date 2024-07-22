@@ -19,7 +19,7 @@ _action = [
 	"First Aid",
 	player,
 	1.5,
-	"cursorTarget isKindOf 'CAManBase' && {cursorTarget getVariable ['ais_unconscious',false]} && {cursorTarget call AIS_System_fnc_allowRevive}",
+	"cursorTarget isKindOf 'CAManBase' && {cursorTarget getVariable ['AIS_IsUnconscious',false]} && {cursorTarget call AIS_System_fnc_allowRevive}",
 	{
 		[player, cursorTarget] spawn AIS_System_fnc_Revive;
 	},
@@ -31,7 +31,7 @@ _action = [
 	"Stabilize",
 	player,
 	1.5,
-	"cursorTarget isKindOf 'CAManBase' && {cursorTarget getVariable ['ais_unconscious',false]} && {cursorTarget call AIS_System_fnc_allowStabilize}",
+	"cursorTarget isKindOf 'CAManBase' && {cursorTarget getVariable ['AIS_IsUnconscious',false]} && {cursorTarget call AIS_System_fnc_allowStabilize}",
 	{
 		[player, cursorTarget] spawn AIS_System_fnc_Stabilize;
 	},
@@ -43,7 +43,7 @@ _action = [
 	"Drag",
 	player,
 	1.8,
-	"cursorTarget isKindOf 'CAManBase' && {cursorTarget getVariable ['ais_unconscious',false]} && {cursorTarget call AIS_System_fnc_allowDrag}",
+	"cursorTarget isKindOf 'CAManBase' && {cursorTarget getVariable ['AIS_IsUnconscious',false]} && {cursorTarget call AIS_System_fnc_allowDrag}",
 	{
 		[player, cursorTarget] call AIS_System_fnc_drag;
 	},

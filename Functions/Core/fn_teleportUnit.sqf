@@ -34,4 +34,6 @@ if (_objectPosition select 2 > _terrainHeight) then
     _unit setPos _teleportPos;
 };
 
+// Change unit rotation 
+_unit setDir (_unit getDir _object);
 _teleportPos

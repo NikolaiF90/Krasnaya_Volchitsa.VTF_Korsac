@@ -1,3 +1,4 @@
+// ToDo - optimize
 private _unit = player;
 
 [_unit] call F90_fnc_reportMission;
@@ -9,6 +10,7 @@ private _hvtCaptured = _unit getVariable "REC_TempHVTCaptured";
 private _heliUsed = _unit getVariable "REC_HeliUsedDeduction";
 private _armedCars = _unit getVariable "REC_ArmedCarsDeduction";
 private _unarmedCars = _unit getVariable "REC_UnarmedCarsDeduction";
+private _tempTeamDeduction = _unit getVariable "REC_TempTeamDeduction";
 private _successfulOperation = _unit getVariable "REC_TempOP";
 private _seizePoints = _unit getVariable "REC_SeizePoints";
 private _totalPoints = _unit getVariable "REC_TotalPoints";
@@ -40,7 +42,8 @@ private _pointsDeduction =
 [
     format ["Transport Heli: %1pts", _heliUsed],
     format ["Armed Cars: %1pts", _armedCars],
-    format ["Unarmed Cars: %1pts", _unarmedCars]
+    format ["Unarmed Cars: %1pts", _unarmedCars],
+    format ["Temporary Teammates: %1pts", _tempTeamDeduction]
     // ToDo - Air Supports 
     // ToDo - Artillery 
     // ToDo - Helicopters 
@@ -70,8 +73,9 @@ private _spawnedArmedCars = _unit getVariable "Support_SpawnedArmedVehicles";
     private _vehicle = _x;
     if !(isNil {_vehicle}) then 
     {
-        if (_vehicle in Support_SpawnedArmedVehicles) then {Support_SpawnedArmedVehicles = Support_SpawnedArmedVehicles - [_vehicle]};
-        if (_vehicle in Support_SpawnedUnarmedVehicles) then {Support_SpawnedUnarmedVehicles = Support_SpawnedUnarmedVehicles - [_vehicle]};
         deleteVehicle _vehicle;
     };
 } forEach _spawnedArmedCars + _spawnedUnarmedCars;
+
+_unit setVariable ["Support_SpawnedUnarmedVehicles", [], true];
+_unit setVariable ["Support_SpawnedArmedVehicles", [], true];

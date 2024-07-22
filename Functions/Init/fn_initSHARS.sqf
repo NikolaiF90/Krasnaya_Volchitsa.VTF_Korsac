@@ -7,14 +7,7 @@ SHARS_SquadsData = [DSC_AlliedFaction] call F90_fnc_generateSquadData;
 //[] remoteExec ["F90_fnc_generateShopData", 0, true];
 [] call F90_fnc_generateShopData;
 
-private _hireActionID = recruitX getVariable ["SHARS_RecruitActionID", -1];
-
-// Remove hire action if already exist
-if (_hireActionID != -1) then 
-{
-    [recruitX, _hireActionID, "SHARS_RecruitActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
-};
-
+// Init action 
 [
     recruitX, 
     "Hire Recruits", 
@@ -26,13 +19,6 @@ if (_hireActionID != -1) then
     "alive _this",
     "SHARS_RecruitActionID"
 ] remoteExec ["F90_fnc_addAction", 0, true];
-
-private _squadManagementActionID = reserveX getVariable ["SHARS_SquadManagementActionID", -1];
-
-if (_squadManagementActionID != -1) then 
-{
-    [reserveX, _squadManagementActionID, "SHARS_SquadManagementActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
-};
 
 [
     reserveX,

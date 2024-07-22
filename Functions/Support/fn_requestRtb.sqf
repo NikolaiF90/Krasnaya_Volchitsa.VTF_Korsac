@@ -2,12 +2,12 @@ params ["_transportVehicle"];
 
 if !(alive _transportVehicle) exitWith {};
 
-if ((_transportVehicle getVariable "Mission_IsIdle")) then 
+if ((_transportVehicle getVariable "RSW_IsIdle")) then 
 {
-    _transportVehicle setVariable ["Mission_IsIdle", false, true];
+    _transportVehicle setVariable ["RSW_IsIdle", false, true];
 
     private _heliWaitingTime = 3;
-    private _basePosition = _transportVehicle getVariable "Mission_BasePosition";
+    private _basePosition = _transportVehicle getVariable "RSW_BasePosition";
     _transportVehicle move _basePosition;
 
     sleep _heliWaitingTime;
@@ -22,8 +22,8 @@ if ((_transportVehicle getVariable "Mission_IsIdle")) then
     {
         _transportVehicle land "LAND";
         sleep _heliWaitingTime;
-        _transportVehicle setVariable ["Mission_OnTransportMission", false, true];
-        _transportVehicle setVariable ["Mission_IsIdle", true, true];
+        _transportVehicle setVariable ["RSW_OnTransportMission", false, true];
+        _transportVehicle setVariable ["RSW_IsIdle", true, true];
     };
 } else 
 {

@@ -79,7 +79,7 @@ private _init_units = call {
 	_x removeAllEventHandlers "HandleHeal";
 	_x addEventHandler ["HandleHeal", {_this call AIS_System_fnc_handleHeal}];
 	
-	if (_x getVariable ["ais_unconscious", false]) then {
+	if (_x getVariable ["AIS_IsUnconscious", false]) then {
 		if (!isNull(_x getVariable ["ais_DraggerUnit", objNull])) then {
 			_x switchMove "AinjPpneMrunSnonWnonDb";
 		} else {
@@ -97,7 +97,7 @@ if (AIS_TOGGLE_RADIO) then {
 };
 
 // JIP in a unconscious AI... and avoid cheating by left in lobby...
-if (_player getVariable ["ais_unconscious", false]) then {
+if (_player getVariable ["AIS_IsUnconscious", false]) then {
 	[{[(_this select 0)] call AIS_System_fnc_setUnconscious}, [_player]] call AIS_Core_fnc_onNextFrame;
 };
 

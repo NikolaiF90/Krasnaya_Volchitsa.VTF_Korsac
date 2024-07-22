@@ -1,3 +1,15 @@
+/*
+    Author: PrinceF90
+
+    Description:
+        Function to get all helicopters from a list of vehicles.
+
+    Parameter(s):
+        _vehicleList - List of vehicles to get the helicopter from. [ARRAY]
+
+    Returns:
+        _helicopter - An array containing vehicle data (class name and display name) for helicopters.
+*/
 params ["_vehicleList"];
 
 private _helicopter = [];
@@ -17,5 +29,12 @@ private _helicopter = [];
         _helicopter pushBack _vehicleData;
     };
 } forEach _vehicleList;
+
+if (count _helicopter <= 1) then 
+{
+    _helicopter = [];
+    _vehicleList = ["BLU_G_F"] call F90_fnc_getFactionVehicles;
+    _helicopter = [_vehicleList] call F90_fnc_getHelicopter;
+};
 
 _helicopter

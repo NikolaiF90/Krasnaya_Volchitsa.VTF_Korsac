@@ -31,6 +31,10 @@ for "_i" from 1 to _groupCount do
     private _groupSize = [2, 6] call BIS_fnc_randomInt;
     private _group = [_groupSize, _unitList, _position, _side, _skill] call F90_fnc_createSquad;
     [_group, _position, 100] call BIS_fnc_taskPatrol;
-};
+
+    {
+        _createdUnits pushBack _x;
+    } forEach units _group;
+}; 
 
 _createdUnits

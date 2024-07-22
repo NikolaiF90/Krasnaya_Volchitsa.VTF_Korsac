@@ -35,6 +35,9 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
             Task_DutyName = "Patrol";
             Task_DutyDescription = format ["Perform a patrol on marked location(GRID %1).", mapGridPosition _taskLocation];
             Task_DutyStatus = 0;
+
+            // Spawn QRF groups 
+            [60, position Task_TaskTrigger] spawn F90_fnc_createAmbush;
         };
         
         case "Task_Ambush": 
@@ -65,7 +68,7 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
             };
 
             private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
-            [Task_AmbushHVTSpawnChance, _hvtSpawnPos] spawn F90_fnc_createHVT;
+            [Task_AmbushHVTSpawnChance, _hvtSpawnPos, false] spawn F90_fnc_createHVT;
 
             // Randomly spawn seizable assets
             private _random = random 101;
@@ -108,7 +111,7 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
             };
 
             private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
-            [100, _hvtSpawnPos] spawn F90_fnc_createHVT;
+            [100, _hvtSpawnPos, true] spawn F90_fnc_createHVT;
 
             // Randomly spawn seizable assets
             private _random = random 101;
@@ -134,14 +137,15 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
 
             _condition = "this";
 
+            // Create Task
+            [_taskLocation] call F90_fnc_createTaskSupport;
+
             // Task Support 
             Task_CurrentTaskID = "Support";
 
             Task_DutyName = "Support";
             Task_DutyDescription = format ["Provide a support on marked location(GRID %1).", mapGridPosition _taskLocation];
             Task_DutyStatus = 0;
-
-            [40, _taskLocation] spawn F90_fnc_createAmbush;
         };
 
         case "Task_RTB": 

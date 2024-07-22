@@ -1,12 +1,12 @@
 private _caller = player;
 
-private _selectedItem = Support_TransportVehicles select (lbCurSel TransportSMenu_VehiclesListBoxIDC);
+private _selectedItem = Support_TransportHelicopters select (lbCurSel TransportSMenu_VehiclesListBoxIDC);
 private _transportVehicle = _selectedItem select 0;
 
 private _status = "";
 if (alive _transportVehicle) then 
 {
-    if (_transportVehicle getVariable "Mission_OnTransportMission") then 
+    if (_transportVehicle getVariable "RSW_OnTransportMission") then 
     {
         _status = "On Transport Mission";
     } else 

@@ -4,8 +4,6 @@
     Description: 
         Configuration file for Civilian And Bounty System
 */
-// Turns debug on and off
-CABDebug = true;
 // Turns the mod on and off       
 CAB_CivilianSpawningEnabled = true;
 publicVariable "CAB_CivilianSpawningEnabled";
@@ -15,11 +13,11 @@ CAB_CivilianCheckInterval = 3;
 // Time interval (in seconds) to checks for civilian spawning
 CAB_SpawnCheckInterval = 8;
 // Radius (in meters) to spawn civilians. Civs won't spawn outside this radius
-CAB_CivilianSpawnRadius = 300;
+CAB_CivilianSpawnRadius = 400;
 // House count to spawn 1 civilian  
-CAB_CivilianDensity = 1;
+CAB_CivilianDensity = 2;
 // Max spawned civs count. WARNING: This variable can override CAB_CivilianDensity if the value is lower
-CAB_MaxCivilianCounts = 20;
+CAB_MaxCivilianCounts = 18;
 // This will generate names based on nationality. Can be "English", "Russian"
 CAB_CivilianNationality = "Russian";
 // Minimum time before civilian look for next waypoint
@@ -32,7 +30,7 @@ CAB_WantedCounts = 3;
 // Time before civilian continue moving after being stopped by player
 CAB_CivilianWaitingTime = 8;
 // How long until the civilian gets despawned
-CAB_CivilianLifetime = 60;
+CAB_CivilianLifetime = 180;
 // Chance(in percentage) of spawned civilian being in the wanted list 
 CAB_HVTChance = 20;
 // Chance (in percentage) that enemy unit holds intel

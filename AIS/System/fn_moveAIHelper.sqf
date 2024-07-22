@@ -17,8 +17,8 @@ params ["_injured", "_helper"];
 if (
 	!alive _helper ||
 	!alive _injured ||
-	(!(_injured getVariable ["ais_unconscious", false])) ||
-	(_helper getVariable ["ais_unconscious", false]) ||
+	(!(_injured getVariable ["AIS_IsUnconscious", false])) ||
+	(_helper getVariable ["AIS_IsUnconscious", false]) ||
 	(!isNull (_injured getVariable ["ais_helperUnit", objNull]))
 ) exitWith {
 	if (alive _helper) then {

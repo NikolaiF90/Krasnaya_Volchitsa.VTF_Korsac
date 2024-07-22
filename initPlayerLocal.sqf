@@ -1,4 +1,5 @@
-waitUntil {!isNil "Scenario_Name" && !isNull player && Mission_InitDone};
+waitUntil {!isNil "Scenario_Name" && !isNull player && !isNil "Mission_InitDone"};
+waitUntil {Mission_InitDone};
 
 if (isServer && hasInterface) then {missionCaptain = player};
 
@@ -19,9 +20,9 @@ private _clonePitch = pitch _cloneUnit;
 [player, _clonePitch] remoteExec ["setPitch", 0, true];
 private _cloneLoadout = getUnitLoadout _cloneUnit;
 player setUnitLoadout _cloneLoadout;
+player setVariable ["RSW_UnitSide", side _cloneGroup, true];
 // Delete Clone
 [_cloneUnit] call F90_fnc_deleteUnit;
-
 
 hcRemoveAllGroups player;
 

@@ -31,6 +31,7 @@ _log_briefing = player createDiaryRecord ["ais_settings", ["Healing Status", "
 _subject = player createDiarySubject ["ais", "First Aid System"];
 _log_briefing = player createDiaryRecord ["ais", ["About and Credits", "
 <font face='PuristaMedium' size=18 color='#ffffff'>Made by: </font><font face='PuristaMedium' size=25 color='#8E8E8E'>Psychobastard</font><br/>
+<font face='PuristaMedium' size=18 color='#ffffff'>Improvised by: </font><font face='PuristaMedium' size=25 color='#8E8E8E'>PrinceF90</font><br/>
 <font face='PuristaMedium' size=18 color='#ffffff'>Version: </font><font face='PuristaMedium' size=20 color='#ffffff'>08102023</font><br/><br/>
 
 <font face='PuristaMedium' size=30 color='#014EE3'>Credits</font><br/>
@@ -47,6 +48,7 @@ _log_briefing = player createDiaryRecord ["ais", ["Instructions", "
 <font face='PuristaMedium' size=22 color='#014EE3'>If you are unconscious:</font><br/>
 - <font face='PuristaMedium' size=15 color='#8E8E8E'>Press 'FORWARD'</font> to go prone and fire your current weapon.<br/><br/>
 - You can <font face='PuristaMedium' size=15 color='#8E8E8E'>CRAWL</font> to a safe position.<br/><br/>
+- <font face='PuristaMedium' size=15 color='#8E8E8E'>Press 'T'</font> key to skip bleeding and respawn.<br/><br/>
 - <font face='PuristaMedium' size=15 color='#8E8E8E'>Press 'H'</font> key to call friendly AI for help.<br/><br/><br/><br/>
 
 <font face='PuristaMedium' size=22 color='#014EE3'>How to give first aid:</font><br/>

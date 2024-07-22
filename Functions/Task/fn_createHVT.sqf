@@ -12,7 +12,7 @@
         _hvt - spawned HVT
 */
 
-params ["_spawnChance", "_position"];
+params ["_spawnChance", "_position", "_isKillHVTTask"];
 
 if (_spawnChance >= (floor random 101)) then 
 {
@@ -24,9 +24,14 @@ if (_spawnChance >= (floor random 101)) then
     private _type = [DSC_EnemyUnitList, ["officer", "sl", "tl", "commander", "squadleader"]] call F90_fnc_getSuitableClass;
     private _unit = [_group, _type, _position, Mission_DefaultEnemySkill, _nameData] call F90_fnc_createUnit;
 
+    _unit setVariable ["CAB_WantedData", _wantedData, true];
     _unit setVariable ["Record_IsHVT", true, true];
     _unit setVariable ["CAB_WantedID", _wantedID, true];
     Task_SpawnedHVT pushBack _unit;
-    
-    _unit
+};
+
+if (_isKillHVTTask) then 
+{
+    // Task handler 
+    [] spawn F90_fnc_killHVTTaskHandler;
 };

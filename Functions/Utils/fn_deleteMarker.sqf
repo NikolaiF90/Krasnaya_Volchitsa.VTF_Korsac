@@ -16,6 +16,7 @@ if (_markerName in Persistent_MarkerBlacklists) then
 {
     private _index = Persistent_MarkerBlacklists find _markerName;
     Persistent_MarkerBlacklists deleteAt _index;
+    publicVariable "Persistent_MarkerBlacklists";
 };
 
 deleteMarker _markerName;

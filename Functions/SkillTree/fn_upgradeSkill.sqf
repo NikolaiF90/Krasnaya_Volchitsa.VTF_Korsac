@@ -1,5 +1,8 @@
 params ["_skillName"];
 
+private _locked = true;
+if (_locked) exitWith {["This feature hasn't been implemented yet", "ERROR"] call F90_fnc_textNotification};
+
 private _unit = player;
 
 if (isNil {_skillName}) then {_skillName = ""};

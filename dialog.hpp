@@ -2087,3 +2087,114 @@ class transportSupportMenu
 		////////////////////////////////////////////////////////
 	};
 };
+
+class changeTransportHeliMenu 
+{
+	idd = 2500;
+
+	class controls 
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Xuhavy)
+		////////////////////////////////////////////////////////
+
+		class bg_ChangeTransportHeli1: RscText
+		{
+			idc = 2501;
+			x = 0.283437 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
+			w = 0.417656 * safezoneW;
+			h = 0.385 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_ChangeTransportHeliTitle: RscText
+		{
+			idc = 2502;
+			text = "Change Transport Heli"; //--- ToDo: Localize;
+			x = 0.448438 * safezoneW + safezoneX;
+			y = 0.368 * safezoneH + safezoneY;
+			w = 0.0876563 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class bg_ChangeTransportHeli2: RscText
+		{
+			idc = 2503;
+			x = 0.288594 * safezoneW + safezoneX;
+			y = 0.412 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.264 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class bg_ChangeTransportHeli3: RscText
+		{
+			idc = 2504;
+			x = 0.494844 * safezoneW + safezoneX;
+			y = 0.412 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.264 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class listBox_ChangeTransportHeliFrom: RscListbox
+		{
+			idc = 2505;
+			x = 0.288594 * safezoneW + safezoneX;
+			y = 0.445 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.22 * safezoneH;
+		};
+		class text_ChangeTransportHeliTitle2: RscText
+		{
+			idc = 2506;
+			text = "Spawned"; //--- ToDo: Localize;
+			x = 0.365937 * safezoneW + safezoneX;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class listBox_ChangeTransportHeliTo: RscListbox
+		{
+			idc = 2507;
+			x = 0.494844 * safezoneW + safezoneX;
+			y = 0.445 * safezoneH + safezoneY;
+			w = 0.201094 * safezoneW;
+			h = 0.22 * safezoneH;
+		};
+		class text_ChangeTransportHeliTitle3: RscText
+		{
+			idc = 2508;
+			text = "Change To"; //--- ToDo: Localize;
+			x = 0.572187 * safezoneW + safezoneX;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class button_ChangeTransportHeliConfirm: RscButton
+		{
+			idc = 2509;
+			action = "[] call F90_fnc_changeTransportHeli";
+			text = "Change"; //--- ToDo: Localize;
+			x = 0.608281 * safezoneW + safezoneX;
+			y = 0.687 * safezoneH + safezoneY;
+			w = 0.0876563 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Change Spawned Transport Heli"; //--- ToDo: Localize;
+		};
+		class button_ChangeTransportHeliClose: RscButton
+		{
+			idc = 2510;
+			action = "[] call F90_fnc_closeMenu";
+			text = "Close"; //--- ToDo: Localize;
+			x = 0.515469 * safezoneW + safezoneX;
+			y = 0.687 * safezoneH + safezoneY;
+			w = 0.0876563 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,0,0,1};
+			tooltip = "Close This Menu"; //--- ToDo: Localize;
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+
+	};
+};

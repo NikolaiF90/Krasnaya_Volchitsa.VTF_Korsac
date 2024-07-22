@@ -22,7 +22,7 @@ for "_i" from 0 to (floor _count)-1 do
 
     private _arrestReward = floor (CAB_HVTReward call BIS_fnc_randomNum);
     private _deductAmount = (CAB_HVTKilledDeduction / 100) * _arrestReward;
-    private _killReward = _arrestReward - _deductAmount;
+    private _killReward = floor (_arrestReward - _deductAmount);
 
     _wantedData pushBack _arrestReward;
     _wantedData pushBack _killReward;

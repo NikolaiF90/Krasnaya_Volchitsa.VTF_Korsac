@@ -92,4 +92,7 @@ PurchaseVehMenu_VehiclesListBoxIDC = 2204;
 
 TransportSMenu_VehiclesListBoxIDC = 2405;
 
+ChangeTransportHeliMenu_FromListBoxIDC = 2505;
+ChangeTransportHeliMenu_ToListBoxIDC = 2507;
+
 Mission_DoneInitGlobalVariables = true;

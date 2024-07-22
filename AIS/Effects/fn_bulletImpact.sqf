@@ -17,7 +17,7 @@
 params ["_unit", "_strength"];
 
 if (!local player) exitWith {};
-if (_unit getVariable "ais_unconscious") exitWith {};
+if (_unit getVariable "AIS_IsUnconscious") exitWith {};
 
 
 if (isNull objectParent _unit && {cameraView in ["INTERNAL", "GUNNER"]}) then {

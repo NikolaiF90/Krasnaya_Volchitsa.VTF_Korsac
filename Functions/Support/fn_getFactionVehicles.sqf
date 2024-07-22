@@ -1,3 +1,15 @@
+/*
+    Author: PrinceF90
+
+    Description:
+        This function retrieves vehicles from a specific faction. The function returns an ARRAY: (vehicle class name and display name).
+
+    Parameter(s):
+        _faction - The faction to extract the vehicles from. [STRING]
+
+    Returns:
+        _factionVehicles - An array containing vehicle data (vehicle class name and display name) for vehicles belonging to the specified faction.
+*/
 params ["_faction"];
 
 private _config = configFile >> "CfgVehicles";
@@ -12,8 +24,7 @@ private _vehicles = [];
     };
 } forEach _allVehicles;
 
-private _factionVehicle = [];
-
+private _factionVehicles = [];
 
 {
     private _vehicleFaction = getText (_config >> _x >> "faction");
@@ -22,8 +33,14 @@ private _factionVehicle = [];
     {
         private _displayName = getText (_config >> _x >> "displayName");
         private _vehicleData = [_x, _displayName];
-        _factionVehicle pushBack _vehicleData;
+        _factionVehicles pushBack _vehicleData;
     };
 } forEach _vehicles;
 
-_factionVehicle
+if (count _factionVehicles < 2) then 
+{
+    _factionVehicles = [];
+    _factionVehicles = ["BLU_G_F"] call F90_fnc_getFactionVehicles;
+};
+
+_factionVehicles

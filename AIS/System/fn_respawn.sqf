@@ -14,7 +14,7 @@
 params ["_unit", "_corpse"];
 
 
-_unit setVariable ["ais_unconscious", false, true];
+_unit setVariable ["AIS_IsUnconscious", false, true];
 _unit setVariable ["ais_stabilized", false, true];
 _unit setVariable ["ais_fireDamage", 0];
 _unit setVariable ["AIS_UnitIsDead", false];

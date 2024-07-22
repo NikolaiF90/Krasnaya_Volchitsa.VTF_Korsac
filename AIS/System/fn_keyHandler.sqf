@@ -17,7 +17,7 @@
 private _keyDown = _this select 1;
 private _return = false;
 
-if !(player getVariable ['ais_unconscious', false]) exitWith {false};
+if !(player getVariable ['AIS_IsUnconscious', false]) exitWith {false};
 
 if (_keyDown isEqualTo 1) then {[] spawn AIS_System_fnc_disableRespawnButton};	// key "Esc" --> disable Respawn Button
 

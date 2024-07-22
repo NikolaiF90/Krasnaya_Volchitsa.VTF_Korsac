@@ -11,15 +11,23 @@ if (_selectedIndex != 0) then
 {
     private _groupArray = units group _caller;
     private _selectedSquadUnit = _groupArray select _selectedIndex; 
+    
+    // Temporary Unit Check 
+    private _isTempUnit = _selectedSquadUnit getVariable ["RSW_IsTempSupportUnit", false];
+    if !(_isTempUnit) then 
+    {
+        // Generate unit data
+        private _reserveData = [_selectedSquadUnit] call F90_fnc_generateReserveData;
+        private _reservePools = _caller getVariable "SHARS_ReservePool";
+        _reservePools pushBack _reserveData;
+        _caller setVariable ["SHARS_ReservePool", _reservePools, true];
+        // Delete the physical unit
+        [_selectedSquadUnit] call F90_fnc_deleteUnit;
 
-    // Generate unit data
-    private _reserveData = [_selectedSquadUnit] call F90_fnc_generateReserveData;
-    private _reservePools = _caller getVariable "SHARS_ReservePool";
-    _reservePools pushBack _reserveData;
-    _caller setVariable ["SHARS_ReservePool", _reservePools, true];
-    // Delete the physical unit
-    [_selectedSquadUnit] call F90_fnc_deleteUnit;
-
-    ["RESERVE"] call F90_fnc_refreshSquadMenu;
-    ["SQUAD"] call F90_fnc_refreshSquadMenu;
+        ["RESERVE"] call F90_fnc_refreshSquadMenu;
+        ["SQUAD"] call F90_fnc_refreshSquadMenu;
+    } else 
+    {
+        ["You do not have the permission to manage temporary units", "ERROR"] call F90_fnc_textNotification;
+    };
 };

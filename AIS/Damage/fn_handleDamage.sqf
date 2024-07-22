@@ -32,7 +32,7 @@ if !(local _unit) exitWith {false};
 if (_damage == 0) exitWith {[_unit, _hitPartIndex] call AIS_Damage_fnc_exitDamageHandler};
 
 // forbids further damage when unit is already unconcious
-if (AIS_DISABLE_FURTHER_DAMAGE && {_unit getVariable ["ais_unconscious", false]}) exitWith {0.89};
+if (AIS_DISABLE_FURTHER_DAMAGE && {_unit getVariable ["AIS_IsUnconscious", false]}) exitWith {0.89};
 // dead unit
 if (_unit getVariable ["AIS_UnitIsDead", false]) exitWith {0.89};
 // unknown part selection
@@ -133,7 +133,7 @@ if !(AIS_REVIVE_GUARANTY) then
 _unit setVariable ["ais_stabilized", false, true];
 
 // unit can die if they get to much new damage in unconscious mode
-if ((diag_tickTime > _unit getVariable ["ais_protector_delay", 0]) && {_unit getVariable ["ais_unconscious", false]}) exitWith {
+if ((diag_tickTime > _unit getVariable ["ais_protector_delay", 0]) && {_unit getVariable ["AIS_IsUnconscious", false]}) exitWith {
 	if (_damage > 0.9) then {[_unit,_source] call AIS_Damage_fnc_goToDead};
 	_damage = _damage min 0.89;
 	_damage
@@ -157,7 +157,7 @@ if ((_damage > 0.9) && {_hitSelection in ["", "head", "body"]}) then {
 if ((_damage > 1.5) && {_hitSelection in ["pelvis", "head", "body"]} && {_damageType in ["grenade", "baaam"]}) then {
 	_isUnconscious = true;
 };
-if (_isUnconscious && {!(_unit getVariable ["ais_unconscious", false])}) then 
+if (_isUnconscious && {!(_unit getVariable ["AIS_IsUnconscious", false])}) then 
 {
 	[
 		{

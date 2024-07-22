@@ -8,12 +8,11 @@
 		Does not accept any parameters
 	
 	Returns: 
-		0
-
-	Example: 
-		[] call F90_fnc_configureEconomy;
+		Nothing
 */
 
+// Name of the currency 
+Economy_CurrencyName = "Milcash";
 // Default milcash for players
 Economy_PlayerStartingMoney = 500; 
 // Milcash for all spawned BLUFOR units

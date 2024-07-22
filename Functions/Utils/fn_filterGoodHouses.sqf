@@ -1,14 +1,28 @@
-params ["_radius"];
+/*
+    Author: PrinceF90
 
-private _returnValue = nil;
+    Description:
+        This function filters a list of houses based on certain criteria to find habitable houses.
 
-private _nearbyHouses = CAB_HousesNearPlayer select {_x distance player < _radius};
+    Parameter(s):
+        _houseList - The list of houses to be filtered. [ARRAY]
 
-_nearbyHouses = _nearbyHouses select {!(isobjecthidden _x)};
-_nearbyHouses = _nearbyHouses select {!(["estroy",gettext (configFile >> "CfgVehicles" >> (typeof _x) >> "displayname")] call BIS_fnc_inString)}; 
-_nearbyHouses = _nearbyHouses select {!(["amage",gettext (configFile >> "CfgVehicles" >> (typeof _x) >> "displayname")] call BIS_fnc_inString)}; 
-_nearbyHouses = _nearbyHouses select {!(["uin",gettext (configFile >> "CfgVehicles" >> (typeof _x) >> "displayname")] call BIS_fnc_inString)}; 
-_nearbyHouses = _nearbyHouses select {!(["bandon",gettext (configFile >> "CfgVehicles" >> (typeof _x) >> "displayname")] call BIS_fnc_inString)}; 
-_returnValue = _nearbyHouses; 
+    Returns:
+        _habitableHouse - The list of habitable houses after applying the filtering criteria.
+*/
+params ["_houseList"];
 
-_returnValue
+private _habitableHouse = [];
+
+{
+    if (! (isobjecthidden _x) &&
+        !(["estroy", gettext (configFile >> "CfgVehicles" >> (typeof _x) >> "displayname")] call BIS_fnc_inString) &&
+        !(["amage", gettext (configFile >> "CfgVehicles" >> (typeof _x) >> "displayname")] call BIS_fnc_inString) &&
+        !(["uin", gettext (configFile >> "CfgVehicles" >> (typeof _x) >> "displayname")] call BIS_fnc_inString) &&
+        !(["bandon", gettext (configFile >> "CfgVehicles" >> (typeof _x) >> "displayname")] call BIS_fnc_inString)
+    ) then {
+        _habitableHouse pushBack _x;
+    }
+} forEach _houseList;
+
+_habitableHouse

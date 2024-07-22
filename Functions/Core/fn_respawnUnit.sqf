@@ -14,9 +14,9 @@
 params ["_unit", "_spawnerObject"];
 
 if (isNull _unit) then {_unit = player};
-if (_unit getVariable ["Mission_IsRespawning", false]) exitWith {_unit setDamage 0};
+if (_unit getVariable ["RSW_IsRespawning", false]) exitWith {_unit setDamage 0};
 
-_unit setVariable ["Mission_IsRespawning", true, true];
+_unit setVariable ["RSW_IsRespawning", true, true];
 
 private _unitOldPos = position _unit;
 _unit setPos [0,0,0];
@@ -75,7 +75,7 @@ private _accTime = diag_tickTime + RESPAWN_Timer;
     {diag_tickTime > (_this select 1)}, 
     {
         (_this select 0) setDamage 0;
-        (_this select 0) setVariable ["Mission_IsRespawning", false, true];
+        (_this select 0) setVariable ["RSW_IsRespawning", false, true];
     },
     [_unit, _accTime]
 ] call AIS_Core_fnc_waitUntilAndExecute;

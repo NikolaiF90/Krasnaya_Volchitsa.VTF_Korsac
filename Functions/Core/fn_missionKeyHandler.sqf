@@ -28,4 +28,13 @@ if (_key isEqualTo DIK_Y && _ctrl isEqualTo false) then
     _override = true;
 };
 
+if (_key isEqualTo DIK_T) then 
+{
+    if ((_unit getVariable "AIS_IsUnconscious")) then 
+    {
+        [_unit, objNull] call AIS_Damage_fnc_goToDead;
+        _override = true;
+    };
+};
+
 _override 

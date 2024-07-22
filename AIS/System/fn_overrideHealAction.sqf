@@ -19,7 +19,7 @@ params ["_injured", "_caller", "_index", "_action"];
 
 private _back = false;
 if (_action isEqualTo "HealSoldier") then {
-	if (_injured getVariable ["ais_unconscious", false]) then {
+	if (_injured getVariable ["AIS_IsUnconscious", false]) then {
 		_txt = if (_injured getVariable ["ais_stabilized", false]) then {
 			"First you have to Revive the injured."
 		} else {

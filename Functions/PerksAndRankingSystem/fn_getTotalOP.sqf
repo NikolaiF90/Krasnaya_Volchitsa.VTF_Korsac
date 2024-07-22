@@ -2,21 +2,18 @@
     Author: PrinceF90
 
     Description:
-        Function to get the total operation points of a given unit.
+        This function retrieves the total operation points (OP) associated with a specified unit.
 
     Parameter(s):
-        _unit - The unit to get the total operation points from. [OBJECT]
+        _unit - The unit for which the total OP is retrieved. [OBJECT]
 
     Returns:
-        _totalOperationPoints = Total operation points of the given unit.
+        _op - The total operation points of the specified unit.
 */
 params ["_unit"];
 
-if (isNull _unit) exitWith {[MissionDebug, "getTotalOP", "ERROR - No object is provided for the variable _unit", false, false] call F90_fnc_debug};
+if (isNil {_unit}) exitWith {[MissionDebug, "getTotalOP", "(ERROR) Function not executed. Provided unit is not exist", true, true] call F90_fnc_debug};
+if (isNull _unit) exitWith {[MissionDebug, "getTotalOP", "(ERROR) Function not executed. Provided unit is not exist", true, true] call F90_fnc_debug};
 
-private _totalOP = _unit getVariable ["PRS_TotalOP", -1];
-if (_totalOP == -1) then 
-{
-    _totalOP = 0;
-};
-_totalOP 
+private _op = _unit getVariable [PRS_OPName, nil];
+_op

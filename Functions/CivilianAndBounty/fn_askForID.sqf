@@ -28,6 +28,7 @@ if (!_idChecked) then
 
         _unit setVariable ["Record_IsHVT", true, true];
         _unit setVariable ["CAB_WantedID", _bountyIndex, true];
+        _unit setVariable ["CAB_WantedData", _unitData, true];
 
         _isWanted = true;
     } else 
@@ -59,7 +60,7 @@ if (!_idChecked) then
     };
 };
 
-private _civInfo = format ["First Name: %1<br />Surname: %2", _firstName, _surname];
+private _civInfo = [format ["First Name: %1", _firstName], format ["Surname: %1", _surname]];
 [_civInfo] call F90_fnc_textNotification;
 
 _unit setVariable ["CAB_IDChecked", true, true];
@@ -70,7 +71,7 @@ if (_isBeingArrested) then
 {
     if (_isWanted) then 
     {
-        ["ARREST", [_unit, _caller, _bountyIndex]] call F90_fnc_updateWantedList;
+        ["ARREST", [_unit, _caller]] call F90_fnc_updateWantedList;
     };
 } else 
 {

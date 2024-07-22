@@ -1,12 +1,5 @@
 
 // Create a purchase vehicle action
-
-private _purchaseVehActionID = repairX getVariable ["Mission_PurchaseVehActionID", -1];
-if (_purchaseVehActionID != -1) then 
-{
-    [repairX, _purchaseVehActionID] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
-};
-
 [
     repairX,
     "Purchase Vehicle",
@@ -29,5 +22,5 @@ if (_purchaseVehActionID != -1) then
         
     },
     "true",
-    "Mission_PurchaseVehActionID"    
+    "RSW_PurchaseVehActionID"    
 ] remoteExec ["F90_fnc_addAction", 0, true];

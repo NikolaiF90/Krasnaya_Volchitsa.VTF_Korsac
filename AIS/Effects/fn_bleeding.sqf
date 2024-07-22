@@ -14,7 +14,7 @@
 params ["_unit", "_revive_time"];
 
 // breack out if unit died or revived
-if (!alive _unit || {!(_unit getVariable ["ais_unconscious", false])}) exitWith {
+if (!alive _unit || {!(_unit getVariable ["AIS_IsUnconscious", false])}) exitWith {
 	_unit setBleedingRemaining 10;
 	_unit setFatigue 0.6;
 	resetCamShake;

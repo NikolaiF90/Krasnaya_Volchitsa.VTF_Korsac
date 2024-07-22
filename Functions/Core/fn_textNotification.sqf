@@ -2,16 +2,16 @@
     Author: PrinceF90
 
     Description:
-        This function generates a formatted text notification based on the type provided and displays it on the screen for a specified duration. It also has an option to store the notification to a unit if specified.
+        This function generates a formatted text and displays dynamic text notifications and store to unit's notification.
 
     Parameter(s):
-        _text - The text content of the notification. [STRING]
-        _type - (Optional, default "DEFAULT") The type of notification ("DEFAULT", "WARNING", "ERROR"). [STRING]
-        _duration - (Optional, default 4) The duration the notification is displayed on the screen. [SCALAR]
-        _layer - (Optional, default 101) The layer of the notification on the screen. [SCALAR]
-        _storeToUnit - (Optional, default true) A flag to determine if the notification should be stored to a unit. [BOOL]
+        _text - The text or array of texts to be displayed. Use array for multi-line texts. [STRING or ARRAY]
+        _type - (Optional, default "DEFAULT"). The type of notification (DEFAULT, WARNING, ERROR). [STRING]
+        _duration - (Optional, default 4). The duration the notification stays on screen. [SCALAR]
+        _layer - (Optional, default 101). The layer of the notification. [SCALAR]
+        _storeToUnit - (Optional, default true). Boolean flag to store the notification for the player unit. [BOOL]
 
-    Returns: 
+    Returns:
         None
 */
 
@@ -39,18 +39,40 @@ if (isNil {_storeToUnit}) then
 
 private _formattedText = "";
 
+private _notificationText = "";
+private _dynamicText = "";
+
+if (_text isEqualType []) then 
+{
+    _notificationText = _text select 0;
+    _dynamicText = _text select 0;
+    private _lineCount = count _text;
+    if (_lineCount > 1) then 
+    {
+        for "_i" from 1 to (_lineCount) -1 do
+        {
+            _notificationText = _notificationText + (_text select _i);
+            _dynamicText = _dynamicText + "<br />" + (_text select _i);
+        };
+    };
+} else 
+{
+    _notificationText = _text;
+    _dynamicText = _text;
+};
+
 switch (_type) do {
     case "DEFAULT": 
     {
-        _formattedText = format ["<t font='PuristaSemibold' size='0.5' color='#00ff00'>NEW NOTIFICATION <br />%1</t>", _text];
+        _formattedText = format ["<t font='PuristaSemibold' size='0.5' color='#00ff00'>NEW NOTIFICATION <br />%1</t>", _dynamicText];
     };
     case "WARNING":
     {
-        _formattedText = format ["<t font='PuristaSemibold' size='0.5' color='#ffb200'>WARNING <br />%1</t>", _text];
+        _formattedText = format ["<t font='PuristaSemibold' size='0.5' color='#ffb200'>WARNING <br />%1</t>", _dynamicText];
     };
     case "ERROR":
     {
-        _formattedText = format ["<t font='PuristaSemibold' size='0.5' color='#ff0000'>ERROR <br />%1</t>", _text];
+        _formattedText = format ["<t font='PuristaSemibold' size='0.5' color='#ff0000'>ERROR <br />%1</t>", _dynamicText];
     };
 };
 
@@ -61,6 +83,6 @@ if (_storeToUnit) then
     private _unit = player;
     if !(isNull _unit) then 
     {
-        [_text, _unit] call F90_fnc_addToRecentNotification;
+        [_notificationText, _unit] call F90_fnc_addToRecentNotification;
     };
 };

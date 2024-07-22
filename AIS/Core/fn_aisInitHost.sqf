@@ -33,7 +33,3 @@ if (local _unit && !(isPlayer _unit)) then {
 		ais_hhEH = _unit addEventHandler ["HandleHeal", {_this call AIS_System_fnc_handleHeal}];
 	};
 };
-
-// Save the unit side into unit's variable 
-private _side = side _unit;
-_unit setVariable ["Mission_UnitSide", _side, true];

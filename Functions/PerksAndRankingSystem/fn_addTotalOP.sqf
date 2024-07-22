@@ -2,29 +2,31 @@
     Author: PrinceF90
 
     Description:
-        Adds operation points to the total operation points of a given unit.
+        This function adds a specified amount to the total operation points (OP) associated with a unit.
 
     Parameter(s):
-        _unit - The unit to add operation points to. [OBJECT]
-        _addedOperationPoints - (Optional, default 0)The number of operation points to add. [INT]
+        _unit - The unit for which the total OP is updated. [OBJECT]
+        _amount - The amount to be added to the current total OP. [SCALAR]
 
     Returns:
-        _totalOP - The updated total operation points after adding the specified points.
+        _op - The updated total OP after adding the specified amount.
 */
-params ["_unit", "_addedOperationPoints"];
+params ["_unit", "_amount"];
 
-if (isNull _unit) exitWith {[MissionDebug, "addTotalOP", "ERROR - No object is provided for the variable _unit", false, false] call F90_fnc_debug};
+if (isNil {_unit}) exitWith {[MissionDebug, "addTotalOP", "(ERROR) Function not executed. Provided unit is not exist", true, true] call F90_fnc_debug};
+if (isNull _unit) exitWith {[MissionDebug, "addTotalOP", "(ERROR) Function not executed. Provided unit is not exist", true, true] call F90_fnc_debug};
+if (isNil {_amount}) then {_amount = 0};
 
-if (isNil {_addedOperationPoints}) then {_addedOperationPoints = 0};
+private _op = [_unit] call F90_fnc_getMoney;
 
-private _totalOP = _unit getVariable ["PRS_TotalOP", -1];
-if (_totalOP == -1) then 
+if (isNil {_op}) then 
 {
-    _totalOP = 0;
+    _op = _amount;
+} else 
+{
+    _op = _op + _amount;
 };
 
-_totalOP = _totalOP + (floor _addedOperationPoints);
+[_unit, _op] call F90_fnc_setTotalOP;
 
-_unit setVariable ["PRS_TotalOP", _totalOP, true];
-
-_totalOP
+_op

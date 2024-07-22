@@ -8,7 +8,7 @@ private _fn_getIncompetentUnit =
     {
         private _member = _x;
         private _isArrested = _member getVariable ["CAB_IsArrested", false];
-        private _isCaptive = _member getVariable ["ais_unconscious", false];
+        private _isCaptive = _member getVariable ["AIS_IsUnconscious", false];
 
         if ((_isArrested || _isCaptive) && !(_member in _defeatedUnits)) then 
         {
@@ -63,9 +63,6 @@ while {Task_DutyStatus == 0} do
             {
                 if (_remaining >= 0) then 
                 {
-                    // Spawn QRF groups 
-                    [60, position Task_TaskTrigger] spawn F90_fnc_createAmbush;
-
                     // Notify remining patrol time to all players
                     [""] remoteExec ["hintSilent", 0, true];
                     private _text = format ["Please patrol the area for %1 seconds.", _remaining];
@@ -118,6 +115,9 @@ while {Task_DutyStatus == 0} do
                     _detected = false;
 
                     // RTB mission
+                    {  
+                        _x setVariable ["TASK_IsSuccessfulMission", true, true];
+                    } forEach allPlayers;
                     ["Task_RTB"] call F90_fnc_createTask;
                     _taskCompleted = true;
                 };
@@ -125,63 +125,11 @@ while {Task_DutyStatus == 0} do
 
             case "Task_KillHVT":
             {
-                if ((count Task_SpawnedHVT) == 1) then 
-                {
-                    private _hvtUnit = Task_SpawnedHVT select 0;
-                    if !(alive _hvtUnit) then 
-                    {
-                        // Remove unit from array 
-                        Task_SpawnedHVT deleteAt 0;
-
-                        // Spawn enemy QRF
-                        [80, position Task_TaskTrigger] spawn F90_fnc_createAmbush;
-
-                        // Notify player
-                        ["HVT Killed"] call F90_fnc_textNotification; 
-                        [Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
-
-                        // Update task status
-                        Task_DutyStatus = 1;
-                        Task_DutyName = "";
-                        Task_DutyDescription = "";
-                        Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
-                        publicVariable "Persistent_MarkerBlacklists";
-                        deleteMarker Task_AoMarker;
-                        deleteMarker Task_AoZone;
-
-                        // prevent code running any further
-                        _inAO = false;
-                        _detected = false;
-
-                        // RTB mission
-                        ["Task_RTB"] call F90_fnc_createTask;
-                        _taskCompleted = true;
-                    };
-                } else 
-                {
-                    [MissionDebug, "activeTaskHandler\Task_KillHVT", format ["Array Task_SpawnedHVT count is not 1! Task_SpawnedHVT = %1", Task_SpawnedHVT], true] call F90_fnc_debug;
-                };
+                _taskCompleted = true;
             };
 
             case "Task_Support":
             {
-                ["Support Provided"] call F90_fnc_textNotification; 
-                [Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
-                
-                Task_DutyStatus = 1;
-                Task_DutyName = "";
-                Task_DutyDescription = "";
-                Persistent_MarkerBlacklists = Persistent_MarkerBlacklists - [Task_AoMarker, Task_AoZone];
-                publicVariable "Persistent_MarkerBlacklists";
-                deleteMarker Task_AoMarker;
-                deleteMarker Task_AoZone;
-
-                // prevent code running any further
-                _inAO = false;
-                _detected = false;
-
-                // RTB mission
-                ["Task_RTB"] call F90_fnc_createTask;
                 _taskCompleted = true;
             };
 
@@ -201,29 +149,19 @@ while {Task_DutyStatus == 0} do
                 deleteMarker Task_AoMarker;
                 deleteMarker Task_AoZone;
 
-                {
-                    _x setVariable ["TASK_IsSuccessfulMission", true, true];
-                } forEach allPlayers;
-
                 // Delete action if already exist
-                private _actionID = Mission_TaskOfficer getVariable ["Mission_ReportMissionActionID", -1];
-                if (_actionID != -1) then 
-                {
-                    [Mission_TaskOfficer, _actionID, "Mission_ReportMissionActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
-                };
-                
                 [
                     Mission_TaskOfficer, 
                     "Report to officer", 
                     {
                         params ["_target", "_caller", "_actionId", "_arguments"]; 
                         
-                        [_target, _actionId, "Mission_ReportMissionActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
+                        [_target, _actionId, "RSW_ReportMissionActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
                         [] remoteExec ["F90_fnc_showReport", 0];
                         [] remoteExec ["F90_fnc_resetTask", 2];
                     },
                     "true",
-                    "Mission_ReportMissionActionID"
+                    "RSW_ReportMissionActionID"
                 ] remoteExec ["F90_fnc_addAction", 0, true];
 
                 // Generate wages

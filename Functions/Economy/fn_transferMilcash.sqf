@@ -16,12 +16,12 @@ private _friend = objNull;
 
 if !(isNull _friend) then 
 {
-    private _balance = ["GETMONEY", [_caller]] call F90_fnc_economyHandler;
+    private _balance = [_caller] call F90_fnc_getMoney;
 
     if (_balance >= _transferAmount) then 
     {
-        ["DEDUCTMONEY", [_caller, _transferAmount]] call F90_fnc_economyHandler;
-        ["ADDMONEY", [_friend, _transferAmount]] call F90_fnc_economyHandler;
+        [_caller, _transferAmount] call F90_fnc_deductMoney;
+        [_friend, _transferAmount] call F90_fnc_addMoney;
         
         // Notify sender
         [format ["%1 milcash has been transferred to %2(%3)", _transferAmount, name _friend, _friendID], "DEFAULT"] call F90_fnc_textNotification;

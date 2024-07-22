@@ -1,13 +1,13 @@
 params ["_amount"];
 
 private _unit = player;
-private _milcash = ["GETMONEY", [_unit]] call F90_fnc_economyHandler;
+private _milcash = [_caller] call F90_fnc_getMoney;
 private _netPrice = _amount * Skill_SPPrice;
 
 if (_milcash >= _netPrice) then 
 {
     [_unit, _amount] call F90_fnc_addSP;
-    ["DEDUCTMONEY", [_unit, _netPrice]] call F90_fnc_economyHandler;
+    [_unit, _netPrice] call F90_fnc_deductMoney;
     
     [format ["You have bought %1 SP for %2 Milcash", _amount, _netPrice], "DEFAULT"] call F90_fnc_textNotification;
 } else 

@@ -19,11 +19,11 @@ _old_player enableAI "TEAMSWITCH";
 
 AIS_Core_realSide = getNumber (configfile >> "CfgVehicles" >> (typeOf _new_player) >> "side");
 
-if (_old_player getVariable ["ais_unconscious", false]) then {
+if (_old_player getVariable ["AIS_IsUnconscious", false]) then {
 	ais_character_changed = true;	// reset blood splatter screen
 };
 
-if (_new_player getVariable ["ais_unconscious", false]) then {
+if (_new_player getVariable ["AIS_IsUnconscious", false]) then {
 	[_new_player] call AIS_System_fnc_bloodloss;
 };
 

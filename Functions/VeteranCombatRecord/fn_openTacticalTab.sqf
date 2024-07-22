@@ -10,7 +10,7 @@ private _created = createDialog "tacticalMenu";
 if (_created) then 
 {
     // Get data
-    private _amount = ["GETMONEY", _unit] call F90_fnc_economyHandler;
+    private _amount = [_unit] call F90_fnc_getMoney;
     private _killCount = _unit getVariable "Record_ConfirmedKills";
     private _conductedMissions = _unit getVariable "Record_TotalConductedMissions";
     private _successfulMissions = _unit getVariable "Record_TotalSuccessfulMissions";
@@ -65,8 +65,7 @@ if (_created) then
         forEach REC_WantedList;
     } else 
     {
-        // ToDo
-        _wanted = [parseText "No persons of interest<br />at this moment."];
+        _wanted = ["No persons of interest", "at this moment."];
     };
 
     [REC_WantedListBoxIDC, _wanted, -1] call F90_fnc_populateListBox;
