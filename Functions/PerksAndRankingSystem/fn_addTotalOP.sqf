@@ -17,7 +17,7 @@ if (isNil {_unit}) exitWith {[MissionDebug, "addTotalOP", "(ERROR) Function not 
 if (isNull _unit) exitWith {[MissionDebug, "addTotalOP", "(ERROR) Function not executed. Provided unit is not exist", true, true] call F90_fnc_debug};
 if (isNil {_amount}) then {_amount = 0};
 
-private _op = [_unit] call F90_fnc_getMoney;
+private _op = [_unit] call F90_fnc_getTotalOP;
 
 if (isNil {_op}) then 
 {

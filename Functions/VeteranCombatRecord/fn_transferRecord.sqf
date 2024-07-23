@@ -12,6 +12,10 @@ if (_successfulMission) then
     _unit setVariable ["Record_TotalSuccessfulMissions", _totalSuccessfulMissions];
 };
 
+private _totalOP = [_unit] call F90_fnc_getTotalOP;
+private _tempOP = _unit getVariable "REC_TempOP";
+[_unit, _tempOP] call F90_fnc_addTotalOP;
+
 private _killCount = _unit getVariable "Record_ConfirmedKills";
 private _tempKillCount = _unit getVariable "REC_TempKillCount";
 _killCount = _killCount + _tempKillCount;

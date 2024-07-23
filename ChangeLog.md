@@ -17,6 +17,9 @@ None Currently
 
 ## Version History
 
+### Version 1.26.1a
+* Fixed OP not being recorded into player's statistic. 
+
 ### Version 1.26.0a
 * Enhanced the base infirmary functionality to allow players to fully heal themselves.
 * High priority locations within the base are now marked on the player's map.
