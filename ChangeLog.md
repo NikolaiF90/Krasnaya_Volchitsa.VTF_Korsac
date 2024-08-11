@@ -11,17 +11,27 @@ None Currently
 * Open Guide
 * FOB
 * Improve Patrol Script
-* Interrogate
-* Optimize Task
 * Insert custom vehicles
+* Land transport support
 
 ## Version History
+
+### Version 1.27.0a
+* Players now should purchase their own equipments and weapons from Logistic Officer.
+* Price for every equipment will be dynamically changed based on supplies.
+* Weapons will appear on shop based on their rarity. 
+* Added the ability for players to interrogate prisoners, to gain intels. 
+* Added SharpEye to skill tree. Unlocking SharpEye will make players automatically mark dead units.
+* Added IFoundCash to skill tree. Unlocking this skill will increase player's reward when completing task.
+* Optimized Task System. The system seems like demanding too much memory.
+* Optimized script initialization process. This ensure less data leaks and possible issues.
+* Minor bugfix.
 
 ### Version 1.26.1a
 * Fixed OP not being recorded into player's statistic. 
 
 ### Version 1.26.0a
-* Enhanced the base infirmary functionality to allow players to fully heal themselves.
+* Enhanced the base's infirmary functionality to allow players to fully heal themselves.
 * High priority locations within the base are now marked on the player's map.
 * Reworked Support task.
 * Factions without vehicles will now receive vehicles from the FIA faction.

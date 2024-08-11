@@ -26,3 +26,4 @@ Persistent_VariablesToSave = [];
 
 // Add any markers you do not wish to save here
 Persistent_MarkerBlacklists = [];
+

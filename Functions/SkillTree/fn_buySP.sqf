@@ -1,7 +1,7 @@
 params ["_amount"];
 
 private _unit = player;
-private _milcash = [_caller] call F90_fnc_getMoney;
+private _milcash = [_unit] call F90_fnc_getMoney;
 private _netPrice = _amount * Skill_SPPrice;
 
 if (_milcash >= _netPrice) then 

@@ -31,14 +31,18 @@ class F90
         class configureIdentity {};
         class configurePersistent {};
         class configurePRS {};
-        class configureTask {};
-        class configureSHARS {};
         class configureREC {};
+        class configureShop {};
+        class configureSHARS {};
+        class configureSkillTree {};
+        class configureSupport {};
+        class configureTask {};
     };
     class Core 
     {
         file = "Functions\Core";
         class addAction {};
+        class addActionGlobal {};
         class addToHighCommand {};
         class checkCommandingEgibility {};
         class clearSave {};
@@ -46,6 +50,8 @@ class F90
         class createBaseLocationMarkers {};
         class createSquad {};
         class createUnit {};
+        class debriefingTimeSkip {};
+        class deleteMarked {};
         class deleteUnit {};
         class delVeh {};
         class generateSaveDate {};
@@ -57,6 +63,7 @@ class F90
         class joinGroup {};
         class loadData {};
         class makePersistent {};
+        class markUnit {};
         class missionKeyHandler {};
         class openTimeSkipMenu {};
         class saveTarget {};
@@ -72,7 +79,7 @@ class F90
         class startDeadCamTimer {};
         class startRespawnTimer {};
         class startServer {};
-        class teleportUnit {};
+        class teleportObject {};
         class textNotification {};
         class updatePersistentList {};
     };
@@ -94,10 +101,13 @@ class F90
         class initCABPlayer {};
         class initCABServer {};
         class initCivilian {};
+        class initDialogIDC {};
         class initDSC {};
         class initEconomy {};
         class initGlobalVariables {};
         class initHeal {};
+        class initModConfigurations {};
+        class initMods {};
         class initOP {};
         class initPersistent {};
         class initPRS {};
@@ -105,7 +115,9 @@ class F90
         class initServerVariables {};
         class initSHARS {};
         class initSHARSPlayers {};
+        class initShop {};
         class initSkillTree {};
+        class initSP {};
         class initStartGame {};
         class initSupport {};
         class initTask {};
@@ -203,6 +215,25 @@ class F90
         class trainUnit {};
     };
     
+    class Shop 
+    {
+        file = "Functions\Shop";
+
+        class createLogisticOfficer {};
+        class filterBaseWeapons {};
+        class generateWeaponPrice {};
+        class generateWeaponsData {};
+        class getAllEquipments {};
+        class getAllWeapons {};
+        class getRecoilValue {};
+        class getWeaponDamage {};
+        class openItemShop {};
+        class openWeaponShop {};
+        class purchaseItem {};
+        class purchaseWeapon {};
+        class saleHandler {};
+    };
+
     class SideChange
     {
         file = "Functions\SideChange";
@@ -217,6 +248,7 @@ class F90
         class createRangeOfficer {};
         class deductSP {};
         class openSkillMenu {};
+        class purchaseSkill {};
         class upgradeSkill {};
     };
 

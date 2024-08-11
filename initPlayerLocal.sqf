@@ -38,6 +38,7 @@ sleep 3;
 [player] call F90_fnc_initCABPlayer;
 [player] call F90_fnc_initSHARSPlayers;
 [player] call F90_fnc_initPRS;
+[player] call F90_fnc_initSP;
 [player] call F90_fnc_initSkillTree;
 
 waitUntil {!isNull (findDisplay Main_MissionDisplayIDD)};

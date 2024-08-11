@@ -49,22 +49,28 @@ _returnValue set [0, _totalDeduction];
 // Addition (Only counts will be shown in report instead of points)
 private _killCount = _unit getVariable "REC_TempKillCount";
 private _killPoints = _killCount * Points_ConfirmedKill;
+_totalAddition = _totalAddition + _killPoints;
 
 private _capturedPrisoners = _unit getVariable "REC_TempCapturedPrisoners";
 private _prisonerPoints = _capturedPrisoners * Points_CapturedPrisoners;
+_totalAddition = _totalAddition + _prisonerPoints;
 
 private _hvtKilled = _unit getVariable "REC_TempHVTKilled";
 private _hvtKillPoints = _hvtKilled * Points_HVTKill;
+_totalAddition = _totalAddition + _hvtKillPoints;
 
 private _hvtCaptured = _unit getVariable "REC_TempHVTCaptured";
 private _hvtCapturePoints = _hvtCaptured * Points_HVTCapture;
+_totalAddition = _totalAddition + _hvtCapturePoints;
 
 // For seized assets, points will be shown instead of count, since there wont be more than 5 assets per mission
 private _seized = _unit getVariable "REC_TempSeized";
 private _seizePoints = _seized * Points_Seized;
 _unit setVariable ["REC_SeizePoints", _seizePoints, true];
+_totalAddition = _totalAddition + _seizePoints;
 
-_totalAddition = _totalAddition + _killPoints + _prisonerPoints + _hvtKillPoints + _hvtCapturePoints + _seizePoints;
+private _skillTree = _unit getVariable ["Skill_IFoundCash", 0];
+if (!isNil {_skillTree}) then {_totalAddition = _totalAddition + _skillTree};
 
 _returnValue set [1, _totalAddition];
 

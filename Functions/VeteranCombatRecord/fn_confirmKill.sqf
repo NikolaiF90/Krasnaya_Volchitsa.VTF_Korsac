@@ -28,8 +28,11 @@ if (_caller == _killer) then
             } forEach _addedPOI;
             publicVariable "REC_WantedList";
             
-            [["You have found an intel. ", format ["%1 has been added to your wanted list", (_addedPOI select 0) select 0]], "DEFAULT", 4, 101, false] call F90_fnc_textNotification;
+            [["You have found an intel. ", format ["%1 has been added to your wanted list", (_addedPOI select 0) select 0]], "DEFAULT"] call F90_fnc_textNotification;
         };
+
+        // Delete SharpEye marker if any 
+        [_killed] spawn F90_fnc_deleteMarked;
     };
 } else 
 {

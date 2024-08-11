@@ -35,3 +35,4 @@ Points_AttackHeliLoss = 16;
 Points_UnarmedCars = 2;
 Points_ArmedCars = 5;
 Points_TempTeamRequested = 4;
+

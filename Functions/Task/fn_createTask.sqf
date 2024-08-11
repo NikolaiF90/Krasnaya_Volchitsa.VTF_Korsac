@@ -37,7 +37,7 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
             Task_DutyStatus = 0;
 
             // Spawn QRF groups 
-            [60, position Task_TaskTrigger] spawn F90_fnc_createAmbush;
+            [60, _taskLocation] spawn F90_fnc_createAmbush;
         };
         
         case "Task_Ambush": 
@@ -171,9 +171,14 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
         };
     };
 
+    // Increase task area
+    _taskAreaX = _taskAreaX + (Task_AreaMultiplier * _taskAreaX);
+    _taskAreaY = _taskAreaY + (Task_AreaMultiplier * _taskAreaY);
+    
     // Cleanup and trigger task creation
     deleteMarker _taskMarker;
-    [_taskLocation, _taskAreaX, _taskAreaY, _taskAreaDir, _condition] call F90_fnc_createAOTrigger;
+    private _triggerActivation = if (_taskType isEqualTo "Task_Ambush") then {[format ["%1 SEIZED", str Mission_AlliedSide], "PRESENT", false]} else {[]};
+    [_taskLocation, _taskAreaX, _taskAreaY, _taskAreaDir, _triggerActivation, _condition] call F90_fnc_createAOTrigger;
     [Task_CurrentTaskID, _taskLocation, _taskAreaX, _taskAreaY, _taskAreaDir] call F90_fnc_createAOMarker;
     [Mission_AlliedSide, Task_CurrentTaskID, "CREATED"] call F90_fnc_showTaskNotification;
 

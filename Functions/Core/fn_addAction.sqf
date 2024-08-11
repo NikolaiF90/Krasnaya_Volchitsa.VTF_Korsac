@@ -9,7 +9,7 @@
         _actionName - The name of the action to display. [STRING]
         _code - The code to be executed when the action is performed. Parameters passed to the script in _this variable: "_target", "_caller", "_actionId", "_arguments" [CODE]
         _condition - The condition under which the action can be performed. _target(The object the action is attached to), _this(The person the action is shown). Use "true" if unsure. [STRING]
-        _actionKey - The key used to store the action ID. [SCALAR]
+        _actionKey - The key used to store the action ID. [STRING]
 
     Returns:
         None
@@ -17,11 +17,11 @@
 
 params ["_unit", "_actionName", "_code", "_condition", "_actionKey"];
 
-private _actionID = _unit getVariable [_actionKey, -1];
+private _actionCreated = player getVariable [_actionKey, false];
 
-if (_actionID == -1) then 
+if !(_actionCreated) then 
 {
-    _actionID = _unit addAction 
+    _unit addAction 
     [
         format ["<t color='#23d1cd'>%1</t>", _actionName], 
         _code,
@@ -34,7 +34,8 @@ if (_actionID == -1) then
         5
     ];
 
-    _unit setVariable [_actionKey, _actionID, true];
+    _actionCreated = true;
+    player setVariable [_actionKey, _actionCreated, true];
 };
 
 sleep 0.001;

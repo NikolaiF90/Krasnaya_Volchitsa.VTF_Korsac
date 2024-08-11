@@ -1,67 +1,37 @@
-params ["_skillName"];
+params ["_unit", "_skillName"];
 
-private _locked = true;
-if (_locked) exitWith {["This feature hasn't been implemented yet", "ERROR"] call F90_fnc_textNotification};
-
-private _unit = player;
-
-if (isNil {_skillName}) then {_skillName = ""};
-private _skillSelection = [];
-private _selectionIndex = -1;
-private _allSkills = _unit getVariable "Skill_AllSkills";
-
-// If skill name not provided, get from lb selection instead
-if (_skillName isEqualTo "") then 
+switch (_skillName) do 
 {
-    _skillSelection = _allSkills select (lbCurSel SkillMenu_SkillsListBoxIDC);
-    _skillName = _skillSelection select 0;
-    _selectionIndex = lbCurSel SkillMenu_SkillsListBoxIDC;
-} else
-{
+    case "SharpEye": 
     {
-        private _xName = _x select 0;
-        if (_xName isEqualTo _skillName) then 
+        // Get current opacity
+        private _opacity = _unit getVariable ["Skill_SharpEye", nil];
+        // Set default if not found
+        if (isNil {_opacity}) then 
         {
-            _skillSelection = _x;
-            _selectionIndex = _forEachIndex;
+            _opacity = 0;
         };
-    } forEach _allSkills;
-};
-
-// Get the skill level 
-private _skillLevel = _skillSelection select 2;
-// Get the skill price 
-private _skillPrice = _skillSelection select 4;
-
-// Apply upgrade 
-private _sp = _unit getVariable "Skill_Points";
-if (_sp >= _skillPrice) then 
-{
-    // Deduct SP
-    [_unit, _skillPrice] call F90_fnc_deductSP;
-
-    private _text = "";
-    // Apply new data 
-    if (_skillLevel != -1) then 
-    {
-        _skillLevel = _skillLevel + 1;
-        _text = format ["You have upgraded %1 to level %2", _skillName, _skillLevel];
-    } else 
-    {
-        _skillLevel = 1;
-        _text = format ["You have unlocked %1", _skillName];
+        // Set increment per level
+        private _opacityIncrement = 0.2;
+        // Calculate the new value
+        _opacity = _opacity + _opacityIncrement;
+        // Save the value to unit
+        _unit setVariable ["Skill_SharpEye", _opacity, true];
     };
-
-    _skillPrice = _skillPrice * Skill_UpgradeMultiplier;
-
-    private _newSkillData = [_skillName, _skillSelection select 1, _skillLevel, _skillSelection select 3, _skillPrice];
-    _allSkills set [_selectionIndex, _newSkillData];
-    _unit setVariable ["Skill_AllSkills", _allSkills, true];
-
-    [_text, "DEFAULT"] call F90_fnc_textNotification;
-    [_selectionIndex] call F90_fnc_openSkillMenu;
-} else 
-{
-    ["You do not have enough SP", "ERROR"] call F90_fnc_textNotification;
+    case "IFoundCash": 
+    {
+        // Get current bonus 
+        private _bonus = _unit getVariable ["Skill_IFoundCash", 0];
+        // Set default if not found 
+        if (isNil {_bonus}) then 
+        {
+            _bonus = 0;
+        };
+        // Set increment per level 
+        private _bonusIncrement = 2;
+        // Calculate the new value
+        _bonus = _bonus + _bonusIncrement;
+        // Save the value to unit
+        _unit setVariable ["Skill_IFoundCash", _bonus, true];
+    };
 };
-

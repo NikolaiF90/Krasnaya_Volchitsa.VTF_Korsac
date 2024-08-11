@@ -1,11 +1,8 @@
-// Configuration
-Support_InfirmaryObject = infirmaryX;
-Support_SupportDesk = supportDesk;
-
 // Init 
 
 // Get allied vehicles
 Support_AlliedFactionVehicles = [DSC_AlliedFaction] call F90_fnc_getFactionVehicles;
+publicVariable "Support_AlliedFactionVehicles";
 
 [] remoteExec ["F90_fnc_showPurchaseVehicleAction", 0, true];
 

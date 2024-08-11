@@ -8,27 +8,26 @@ if (dialog) then {closeDialog 1};
 
 createDialog "skillTreeMenu";
 
-private _currentSP = _unit getVariable "Skill_Points";
+// Get unit's SP balance
+private _currentSP = _unit getVariable Economy_SPName;
+// Show it in the menu
 private _spText = format ["SP: %1", _currentSP];
 ctrlSetText [SkillMenu_SPTextIDC, _spText];
 
-private _allSkills = _unit getVariable ["Skill_AllSkills", []];
+// Get unit's skill
+private _unitSkills = _unit getVariable "Skill_Tree";
 
-if (count _allSkills < 1) then 
-{
-    _allSkills = Skill_DefaultSkills;
-};
-_unit setVariable ["Skill_AllSkills", _allSkills, true];
-
+// Display skill in the menu
 private _allSkillsDisplay = [];
 {
-    private _skill = _x;
-    private _skillName = _skill select 0;
-    private _skillDescription = _skill select 1;
-    private _skillLevel = _skill select 2;
+    private _skillData = _x;
+    private _skillName = _skillData select 0;
+    private _skillDescription = _skillData select 1;
+    private _skillUpgradeText = _skillData select 2;
+    private _skillLevel = _skillData select 3;
 
     private _levelText = "";
-    if (_skillLevel == -1) then 
+    if (_skillLevel == 0) then 
     {
         _levelText = "Locked";
     } else 
@@ -36,22 +35,21 @@ private _allSkillsDisplay = [];
         _levelText = format ["Level %1", _skillLevel];
     };
 
-    private _text = format ["%1 - %2 (%3)", _skillName, _skillDescription, _levelText];
+    private _text = format ["%1 - %2. Each upgrade %3. (%4)", _skillName, _skillDescription, _skillUpgradeText, _levelText];
     _allSkillsDisplay set [_forEachIndex, _text];
-} forEach _allSkills;
-
+} forEach _unitSkills;
 [SkillMenu_SkillsListBoxIDC, _allSkillsDisplay, _defaultSelection] call F90_fnc_populateListBox;
 
 // Sets default (Before EH takes place)
-private _selectedSkill = (_allSkills select (lbCurSel SkillMenu_SkillsListBoxIDC));
-private _skillLevel = _selectedSkill select 2;
-private _maxLevel = _selectedSkill select 3;
-private _upgradePrice = _selectedSkill select 4;
+private _selectedSkill = (_unitSkills select (lbCurSel SkillMenu_SkillsListBoxIDC));
+private _skillLevel = _selectedSkill select 3;
+private _maxLevel = _selectedSkill select 4;
+private _upgradePrice = _selectedSkill select 5;
 
 if (_skillLevel < _maxLevel) then 
 {
     private _buttonText = "";
-    if (_skillLevel == -1) then 
+    if (_skillLevel == 0) then 
     {
         _buttonText = format ["Unlock (%1 SP)", _upgradePrice];
     } else
@@ -66,22 +64,23 @@ if (_skillLevel < _maxLevel) then
     ctrlEnable [SkillMenu_UpgradeButtonIDC, false];
 };
 
+// Change button appearance based on selected item
 (findDisplay SkillMenu_MenuIDD) displayCtrl SkillMenu_SkillsListBoxIDC ctrlAddEventHandler ["LBSelChanged", 
 {
     params ["_control", "_lbCurSel", "_lbSelection"];
 
     private _unit = player;
     
-    private _allSkills = _unit getVariable ["Skill_AllSkills", []];
-    private _selectedSkill = (_allSkills select _lbCurSel);
-    private _skillLevel = _selectedSkill select 2;
-    private _maxLevel = _selectedSkill select 3;
-    private _upgradePrice = _selectedSkill select 4;
+    private _unitSkills = _unit getVariable "Skill_Tree";
+    private _selectedSkill = (_unitSkills select _lbCurSel);
+    private _skillLevel = _selectedSkill select 3;
+    private _maxLevel = _selectedSkill select 4;
+    private _upgradePrice = _selectedSkill select 5;
 
     if (_skillLevel < _maxLevel) then 
     {
         private _buttonText = "";
-        if (_skillLevel == -1) then 
+        if (_skillLevel == 0) then 
         {
             _buttonText = format ["Unlock (%1 SP)", _upgradePrice];
         } else

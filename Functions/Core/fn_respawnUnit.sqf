@@ -59,7 +59,7 @@ private _deadTime = RESPAWN_Timer;
 _clone setDamage 1;
 
 // Teleport original unit
-[_unit, _spawnerObject] call F90_fnc_teleportUnit;
+[_unit, _spawnerObject] call F90_fnc_teleportObject;
 
 // Heals original unit after 3 seconds
 private _healTimer = diag_tickTime + 3.00;

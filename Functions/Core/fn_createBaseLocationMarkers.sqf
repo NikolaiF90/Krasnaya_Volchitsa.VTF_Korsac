@@ -6,7 +6,7 @@ private _allMarkers =
     ["Infirmary", infirmaryX, _markerIcon],
     ["Barracks", reserveX, _markerIcon],
     ["Repair Station", repairX, _markerIcon],
-    ["Shooting Range", skillBoardX, _markerIcon]
+    ["Shooting Range", skillDesk, _markerIcon]
 ];
 
 {

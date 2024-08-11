@@ -21,7 +21,7 @@ if (_created) then
     private _playerName = name _unit;
     private _playerRank = [_unit] call F90_fnc_getUnitRank;
     private _totalOP = [_unit] call F90_fnc_getTotalOP;
-    private _totalSP = _unit getVariable "Skill_Points";
+    private _totalSP = _unit getVariable Economy_SPName;
 
     // Player info
     private _nameRankText = format ["(%1)%2", _playerRank, _playerName];

@@ -8,9 +8,8 @@
         None
         
     Returns:
-        _donePatrol: BOOL - Whether the patrol task is completed.
+        None
 */
-private _donePatrol = false;
 
 ["Patrol Completed"] remoteExec ["F90_fnc_textNotification", 0, true]; 
 [Mission_AlliedSide, Task_CurrentTaskID, "SUCCEEDED"] call F90_fnc_showTaskNotification;
@@ -27,6 +26,3 @@ deleteMarker Task_AoZone;
     _x setVariable ["TASK_IsSuccessfulMission", true, true];
 } forEach allPlayers;
 ["Task_RTB"] call F90_fnc_createTask;
-
-_donePatrol = true;
-_donePatrol

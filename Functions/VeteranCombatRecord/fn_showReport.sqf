@@ -13,6 +13,7 @@ private _unarmedCars = _unit getVariable "REC_UnarmedCarsDeduction";
 private _tempTeamDeduction = _unit getVariable "REC_TempTeamDeduction";
 private _successfulOperation = _unit getVariable "REC_TempOP";
 private _seizePoints = _unit getVariable "REC_SeizePoints";
+private _skillTreePoints = _unit getVariable ["Skill_IFoundCash", 0];
 private _totalPoints = _unit getVariable "REC_TotalPoints";
 private _wages = _unit getVariable "REC_TempWages";
 private _rewards = _unit getVariable "REC_TempRewards";
@@ -33,7 +34,8 @@ private _pointsReceived =
     format ["HVT Killed: %1", _hvtKilled],
     format ["HVT Captured: %1", _hvtCaptured],
     format ["Successful Operation: %1pts", _successfulOperation],
-    format ["Seized Assets Points: %1pts", _seizePoints]
+    format ["Seized Assets Points: %1pts", _seizePoints],
+    format ["Skill Tree Bonus: %1pts", _skillTreePoints]
 ];
 [REC_PointsReceivedListBoxIDC, _pointsReceived, -1] call F90_fnc_populateListBox;
 
@@ -58,7 +60,6 @@ private _totalEarnings =
     format ["Milcash Rewards: %1 milcash", _rewards],
     // ToDo - Routine Bonus 
     // ToDo - Operation Bonus 
-    // ToDo - Skill Tree Bonus
     format ["Subordinate Wages: %1 milcash", str (0 - _wages)],
     format ["Total Milcash Rewards: %1 milcash", _totalRewards]
 ];

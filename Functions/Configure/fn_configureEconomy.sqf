@@ -23,3 +23,6 @@ Economy_DefaultOPFORMoney = 7000;
 Economy_DefaultGUERMoney = 5000; 
 // Milcash for all spawned CIV units
 Economy_DefaultCIVMoney = 5000; 
+
+// SP 
+Economy_SPName = "SkillPoints";

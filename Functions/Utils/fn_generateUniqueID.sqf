@@ -2,20 +2,14 @@
     Author: PrinceF90
 
     Description:
-        This function generates a unique ID by combining an additional ID (if provided) with randomly generated numbers.
+        Generate a unique ID based on provided additional ID. Returns random the generated unique ID (addtionalID + 4digits number).
 
     Parameter(s):
-        0: STRING - _additionalID: (optional additional ID)
+        _additionalID - (Optional, default "")The additional ID to incorporate into the unique ID. [STRING]
 
     Returns:
-        STRING - _uniqueID
-
-    Examples:
-        // _additionalID = "ABC123";
-        // _uniqueID = [_additionalID] call F90_fnc_generateUniqueID;
-        // _uniqueID will output ABC1236472
+        _uniqueID - The generated unique ID. [STRING]
 */
-
 params ["_additionalID"];
 
 private _uniqueID = "";

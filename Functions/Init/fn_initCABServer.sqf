@@ -1,3 +1,6 @@
+// Init civilian
+[] call F90_fnc_initCivilian;
+
 // Get all houses on the map
 private _axis = worldSize / 2;
 private _centerPos = [_axis, _axis, 0];

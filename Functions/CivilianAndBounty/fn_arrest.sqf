@@ -39,6 +39,37 @@ if (_bountyIndex != -1) then
 };
 
 _detainee setVariable ["CAB_IsArrested", true, true];
+
+// Add interrogate action
+_detainee setVariable ["RSW_Interrogated", false, true];
+[
+    _detainee, 
+    "Interrogate",
+    {
+        params ["_target", "_caller", "_actionId", "_arguments"];
+        // Set interrogated to prevent future execution
+        _target setVariable ["RSW_Interrogated", true, true];
+
+        // Intels 
+        private _chance = random 101;
+
+        if (CAB_IntelDropChance >= _chance) then 
+        {
+            private _addedPOI = [1] call F90_fnc_addWantedPerson;
+            {
+                REC_WantedList pushBack _x;
+            } forEach _addedPOI;
+            publicVariable "REC_WantedList";
+            
+            [["An intel was gained from the interrogation. ", format ["%1 has been added to your wanted list", (_addedPOI select 0) select 0]], "DEFAULT"] call F90_fnc_textNotification;
+        } else 
+        {
+            ["You gained nothing from the interrogation", "WARNING"] call F90_fnc_textNotification;
+        };
+    },
+    "((_target getVariable 'RSW_Interrogated') == false) && alive _this",
+    "RSW_InterrogateActionID"
+] remoteExec ["F90_fnc_addAction", 0, true];
 _arrested = true;
 
 _arrested;

@@ -92,6 +92,9 @@ _unit setVariable ["BIS_enableRandomization", false];
 // Custom Unit Data 
 [_unit] call F90_fnc_initEconomy;
 [_unit] call F90_fnc_initOP;
+[_unit] call F90_fnc_initSP;
+[_unit] call F90_fnc_initSkillTree;
+
 // Re-Init Unit Rank
 [_unit, ([_unit] call F90_fnc_getUnitRank)] call F90_fnc_setUnitRank;
 

@@ -20,4 +20,5 @@ if (count Mission_AlliedBasePatrols > 0) then
 [] call F90_fnc_createRangeOfficer;
 [] call F90_fnc_createTransportVehicles;
 [] call F90_fnc_createSupportOfficer;
+[] call F90_fnc_createLogisticOfficer;
 [] spawn F90_fnc_spawnBaseGuard;

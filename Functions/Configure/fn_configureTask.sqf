@@ -15,11 +15,13 @@
 TaskDebug = false; 
 
 // Time interval to check for task status
-Task_CheckInterval = 5;
+Task_CheckInterval = 3;
 // Minimum patrol time in minutes
 Task_PatrolTimeMin = 1;
 // Maximum patrol time in minutes
 Task_PatrolTimeMax = 2;
+// Task area multiplier. Increase if task area is too small.
+Task_AreaMultiplier = 0.5;
 
 Task_BaseMarkers = ["base_0"];
 // Add your custom patrol task location here. Formatted by [[STRING:location name, ARRAY[x,y,z]:position, NUMBER:direction, ARRAY[x,y]:size, BOOL:isRectangle]];
@@ -49,5 +51,3 @@ Task_AmbushHVTSpawnChance = 45;
 // Chance that assets will appear on mission. Note that not all missions will spawn assets
 Task_SeizableAssetSpawnChance = 100;
 
-// Do not edit
-configureTaskDone = true;

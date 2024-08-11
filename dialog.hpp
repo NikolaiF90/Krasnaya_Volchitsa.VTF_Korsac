@@ -1775,7 +1775,7 @@ class skillTreeMenu
 		class button_SkillUpgrade: RscButton
 		{
 			idc = 2106;
-			action = "[] call F90_fnc_upgradeSkill";
+			action = "[] call F90_fnc_purchaseSkill";
 
 			text = "Upgrade (1000 SP)"; //--- ToDo: Localize;
 			x = 0.603125 * safezoneW + safezoneX;
@@ -2196,5 +2196,192 @@ class changeTransportHeliMenu
 		// GUI EDITOR OUTPUT END
 		////////////////////////////////////////////////////////
 
+	};
+};
+
+class weaponShopMenu
+{
+	idd = 2600;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Tidagi)
+		////////////////////////////////////////////////////////
+
+		class bg_WShop1: RscText
+		{
+			idc = 2601;
+			x = 0.29375 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.4125 * safezoneW;
+			h = 0.539 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class bg_WShop2: RscText
+		{
+			idc = 2602;
+			x = 0.298905 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.402187 * safezoneW;
+			h = 0.429 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_WShopTitle: RscText
+		{
+			idc = 2603;
+			text = "Army Shop"; //--- ToDo: Localize;
+			x = 0.463906 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class listBox_WShopInventory: RscListbox
+		{
+			idc = 2604;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.291 * safezoneH + safezoneY;
+			w = 0.402187 * safezoneW;
+			h = 0.407 * safezoneH;
+		};
+		class text_WShopBalance: RscText
+		{
+			idc = 2605;
+			text = "Milcash: XXXXXXXX"; //--- ToDo: Localize;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.709 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+		class button_WShopPurchase: RscButton
+		{
+			idc = 2606;
+			action = "[] call F90_fnc_purchaseWeapon";
+
+			text = "Purchase"; //--- ToDo: Localize;
+			x = 0.608281 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.0928125 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_WShopClose: RscButton
+		{
+			idc = 2607;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "Close"; //--- ToDo: Localize;
+			x = 0.536094 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,0,0,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+class equipmentShopMenu 
+{
+	idd = 2700;
+
+	class controls 
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Cewabu)
+		////////////////////////////////////////////////////////
+
+		class bg_EShop1: RscText
+		{
+			idc = 2701;
+			x = 0.29375 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.4125 * safezoneW;
+			h = 0.55 * safezoneH;
+			colorBackground[] = {0.125,0.235,0.2,1};
+		};
+		class text_EShopTitle: RscText
+		{
+			idc = 2702;
+			text = "Equipments And Items"; //--- ToDo: Localize;
+			x = 0.448438 * safezoneW + safezoneX;
+			y = 0.236 * safezoneH + safezoneY;
+			w = 0.0979687 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class bg_EShop2: RscText
+		{
+			idc = 2703;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.402187 * safezoneW;
+			h = 0.44 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class listbox_EShopInventory: RscListbox
+		{
+			idc = 2704;
+			x = 0.298904 * safezoneW + safezoneX;
+			y = 0.291 * safezoneH + safezoneY;
+			w = 0.402187 * safezoneW;
+			h = 0.418 * safezoneH;
+		};
+		class text_EShopMoney: RscText
+		{
+			idc = 2705;
+			text = "Milcash: XXXXXXX"; //--- ToDo: Localize;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.731 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class button_EShopPurchase: RscButton
+		{
+			idc = 2706;
+			action = "[] call F90_fnc_purchaseItem";
+
+			text = "Purchase"; //--- ToDo: Localize;
+			x = 0.634063 * safezoneW + safezoneX;
+			y = 0.731 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class button_EShopClose: RscButton
+		{
+			idc = 2707;
+			action = "[] call F90_fnc_closeMenu";
+
+			text = "Close"; //--- ToDo: Localize;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.731 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.5,0,0,1};
+		};
+		class edit_EShopAmount: RscEdit
+		{
+			idc = 2708;
+			text = "1"; //--- ToDo: Localize;
+			x = 0.525782 * safezoneW + safezoneX;
+			y = 0.731 * safezoneH + safezoneY;
+			w = 0.0309375 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+		};
+		class text_EShopPrice: RscText
+		{
+			idc = 2709;
+			text = "Price: XXXXXXX"; //--- ToDo: Localize;
+			x = 0.453594 * safezoneW + safezoneX;
+			y = 0.731 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
 	};
 };
