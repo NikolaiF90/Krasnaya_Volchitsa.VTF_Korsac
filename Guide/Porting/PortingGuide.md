@@ -63,12 +63,15 @@ This is the guide to porting Krasnaya Volchitsa to your own map
    
     b. Put any objects you want, and furnish your base.
    
-    ![Furnished base](/Guide/Images/baseDesign.png) 
+    ![Furnished base](/Guide/Images/baseDesign.png)
 
-5. Scripts
+    c. You can put empty turret inside your base and the game will automatically assign a gunner for the turret as long as you put ``this setVariable ["DSC_IsBaseTurret", true, true];`` into it's init field.  
+
+
+6. Scripts
 
     a. Copy everything from Krasnaya_Volchitsa.Altis (except for mission.sqm) and paste it to your mission folder.
 
-6. End
+7. End
 
     a. Of course the last step is to start your game. Yes, that's all.
