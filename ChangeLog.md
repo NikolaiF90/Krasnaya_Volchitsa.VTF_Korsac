@@ -1,7 +1,7 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-None Currently
+* Second support heli doesn't have custom interaction
 
 ## ToDO
 * More tasks
@@ -15,6 +15,10 @@ None Currently
 * Land transport support
 
 ## Version History
+
+### Version 1.27.1a
+* Fixed player can't report mission after completing mission.
+* Fixed an issue where "Request Drop-Off" action not appearing on the second transport heli.
 
 ### Version 1.27.0a
 * Players now should purchase their own equipments and weapons from Logistic Officer.

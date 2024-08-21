@@ -10,7 +10,7 @@
     Returns:
         None
 */
-params ["_transportVehicle"];
+params ["_transportVehicle", "_dropOffKey"];
 
 // DropOff action
 [
@@ -30,7 +30,7 @@ params ["_transportVehicle"];
         };
     },
     "alive _this && (objectParent _this == _target) && !(_target getVariable 'RSW_OnTransportMission')",
-    "RSW_DropOffActionID"
+    _dropOffKey
 ] call F90_fnc_addAction;
 
 // Return To Base Action 

@@ -1,7 +1,7 @@
 // ToDo - Optimize
 private _fn_spawnVeh = 
 {
-    params ["_helipad", "_index"];
+    params ["_helipad", "_index", "_dropOffKey"];
     private _heliData = selectRandom Support_HelicoptersList;
 
     // Spawn transport heli
@@ -20,28 +20,29 @@ private _fn_spawnVeh =
     Support_HeliSlot set [_index, [[_helicopter, _heliData select 1], _helipad]];
 
     // Create request drop off action
-    [_helicopter] remoteExec ["F90_fnc_addTransportHeliAction", 0, true];
+    [_helicopter, _dropOffKey] remoteExec ["F90_fnc_addTransportHeliAction", 0, true];
 };
 
 {
     private _heliData = _x select 0;
     private _helipad = _x select 1;
+    private _dropOffKey = format ["RSW_DropOffAction%1Added", _forEachIndex];
 
     // Nothing created
     if (isNil {_heliData}) then 
     {
-        [_helipad, _forEachIndex] call _fn_spawnVeh;
+        [_helipad, _forEachIndex, _dropOffKey] call _fn_spawnVeh;
     } else
     {
         private _heliObject = _heliData select 0;
         if (isNil {_heliObject}) then 
         {
-            [_helipad, _forEachIndex] call _fn_spawnVeh;
+            [_helipad, _forEachIndex, _dropOffKey] call _fn_spawnVeh;
         } else 
         {
             if !(alive _heliObject) then 
             {
-                [_helipad, _forEachIndex] call _fn_spawnVeh;
+                [_helipad, _forEachIndex, _dropOffKey] call _fn_spawnVeh;
             };
         };
     };

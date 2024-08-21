@@ -22,6 +22,8 @@ private _fn_createOfficer =
 
     // Init revive system
     [Mission_TaskOfficer] call AIS_System_fnc_loadAIS;
+
+    publicVariable "Mission_TaskOfficer";
 };
 
 if (isNil {Mission_TaskOfficer}) then 
@@ -47,3 +49,6 @@ if (isNil {Mission_TaskOfficer}) then
     "Task_MainTaskStatus == -1",
     "RSW_ReportDutyActionID"    
 ] remoteExec ["F90_fnc_addAction", 0, true];
+
+// Remove report action ID if still exist.
+["RSW_ReportMissionActionCreated"] remoteExec ["F90_fnc_removeVariable", 0, true];

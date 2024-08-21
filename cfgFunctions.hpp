@@ -69,6 +69,7 @@ class F90
         class saveTarget {};
         class saveTargetContainer {};
         class setStandingAnimation {};
+        class removeVariable {};
         class resetRespawnedUnit {};
         class respawnUnit {};
         class saveData {};

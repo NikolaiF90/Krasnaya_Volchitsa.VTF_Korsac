@@ -141,12 +141,12 @@ while {Task_DutyStatus == 0} do
                 {
                     params ["_target", "_caller", "_actionId", "_arguments"]; 
                     
-                    [_target, _actionId, "RSW_ReportMissionActionID"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
+                    [_target, _actionId, "RSW_ReportMissionActionCreated"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
                     [] remoteExec ["F90_fnc_showReport", 0];
                     [] remoteExec ["F90_fnc_resetTask", 2];
                 },
                 "true",
-                "RSW_ReportMissionActionID"
+                "RSW_ReportMissionActionCreated"
             ] remoteExec ["F90_fnc_addAction", 0, true];
 
             // Generate wages
