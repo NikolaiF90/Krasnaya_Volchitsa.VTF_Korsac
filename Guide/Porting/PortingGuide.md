@@ -1,4 +1,4 @@
-**Last Revision: v1.26.1a (11 Aug 2024)**
+**Last Revision: v1.27.1a (21 Aug 2024)**
 ## Introduction
 
 This is the guide to porting Krasnaya Volchitsa to your own map
@@ -72,6 +72,17 @@ This is the guide to porting Krasnaya Volchitsa to your own map
 
     a. Copy everything from Krasnaya_Volchitsa.Altis (except for mission.sqm) and paste it to your mission folder.
 
-7. End
+7. Configurations
+
+    a. Inside your mission folder, go to `Krasnaya_Volchitsa.Altis\Functions\Init`, you will see some configuration and init files. You don't need to edit all of those as the default configuration was configured to suit best for the game.  
+
+    > [!Note]
+    > This page only provide the basic configuration in order for the game to start properly. For the full guide on configuration files, you can have a look at [Configuration Guide](/Guide/Configuration/configurationGuide.md).  
+
+    b. Open fn_initGlobalVariables.sqf.  
+
+    c. Edit `Mission_StartingPosition` to your preferred location. You can get the value by right-clicking on your desired location in 3den Editor, then hover to `Log` and click `Log Position to Clipboard`.  
+
+8. End
 
     a. Of course the last step is to start your game. Yes, that's all.
