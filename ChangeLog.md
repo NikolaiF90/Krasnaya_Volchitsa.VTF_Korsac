@@ -1,7 +1,7 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-* Second support heli doesn't have custom interaction
+None currently
 
 ## ToDO
 * More tasks
