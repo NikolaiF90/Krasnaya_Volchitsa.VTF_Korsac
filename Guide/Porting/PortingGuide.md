@@ -68,11 +68,11 @@ This is the guide to porting Krasnaya Volchitsa to your own map
     c. You can put empty turret inside your base and the game will automatically assign a gunner for the turret as long as you put ``this setVariable ["DSC_IsBaseTurret", true, true];`` into it's init field.  
 
 
-6. Scripts
+5. Scripts
 
     a. Copy everything from Krasnaya_Volchitsa.Altis (except for mission.sqm) and paste it to your mission folder.
 
-7. Configurations
+6. Configurations
 
     a. Inside your mission folder, go to `Krasnaya_Volchitsa.Altis\Functions\Init`, you will see some configuration and init files. You don't need to edit all of those as the default configuration was configured to suit best for the game.  
 
@@ -83,6 +83,6 @@ This is the guide to porting Krasnaya Volchitsa to your own map
 > [!NOTE]
 > This page only provide the basic configuration in order for the game to start properly. For the full guide on configuration files, you can have a look at [Configuration Guide](/Guide/Configuration/configurationGuide.md).  
 
-8. End
+7. End
 
     a. Of course the last step is to start your game. Yes, that's all.
