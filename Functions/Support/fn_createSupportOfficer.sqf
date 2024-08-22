@@ -1,29 +1,18 @@
-private _fn_createOfficer = 
-{
-    private _group = createGroup [Mission_AlliedSide, true];
-    private _officerClass = [DSC_AlliedUnitList, ["officer", "sl", "tl", "commander", "squadleader"]] call F90_fnc_getSuitableClass;
-    RSW_SuppportOfficer = _group createUnit [_officerClass, [0,0,0], [], 0, "FORM"];
-    [RSW_SuppportOfficer, Support_SupportDesk] spawn F90_fnc_teleportObject;
-    [RSW_SuppportOfficer] call F90_fnc_setStandingAnimation;
-
-    [RSW_SuppportOfficer] call AIS_System_fnc_loadAIS;
-};
-
 // Create the officer if not exist yet 
-if (isNil {RSW_SuppportOfficer}) then 
+if (isNil {RSW_SupportOfficer}) then 
 {
-    [] call _fn_createOfficer;
+    RSW_SupportOfficer = [Support_SupportDesk, Mission_AlliedSide, DSC_AlliedUnitList] call F90_fnc_createOfficer;
 } else 
 {
-    if !(alive RSW_SuppportOfficer) then 
+    if !(alive RSW_SupportOfficer) then 
     {
-        [] call _fn_createOfficer;
+        RSW_SupportOfficer = [Support_SupportDesk, Mission_AlliedSide, DSC_AlliedUnitList] call F90_fnc_createOfficer;
     };
 };
 
 // Add action 
 [
-    RSW_SuppportOfficer,
+    RSW_SupportOfficer,
     "Change Transport Heli",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
@@ -34,7 +23,7 @@ if (isNil {RSW_SuppportOfficer}) then
 ] remoteExec ["F90_fnc_addAction", 0, true];
 
 [
-    RSW_SuppportOfficer,
+    RSW_SupportOfficer,
     "Request Temporary Team",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];

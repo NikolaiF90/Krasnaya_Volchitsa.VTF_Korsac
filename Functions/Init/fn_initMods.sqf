@@ -4,7 +4,7 @@ Server_Configured = false;
 
 waitUntil {Server_Configured};
 
-// All Init Scripts that should executed but the server
+// All Init Scripts that should executed by the server
 private _modFiles = 
 [
     F90_fnc_initDSC,

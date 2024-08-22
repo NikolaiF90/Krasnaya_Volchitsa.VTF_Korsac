@@ -17,7 +17,7 @@ private _keywords = ["truck"];
 private _trucks = [];
 {
     private _vehicleClass = _x select 0;
-    private _splittedName = _vehicleClass splitString "-_, ";
+    private _splittedName = (toLower _vehicleClass) splitString "-_, ";
 
     {
         private _keyword = _x;
@@ -35,8 +35,8 @@ private _trucks = [];
 if (count _trucks <= 1) then 
 {
     _trucks = [];
-    _vehicleList = ["BLU_G_F"] call F90_fnc_getFactionVehicles;
-    _trucks = [_vehicleList] call F90_fnc_getTrucks;
+    private _tempVehicleList = ["BLU_F"] call F90_fnc_getFactionVehicles;
+    _trucks = [_tempVehicleList] call F90_fnc_getTrucks;
 };
 
 _trucks

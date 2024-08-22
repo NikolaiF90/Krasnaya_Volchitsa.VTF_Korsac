@@ -1,7 +1,10 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-None currently
+* Playing as Nato Pacific doesnt start the game
+* Error appear where some faction doesnt have officer.
+* Error with _dropOff key after changing transport helicopter.
+* Vehicle spawned too close to repairX.
 
 ## ToDO
 * More tasks
@@ -15,6 +18,12 @@ None currently
 * Land transport support
 
 ## Version History
+
+### Version 1.27.2a
+* Optimized officer spawning process.
+* Optimized faction obtaining process.
+* Fixed helicopters unavailable for some factions.
+* Fixed trucks unavailable for some factions.
 
 ### Version 1.27.1a
 * Fixed player can't report mission after completing mission.

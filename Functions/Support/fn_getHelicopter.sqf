@@ -8,11 +8,11 @@
         _vehicleList - List of vehicles to get the helicopter from. [ARRAY]
 
     Returns:
-        _helicopter - An array containing vehicle data (class name and display name) for helicopters.
+        _helicopters - An array containing vehicle data (class name and display name) for helicopters.
 */
 params ["_vehicleList"];
 
-private _helicopter = [];
+private _helicopters = [];
 
 {
     private _vehicleData = _x;
@@ -26,15 +26,15 @@ private _helicopter = [];
 
     if !((isNil {_mainBladeCenter}) || (_mainBladeCenter isEqualTo "")) then 
     {
-        _helicopter pushBack _vehicleData;
+        _helicopters pushBack _vehicleData;
     };
 } forEach _vehicleList;
 
-if (count _helicopter <= 1) then 
+if ((count _helicopters) <= 2) then 
 {
-    _helicopter = [];
-    _vehicleList = ["BLU_G_F"] call F90_fnc_getFactionVehicles;
-    _helicopter = [_vehicleList] call F90_fnc_getHelicopter;
+    _helicopters = [];
+    private _tempVehicleList = ["BLU_F"] call F90_fnc_getFactionVehicles;
+    _helicopters = [_tempVehicleList] call F90_fnc_getHelicopter;
 };
 
-_helicopter
+_helicopters

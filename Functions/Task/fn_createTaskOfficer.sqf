@@ -10,30 +10,14 @@
     Returns:
         None
 */
-
-private _fn_createOfficer = 
-{
-    // Create reporting officer
-    private _group = createGroup [Mission_AlliedSide, true];
-    private _officerClass = [DSC_AlliedUnitList, ["officer", "sl", "tl", "commander", "squadleader"]] call F90_fnc_getSuitableClass;
-    Mission_TaskOfficer = _group createUnit [_officerClass, [0,0,0], [], 0, "FORM"];
-    [Mission_TaskOfficer, mapX] spawn F90_fnc_teleportObject;
-    [Mission_TaskOfficer] call F90_fnc_setStandingAnimation;
-
-    // Init revive system
-    [Mission_TaskOfficer] call AIS_System_fnc_loadAIS;
-
-    publicVariable "Mission_TaskOfficer";
-};
-
 if (isNil {Mission_TaskOfficer}) then 
 {
-    [] call _fn_createOfficer;
+    Mission_TaskOfficer = [mapX, Mission_AlliedSide, DSC_AlliedUnitList] call F90_fnc_createOfficer;
 } else 
 {
     if !(alive Mission_TaskOfficer) then 
     {
-        [] call _fn_createOfficer;
+        Mission_TaskOfficer = [mapX, Mission_AlliedSide, DSC_AlliedUnitList] call F90_fnc_createOfficer;
     };
 };
 

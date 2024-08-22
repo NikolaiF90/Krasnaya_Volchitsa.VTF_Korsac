@@ -10,19 +10,6 @@
     Returns:
         None
 */
-private _fn_createOfficer = 
-{
-    // Create logistic officer
-    private _group = createGroup [Mission_AlliedSide, true];
-    private _officerClass = [DSC_AlliedUnitList, ["officer", "sl", "tl", "commander", "squadleader"]] call F90_fnc_getSuitableClass;
-    Shop_LogisticOfficer = _group createUnit [_officerClass, [0,0,0], [], 0, "FORM"];
-    [Shop_LogisticOfficer, Shop_WeaponShop] spawn F90_fnc_teleportObject;
-    [Shop_LogisticOfficer] call F90_fnc_setStandingAnimation;
-
-    // Init revive system
-    [Shop_LogisticOfficer] call AIS_System_fnc_loadAIS;
-};
-
 private _fn_createShopBox = 
 {
     if (isNil {Shop_InventoryBox}) then 
@@ -37,12 +24,12 @@ private _fn_createShopBox =
 // create officer
 if (isNil {Shop_LogisticOfficer}) then 
 {
-    [] call _fn_createOfficer;
+    Shop_LogisticOfficer = [Shop_WeaponShop, Mission_AlliedSide, DSC_AlliedUnitList] call F90_fnc_createOfficer;
 } else 
 {
     if !(alive Shop_LogisticOfficer) then 
     {
-        [] call _fn_createOfficer;
+        Shop_LogisticOfficer = [Shop_WeaponShop, Mission_AlliedSide, DSC_AlliedUnitList] call F90_fnc_createOfficer;
     };
 };
 // Create Shopbox

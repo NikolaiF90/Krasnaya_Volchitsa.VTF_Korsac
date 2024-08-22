@@ -48,6 +48,7 @@ class F90
         class clearSave {};
         class closeMenu {};
         class createBaseLocationMarkers {};
+        class createOfficer {};
         class createSquad {};
         class createUnit {};
         class debriefingTimeSkip {};

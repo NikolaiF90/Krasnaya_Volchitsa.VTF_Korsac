@@ -44,4 +44,9 @@ if (count _keywords == 0) then
     };
 };
 
+if (isNil {_suitableClass}) then
+{
+    _suitableClass = selectRandom _array;
+};
+
 _suitableClass
