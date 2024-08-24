@@ -15,7 +15,7 @@ params ["_slot"];
 // Save to new slot if not specified
 if (isNil {_slot}) then 
 {
-    private _persistentSaves = profileNamespace getVariable Persistent_PersistentListKey;
+    private _persistentSaves = [] call F90_fnc_getPersistentSaves;
     _slot = count _persistentSaves;
 };
 

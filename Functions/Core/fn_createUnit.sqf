@@ -13,7 +13,7 @@
         _wageArray - (Optional, default Array = Element1:false,Element2:0) Array containing wage generation details where Element1 BOOL:_shouldGenerate, Element2 SCALAR:_initialCost [ARRAY]
 
     Returns: 
-        None
+        _unit - The created unit
 */
 
 params ["_group", "_type", "_position", "_skill", "_unitName", "_wageArray"];

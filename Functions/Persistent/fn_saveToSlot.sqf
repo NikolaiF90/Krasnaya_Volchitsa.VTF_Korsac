@@ -22,9 +22,9 @@ if (isNil {_customName} || _customName isEqualTo "" || _customName isEqualTo " "
 };
 private _saveName = format ["%1 (%2)", _customName, _dateString];
 
-private _persistentSaves = profileNamespace getVariable Persistent_PersistentListKey;
+private _persistentSaves = [] call F90_fnc_getPersistentSaves;
 _persistentSaves set [_selectedSlot, _saveName];
-profileNamespace setVariable [Persistent_PersistentListKey, _persistentSaves];
+[_persistentSaves] call F90_fnc_setPersistentSaves;
 
 [PersistentMenu_SavesListBox, _persistentSaves, _selectedSlot] call F90_fnc_populateListBox;
 

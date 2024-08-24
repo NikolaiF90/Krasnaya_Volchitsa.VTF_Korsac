@@ -1,4 +1,4 @@
-private _persistentSaves = profileNamespace getVariable Persistent_PersistentListKey;
+private _persistentSaves = [] call F90_fnc_getPersistentSaves;
 private _selectedSlot = -1;
 if (count _persistentSaves > 0) then 
 {

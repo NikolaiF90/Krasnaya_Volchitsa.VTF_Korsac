@@ -1,4 +1,4 @@
-**Last Revision: v1.27.1a (21 Aug 2024)**
+**Last Revision: v1.27.1a (24 Aug 2024)**
 ## Introduction
 
 This is the guide to porting Krasnaya Volchitsa to your own map
@@ -7,19 +7,21 @@ This is the guide to porting Krasnaya Volchitsa to your own map
 
 1. **Adding player unit**
 
-   a. Firstly is to add of course your player.
+    a. Firstly is to add of course your player.
    
-   b. It is recommended to pick BLUFOR or OPFOR Team Leader as the unit instead of civilian unit.
+    b. It is recommended to pick BLUFOR or OPFOR Team Leader as the unit instead of civilian unit.
    
-   ![NATO Team Leader](/Guide/Images/pickSL.png)
+    ![NATO Team Leader](/Guide/Images/pickSL.png)  
    
-   c. Change the unit's side to civilian. This is to ensure the system doesn't pick the default side as the unit side when the game started. 
+    c. Change the unit's side to civilian. This is to ensure the system doesn't pick the default side as the unit side when the game started. 
 
-   **Tips: Put one civilian unit the synchronize your unit to the civilian unit. Then delete the civilian unit.** 
+    **Tips: Put one civilian unit the synchronize your unit to the civilian unit. Then delete the civilian unit.** 
 
-   ![Player unit synced to civilian](/Guide/Images/syncToCiv.png)
+    ![Player unit synced to civilian](/Guide/Images/syncToCiv.png)  
+
+    d. Optionally, change the unit's loadout to unarmed and wearing a civilian outfit.  
    
-    d. Create 1 High Command - Commander module and sync it to your unit.
+    e. Create 1 High Command - Commander module and sync it to your unit.  
    
     ![High Command Module](/Guide/Images/highCommandModule.png)  
     

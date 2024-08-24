@@ -37,7 +37,7 @@ if (_injured getVariable ["AIS_IsUnconscious", false]) then
 	} else 
 	{
 		// we can use the AI handling at this point to start our own revive process...
-		if ((_healer getVariable "RSW_UnitSide") == (_injured getVariable "RSW_UnitSide")) then 
+		if (([_healer] call F90_fnc_getUnitSide) == ([_injured] call F90_fnc_getUnitSide)) then 
 		{
 			if (isNull (_injured getVariable ["ais_helperUnit", objNull])) then 
 			{

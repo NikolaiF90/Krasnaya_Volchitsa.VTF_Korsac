@@ -51,7 +51,7 @@ if (isNull _helper) then
 		if (count _nearbyUnits > 0) then 
 		{
 			private _allyUnits = [];
-			private _side = _injured getVariable "RSW_UnitSide";
+			private _side = [_injured] call F90_fnc_getUnitSide;
 			{
 				if ((_side isEqualTo (side _x)) && !(_x getVariable ["AIS_IsUnconscious", false]) && (!isPlayer _x)) then 
 				{

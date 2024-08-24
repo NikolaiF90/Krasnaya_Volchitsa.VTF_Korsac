@@ -102,7 +102,7 @@ private _duration = [_healer, _injured] call AIS_System_fnc_calculateReviveTime;
 		
 		["GetOutMan"] remoteExec ["removeAllEventHandlers", _injured, false];
 		
-		private _injuredSide = _injured getVariable "RSW_UnitSide";
+		private _injuredSide = [_injured] call F90_fnc_getUnitSide;
 		if (_injuredSide == Mission_EnemySide && _injuredSide != side _healer) then
 		{
 			[_injured] remoteExec ["removeAllWeapons", 0, false];

@@ -20,7 +20,7 @@ if (_bountyIndex != -1) then
 } else 
 {
     // Get the original side of the unit. 
-    private _originalSide = _detainee getVariable ["RSW_UnitSide", civilian];
+    private _originalSide = [_detainee] call F90_fnc_getUnitSide;
     // Get arrest history 
     private _hasBeenArrested = _detainee getVariable ["CAB_HasBeenArrested", false];
 

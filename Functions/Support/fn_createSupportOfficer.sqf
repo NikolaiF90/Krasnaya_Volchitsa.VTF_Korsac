@@ -33,7 +33,7 @@ if (isNil {RSW_SupportOfficer}) then
         {
             private _unitCounts = 3;
             private _spawnPos = [_caller, 10, 20, 5] call BIS_fnc_findSafePos;
-            private _teamSide = _caller getVariable "RSW_UnitSide";
+            private _teamSide = [_caller] call F90_fnc_getUnitSide;
             private _debuffedSkills = Mission_DefaultAlliedSkill - 0.1;
 
             // Spawn units 

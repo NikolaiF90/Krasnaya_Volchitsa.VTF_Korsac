@@ -7,7 +7,7 @@ onLoadMission = "If you're in a profession where people die young, don't die";
 loadScreen = "";
 
 saving = 0;
-respawn = 5;
+respawn = 0;
 respawnButton = 0;
 
 class CfgFunctions

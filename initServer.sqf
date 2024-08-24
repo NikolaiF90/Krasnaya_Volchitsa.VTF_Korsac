@@ -23,7 +23,7 @@ publicVariable "REC_WantedList";
 // Create base markers
 [] spawn F90_fnc_createBaseLocationMarkers;
 
-enableTeamSwitch true;
+enableTeamSwitch false;
 
 civilian setFriend [Mission_AlliedSide, 1];
 

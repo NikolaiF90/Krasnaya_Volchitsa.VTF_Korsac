@@ -1,16 +1,33 @@
-﻿//if (!isNull (findDisplay 12)) exitWith {};		// Map
-if (isNull (findDisplay 46)) exitWith {};
-if (!isNull (findDisplay 49)) exitWith {};		// Esc Menu
+﻿/*
+	Author: Psycho, PrinceF90 (Revisited)
 
-// remove the meh if client left the mission
-if (getClientStateNumber in [11,12]) exitWith {
+	Description:
+		This function checks for nearby unconscious units, draws a 3D icon for each unit, and displays the distance from the player to the unit. It adjusts the recognition distance based on whether the player is a medic.
+
+	Parameter(s):
+		None
+
+	Returns: 
+		None
+*/
+
+if (isNull (findDisplay 46)) exitWith {}; // Ensure game menu is available
+if (!isNull (findDisplay 49)) exitWith {}; // Exit if the Esc Menu is present
+
+// Remove mission event handler if the client has left the mission
+if (getClientStateNumber in [11, 12]) exitWith 
+{
 	removeMissionEventHandler ["draw3D", AIS_Core_3DEHId];
 };
 
-private _targets = [];
+private _recognitionDistance = 20;
+if (player getUnitTrait "Medic") then 
+{
+	_recognitionDistance = 35;
+};
 
-_recognize_distance = if (player call AIS_System_fnc_isMedic) then {35} else {20};
-_targets = player nearEntities ["CAManBase", _recognize_distance];
+private _targets = [];
+_targets = player nearEntities ["CAManBase", _recognitionDistance];
 if (count _targets < 1) exitWith {};
 
 private _playerPos = positionCameraToWorld [0, 0, 0];

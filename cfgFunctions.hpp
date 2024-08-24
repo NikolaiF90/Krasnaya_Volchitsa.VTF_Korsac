@@ -60,6 +60,7 @@ class F90
         class getDate {};
         class getLocations {};
         class getSelectedList {};
+        class getUnitSide {};
         class getSystemDate {};
         class joinGroup {};
         class loadData {};
@@ -162,10 +163,12 @@ class F90
         class createNewSlot {};
         class deleteSlot {};
         class generateUnitData {};
+        class getPersistentSaves {};
         class loadFromSlot {};
         class loadUnitData {};
         class openPersistentTab {};
         class saveToSlot {};
+        class setPersistentSaves {};
     };
 
     class Reset 

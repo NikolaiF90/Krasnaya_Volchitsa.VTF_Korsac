@@ -1,7 +1,7 @@
 params ["_killed", "_caller"];
 
 private _killer = _killed getVariable ["Record_UnitKiller", objNull];
-private _killedSide = _killed getVariable ["RSW_UnitSide", civilian];
+private _killedSide = [_killed] call F90_fnc_getUnitSide;
 
 if (_caller == _killer) then 
 {

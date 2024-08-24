@@ -142,6 +142,7 @@ while {Task_DutyStatus == 0} do
                     params ["_target", "_caller", "_actionId", "_arguments"]; 
                     
                     [_target, _actionId, "RSW_ReportMissionActionCreated"] remoteExec ["F90_fnc_removeActionGlobal", 0, true];
+                    ["RSW_ReportMissionActionCreated"] call F90_fnc_removeVariable; 
                     [] remoteExec ["F90_fnc_showReport", 0];
                     [] remoteExec ["F90_fnc_resetTask", 2];
                 },

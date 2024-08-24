@@ -171,9 +171,15 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
         };
     };
 
-    // Increase task area
-    _taskAreaX = _taskAreaX + (Task_AreaMultiplier * _taskAreaX);
-    _taskAreaY = _taskAreaY + (Task_AreaMultiplier * _taskAreaY);
+    // Increase task area if its too small
+    if (_taskAreaX < 500) then 
+    {
+        _taskAreaX = 500;
+    };
+    if (_taskAreaY < 500) then 
+    {
+        _taskAreaY = 500;
+    };
     
     // Cleanup and trigger task creation
     deleteMarker _taskMarker;

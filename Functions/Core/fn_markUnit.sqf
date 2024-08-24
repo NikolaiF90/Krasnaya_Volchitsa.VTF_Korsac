@@ -4,8 +4,8 @@ private _opacity = _killer getVariable ["Skill_SharpEye", 0];
 
 if (_opacity != 0) then 
 {
-    private _killerSide = _killer getVariable "RSW_UnitSide";
-    private _killedSide = _killed getVariable "RSW_UnitSide";
+    private _killerSide = [_killer] call F90_fnc_getUnitSide;
+    private _killedSide = [_killed] call F90_fnc_getUnitSide;
 
     // Dont mark friendly kill or civilian kill
     if (_killerSide != _killedSide && _killedSide != civilian) then 
