@@ -3,7 +3,7 @@ private _unit = player;
 private _selectedItem = Support_AlliedFactionVehicles select (lbCurSel PurchaseVehMenu_VehiclesListBoxIDC);
 
 private _className = _selectedItem select 0;
-private _position = [repairX, 5, 20, 10] call BIS_fnc_findSafePos;
+private _position = [repairX, 5, 30, 20] call BIS_fnc_findSafePos;
 // create vehicle 
 private _vehicle = createVehicle [_className, _position, [], 0, "NONE"];
 

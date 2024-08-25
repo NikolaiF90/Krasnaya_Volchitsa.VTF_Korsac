@@ -19,7 +19,7 @@ if (isNil {RSW_SupportOfficer}) then
         [_caller] call F90_fnc_openChangeTransportHeliMenu;
     },
     "alive _this && alive _target",
-    "RSW_ChangeTransportHeliActionID"
+    "RSW_ChangeTransportHeliActionCreated"
 ] remoteExec ["F90_fnc_addAction", 0, true];
 
 [
@@ -31,7 +31,7 @@ if (isNil {RSW_SupportOfficer}) then
         private _hasRequested = _caller getVariable ['REC_TempTeamRequested', false];
         if !(_hasRequested) then 
         {
-            private _unitCounts = 3;
+            private _unitCounts = 6;
             private _spawnPos = [_caller, 10, 20, 5] call BIS_fnc_findSafePos;
             private _teamSide = [_caller] call F90_fnc_getUnitSide;
             private _debuffedSkills = Mission_DefaultAlliedSkill - 0.1;
@@ -53,5 +53,5 @@ if (isNil {RSW_SupportOfficer}) then
         };
     },
     "Task_MainTaskStatus == 0",
-    "RSW_RequestTempTeamActionID"
+    "RSW_RequestTempTeamActionCreated"
 ] remoteExec ["F90_fnc_addAction", 0, true];

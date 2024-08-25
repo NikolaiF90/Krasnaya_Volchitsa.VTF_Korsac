@@ -43,8 +43,8 @@ switch (_taskVariation) do
         0 = [_convoyPosition] spawn 
         {
             params ["_convoyPosition"];
-            private _ambushGroupCount = 2;
-            for "_i" from 0 to (_ambushGroupCount)-1 do 
+
+            for "_i" from 0 to (Task_SupportEnemyQRFGroupCount)-1 do 
             {
                 Task_AmbushUnits = [100, _convoyPosition, [200, 500]] call F90_fnc_createAmbush;
             };

@@ -1,3 +1,15 @@
+/*
+    Author: PrinceF90
+
+    Description:
+        Spawns a seizable asset at a safe location and adds a seize action to it.
+
+    Parameter(s):
+        _location - The reference location for spawning the asset. [OBJECT]
+
+    Returns: 
+        None
+*/
 params ["_location"];
 
 private _spawnPos = [_location, 5, 50] call BIS_fnc_findSafePos;

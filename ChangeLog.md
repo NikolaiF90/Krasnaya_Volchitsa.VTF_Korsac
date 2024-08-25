@@ -1,8 +1,7 @@
 # Krasnaya Volchitsa
 
 ## Known Issues
-* Error with _dropOff key after changing transport helicopter.
-* Vehicle spawned too close to repairX.
+None currently
 
 ## ToDO
 * More tasks
@@ -16,6 +15,14 @@
 * Land transport support
 
 ## Version History
+
+### Version 1.28.0a
+* Implemented Personal Arsenal System where players can store their belongings without the fear of being robbed by another players, and persistent across saves. 
+* Increased vehicle spawning distance to prevent vehicle from exploding upon spawning. 
+* Adjusted temporary team count from 3 peoples to 6 peoples. 
+* Fixed "Request Drop-Off" action disappearing after changing transport heli.
+* Fixed an issue where choosing some faction might cause an error where allied base might attack allied support helicopters. 
+* Minor optimization.
 
 ### Version 1.27.3a
 * Increased AO marker size.

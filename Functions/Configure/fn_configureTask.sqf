@@ -22,6 +22,18 @@ Task_PatrolTimeMin = 1;
 Task_PatrolTimeMax = 2;
 // Task area multiplier. Increase if task area is too small.
 Task_AreaMultiplier = 0.5;
+// The count of enemy units to perform QRF while on a mission. Format ARRAY[min, max]
+Task_AmbushGroupSize = [4,16];
+// The count of enemy group to perfom patrol on AO. Format ARRAY[min, max]
+Task_PatrolGroupCount = [1,6];
+// The distance for each waypoint for enemy patrol group. 
+Task_PatrolWPDistance = 100;
+// Chance that hvt will appear on ambush mission
+Task_AmbushHVTSpawnChance = 45;
+// Chance that assets will appear on mission. Note that not all missions will spawn assets
+Task_SeizableAssetSpawnChance = 50;
+// The group count of enemy QRF for task support
+Task_SupportEnemyQRFGroupCount = 2;
 
 Task_BaseMarkers = ["base_0"];
 // Add your custom patrol task location here. Formatted by [[STRING:location name, ARRAY[x,y,z]:position, NUMBER:direction, ARRAY[x,y]:size, BOOL:isRectangle]];
@@ -46,8 +58,4 @@ Task_SeizableAssetModels =
 	"B_G_Van_02_transport_F"
 ];
 
-// Chance that hvt will appear on ambush mission
-Task_AmbushHVTSpawnChance = 45;
-// Chance that assets will appear on mission. Note that not all missions will spawn assets
-Task_SeizableAssetSpawnChance = 100;
 

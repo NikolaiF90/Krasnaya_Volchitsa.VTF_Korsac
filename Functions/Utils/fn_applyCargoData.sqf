@@ -36,12 +36,12 @@ private _IsContainerEmpty =
 
 private _AddAllToCargo =
 {
-    params ["_container", "_cargoArray", "_AddToCargo"];
+    params ["_container", "_cargoArray", "_code"];
     
     {
         private _name = _x;
         private _count = (_cargoArray # 1) # _forEachIndex;
-        [_container, _name, _count] call _AddToCargo;
+        [_container, _name, _count] call _code;
     } forEach (_cargoArray # 0);
 };
 
@@ -112,6 +112,13 @@ private _magazinesArray = [_cargoArray, "magazines"] call F90_fnc_getByKey;
 private _weaponsArray = [_cargoArray, "weapons"] call F90_fnc_getByKey;
 private _containersArray = [_cargoArray, "containers"] call F90_fnc_getByKey;
 private _backpacksArray = [_cargoArray, "backpacks"] call F90_fnc_getByKey;
+
+{
+    if (_x isEqualTo "") then 
+    {
+        _x = [];
+    };
+} forEach [_itemsArray, _magazinesArray, _weaponsArray, _containersArray, _backpacksArray];
 
 [_container, _itemsArray, { params ["_c", "_n", "_cnt"]; _c addItemCargo [_n, _cnt]; }] call _AddAllToCargo;
 [_container, _magazinesArray] call _AddAllMagazinesToCargo;

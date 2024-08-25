@@ -57,3 +57,14 @@ if (isNil {Shop_LogisticOfficer}) then
     "alive _target && alive _this",
     "RSW_ItemActionAdded"
 ] remoteExec ["F90_fnc_addAction", 0, true];
+
+[
+    Shop_LogisticOfficer,
+    "Request Personal Arsenal",
+    {
+        params ["_target", "_caller", "_actionId", "_arguments"];
+        [_target, _caller] call F90_fnc_createPersonalArsenal;
+    },
+    "alive _this && alive _target && !(_this getVariable ['RSW_PersonalArsenalCreated', false])",
+    "RSW_RequestPersonalArsenalActionCreated"
+] remoteExec ["F90_fnc_addAction", 0, true];

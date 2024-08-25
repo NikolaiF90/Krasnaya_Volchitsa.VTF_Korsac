@@ -11,10 +11,17 @@ private _fn_spawnVeh =
     // Spawn Crew 
     createVehicleCrew _helicopter;
 
+    // Join allied side 
+    private _group = createGroup [Mission_AlliedSide, true];
+    {
+        [_x] joinSilent _group;
+    } forEach (units (group _helicopter));
+
     // Create heli variables 
     _helicopter setVariable ["RSW_OnTransportMission", false, true];
     _helicopter setVariable ["RSW_BasePosition", position _helipad, true];
     _helicopter setVariable ["RSW_IsIdle", true, true];
+    _helicopter setVariable ["RSW_DropOffActionKey", _dropOffKey, true];
 
     Support_TransportHelicopters pushBack [_helicopter, _heliData select 1];
     Support_HeliSlot set [_index, [[_helicopter, _heliData select 1], _helipad]];

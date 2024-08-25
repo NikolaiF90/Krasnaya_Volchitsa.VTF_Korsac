@@ -18,14 +18,14 @@ private _random = floor random 101;
 private _spawnPos = [];
 private _spawnedUnits = [];
 
-if (isNil {_distance}) then {_distance = [800, 1000]};
-if (count _distance == 0) then {_distance = [800, 1000]};
+if (isNil {_distance}) then {_distance = [500, 1000]};
+if (count _distance == 0) then {_distance = [500, 1000]};
 
 _spawnPos = [_position, _distance select 0, _distance select 1, 5] call BIS_fnc_findSafePos;
 
 if (_spawnPercentage >= _random) then 
 {
-    private _groupSize = [4, 16] call BIS_fnc_randomInt;
+    private _groupSize = [Task_AmbushGroupSize select 0, Task_AmbushGroupSize select 1] call BIS_fnc_randomInt;
     private _group = [_groupSize, DSC_EnemyUnitList, _spawnPos, Mission_EnemySide, Mission_DefaultEnemySkill] call F90_fnc_createSquad;
     
     sleep 1;

@@ -225,18 +225,22 @@ class F90
         file = "Functions\Shop";
 
         class createLogisticOfficer {};
+        class createPersonalArsenal {};
         class filterBaseWeapons {};
         class generateWeaponPrice {};
         class generateWeaponsData {};
         class getAllEquipments {};
         class getAllWeapons {};
+        class getPersonalArsenal {};
         class getRecoilValue {};
         class getWeaponDamage {};
         class openItemShop {};
         class openWeaponShop {};
         class purchaseItem {};
         class purchaseWeapon {};
+        class removePersonalArsenal {};
         class saleHandler {};
+        class setPersonalArsenal {};
     };
 
     class SideChange

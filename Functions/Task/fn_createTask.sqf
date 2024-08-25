@@ -64,7 +64,7 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
             0 = [_taskLocation] spawn 
             {
                 params ["_taskLocation"];
-                Task_EnemyPatrols = [_taskLocation, Mission_EnemySide, DSC_EnemyUnitList, Mission_DefaultEnemySkill, 1, 4, 100] call F90_fnc_createPatrol;
+                Task_EnemyPatrols = [_taskLocation, Mission_EnemySide, DSC_EnemyUnitList, Mission_DefaultEnemySkill, Task_PatrolGroupCount select 0, Task_PatrolGroupCount select 1, Task_PatrolWPDistance] call F90_fnc_createPatrol;
             };
 
             private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
@@ -107,7 +107,7 @@ if (!(isNil "_taskType") && {(_taskType in Task_AllTask)}) then
             {
                 params ["_taskLocation"];
 
-                Task_EnemyPatrols = [_taskLocation, Mission_EnemySide, DSC_EnemyUnitList, Mission_DefaultEnemySkill, 1, 1, 100] call F90_fnc_createPatrol;
+                Task_EnemyPatrols = [_taskLocation, Mission_EnemySide, DSC_EnemyUnitList, Mission_DefaultEnemySkill, Task_PatrolGroupCount select 0, Task_PatrolGroupCount select 1, Task_PatrolWPDistance] call F90_fnc_createPatrol;
             };
 
             private _hvtSpawnPos = [_taskLocation, 5, 50] call BIS_fnc_findSafePos;
